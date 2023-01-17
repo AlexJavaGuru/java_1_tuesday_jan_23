@@ -1,4 +1,4 @@
-package student_aleksandrs_ivanovs;
+package student_name_surname;
 
 public class HelloWorld {
 
