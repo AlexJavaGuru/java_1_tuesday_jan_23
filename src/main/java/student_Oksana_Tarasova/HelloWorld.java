@@ -1,9 +1,8 @@
-package student_Oksana_Tarasova;
+package student_oksana_tarasova;
 
 public class HelloWorld {
 
     public static void main (String[] arg){
-
-        System. out. println("Hello World");
+        System.out.println("Hello World");
     }
 }
