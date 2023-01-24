@@ -1,8 +1,8 @@
 package student_oleg_gryazev._lesson_2_allLevels;
 
 import java.util.Scanner;
-
-public class Math1 {
+//_____________________________________________________________Task 1
+class Math1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter 2 digits for math operation");
@@ -12,20 +12,39 @@ public class Math1 {
         System.out.println("Result of two digits subtruction  = " + (firstNumber - secondNumber));
         System.out.println("Result of two digits multiplication  = " + (firstNumber * secondNumber));
         System.out.println("Result two digits of division = " + (firstNumber/secondNumber));
-
     }
-
 }
+//______________________________________________________________Task 3
+ class CorrectDataTypes {
+    public static void main(String[] args) {
 
+        int numberOne = 10;
+        double numberTwo = 20.0;
 
-/*1. Создать класс с нужным именем;
-2. Создать описать main метод;
-3. Воспользуйтесь специальным классом Scanner и его методом nextInt()
- для получения ввода с клавиатуры
-          Scanner scanner = new Scanner(System.in);
-          int firstNumber = scanner.nextInt();
+        System.out.println("Number 1 = " + numberOne);
+        System.out.println("Number 2 = " + numberTwo);
 
-4. Запишите полученные результаты в переменные;
-5. При помощи System.out.println() выведите на консоль полученные результаты
- сложения, вычитания, умножения и деления.
- (каждый результат на новой строке отдельно).*/
+        double sum = numberOne + numberTwo;
+        System.out.println("Sum = " + sum);
+    }
+}
+//______________________________________________________________Task 8
+class Hello{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String askName = scanner.next();
+        System.out.println("Hello " + askName);
+    }
+}
+//__________________________________________________________Task
+class MultyTab {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a number from 0 to 10");
+        int keyNum = scanner.nextInt();
+        for (int i = 1;i < 11; i++) {
+            int y = i * keyNum;
+            System.out.println("Result of multiplication with entered number = " + y);
+        }
+    }
+}
