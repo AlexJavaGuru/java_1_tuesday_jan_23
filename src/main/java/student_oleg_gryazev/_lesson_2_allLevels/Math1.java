@@ -47,4 +47,5 @@ class MultiTab {
             System.out.println("Result of multiplication with entered number = " + y);
         }
     }
+
 }
