@@ -37,7 +37,7 @@ class Hello{
     }
 }
 //__________________________________________________________Task
-class MultyTab {
+class MultiTab {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter a number from 0 to 10");
