@@ -1,4 +1,4 @@
-package jevg_luka;
+package student_jevg_luka;
 
 public class HelloWorld {
 
