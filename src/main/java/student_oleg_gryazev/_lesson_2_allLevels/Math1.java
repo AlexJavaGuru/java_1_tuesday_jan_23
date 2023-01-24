@@ -3,7 +3,7 @@ package student_oleg_gryazev._lesson_2_allLevels;
 import java.util.Scanner;
 //_____________________________________________________________Task 1
 class Math1 {
-    public static void main(String[] args) {
+     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter 2 digits for math operation");
         int firstNumber = scanner.nextInt();
