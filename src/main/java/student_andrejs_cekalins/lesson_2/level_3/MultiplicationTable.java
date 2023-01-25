@@ -2,7 +2,7 @@ package student_andrejs_cekalins.lesson_2.level_3;
 
 import java.util.Scanner;
 
-public class DataTest {
+public class MultiplicationTable {
     public static void main(String[] args) {
         Scanner number_input = new Scanner(System.in);
 
