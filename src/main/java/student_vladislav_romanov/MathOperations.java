@@ -10,7 +10,7 @@ public class MathOperations {
         divideResult = divideValue1 / divideValue2;
 
         System.out.println("a = " + sumValue1 + "; b = " + sumValue2 + "; a + b = " + sumResult);
-        System.out.println("a = " + divideValue1 + "; b = " + divideValue2 + "; a / b = " + (int) Math.floor(divideResult));
+        System.out.println("a = " + divideValue1 + "; b = " + divideValue2 + "; a / b = " + divideResult);
     }
 
 }
