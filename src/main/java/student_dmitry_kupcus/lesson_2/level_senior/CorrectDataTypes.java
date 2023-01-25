@@ -1,6 +1,6 @@
 package student_dmitry_kupcus.lesson_2.level_senior;
 
-public class Super_task_3 {
+public class CorrectDataTypes {
 
     public static void main(String[] args) {
 
