@@ -1,4 +1,4 @@
-package student_dmitry_kupcus.level_5;
+package student_dmitry_kupcus.lesson_2.level_5;
 
 public class Task_15 {
     public static void main(String[] args) {
