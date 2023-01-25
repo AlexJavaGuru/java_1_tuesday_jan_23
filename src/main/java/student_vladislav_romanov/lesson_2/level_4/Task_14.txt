@@ -1,0 +1,1 @@
+\IdeaProjects\java_1_tuesday_jan_23\src\main\java\student_vladislav_romanov>java HelloWorld
