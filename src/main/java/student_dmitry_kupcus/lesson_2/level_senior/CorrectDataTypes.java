@@ -1,4 +1,4 @@
-package student_aleksandrs_lezhennikovs;
+package student_dmitry_kupcus.lesson_2.level_senior;
 
 public class CorrectDataTypes {
 
@@ -10,9 +10,10 @@ public class CorrectDataTypes {
         System.out.println("Number 1 = " + numberOne);
         System.out.println("Number 2 = " + numberTwo);
 
-        //float sum = numberOne + numberTwo;
         double sum = numberOne + numberTwo;
 
         System.out.println("Sum = " + sum);
     }
+
 }
+

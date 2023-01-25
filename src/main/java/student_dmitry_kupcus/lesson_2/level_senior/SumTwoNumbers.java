@@ -1,4 +1,4 @@
-package student_aleksandrs_lezhennikovs;
+package student_dmitry_kupcus.lesson_2.level_senior;
 
 public class SumTwoNumbers {
 
@@ -9,9 +9,6 @@ public class SumTwoNumbers {
 
         System.out.println("Number 1 = " + numberOne);
         System.out.println("Number 2 = " + numberTwo);
-
-        //int numberOne = 10;
-        //int numberTwo = 20;
 
         int sum = numberOne + numberTwo;
 
