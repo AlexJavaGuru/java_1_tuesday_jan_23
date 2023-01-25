@@ -1,4 +1,4 @@
-package student_dmitry_kupcus.level_3;
+package student_dmitry_kupcus.lesson_2.level_3;
 
 import java.util.Scanner;
 
@@ -8,8 +8,8 @@ public class Task_10 {
         Scanner scanner = new Scanner(System.in);
 
         double radius = scanner.nextDouble();
-        System.out.println(radius * 2);
-        System.out.println(radius * radius);
+        System.out.println((radius * radius) * 3.14);
+        System.out.println(2 * 3.14 * radius);
 
 
     }

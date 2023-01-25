@@ -1,4 +1,4 @@
-package student_dmitry_kupcus.level_senior;
+package student_dmitry_kupcus.lesson_2.level_senior;
 
 public class Super_task_3 {
 
