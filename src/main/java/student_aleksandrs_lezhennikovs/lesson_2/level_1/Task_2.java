@@ -1,4 +1,4 @@
-package student_aleksandrs_lezhennikovs.lessons_2.level_1;
+package student_aleksandrs_lezhennikovs.lesson_2.level_1;
 
 import java.util.Scanner;
 

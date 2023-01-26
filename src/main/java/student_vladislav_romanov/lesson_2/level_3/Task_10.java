@@ -6,7 +6,7 @@ public class Task_10 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Input radius:");
+        System.out.print("Input radius: ");
 
         double radius = scanner.nextDouble();
 
