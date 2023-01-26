@@ -1,4 +1,4 @@
-package student_aleksandrs_lezhennikovs.lessons_2.level_2;
+package student_aleksandrs_lezhennikovs.lesson_2.level_2;
 
 class BankAccount {
 
