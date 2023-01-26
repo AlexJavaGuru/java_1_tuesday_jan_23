@@ -1,4 +1,4 @@
-package student_aleksandrs_lezhennikovs.lessons_1.level_4;
+package student_aleksandrs_lezhennikovs.lesson_1.level_4;
 
 public class Task_11 {
     public static void main(String[] args) {
