@@ -1,0 +1,8 @@
+Найдите в интеренете ответ на вопрос:
+Как узнать какая версия JDK установлена на вашем компьютере?
+
+Answer: (linux) type in console:
+java -version
+
+(windows) type in commandline:
+java -version
