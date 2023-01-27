@@ -1,4 +1,4 @@
-package student_oksana_tarasova.lesson_2.level_2;
+package student_oksana_tarasova.lesson_2_level_2;
 
 import java.util.Scanner;
 
