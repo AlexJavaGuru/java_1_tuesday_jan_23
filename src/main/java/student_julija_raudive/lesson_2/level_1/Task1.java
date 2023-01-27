@@ -1,4 +1,4 @@
-package student_julija_raudive.Lesson_2.level_1;
+package student_julija_raudive.lesson_2.level_1;
 
 import java.util.Scanner;
 
