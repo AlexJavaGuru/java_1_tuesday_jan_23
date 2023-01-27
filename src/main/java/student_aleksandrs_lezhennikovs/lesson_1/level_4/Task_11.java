@@ -1,6 +1,6 @@
 package student_aleksandrs_lezhennikovs.lesson_1.level_4;
 
-public class Task_11 {
+class Task_11 {
     public static void main(String[] args) {
         int firstNumber = 74;
         int secondNumber = 36;

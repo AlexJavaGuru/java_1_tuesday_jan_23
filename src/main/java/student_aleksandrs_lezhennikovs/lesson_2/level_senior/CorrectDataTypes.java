@@ -2,7 +2,7 @@ package student_aleksandrs_lezhennikovs.lesson_2.level_senior;
 
 //Исправьте ошибки компиляции в данной программе.
 
-public class CorrectDataTypes {
+class CorrectDataTypes {
 
     public static void main(String[] args) {
 
