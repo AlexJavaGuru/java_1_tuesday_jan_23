@@ -3,6 +3,6 @@ public class Book {
 
     public static void main(String[] args) {
 
-        system.out.println("Book");
+        System.out.println("Book");
     }
 }
