@@ -1,0 +1,8 @@
+Найти в интеренете ответ на вопрос:
+Как откомпилировать код с помощью JDK компилятора javac,
+без помощи среды разработки (из консоли)?
+
+Answer:
+1. Open folder with java(.java) file in terminal(console, commandline).
+2. Type in terminal javac filename.java (should be created filename.class).
+3. To execute program type java filename.

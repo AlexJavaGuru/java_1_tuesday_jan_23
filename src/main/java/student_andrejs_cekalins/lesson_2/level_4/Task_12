@@ -1,0 +1,4 @@
+1. Open the Windows Start menu in the bottom-left corner and type cmd in the search bar.
+2. Then, open the Command Prompt once it appears in the search results.
+3. A new window with the command prompt should appear. In it, type the command java -version and hit Enter.
+The output should display the Java version installed on your Windows system.
