@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class QbandsTask_1 {
     public static void main(String[] args) {
-        System.out.println("Task_1");
+        System.out.println("QbandsTask_1");
 
         Scanner scanner = new Scanner(System.in);
         int firstNumber = scanner.nextInt();
