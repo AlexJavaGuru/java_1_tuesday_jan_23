@@ -15,3 +15,5 @@ public class QbandsTask_1 {
         System.out.println(firstNumber / secondNumber);
     }
 }
+
+
