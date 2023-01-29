@@ -7,8 +7,10 @@ public class QbandsTask_1 {
         System.out.println("QbandsTask_1");
 
         Scanner scanner = new Scanner(System.in);
-        int firstNumber = scanner.nextInt();
-        int secondNumber = scanner.nextInt();
+        System.out.println("enter two integers");
+        int firstNumber = 30;
+        int secondNumber = 45;
+        int result = firstNumber + secondNumber;
         System.out.println(firstNumber + secondNumber);
         System.out.println(firstNumber - secondNumber);
         System.out.println(firstNumber * secondNumber);
