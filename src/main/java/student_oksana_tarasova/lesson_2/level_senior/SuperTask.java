@@ -14,8 +14,11 @@ public class SuperTask {
         int oneLength = wordListOne.length;
         int twoLength = wordListTwo.length;
         int threeLength = wordListThree.length;
-        //Генерируем три случайных числа
-        //чтобы число было целочисленное, используем приведение типов
+        /*
+         Генерируем три случайных числа,
+        чтобы число было целочисленное, используем приведение типов
+
+         */
 
         int rand1 = (int) (Math.random()*oneLength);
         int rand2 = (int) (Math.random()*twoLength);
