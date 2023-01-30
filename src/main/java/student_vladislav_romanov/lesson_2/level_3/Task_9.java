@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class Task_9 {
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Введите число от 1 до 10: ");
 
-        int value = input.nextInt();
+        int value = scanner.nextInt();
 
         for (int i = 1; i <= 10; i++) {
             System.out.println(value + " x " + i + " = " + (value * i));
