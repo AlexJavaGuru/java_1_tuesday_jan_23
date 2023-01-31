@@ -1,4 +1,4 @@
-package student_natalija_rasponomarjova.lesson1;
+package student_natalija_rasponomarjova.lesson_1.level_4;
 
 /* Write a Java program to print the sum of two numbers.
 
@@ -13,7 +13,7 @@ Test Data :
 Expected Output :
 16 */
 
-public class level4_Task11 {
+public class Task_11 {
     public static void main(String[] args) {
 
         int outputSum = 74+36;
