@@ -1,0 +1,14 @@
+Напишите программу и продемонстрируйте в ней использование
+однострочного и многострочного коментариев.
+
+public class Super_task_5 {
+
+   /* first comment line
+   second comment line  */
+
+   public static void main(String[] args) {
+
+   // one line comment
+
+   }
+}
