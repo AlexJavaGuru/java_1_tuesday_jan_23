@@ -1,7 +1,0 @@
-Найти в интеренете ответ на вопрос:
-Как запустить откомпилировнный код с помощью JDK и виртуальной
-машины Java (JVM), без помощи среды разработки (из консоли)?
-
-Answer:
-1. Open folder with java file in terminal(console, commandline).
-2. To execute program type: java filename.
