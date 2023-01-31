@@ -1,19 +1,5 @@
 package student_aleksandrs_lezhennikovs.lesson_3.level_4;
 
-class Car {
-
-    String model;
-
-    Car(String newModel) {
-        this.model = newModel;
-    }
-
-    String getModel() {
-        return this.model;
-    }
-
-}
-
 class CarDemo {
 
     public static void main(String[] args) {
