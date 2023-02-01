@@ -1,46 +1,44 @@
 package student_aleksandrs_lezhennikovs.lesson_3.level_7;
 
 class Shop {
-    String shopName;
-    String shopAddress;
-    boolean shopOpenStatus;
-    double gpsLatitude;
-    double gpsLongitude;
+    String name;
+    String address;
+    boolean isOpen;
+    double latitude;
+    double longitude;
 
     Shop(String name,
          String address,
-         boolean status,
+         boolean isOpen,
          double latitude,
          double longitude) {
 
-        this.shopName = name;
-        this.shopAddress = address;
-        this.shopOpenStatus = status;
-        this.gpsLatitude = latitude;
-        this.gpsLongitude = longitude;
+        this.name = name;
+        this.address = address;
+        this.isOpen = isOpen;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     void messageShopStatus(){
-        if (shopOpenStatus == true) {
-            System.out.println("Shop is open! You are welcome to " + shopName + " !!!");
+        if (isOpen) {
+            System.out.println("Shop is open! You are welcome to " + name + " !!!");
             addressMessage();
-            System.out.println("");
-            System.out.println("");
         } else {
-            System.out.println("Sorry, shop " + shopName + " is closed.");
+            System.out.println("Sorry, shop " + name + " is closed.");
         }
     }
 
     void addressMessage(){
-        System.out.println("Our address is: " + shopAddress);
+        System.out.println("Our address is: " + address);
     }
 
-    boolean getShopOpenStatus() {
-        return shopOpenStatus;
+    boolean getOpen() {
+        return isOpen;
     }
 
-    void setShopOpenStatus(boolean status) {
-        this.shopOpenStatus = status;
+    void setOpen(boolean isOpen) {
+        this.isOpen = isOpen;
     }
 
 }

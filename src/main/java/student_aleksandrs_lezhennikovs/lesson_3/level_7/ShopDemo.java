@@ -12,7 +12,7 @@ class ShopDemo {
         //orangeShop.messageShopStatus();
 
         //orangeShop.setShopOpenStatus(true);
-        if (orangeShop.getShopOpenStatus()) {
+        if (orangeShop.getOpen()) {
             orangeShop.messageShopStatus();
             orangeShop.addressMessage();
         } else {
@@ -22,7 +22,7 @@ class ShopDemo {
             String checkStatus = input.nextLine();
 
             if (checkStatus.toLowerCase().matches("yes")) {
-                orangeShop.setShopOpenStatus(true);
+                orangeShop.setOpen(true);
                 orangeShop.messageShopStatus();
             } else {
                 System.out.println("See you later.");

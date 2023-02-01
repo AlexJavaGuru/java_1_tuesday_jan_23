@@ -3,24 +3,24 @@ package student_aleksandrs_lezhennikovs.lesson_3.level_5;
 class Dog {
 
     String nickname;
-    String dogsColor;
-    int dogsAge;
+    String color;
+    int age;
 
-    Dog(String name, String color, int age) {
+    Dog(String nickname, String color, int age) {
 
-        this.nickname = name;
-        this.dogsColor = color;
-        this.dogsAge = age;
+        this.nickname = nickname;
+        this.color = color;
+        this.age = age;
 
     }
 
     void happyBirthday(){
-        dogsAge++;
+        age++;
     }
 
     void voice() {
 
-        System.out.println(nickname + " " + dogsColor + " " + dogsAge);
+        System.out.println(nickname + " " + color + " " + age);
     }
 
 }
