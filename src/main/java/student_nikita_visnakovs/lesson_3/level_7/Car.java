@@ -3,11 +3,11 @@ package student_nikita_visnakovs.lesson_3.level_7;
 public class Car {
 
     String colour;
-    String Brand;
+    String brand;
     String engine;
 
     public Car(String colour, String brand, String engine) {
-        this.Brand = brand;
+        this.brand = brand;
         this.colour = colour;
         this.engine = engine;
 

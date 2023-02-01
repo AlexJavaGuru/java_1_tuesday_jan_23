@@ -3,7 +3,7 @@ package student_nikita_visnakovs.lesson_3.level_7;
 public class Circle {
 
     double radius;
-    double Pi = Math.PI;
+    double Pi = 3.14;
 
     public Circle(double radius) {
         this.radius = radius;

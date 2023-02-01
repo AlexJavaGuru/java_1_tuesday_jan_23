@@ -2,49 +2,50 @@ package student_nikita_visnakovs.lesson_3.level_5;
 
 public class Dog {
 
-    private String dogName;
-    private int dogAge;
-    private String dogColour;
-    private String newDogColor;
+    private String name;
+    private int age;
+    private String colour;
+    private String newColour;
 
 
-    public Dog(String dogName, int dogAge, String dogColour, String newDogColor) {
-        this.dogName = dogName;
-        this.dogAge = dogAge;
-        this.dogColour = dogColour;
-        this.newDogColor = newDogColor;
+    public Dog(String name, int age, String colour, String newColour) {
+        this.name = name;
+        this.age = age;
+        this.colour = colour;
+        this.newColour = newColour;
+
 
     }
 
     public void voice() {
         for (int i = 1; i <= 3; i++) {
-            System.out.println(dogName);
+            System.out.println(name);
         }
 
     }
 
-    public void dogAge() {
-        System.out.println("Dog age is - " + dogAge);
+    public void age() {
+        System.out.println("Dog age is - " + age);
     }
 
     public void happyBirthday() {
-        System.out.println("Happy Birthday ," + dogName);
+        System.out.println("Happy Birthday ," + name);
 
     }
 
-    public int setDogAge() {
-        this.dogAge = dogAge + 1;
-        return this.dogAge;
+    public int setAge() {
+        this.age = age + 1;
+        return this.age;
     }
 
-    public String DogColour() {
-        System.out.println("Dog colour is - " + dogColour);
-        return this.dogColour;
+    public String colour() {
+        System.out.println("Dog colour is - " + colour);
+        return this.colour;
     }
 
-    public String setNewDogColor() {
-        this.dogColour = newDogColor;
-        return this.DogColour();
+    public String setNewColour() {
+        this.colour = newColour;
+        return this.colour();
     }
 
 

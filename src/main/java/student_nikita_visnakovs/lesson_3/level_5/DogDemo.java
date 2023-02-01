@@ -7,12 +7,12 @@ public class DogDemo {
         Dog myDog = new Dog("Tufik ", 5, "Black","Brown");
 
         myDog.voice();
-        myDog.dogAge();
+        myDog.age();
         myDog.happyBirthday();
-        myDog.setDogAge();
-        myDog.dogAge();
-        myDog.DogColour();
-        myDog.setNewDogColor();
+        myDog.setAge();
+        myDog.age();
+        myDog.colour();
+        myDog.setNewColour();
 
     }
 }
