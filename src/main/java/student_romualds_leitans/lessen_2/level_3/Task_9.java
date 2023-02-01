@@ -1,4 +1,4 @@
-package student_romualds_leitans.level_3;
+package student_romualds_leitans.lessen_2.level_3;
 
 import java.util.Scanner;
 

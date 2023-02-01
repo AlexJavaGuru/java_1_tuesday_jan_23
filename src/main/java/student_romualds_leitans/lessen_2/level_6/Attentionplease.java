@@ -1,4 +1,4 @@
-package student_romualds_leitans.level_6;
+package student_romualds_leitans.lessen_2.level_6;
 
 public class Attentionplease {
     public static void main(String[] args) {
