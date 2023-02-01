@@ -9,8 +9,8 @@ class Product {
         this.name = name;
     }
 
-    double setPrice(double price) {
-        return price;
+    double setPrice(double regularPrice) {
+        return regularPrice;
     }
 
     double setDiscount(double discount) {

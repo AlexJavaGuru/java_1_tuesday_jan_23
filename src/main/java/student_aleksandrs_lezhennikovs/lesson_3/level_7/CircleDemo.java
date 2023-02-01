@@ -9,7 +9,7 @@ class CircleDemo {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Please input radius; ");
+        System.out.println("Please input radius: ");
         double radius = input.nextDouble();
         firstCircle.setRadius(radius);
 
