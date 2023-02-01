@@ -4,8 +4,8 @@ class Car {
 
     String model;
 
-    Car(String newModel) {
-        this.model = newModel;
+    Car(String model) {
+        this.model = model;
     }
 
     String getModel() {
