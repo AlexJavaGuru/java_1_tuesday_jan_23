@@ -9,7 +9,7 @@ class Phone {
     }
 
     String getModel() {
-        return this.model;
+        return model;
     }
 
 }

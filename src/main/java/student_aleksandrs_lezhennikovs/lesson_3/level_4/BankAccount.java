@@ -15,15 +15,15 @@ class BankAccount {
     }
 
     String getOwnerFirstName() {
-        return this.ownerFirstName;
+        return ownerFirstName;
     }
 
     String getOwnerLastName() {
-        return this.ownerLastName;
+        return ownerLastName;
     }
 
     int getMoneyAmount() {
-        return this.moneyAmount;
+        return moneyAmount;
     }
 
 }

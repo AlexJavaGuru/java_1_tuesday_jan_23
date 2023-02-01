@@ -9,7 +9,7 @@ class Book {
     }
 
     String getTitle() {
-        return this.title;
+        return title;
     }
 
 }
