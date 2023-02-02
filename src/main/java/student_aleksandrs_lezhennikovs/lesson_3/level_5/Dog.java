@@ -24,7 +24,7 @@ class Dog {
 
     void voice() {
 
-        System.out.println(nickname + " " + color + " " + age);
+        System.out.println(nickname + " " + nickname + " " + nickname + " " + color + " " + age);
     }
 
 }
