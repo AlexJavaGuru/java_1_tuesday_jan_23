@@ -18,4 +18,8 @@ class Dog {
         System.out.println(this.name + " " + this.age);
     }
 
+    void happyBirthday() {
+        this.age++;
+    }
+
 }
