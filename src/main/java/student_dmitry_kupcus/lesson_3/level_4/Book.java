@@ -1,14 +1,16 @@
 package student_dmitry_kupcus.lesson_3.level_4;
 
-/* class Book {
+class Book {
 
     String title;
 
-    Book(String bookTitle) {
-        this.title = newTitle;
+    Book (String bookTitle) {
+
+        title = bookTitle;
     }
 
     String getTitle() {
+
         return this.title;
     }
 
@@ -23,4 +25,3 @@ class BookDemo {
     }
 
 }
-*/

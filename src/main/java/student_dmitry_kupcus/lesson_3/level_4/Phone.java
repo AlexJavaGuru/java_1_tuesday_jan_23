@@ -1,14 +1,18 @@
 package student_dmitry_kupcus.lesson_3.level_4;
 
-/* class Phone {
+class Phone {
 
-    String model;{
+    String model;
 
-        Book(String newModel) {
-            this.model = newModel;
+    Phone (String getModel) {
+        model = getModel;
+    }
+
+    void Book (String newModel) {
+            model = newModel;
+
         }
-
-        String getModel() {
+    String getModel() {
             return this.model;
         }
 
@@ -23,4 +27,3 @@ package student_dmitry_kupcus.lesson_3.level_4;
         }
 
     }
-*/

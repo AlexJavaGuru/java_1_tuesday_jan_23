@@ -1,6 +1,6 @@
 package student_dmitry_kupcus.lesson_2.level_4;
 
-public class Task_13 {
+class Task_13 {
 
     /*Нужно зайти в папку проэкта, найти нужный файл с кодом, правый клик на пустое место в папке + зажатый Shift ->
     Открыть в терминале -> Ввести команду javac название_файла.java

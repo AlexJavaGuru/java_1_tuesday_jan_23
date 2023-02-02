@@ -2,7 +2,7 @@ package student_dmitry_kupcus.lesson_2.level_3;
 
 import java.util.Scanner;
 
-public class Task_9 {
+class Task_9 {
 
     public static void main(String[] args) {
     //В идеале конечно сделать цикл for или while, но это тоже вариант))
