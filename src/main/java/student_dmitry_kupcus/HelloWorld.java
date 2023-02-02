@@ -1,5 +1,6 @@
+package student_dmitry_kupcus;
 
-public class HelloWorld {
+class HelloWorld {
 
     public static void main(String[] arg) {
 
