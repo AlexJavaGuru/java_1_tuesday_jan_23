@@ -9,5 +9,7 @@ class DogDemo {
         myDog.voice();
         myDog.happyBirthday();
         myDog.voice();
+        myDog.setColor("White");
+        myDog.voice();
     }
 }

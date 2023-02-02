@@ -18,6 +18,10 @@ class Dog {
         age++;
     }
 
+    void setColor(String color) {
+        this.color = color;
+    }
+
     void voice() {
 
         System.out.println(nickname + " " + color + " " + age);
