@@ -4,17 +4,13 @@ public class Dog {
 
     public String name;
     public String color;
-    public String newColor;
     public int age;
 
-    public Dog (String name, String color, int age, String newColor){
-
+    public Dog (String name, String color, int age) {
         this.name = name;
         this.age = age;
         this.color = color;
-        this.newColor = newColor;
     }
-
 
     public void voice(){
         System.out.println("CHAK CHAK CHAK");
@@ -25,7 +21,7 @@ public class Dog {
     }
 
     public void setColor(){
-        System.out.println(newColor);
-    }
+        System.out.println("BLACK");
 
+    }
 }

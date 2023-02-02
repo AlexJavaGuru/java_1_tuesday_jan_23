@@ -3,7 +3,8 @@ package student_vlad_behman.Lesson_3.level_5;
 public class DogDemo {
 
     public static void main(String[] args) {
-        Dog chaki = new Dog("Chaki","braun", 5, "white");
+
+        Dog chaki = new Dog("Chaki","braun", 5);
 
         System.out.print("My name is: ");
         chaki.voice();
@@ -22,7 +23,6 @@ public class DogDemo {
 
         System.out.print("My color is: ");
         chaki.setColor();
-
     }
 
 }
