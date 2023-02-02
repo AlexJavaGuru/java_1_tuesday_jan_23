@@ -5,14 +5,12 @@ public class Dog {
     private String name;
     private int age;
     private String colour;
-    private String newColour;
 
 
-    public Dog(String name, int age, String colour, String newColour) {
+    public Dog(String name, int age, String colour) {
         this.name = name;
         this.age = age;
         this.colour = colour;
-        this.newColour = newColour;
 
 
     }
@@ -34,7 +32,7 @@ public class Dog {
     }
 
     public int setAge() {
-        this.age = age + 1;
+        this.age = age +1;
         return this.age;
     }
 
@@ -43,8 +41,8 @@ public class Dog {
         return this.colour;
     }
 
-    public String setNewColour() {
-        this.colour = newColour;
+    public String setNewColour(String colour) {
+        this.colour = colour;
         return this.colour();
     }
 

@@ -4,7 +4,7 @@ public class DogDemo {
 
     public static void main(String[] args) {
 
-        Dog myDog = new Dog("Tufik ", 5, "Black","Brown");
+        Dog myDog = new Dog("Tufik ", 5, "Black");
 
         myDog.voice();
         myDog.age();
@@ -12,7 +12,7 @@ public class DogDemo {
         myDog.setAge();
         myDog.age();
         myDog.colour();
-        myDog.setNewColour();
+        myDog.setNewColour("Brown");
 
     }
 }
