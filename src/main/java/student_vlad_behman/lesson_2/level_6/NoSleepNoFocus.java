@@ -15,7 +15,9 @@ PS: Текст (строка) в Java пишется в двойных кавы�
 package student_vlad_behman.lesson_2.level_6;
 
 public class NoSleepNoFocus {
+
     public static void main(String[] args) {
+
         System.out.println("I wanna coffee");
         System.out.println("So bad");
     }
