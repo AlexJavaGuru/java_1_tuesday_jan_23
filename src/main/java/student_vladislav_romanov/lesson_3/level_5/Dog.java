@@ -29,4 +29,8 @@ class Dog {
         this.age++;
     }
 
+    void changeColor(String newColor) {
+        this.color = newColor;
+    }
+
 }
