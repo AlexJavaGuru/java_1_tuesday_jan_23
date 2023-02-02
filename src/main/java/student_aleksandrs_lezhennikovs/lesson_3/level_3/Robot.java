@@ -4,8 +4,8 @@ package student_aleksandrs_lezhennikovs.lesson_3.level_3;
 class Robot {
 
     String name;
-    Robot(String robotName) {
-        this.name = robotName;
+    Robot(String name) {
+        this.name = name;
 
     }
     void sayHello() {
