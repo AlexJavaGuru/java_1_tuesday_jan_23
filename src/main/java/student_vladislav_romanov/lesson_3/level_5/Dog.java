@@ -4,6 +4,7 @@ class Dog {
 
     String name;
     int age;
+    String color;
 
     Dog(String dogsName) {
         this.name = dogsName;
@@ -14,8 +15,14 @@ class Dog {
         this.age = dogsAge;
     }
 
+    Dog(String dogsName, int dogsAge, String dogsColor) {
+        this.name = dogsName;
+        this.age = dogsAge;
+        this.color = dogsColor;
+    }
+
     void voice() {
-        System.out.println(this.name + " " + this.age);
+        System.out.println(this.name + " " + this.age + " " + this.color);
     }
 
     void happyBirthday() {
