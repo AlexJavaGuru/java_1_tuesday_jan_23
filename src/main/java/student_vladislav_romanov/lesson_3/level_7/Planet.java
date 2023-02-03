@@ -2,11 +2,11 @@ package student_vladislav_romanov.lesson_3.level_7;
 
 class Planet {
 
-    String name;
-    double diameter;
-    int distanceToSolar;
-    boolean hasSatellites;
-    boolean isStar;
+    private String name;
+    private double diameter;
+    private int distanceToSolar;
+    private boolean hasSatellites;
+    private boolean isStar;
 
 
     Planet(String name, double diameter, int distanceToSolar, boolean hasSatellites, boolean isStar) {
