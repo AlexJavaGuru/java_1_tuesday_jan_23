@@ -2,7 +2,7 @@ package student_vladislav_romanov.lesson_3.level_7;
 
 class Circle {
 
-    double radius;
+    private double radius;
 
     Circle(double radius) {
         this.setRadius(radius);

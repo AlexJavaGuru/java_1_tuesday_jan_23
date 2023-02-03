@@ -2,12 +2,12 @@ package student_vladislav_romanov.lesson_3.level_7;
 
 class Car {
 
-    String model;
-    String type;
-    String color;
-    int year;
-    int mileage;
-    int speed;
+    private String model;
+    private String type;
+    private String color;
+    private int year;
+    private int mileage;
+    private int speed;
 
 
 
@@ -35,8 +35,8 @@ class Car {
         System.out.println(this.getCarModel() + " is driving with top speed " + this.getSpeed() + "km/h");
     }
 
-    void repaint(String newColor) {
-        this.setColor(newColor);
+    void repaint(String color) {
+        this.setColor(color);
     }
 
     void twistMileage(int percent) {
