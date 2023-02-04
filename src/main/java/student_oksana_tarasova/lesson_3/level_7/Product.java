@@ -4,15 +4,17 @@ class Product {
     String name;
     double regularPrice;
     double discount;
-     public Product(String name){
+     public Product(String name, double regularPrice, double discount){
          this.name = name;
-     }
-
-    void printInformation(double regularPrice, double discount) {
          this.regularPrice = regularPrice;
          this.discount = discount;
-         double count = (regularPrice*discount)/100;
-         double actualPrice = regularPrice - count;
+
+     }
+
+    void printInformation() {
+
+        double count = (regularPrice*discount)/100;
+        double actualPrice = regularPrice - count;
          System.out.println(name + ": " + regularPrice + " euro");
          System.out.println("discount: " + count + " euro");
          System.out.println(name + ": " + actualPrice + " euro");

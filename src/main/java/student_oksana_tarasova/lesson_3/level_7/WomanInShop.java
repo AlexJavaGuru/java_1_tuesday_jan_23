@@ -1,30 +1,18 @@
 package student_oksana_tarasova.lesson_3.level_7;
 
-class Shop {
+class WomanInShop {
     // Task 29. 2 объект - покупки в магазине
     String product;
-    double price1;
-    double price2;
-    String color = "blue";
-    boolean lucky = true;
+    String color;
+    boolean lucky;
 
-    public Shop(String product) {
+    public WomanInShop(String product, String color, boolean lucky) {
         this.product = product;
+        this.color = color;
+        this.lucky = lucky;
     }
 
-    void buy(double price1, double price2) {
-        this.price1 = price1;
-        this.price2 = price2;
-        if(price1<price2){
-            System.out.println("Buy a " + product + " at a price " + price1 + " euro.");
-        }
-        else{
-            System.out.println("Buy a  " + product + " at a price " + price2 + " euro.");
-        }
-
-    }
-
-    void choose(String color) {
+        void choose(String color) {
         if(this.color == color) {
             System.out.println("I am choose this " + product);
         }

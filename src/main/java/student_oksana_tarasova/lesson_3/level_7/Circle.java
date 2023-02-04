@@ -4,12 +4,13 @@ class Circle {
     double radius;
     double Pi = 3.14;
 
-    public Circle(){
+    public Circle(double radius){
+        this.radius = radius;
 
     }
-    void calculateArea(double radius){
-        this.radius = radius;
-        double calculateArea = Math.pow(radius,2) * Pi;
+    void calculateArea(){
+
+        double calculateArea = Math.pow(radius,2) * Math.PI;
         String area = String.format("%.2f",calculateArea);
         System.out.println("Area= " + area);
     }

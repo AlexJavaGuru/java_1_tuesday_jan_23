@@ -4,7 +4,7 @@ import java.util.concurrent.Callable;
 
 class CircleDemo {
      public static void main(String[] agrs) {
-         Circle circle = new Circle();
-         circle.calculateArea(2.8);
+         Circle circle = new Circle(2.8);
+         circle.calculateArea();
      }
 }
