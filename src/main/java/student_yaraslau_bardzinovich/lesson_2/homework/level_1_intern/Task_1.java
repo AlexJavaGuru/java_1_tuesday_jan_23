@@ -8,8 +8,15 @@ public class Task_1 {
 
         int firstNumber = scanner.nextInt();
         int secondNumber = scanner.nextInt();
-        int result = firstNumber + secondNumber;
-        System.out.println(result);
+        int Multiply = firstNumber * secondNumber;
+        int Divide = firstNumber / secondNumber;
+        int Plus = firstNumber + secondNumber;
+        int Minus = firstNumber - secondNumber;
+
+        System.out.println(Multiply);
+        System.out.println(Divide);
+        System.out.println(Plus);
+        System.out.println(Minus);
     }
 
 }
