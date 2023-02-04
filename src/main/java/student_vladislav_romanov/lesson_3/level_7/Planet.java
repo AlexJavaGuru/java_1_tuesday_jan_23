@@ -4,70 +4,54 @@ class Planet {
 
     private String name;
     private double diameter;
-    private int distanceToSolar;
+    private int distanceToSun;
     private boolean hasSatellites;
     private boolean isStar;
 
 
-    Planet(String name, double diameter, int distanceToSolar, boolean hasSatellites, boolean isStar) {
-        this.setName(name);
-        this.setDiameter(diameter);
-        this.setDistanceToSolar(distanceToSolar);
-        this.setSatellites(hasSatellites);
-        this.setStar(isStar);
+    Planet(String name, double diameter, int distanceToSun, boolean hasSatellites, boolean isStar) {
+        this.name = name;
+        this.diameter = diameter;
+        this.distanceToSun = distanceToSun;
+        this.hasSatellites = hasSatellites;
+        this.isStar = isStar;
     }
 
 
     int getDistanceToEarth() {
-        int distanceFromSolarToEarth = 149500000;
-        return Math.abs(this.getDistanceToSolar() - distanceFromSolarToEarth);
+        int distanceFromSunToEarth = 149500000;
+        return Math.abs(this.getDistanceToSun() - distanceFromSunToEarth);
     }
 
     void convertToStar() {
         System.out.println(this.getName() + " covert to star in progress. Please wait a little.");
-        this.setStar(true);
+        this.setStar();
     }
 
 
     String getName() {
-        return this.name;
+        return name;
     }
 
     double getDiameter() {
-        return this.diameter;
+        return diameter;
     }
 
-    int getDistanceToSolar() {
-        return this.distanceToSolar;
+    int getDistanceToSun() {
+        return distanceToSun;
     }
 
     boolean getSatellites() {
-        return this.hasSatellites;
+        return hasSatellites;
     }
 
     boolean getStar() {
-        return this.isStar;
+        return isStar;
     }
 
 
-    void setName(String name) {
-        this.name = name;
-    }
-
-    void setDiameter(double diameter) {
-        this.diameter = diameter;
-    }
-
-    void setDistanceToSolar(int distanceToSolar) {
-        this.distanceToSolar = distanceToSolar;
-    }
-
-    void setSatellites(boolean hasSatellites) {
-        this.hasSatellites = hasSatellites;
-    }
-
-    void  setStar(boolean isStar) {
-        this.isStar = isStar;
+    void  setStar() {
+        isStar = true;
     }
 
 }

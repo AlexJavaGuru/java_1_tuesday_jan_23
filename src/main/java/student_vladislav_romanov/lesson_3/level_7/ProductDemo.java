@@ -4,27 +4,27 @@ class ProductDemo {
 
     public static void main(String[] args) {
 
-        Product product1 = new Product("Desktop PC");
-        Product product2 = new Product("Laptop PC");
-        Product product3 = new Product("Pocket PC");
+        Product desktop = new Product("Desktop PC");
+        Product laptop = new Product("Laptop PC");
+        Product pocketPc = new Product("Pocket PC");
 
-        product1.setRegularPrice(799.99);
-        product1.setDiscount(15);
+        desktop.setRegularPrice(799.99);
+        desktop.setDiscount(15);
 
-        product2.setRegularPrice(1299.99);
-        product2.setDiscount(20);
+        laptop.setRegularPrice(1299.99);
+        laptop.setDiscount(20);
 
-        product3.setRegularPrice(399.99);
-        product3.setDiscount(10);
+        pocketPc.setRegularPrice(399.99);
+        pocketPc.setDiscount(10);
 
-        product1.printInformation();
-        System.out.println("Actual price for " + product1.getName() + " is " + product1.actualPrice() + "$");
+        desktop.printInformation();
+        System.out.println("Actual price for " + desktop.getName() + " is " + desktop.actualPrice() + "$");
 
-        product2.printInformation();
-        System.out.println("Actual price for " + product2.getName() + " is " + product2.actualPrice() + "$");
+        laptop.printInformation();
+        System.out.println("Actual price for " + laptop.getName() + " is " + laptop.actualPrice() + "$");
 
-        product3.printInformation();
-        System.out.println("Actual price for " + product3.getName() + " is " + product3.actualPrice() + "$");
+        pocketPc.printInformation();
+        System.out.println("Actual price for " + pocketPc.getName() + " is " + pocketPc.actualPrice() + "$");
 
     }
 

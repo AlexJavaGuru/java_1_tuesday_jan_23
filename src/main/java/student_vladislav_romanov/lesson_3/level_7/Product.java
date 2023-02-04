@@ -8,7 +8,7 @@ class Product {
 
 
     Product (String name) {
-        this.setName(name);
+        this.name = name;
     }
 
 
@@ -22,21 +22,18 @@ class Product {
 
 
     String getName() {
-        return this.name;
+        return name;
     }
 
     double getRegularPrice() {
-        return this.regularPrice;
+        return regularPrice;
     }
 
     double getDiscount() {
-        return this.discount;
+        return discount;
     }
 
 
-    void setName(String name) {
-        this.name = name;
-    }
 
     void setRegularPrice(double regularPrice) {
         this.regularPrice = regularPrice;

@@ -12,24 +12,27 @@ class Car {
 
 
     Car(String model, String color, int year, int mileage, int speed) {
-        this.setModel(model);
-        this.setType("Sedan");
-        this.setColor(color);
-        this.setYear(year);
-        this.setMileage(mileage);
-        this.setSpeed(speed);
+        this.model = model;
+        this.type = "Sedan";
+        this.color = color;
+        this.year = year;
+        this.mileage = mileage;
+        this.speed = speed;
     }
 
     Car(String model, String type, String color, int year, int mileage, int speed) {
-        this.setModel(model);
-        this.setType(type);
-        this.setColor(color);
-        this.setYear(year);
-        this.setMileage(mileage);
-        this.setSpeed(speed);
+        this.model = model;
+        this.type = type;
+        this.color = color;
+        this.year = year;
+        this.mileage = mileage;
+        this.speed = speed;
     }
 
 
+    void printInformation() {
+        System.out.println(this.getColor() + " " + this.getType() + " " + this.getModel() + " " + this.getYear());
+    }
 
     void drive() {
         System.out.println(this.getCarModel() + " is driving with top speed " + this.getSpeed() + "km/h");
@@ -52,27 +55,27 @@ class Car {
 
 
     String getModel() {
-        return this.model;
+        return model;
     }
 
     String getType() {
-        return this.type;
+        return type;
     }
 
     String getColor() {
-        return this.color;
+        return color;
     }
 
     int getYear() {
-        return this.year;
+        return year;
     }
 
     int getSpeed() {
-        return this.speed;
+        return speed;
     }
 
     int getMileage() {
-        return this.mileage;
+        return mileage;
     }
 
     String getCarModel() {
@@ -80,28 +83,11 @@ class Car {
     }
 
 
-
-    void setModel(String model) {
-        this.model = model;
-    }
-
-    void setType(String type) {
-        this.type = type;
-    }
-
     void setColor(String color) {
         this.color = color;
     }
 
-    void setYear(int year) {
-        this.year = year;
-    }
-
     void setMileage(int mileage) {
         this.mileage = mileage;
-    }
-
-    void setSpeed(int speed) {
-        this.speed = speed;
     }
 }

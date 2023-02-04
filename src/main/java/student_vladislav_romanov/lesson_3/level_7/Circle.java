@@ -5,7 +5,7 @@ class Circle {
     private double radius;
 
     Circle(double radius) {
-        this.setRadius(radius);
+        this.radius = radius;
     }
 
     double calculateArea(double radius) {
@@ -13,11 +13,7 @@ class Circle {
     }
 
     double getRadius() {
-        return this.radius;
-    }
-
-    void setRadius(double radius) {
-        this.radius = radius;
+        return radius;
     }
 
 }
