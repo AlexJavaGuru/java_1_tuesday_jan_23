@@ -1,5 +1,5 @@
 package student_natalija_rasponomarjova.lesson_3.level_2;
-// Тема: Считывание строк с консоли.
+
 
 import java.util.Scanner;
 
