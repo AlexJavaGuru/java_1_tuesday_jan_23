@@ -7,12 +7,12 @@ class CountElectricityDemo {
         CountElectricity user = new CountElectricity("Bob", "Wolf", "str. Forest, 22");
         user.subscriber();
         user.date("April", 2023);
-        user.count(1234, 1345);
+        user.count(1234, 1345, 2.3);
 
         CountElectricity user2 = new CountElectricity("Alisa", "Fox", "str. Forest, 25");
         user2.subscriber();
         user2.date("April", 2023);
-        user2.count(1353, 1412);
+        user2.count(1353, 1412, 2.3);
 
 
     }

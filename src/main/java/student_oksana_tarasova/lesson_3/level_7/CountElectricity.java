@@ -26,9 +26,10 @@ class CountElectricity {
          this.year = year;
         System.out.println(month + " " + year);
      }
-     void count(int beginIndication, int finIndication) {
+     void count(int beginIndication, int finIndication, double rate) {
         this.beginIndication = beginIndication;
         this.finIndication = finIndication;
+        this. rate = rate;
         int difference = finIndication - beginIndication;
         double cost = difference * rate;
         String result1 = String.format("%.2f",cost);
