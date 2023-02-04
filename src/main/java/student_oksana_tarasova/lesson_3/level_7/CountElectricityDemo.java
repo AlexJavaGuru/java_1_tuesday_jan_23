@@ -6,12 +6,12 @@ class CountElectricityDemo {
     public static void main(String[] agrs) {
         CountElectricity user = new CountElectricity("Bob", "Wolf", "str. Forest, 22");
         user.subscriber();
-        user.date("April");
+        user.date("April", 2023);
         user.count(1234, 1345);
 
         CountElectricity user2 = new CountElectricity("Alisa", "Fox", "str. Forest, 25");
         user2.subscriber();
-        user2.date("April");
+        user2.date("April", 2023);
         user2.count(1353, 1412);
 
 

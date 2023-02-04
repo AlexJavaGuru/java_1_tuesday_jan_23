@@ -8,20 +8,22 @@ class CountElectricity {
     String month;
     int beginIndication;
     int finIndication;
-    int year = 2023;
-    double rate = 2.15;
+    int year;
+    double rate;
 
     public CountElectricity(String firstName, String lastName, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
+
     }
      void subscriber() {
         System.out.println(firstName + " " + lastName);
         System.out.println(address);
      }
-     void date(String month) {
-        this.month = month;
+     void date(String month, int year) {
+         this.month = month;
+         this.year = year;
         System.out.println(month + " " + year);
      }
      void count(int beginIndication, int finIndication) {
