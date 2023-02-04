@@ -2,7 +2,7 @@ package student_dmitry_kupcus.lesson_2.level_3;
 
 import java.util.Scanner;
 
-public class Task_11 {
+class Task_11 {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -10,7 +10,7 @@ public class Task_11 {
         double firstNumber = scanner.nextDouble();
         double secondNumber = scanner.nextDouble();
         double thirdNumber = scanner.nextDouble();
-        System.out.println((firstNumber + secondNumber + thirdNumber ) / 2);
+        System.out.println((firstNumber + secondNumber + thirdNumber ) /3);
 
     }
 }
