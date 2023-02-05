@@ -6,7 +6,6 @@ class RobotDemo {
          Robot bob = new Robot();
          bob.sayHello();
          bob.sayYOURname();
-
          Robot bobs = new Robot();
          bobs.sayHello();
          bobs.sayYOURname();
