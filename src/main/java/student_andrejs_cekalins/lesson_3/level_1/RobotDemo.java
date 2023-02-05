@@ -11,10 +11,5 @@ class RobotDemo {
         Robot Robot2 = new Robot();
         Robot2.sayHello();
         Robot2.sayYourName();
-
-
-
     }
-
-
 }

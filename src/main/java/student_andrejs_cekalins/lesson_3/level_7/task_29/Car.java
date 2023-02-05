@@ -6,34 +6,32 @@ class Car {
     String model;
     private boolean isNew;
 
-    Car(String carBrand, String carColor, String carModel, boolean isNew){
-        this.brand = carBrand;
-        this.color = carColor;
-        this.model = carModel;
+    Car(String brand, String color, String model, boolean isNew) {
+        this.brand = brand;
+        this.color = color;
+        this.model = model;
         this.isNew = isNew;
     }
-    Car(String carBrand, String carColor, String carModel){
-        this.brand = carBrand;
-        this.color = carColor;
-        this.model = carModel;}
-
-    String getCarBrand(){
+    Car(String brand, String color, String model) {
+        this.brand = brand;
+        this.color = color;
+        this.model = model;
+    }
+    String getBrand(){
         return this.brand;
     }
-    String getCarColor(){
+    String getColor(){
         return this.color;
     }
-    String getCarModel() {
+    String getModel() {
         return this.model;
     }
     boolean isNew() {
         return this.isNew;
     }
-
     void changeModel(String carModel) {
         this.model = carModel;
     }
-
     void carEngine(){
         System.out.println( "Car engine is started");
     }
