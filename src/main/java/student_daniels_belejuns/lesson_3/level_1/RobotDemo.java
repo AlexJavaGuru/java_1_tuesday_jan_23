@@ -1,6 +1,4 @@
-package student_daniels_belejuns.level_1;
-
-import student_daniels_belejuns.level_1.Robot;
+package student_daniels_belejuns.lesson_3.level_1;
 
 class RobotDemo {
      public static void main(String[] args){

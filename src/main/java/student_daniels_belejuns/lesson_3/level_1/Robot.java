@@ -1,4 +1,4 @@
-package student_daniels_belejuns.level_1;
+package student_daniels_belejuns.lesson_3.level_1;
 
 public class Robot{
 
