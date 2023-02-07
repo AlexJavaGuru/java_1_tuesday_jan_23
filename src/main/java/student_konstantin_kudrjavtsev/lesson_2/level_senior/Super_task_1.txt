@@ -13,11 +13,11 @@
 
 Задание: дайте правильные с точки зрения Java кода названия классам:
 
-book
-Bankaccount
-systemUnit
+Book
+BankAccount
+SystemUnit
 Login_Service
-banktransaction
-task1
+BankTransaction
+Task_1
 
 Создайте эти классы с корректными с точки зрения Java кода назнаниями.
