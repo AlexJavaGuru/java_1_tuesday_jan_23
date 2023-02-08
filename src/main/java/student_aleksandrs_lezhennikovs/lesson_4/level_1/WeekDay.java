@@ -1,37 +1,35 @@
 package student_aleksandrs_lezhennikovs.lesson_4.level_1;
 
-import java.util.Scanner;
-
 class WeekDay {
 
-    void printWeekDay() {
-        System.out.println("Please input integer number from 1 till 7");
-        Scanner input = new Scanner(System.in);
-        int day = input.nextInt();
-        switch (day) {
+    String printWeekDay(int weekday) {
+        String message;
+
+        switch (weekday) {
             case 1:
-                System.out.println("Monday");
+                message = "Monday";
                 break;
             case 2:
-                System.out.println("Tuesday");
+                message = "Tuesday";
                 break;
             case 3:
-                System.out.println("Wednesday");
+                message = "Wednesday";
                 break;
             case 4:
-                System.out.println("Thursday");
+                message = "Thursday";
                 break;
             case 5:
-                System.out.println("Friday");
+                message = "Friday";
                 break;
             case 6:
-                System.out.println("Saturday");
+                message = "Saturday";
                 break;
             case 7:
-                System.out.println("Sunday");
+                message = "Sunday";
                 break;
             default:
-                System.out.println("Wrong number");
+                message = "Wrong number";
         }
+        return message;
     }
 }

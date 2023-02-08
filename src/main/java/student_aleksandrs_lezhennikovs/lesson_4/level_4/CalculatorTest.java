@@ -2,137 +2,103 @@ package student_aleksandrs_lezhennikovs.lesson_4.level_4;
 
 class CalculatorTest {
     public static void main(String[] args) {
-       CalculatorTest calculatorTest = new CalculatorTest();
-       calculatorTest.sumTest();
-       calculatorTest.subtractTest();
-       calculatorTest.multiplyTest();
-       calculatorTest.divideTest();
-       calculatorTest.isEvenTest();
-       calculatorTest.isFirstNumberMax();
-       calculatorTest.isSecondNumberMax();
-       calculatorTest.isFirstSecondEqual();
-       calculatorTest.isFirstOfThreeMax();
-       calculatorTest.isSecondOfThreeMax();
-       calculatorTest.isThirdOfThreeMax();
-       calculatorTest.isFourthOfThreeMax();
-       calculatorTest.isFifthOfThreeMax();
-       calculatorTest.isSixthOfThreeMax();
-       calculatorTest.isSeventhThreeMax();
-       calculatorTest.isEightOfThreeMax();
+       sumTest();
+       subtractTest();
+       multiplyTest();
+       divideTest();
+       isEvenTest();
+       isFirstNumberMax();
+       isSecondNumberMax();
+       isFirstSecondEqual();
+       isFirstOfThreeMax();
+       isSecondOfThreeMax();
+       isThirdOfThreeMax();
+       isFourthOfThreeMax();
+       isFifthOfThreeMax();
+       isSixthOfThreeMax();
+       isSeventhThreeMax();
     }
 
-    void sumTest() {
+    private static void sumTest() {
         int firstNum = 10;
         int secondNum = 5;
         int exceptedRes = 15;
 
         Calculator calc = new Calculator();
         int realResult = calc.sumNumbers(firstNum, secondNum);
-        if (realResult == exceptedRes) {
-            System.out.println("sumTest result = OK");
-        } else {
-            System.out.println("sumTest result = FAIL");
-        }
+        check("Sum ", realResult, exceptedRes);
     }
 
-    void subtractTest() {
+    static void subtractTest() {
         int firstNum = 20;
         int secondNum = 15;
         int expectRes = 5;
 
         Calculator calc = new Calculator();
         int realResult = calc.subtract(firstNum, secondNum);
-        if (realResult == expectRes) {
-            System.out.println("subtract Test result = OK");
-        } else {
-            System.out.println("subtract Test result = FAIL");
-        }
+        check("Subtract ", realResult, expectRes);
     }
 
-    void multiplyTest() {
+    static void multiplyTest() {
         int firstNum = 7;
         int secondNum = 10;
         int expectRes = 70;
 
         Calculator calc = new Calculator();
         int realResult = calc.multiply(firstNum, secondNum);
-        if (realResult == expectRes) {
-            System.out.println("multiply Test result = OK");
-        } else {
-            System.out.println("multiply Test result = FAIL");
-        }
+        check("Multiply ", realResult, expectRes);
     }
 
-    void divideTest() {
+    static void divideTest() {
         int firstNum = 40;
         int secondNum = 10;
         double expectRes = 4;
 
         Calculator calc = new Calculator();
         double realResult = calc.divide(firstNum, secondNum);
-        if (realResult == expectRes) {
-            System.out.println("divide Test result = OK");
-    } else {
-            System.out.println("divide Test result = FAIL");
-        }
+        check("Divide ", realResult, expectRes);
     }
 
-    void isEvenTest() {
+    static void isEvenTest() {
         int checkNumber = 50;
-        boolean expectResult = true;
+        boolean expectRes = true;
 
         Calculator calc = new Calculator();
         boolean realResult = calc.isEven(checkNumber);
-        if (realResult == expectResult) {
-            System.out.println("isEven Test result = OK");
-        } else {
-            System.out.println("isEven Test result = FAIL");
-        }
+        check("IsEven ", realResult, expectRes);
     }
 
-    void isFirstNumberMax() {
+    static void isFirstNumberMax() {
         int firstNum = 100;
         int secondNum = 50;
         int expectResult = 100;
 
         Calculator calc = new Calculator();
         int realResult = calc.maxOfTwoNumbers(firstNum, secondNum);
-        if (realResult == expectResult) {
-            System.out.println("First part of check max number = OK ");
-        } else {
-            System.out.println("First part of check max number = FAIL");
-        }
+        check("First of Two is MAX ", realResult, expectResult);
     }
 
-    void isSecondNumberMax() {
+    static void isSecondNumberMax() {
         int firstNum = 10;
         int secondNum = 50;
         int exceptResult = 50;
 
         Calculator calc = new Calculator();
         int realResult = calc.maxOfTwoNumbers(firstNum, secondNum);
-        if (realResult == exceptResult) {
-            System.out.println("Second part of check max number = OK");
-        } else {
-            System.out.println("Second part of check max number = FAIL");
-        }
+        check("Second of Two is MAX ", realResult, exceptResult);
     }
 
-    void isFirstSecondEqual() {
+    static void isFirstSecondEqual() {
         int firstNum = 45;
         int secondNum = 45;
         int expectResult = 45;
 
         Calculator calc = new Calculator();
         int realResult = calc.maxOfTwoNumbers(firstNum, secondNum);
-        if (realResult == expectResult) {
-            System.out.println("Third part of test max of two = OK");
-        } else {
-            System.out.println("Third part of test max of two = FAIL");
-        }
+        check("First and second of two is equal ", realResult, expectResult);
     }
 
-    void isFirstOfThreeMax() {
+    static void isFirstOfThreeMax() {
         int firstNum = 100;
         int secondNum = 75;
         int thirdNum = 50;
@@ -140,14 +106,10 @@ class CalculatorTest {
 
         Calculator calc = new Calculator();
         int realResult = calc.maxOfThreeNumbers(firstNum, secondNum, thirdNum);
-        if (realResult == expectResult) {
-            System.out.println("First part of Max of Three numbers Test = OK");
-        } else {
-            System.out.println("First part of Max of Three numbers Test = FAIL");
-        }
+        check("First of Trhee is Max ", realResult, expectResult);
     }
 
-    void isSecondOfThreeMax() {
+    static void isSecondOfThreeMax() {
         int firstNum = 50;
         int secondNum = 100;
         int thirdNum = 75;
@@ -155,100 +117,85 @@ class CalculatorTest {
 
         Calculator calc = new Calculator();
         int realResult = calc.maxOfThreeNumbers(firstNum, secondNum, thirdNum);
-        if (realResult == expectResult) {
-            System.out.println("Second part of Max of Three numbers Test = OK");
-        } else {
-            System.out.println("Second part of Max of Three numbers Test = FAIL");
-        }
+        check("Second of Tree is Max ", realResult, expectResult);
     }
 
-    void isThirdOfThreeMax() {
+    static void isThirdOfThreeMax() {
        int firstNum = 50;
        int secondNum = 75;
        int thirdNum = 100;
-       int expectedResult = 100;
+       int expectRes = 100;
 
        Calculator calc = new Calculator();
        int realResult = calc.maxOfThreeNumbers(firstNum, secondNum, thirdNum);
-       if (realResult == expectedResult) {
-           System.out.println("Third part of Max of Three numbers test = OK");
-       } else {
-           System.out.println("Third part of Max of Three numbers test = FAIL");
-       }
+       check("Third of Three is Max ", realResult, expectRes);
     }
 
-    void isFourthOfThreeMax() {
+    static void isFourthOfThreeMax() {
         int firstNum = 100;
         int secondNum = 100;
         int thirdNum = 50;
-        int expectNum = 100;
+        int expectRes = 100;
 
         Calculator calc = new Calculator();
         int realResult = calc.maxOfThreeNumbers(firstNum, secondNum, thirdNum);
-        if (realResult == expectNum) {
-            System.out.println("Fourth part of Max of Three numbers test = OK");
-        } else {
-            System.out.println("Fourth part of Max of Three numbers test = FAIL");
-        }
+        check("First and second of Three are Max ", realResult, expectRes);
     }
 
-    void isFifthOfThreeMax() {
+    static void isFifthOfThreeMax() {
         int firstNum = 10;
         int secondNum = 50;
         int thirdNum = 50;
-        int expectResult = 50;
+        int expectRes = 50;
 
         Calculator calc = new Calculator();
         int realResult = calc.maxOfThreeNumbers(firstNum, secondNum, thirdNum);
-        if (realResult == expectResult) {
-            System.out.println("Fifth part of Max of Three numbers test = OK");
-        } else {
-            System.out.println("Fifth part of Max of Tree numbers test = FAIL");
-        }
+        check("Second and third of Three are Max ", realResult, expectRes);
     }
 
-    void isSixthOfThreeMax() {
+    static void isSixthOfThreeMax() {
         int firstNum = 150;
         int secondNum = 5;
         int thirdNum = 150;
-        int expectResult = 150;
+        int expectRes = 150;
 
         Calculator calc = new Calculator();
         int realResult = calc.maxOfThreeNumbers(firstNum, secondNum, thirdNum);
-        if (realResult == expectResult) {
-            System.out.println("Sixth part of Max of Three numbers test = OK");
-        } else {
-            System.out.println("Sixth part of Max of Three numbers test = FAIL");
-        }
+        check("First and third of Three are Max ", realResult, expectRes);
     }
 
-    void isSeventhThreeMax() {
-        int firstNum = 1;
-        int secondNum = 200;
-        int thirdNum = 200;
-        int expectedResult = 200;
-
-        Calculator calc = new Calculator();
-        int realResult = calc.maxOfThreeNumbers(firstNum, secondNum, thirdNum);
-        if (realResult == expectedResult) {
-            System.out.println("Seventh part of Max of Three numbers test = OK");
-        } else {
-            System.out.println("Seventh part of Max of Three numbers test = FAIL");
-        }
-    }
-
-    void isEightOfThreeMax() {
+    static void isSeventhThreeMax() {
         int firstNum = 100;
         int secondNum = 100;
         int thirdNum = 100;
-        int expectedResult = 100;
+        int expectRes = 100;
 
         Calculator calc = new Calculator();
         int realResult = calc.maxOfThreeNumbers(firstNum, secondNum, thirdNum);
-        if (realResult == expectedResult) {
-            System.out.println("Eight part of Max of Three numbers test = OK");
+        check("All three are equal ", realResult, expectRes);
+    }
+
+    private static void check(String functionName, int realResult, int expectRes) {
+        if (realResult == expectRes) {
+            System.out.println("Test result of " + functionName + "= OK");
         } else {
-            System.out.println("Eight part of Max of Three numbers test = FAIL");
+            System.out.println("Test result of " + functionName + " = FAIL");
+        }
+    }
+
+    private static void check(String functionName, double realResult, double expectRes) {
+        if (realResult == expectRes) {
+            System.out.println("Test result of " + functionName + "= OK");
+        } else {
+            System.out.println("Test result of " + functionName + "= FAIL");
+        }
+    }
+
+    private static void check(String functionName, boolean realResult, boolean expectRes) {
+        if (realResult == expectRes) {
+            System.out.println("Test result of " + functionName + "= OK");
+        } else {
+            System.out.println("Test result of " + functionName + "= FAIL");
         }
     }
 }

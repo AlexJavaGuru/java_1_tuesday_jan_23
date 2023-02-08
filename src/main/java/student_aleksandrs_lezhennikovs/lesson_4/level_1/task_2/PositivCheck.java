@@ -12,7 +12,7 @@ class PositivCheck {
 
         if (number > 0) {
             System.out.println("Your number is Positive");
-        } else if (number < 0){
+        } else if (number < 0) {
             System.out.println("Yor number is Negative");
         } else {
             System.out.println("Your number is equal to zero");

@@ -28,16 +28,16 @@ class Calculator {
 
 class CalculatorTest {
     public static void main(String[] args) {
-        CalculatorTest calculatorTest = new CalculatorTest();
-        calculatorTest.sumTest();
-        calculatorTest.subTest();
-        calculatorTest.mulTest();
-        calculatorTest.divTest();
-        calculatorTest.isEvenTest1();
-        calculatorTest.isEvenTest2();
+
+        sumTest();
+        subTest();
+        mulTest();
+        divTest();
+        isEvenTest1();
+        isEvenTest2();
     }
 
-    String checks(int result, int expectedResult) {
+    private static String checks(int result, int expectedResult) {
 
         if (result == expectedResult) {
             return " test = OK";
@@ -46,16 +46,16 @@ class CalculatorTest {
         }
     }
 
-    String checks(boolean result, boolean expectedResult) {
+    private static String checks(boolean result) {
 
-        if (result == expectedResult) {
+        if (result) {
             return " test = OK";
         } else {
             return " test = FAIL";
         }
     }
 
-    public void sumTest() {
+    private static void sumTest() {
         int firstNumber = 35;
         int secondNumber = 40;
         int expectedResult = 75;
@@ -64,7 +64,7 @@ class CalculatorTest {
         System.out.println("Addition" + checks(result, expectedResult));
     }
 
-    public void subTest() {
+    private static void subTest() {
         int firstNumber = 35;
         int secondNumber = 15;
         int expectedResult = 20;
@@ -73,7 +73,7 @@ class CalculatorTest {
         System.out.println("Subtract" + checks(result, expectedResult));
     }
 
-    public void mulTest() {
+    private static void mulTest() {
         int firstNumber = 5;
         int secondNumber = 5;
         int expectedResult = 25;
@@ -82,7 +82,7 @@ class CalculatorTest {
         System.out.println("Multiplying" + checks(result, expectedResult));
     }
 
-    public void divTest() {
+    private static void divTest() {
         int firstNumber = 40;
         int secondNumber = 8;
         int expectedResult = 5;
@@ -91,17 +91,15 @@ class CalculatorTest {
         System.out.println("Dividing" + checks(result, expectedResult));
     }
 
-    public void isEvenTest1() {
+    private static void isEvenTest1() {
         Calculator calculator = new Calculator();
-        boolean expectedResult = true;
         boolean result = calculator.isEven(40);
-        System.out.println("Even" + checks(result, expectedResult));
+        System.out.println("Even" + checks(result));
     }
 
-    public void isEvenTest2() {
+    private static void isEvenTest2() {
         Calculator calculator = new Calculator();
-        boolean expectedResult = false;
         boolean result = calculator.isEven(41);
-        System.out.println("Odd" + checks(result, expectedResult));
+        System.out.println("Odd" + checks(!result));
     }
 }

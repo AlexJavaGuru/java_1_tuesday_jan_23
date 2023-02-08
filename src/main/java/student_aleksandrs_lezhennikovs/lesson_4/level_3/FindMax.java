@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 class FindMax {
     void checkNumber() {
-        Scanner input = new Scanner(System.in);
         System.out.println("Please input three integer numbers:");
+
+        Scanner input = new Scanner(System.in);
         int firstNumber = input.nextInt();
         int secondNumber = input.nextInt();
         int thirdNumber = input.nextInt();
@@ -14,13 +15,13 @@ class FindMax {
         // B >= A and B >= C
         // C
         if (firstNumber >= secondNumber && firstNumber >= thirdNumber) {
-            System.out.println("Number " + firstNumber + " is biggest");
+            System.out.println("Number " + firstNumber + " is the biggest");
 
         } else if (secondNumber >= firstNumber && secondNumber >= thirdNumber) {
-            System.out.println("Number " + secondNumber + " is biggest");
+            System.out.println("Number " + secondNumber + " is the biggest");
 
         } else {
-            System.out.println("Number " + thirdNumber + " are the biggest");
+            System.out.println("Number " + thirdNumber + " is the biggest");
         }
     }
 }
