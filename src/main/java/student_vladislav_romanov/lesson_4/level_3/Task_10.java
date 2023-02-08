@@ -12,7 +12,7 @@ class Task_10 {
         int second = scanner.nextInt();
         int third = scanner.nextInt();
 
-        if (first > second && first > third) {
+        if (first >= second && first >= third) {
             System.out.println(first);
         } else if (first < second && second > third) {
             System.out.println(second);

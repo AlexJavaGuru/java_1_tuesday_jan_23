@@ -10,9 +10,18 @@ class CalculatorTest {
         calculatorTest.divTest();
         calculatorTest.evenTest();
         calculatorTest.oddTest();
-        calculatorTest.firstNumberMaxTest();
-        calculatorTest.secondNumberMaxTest();
-        calculatorTest.equalNumbersMaxTest();
+
+        calculatorTest.maxOfTwoNumbersFirstNumberTest();
+        calculatorTest.maxOfTwoNumbersSecondNumberTest();
+        calculatorTest.maxOfTwoNumbersEqualNumbersTest();
+
+        calculatorTest.maxOfThreeNumbersFirstNumberTest();
+        calculatorTest.maxOfThreeNumbersSecondNumberTest();
+        calculatorTest.maxOfThreeNumbersThirdNumberTest();
+        calculatorTest.maxOfThreeNumbersFirstSecondNumbersTest();
+        calculatorTest.maxOfThreeNumbersFirstThirdNumberTest();
+        calculatorTest.maxOfThreeNumbersSecondThirdNumberTest();
+        calculatorTest.maxOfThreeNumbersEqualNumbersTest();
     }
 
     void sumTest() {
@@ -109,7 +118,7 @@ class CalculatorTest {
         }
     }
 
-    void firstNumberMaxTest() {
+    void maxOfTwoNumbersFirstNumberTest() {
         int firstNumber = 7;
         int secondNumber = 3;
         int expectedResult = 7;
@@ -125,7 +134,7 @@ class CalculatorTest {
         }
     }
 
-    void secondNumberMaxTest() {
+    void maxOfTwoNumbersSecondNumberTest() {
         int firstNumber = 2;
         int secondNumber = 5;
         int expectedResult = 5;
@@ -141,7 +150,7 @@ class CalculatorTest {
         }
     }
 
-    void equalNumbersMaxTest() {
+    void maxOfTwoNumbersEqualNumbersTest() {
         int firstNumber = 4;
         int secondNumber = 4;
         int expectedResult = 4;
@@ -154,6 +163,125 @@ class CalculatorTest {
             System.out.println("maxOfTwoNumbers equal case test PASSED");
         } else {
             System.out.println("maxOfTwoNumbers equal case test FAILED");
+        }
+    }
+
+    void maxOfThreeNumbersFirstNumberTest() {
+        int firstNumber = 7;
+        int secondNumber = 3;
+        int thirdNumber = 4;
+        int expectedResult = 7;
+
+        Calculator calculator = new Calculator();
+
+        int actualResult = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
+
+        if (actualResult == expectedResult) {
+            System.out.println("maxOfThreeNumbers first number case test PASSED");
+        } else {
+            System.out.println("maxOfThreeNumbers first number case test FAILED");
+        }
+    }
+
+    void maxOfThreeNumbersFirstSecondNumbersTest() {
+        int firstNumber = 7;
+        int secondNumber = 7;
+        int thirdNumber = 4;
+        int expectedResult = 7;
+
+        Calculator calculator = new Calculator();
+
+        int actualResult = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
+
+        if (actualResult == expectedResult) {
+            System.out.println("maxOfThreeNumbers first and second number case test PASSED");
+        } else {
+            System.out.println("maxOfThreeNumbers first and second number case test FAILED");
+        }
+    }
+
+    void maxOfThreeNumbersFirstThirdNumberTest() {
+        int firstNumber = 7;
+        int secondNumber = 3;
+        int thirdNumber = 7;
+        int expectedResult = 7;
+
+        Calculator calculator = new Calculator();
+
+        int actualResult = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
+
+        if (actualResult == expectedResult) {
+            System.out.println("maxOfThreeNumbers first and third number case test PASSED");
+        } else {
+            System.out.println("maxOfThreeNumbers first and third number case test FAILED");
+        }
+    }
+
+    void maxOfThreeNumbersSecondNumberTest() {
+        int firstNumber = 2;
+        int secondNumber = 8;
+        int thirdNumber = 5;
+        int expectedResult = 8;
+
+        Calculator calculator = new Calculator();
+
+        int actualResult = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
+
+        if (actualResult == expectedResult) {
+            System.out.println("maxOfThreeNumbers second number case test PASSED");
+        } else {
+            System.out.println("maxOfThreeNumbers second number case test FAILED");
+        }
+    }
+
+    void maxOfThreeNumbersSecondThirdNumberTest() {
+        int firstNumber = 2;
+        int secondNumber = 8;
+        int thirdNumber = 8;
+        int expectedResult = 8;
+
+        Calculator calculator = new Calculator();
+
+        int actualResult = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
+
+        if (actualResult == expectedResult) {
+            System.out.println("maxOfThreeNumbers second and third number case test PASSED");
+        } else {
+            System.out.println("maxOfThreeNumbers second and third number case test FAILED");
+        }
+    }
+
+    void maxOfThreeNumbersThirdNumberTest() {
+        int firstNumber = 1;
+        int secondNumber = 5;
+        int thirdNumber = 6;
+        int expectedResult = 6;
+
+        Calculator calculator = new Calculator();
+
+        int actualResult = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
+
+        if (actualResult == expectedResult) {
+            System.out.println("maxOfThreeNumbers third number case test PASSED");
+        } else {
+            System.out.println("maxOfThreeNumbers third number case test FAILED");
+        }
+    }
+
+    void maxOfThreeNumbersEqualNumbersTest() {
+        int firstNumber = 7;
+        int secondNumber = 7;
+        int thirdNumber = 7;
+        int expectedResult = 7;
+
+        Calculator calculator = new Calculator();
+
+        int actualResult = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
+
+        if (actualResult == expectedResult) {
+            System.out.println("maxOfThreeNumbers equal numbers case test PASSED");
+        } else {
+            System.out.println("maxOfThreeNumbers equal numbers case test FAILED");
         }
     }
 

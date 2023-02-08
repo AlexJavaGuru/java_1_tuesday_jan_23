@@ -29,4 +29,14 @@ class Calculator {
         return firstNumber;
     }
 
+    public int maxOfThreeNumbers(int firstNumber, int secondNumber, int thirdNumber) {
+        if (firstNumber >= secondNumber && firstNumber >= thirdNumber) {
+            return firstNumber;
+        } else if (firstNumber < secondNumber && secondNumber > thirdNumber) {
+            return secondNumber;
+        } else {
+            return thirdNumber;
+        }
+    }
+
 }
