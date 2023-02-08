@@ -5,10 +5,10 @@ import java.util.Scanner;
 class MaxOfTwo {
 
     void checkMax() {
+        System.out.println("Please input two integer numbers:");
+
         Scanner input = new Scanner(System.in);
-        System.out.println("Please input first integer number:");
         int firstNumber = input.nextInt();
-        System.out.println("Please input second integer number:");
         int secondNumber = input.nextInt();
 
         if (firstNumber > secondNumber) {

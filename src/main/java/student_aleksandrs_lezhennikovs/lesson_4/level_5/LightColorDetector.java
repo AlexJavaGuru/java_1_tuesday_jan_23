@@ -2,20 +2,23 @@ package student_aleksandrs_lezhennikovs.lesson_4.level_5;
 
 class LightColorDetector {
     String detect(int wavelength) {
+        String color;
+
         if (wavelength >= 380 && wavelength <= 449) {
-            return "Violet";
+            color = "Violet";
         } else if (wavelength > 449 && wavelength <= 494) {
-            return "Blue";
+            color = "Blue";
         } else if (wavelength > 494 && wavelength <= 569) {
-            return "Green";
+            color = "Green";
         } else if (wavelength > 569 && wavelength <= 589) {
-            return "Yellow";
+            color = "Yellow";
         } else if (wavelength > 589 && wavelength <= 619) {
-            return "Orange";
-        } else if (wavelength > 620 && wavelength <= 750) {
-            return "Red";
+            color = "Orange";
+        } else if (wavelength > 619 && wavelength <= 750) {
+            color = "Red";
         } else {
-            return "Invisible light";
+            color = "Invisible light";
         }
+        return color;
     }
 }

@@ -32,18 +32,17 @@ class LightColorDetector {
 
 class LightColorDetectorTest {
     public static void main(String[] args) {
-        LightColorDetectorTest lightColorDetector = new LightColorDetectorTest();
 
-        lightColorDetector.testViolet(405);
-        lightColorDetector.testBlue(475);
-        lightColorDetector.testGreen(505);
-        lightColorDetector.testYellow(585);
-        lightColorDetector.testOrange(619);
-        lightColorDetector.testRed(620);
-        lightColorDetector.testInvisible(760);
+        testViolet(405);
+        testBlue(475);
+        testGreen(505);
+        testYellow(585);
+        testOrange(619);
+        testRed(620);
+        testInvisible(760);
     }
 
-    String checkColor(int wavelength, String expectedColor) {
+    private static String checkColor(int wavelength, String expectedColor) {
         LightColorDetector lightColorDetector = new LightColorDetector();
         String result = lightColorDetector.detect(wavelength);
         if (result == expectedColor) {
@@ -52,25 +51,25 @@ class LightColorDetectorTest {
             return "LightColorDetector test - " + result + " = FAIL";
         }
     }
-    public void testViolet(int wavelength) {
+    private static void testViolet(int wavelength) {
         System.out.println(checkColor(wavelength, "Violet"));
     }
-    public void testBlue(int wavelength) {
+    private static void testBlue(int wavelength) {
         System.out.println(checkColor(wavelength, "Blue"));
     }
-    public void testGreen(int wavelength) {
+    private static void testGreen(int wavelength) {
         System.out.println(checkColor(wavelength, "Green"));
     }
-    public void testYellow(int wavelength) {
+    private static void testYellow(int wavelength) {
         System.out.println(checkColor(wavelength, "Yellow"));
     }
-    public void testOrange(int wavelength) {
+    private static void testOrange(int wavelength) {
         System.out.println(checkColor(wavelength, "Orange"));
     }
-    public void testRed(int wavelength) {
+    private static void testRed(int wavelength) {
         System.out.println(checkColor(wavelength, "Red"));
     }
-    public void testInvisible(int wavelength) {
+    private static void testInvisible(int wavelength) {
         System.out.println(checkColor(wavelength, "Invisible Light"));
     }
 }

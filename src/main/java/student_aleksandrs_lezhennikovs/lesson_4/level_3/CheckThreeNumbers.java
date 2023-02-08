@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 class CheckThreeNumbers {
     void checkNumber() {
-        Scanner input = new Scanner(System.in);
         System.out.println("Please input three integer numbers:");
+
+        Scanner input = new Scanner(System.in);
         int firstNumber = input.nextInt();
         int secondNumber = input.nextInt();
         int thirdNumber = input.nextInt();

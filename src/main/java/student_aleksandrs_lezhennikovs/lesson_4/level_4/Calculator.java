@@ -18,39 +18,38 @@ class Calculator {
     }
 
     double divide(int firstNumber, int secondNumber) {
-
+        //if (secondNumber == 0) {
+        //    throw new ArithmeticException("Divide by zero not allowed!");
+        //}
         return firstNumber / (double)secondNumber;
     }
 
     boolean isEven(int number) {
-        // if(number % 2 == 0);
-        int result = number % 2;
-        if (result == 0) {
-            return true;
-        } else {
-            return false;
-        }
+
+        return (number % 2 == 0);
     }
 
     int maxOfTwoNumbers (int firstNumber, int secondNumber) {
-        if (firstNumber > secondNumber) {
-            return firstNumber;
+        int result;
+
+        if (firstNumber >= secondNumber) {
+            result = firstNumber;
         } else {
-            return secondNumber;
+            result = secondNumber;
         }
+        return result;
     }
 
     int maxOfThreeNumbers(int firstNumber, int secondNumber, int thirdNumber) {
+        int result;
 
         if (firstNumber >= secondNumber && firstNumber >= thirdNumber) {
-            return firstNumber;
-
+            result = firstNumber;
         } else if (secondNumber >= firstNumber && secondNumber >= thirdNumber) {
-            return secondNumber;
-
+            result = secondNumber;
         } else {
-            return thirdNumber;
+            result = thirdNumber;
         }
-
+        return result;
     }
 }
