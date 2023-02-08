@@ -10,6 +10,9 @@ class CalculatorTest {
         calculatorTest.divTest();
         calculatorTest.evenTest();
         calculatorTest.oddTest();
+        calculatorTest.firstNumberMaxTest();
+        calculatorTest.secondNumberMaxTest();
+        calculatorTest.equalNumbersMaxTest();
     }
 
     void sumTest() {
@@ -85,9 +88,9 @@ class CalculatorTest {
         boolean actualResult = calculator.isEven(number);
 
         if (actualResult == expectedResult) {
-            System.out.println("Even test PASSED");
+            System.out.println("isEven Even case test PASSED");
         } else {
-            System.out.println("Even test FAILED");
+            System.out.println("isEven Even case test FAILED");
         }
     }
 
@@ -100,9 +103,57 @@ class CalculatorTest {
         boolean actualResult = calculator.isEven(number);
 
         if (actualResult == expectedResult) {
-            System.out.println("Odd test PASSED");
+            System.out.println("isEven Odd case test PASSED");
         } else {
-            System.out.println("Odd test FAILED");
+            System.out.println("isEven Odd case test FAILED");
+        }
+    }
+
+    void firstNumberMaxTest() {
+        int firstNumber = 7;
+        int secondNumber = 3;
+        int expectedResult = 7;
+
+        Calculator calculator = new Calculator();
+
+        int actualResult = calculator.maxOfTwoNumbers(firstNumber, secondNumber);
+
+        if (actualResult == expectedResult) {
+            System.out.println("maxOfTwoNumbers first number case test PASSED");
+        } else {
+            System.out.println("maxOfTwoNumbers first number case test FAILED");
+        }
+    }
+
+    void secondNumberMaxTest() {
+        int firstNumber = 2;
+        int secondNumber = 5;
+        int expectedResult = 5;
+
+        Calculator calculator = new Calculator();
+
+        int actualResult = calculator.maxOfTwoNumbers(firstNumber, secondNumber);
+
+        if (actualResult == expectedResult) {
+            System.out.println("maxOfTwoNumbers second number case test PASSED");
+        } else {
+            System.out.println("maxOfTwoNumbers second number case test FAILED");
+        }
+    }
+
+    void equalNumbersMaxTest() {
+        int firstNumber = 4;
+        int secondNumber = 4;
+        int expectedResult = 4;
+
+        Calculator calculator = new Calculator();
+
+        int actualResult = calculator.maxOfTwoNumbers(firstNumber, secondNumber);
+
+        if (actualResult == expectedResult) {
+            System.out.println("maxOfTwoNumbers equal case test PASSED");
+        } else {
+            System.out.println("maxOfTwoNumbers equal case test FAILED");
         }
     }
 
