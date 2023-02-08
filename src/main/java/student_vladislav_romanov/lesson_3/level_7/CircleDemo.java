@@ -1,8 +1,8 @@
-package student_vladislav_romanov.lesson_2.level_3;
+package student_vladislav_romanov.lesson_3.level_7;
 
 import java.util.Scanner;
 
-class Task_10 {
+class CircleDemo {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -10,8 +10,8 @@ class Task_10 {
 
         double radius = scanner.nextDouble();
 
-        System.out.println("Perimeter is = " + (2 * Math.PI * radius));
-        System.out.println("Area is = " + (Math.PI * Math.pow(radius, 2)));
+        Circle circle = new Circle(radius);
+        System.out.println("Circle area is " + circle.calculateArea(circle.getRadius()));
     }
 
 }
