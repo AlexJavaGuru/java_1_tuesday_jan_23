@@ -8,6 +8,8 @@ class CalculatorTest {
         calculatorTest.subTest();
         calculatorTest.mulTest();
         calculatorTest.divTest();
+        calculatorTest.evenTest();
+        calculatorTest.oddTest();
     }
 
     void sumTest() {
@@ -71,6 +73,36 @@ class CalculatorTest {
             System.out.println("Division test PASSED");
         } else {
             System.out.println("Division test FAILED");
+        }
+    }
+
+    void evenTest() {
+        int number = 6;
+        boolean expectedResult = true;
+
+        Calculator calculator = new Calculator();
+
+        boolean actualResult = calculator.isEven(number);
+
+        if (actualResult == expectedResult) {
+            System.out.println("Even test PASSED");
+        } else {
+            System.out.println("Even test FAILED");
+        }
+    }
+
+    void oddTest() {
+        int number = 3;
+        boolean expectedResult = false;
+
+        Calculator calculator = new Calculator();
+
+        boolean actualResult = calculator.isEven(number);
+
+        if (actualResult == expectedResult) {
+            System.out.println("Odd test PASSED");
+        } else {
+            System.out.println("Odd test FAILED");
         }
     }
 
