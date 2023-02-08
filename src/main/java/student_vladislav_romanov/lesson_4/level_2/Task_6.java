@@ -2,7 +2,7 @@ package student_vladislav_romanov.lesson_4.level_2;
 
 import java.util.Scanner;
 
-class Task_5 {
+class Task_6 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -11,7 +11,7 @@ class Task_5 {
         int first = scanner.nextInt();
         int second = scanner.nextInt();
 
-        if (first >= second) {
+        if (first <= second) {
             System.out.println(first);
         } else {
             System.out.println(second);
