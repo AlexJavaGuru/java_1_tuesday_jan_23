@@ -1,6 +1,6 @@
 package student_vladislav_romanov;
 
-public class MathOperations {
+class MathOperations {
 
     public static void main(String[] args) {
         int sumValue1 = 74, sumValue2 = 36, sumResult;
