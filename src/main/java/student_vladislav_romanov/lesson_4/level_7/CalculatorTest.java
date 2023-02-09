@@ -1,51 +1,51 @@
 package student_vladislav_romanov.lesson_4.level_7;
 
 class CalculatorTest {
-    public static void main(String[] args) {
-        Calculator calculator = new Calculator();
-        CalculatorTest calculatorTest = new CalculatorTest();
 
-        calculatorTest.sumTest(calculator);
-        calculatorTest.subTest(calculator);
-        calculatorTest.mulTest(calculator);
-        calculatorTest.divTest(calculator);
-        calculatorTest.isEvenTest1(calculator);
-        calculatorTest.isEvenTest2(calculator);
+    public static Calculator calculator = new Calculator();
+
+    public static void main(String[] args) {
+        sumTest();
+        subTest();
+        mulTest();
+        divTest();
+        isEvenTest1();
+        isEvenTest2();
     }
 
-    public void sumTest(Calculator calculator) {
+    public static void sumTest() {
         int firstNumber = 35;
         int secondNumber = 40;
         printResult(calculator.sum(firstNumber, secondNumber), 75, "Sum");
     }
 
-    public void subTest(Calculator calculator) {
+    public static void subTest() {
         int firstNumber = 35;
         int secondNumber = 15;
         printResult(calculator.sub(firstNumber, secondNumber), 20, "Sub");
     }
 
-    public void mulTest(Calculator calculator) {
+    public static void mulTest() {
         int firstNumber = 5;
         int secondNumber = 5;
         printResult(calculator.mul(firstNumber, secondNumber), 25, "Mul");
     }
 
-    public void divTest(Calculator calculator) {
+    public static void divTest() {
         int firstNumber = 40;
         int secondNumber = 8;
         printResult(calculator.div(firstNumber, secondNumber), 5, "Div");
     }
 
-    public void isEvenTest1(Calculator calculator) {
+    public static void isEvenTest1() {
         printResult(calculator.isEven(40), true, "isEven");
     }
 
-    public void isEvenTest2(Calculator calculator) {
+    public static void isEvenTest2() {
         printResult(calculator.isEven(41), false, "isEven");
     }
 
-    public void printResult(int result, int expected, String test) {
+    public static void printResult(int result, int expected, String test) {
         if (result == expected) {
             System.out.println(test + " test = OK");
         } else {
@@ -53,7 +53,7 @@ class CalculatorTest {
         }
     }
 
-    public void printResult(boolean result, boolean expected, String test) {
+    public static void printResult(boolean result, boolean expected, String test) {
         if (result == expected) {
             System.out.println(test + " test = OK");
         } else {
