@@ -2,7 +2,7 @@ package student_vladislav_romanov.lesson_2.level_senior;
 
 import java.util.Scanner;
 
-public class Super_task_5 {
+class Super_task_5 {
 
     public static void main(String[] args) {
         /*
