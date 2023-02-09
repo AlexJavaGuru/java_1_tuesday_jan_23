@@ -4,7 +4,7 @@ class Product {
 
     String name;
     double regularPrice;
-    double discount10percent;
+    double discount;
 
     Product (String name) {
        this.name = name;
@@ -13,18 +13,18 @@ class Product {
         return regularPrice;
     }
 
-    public double setDiscount10percent() {
-      double discount = (regularPrice / 1.1) * 0.1;
-        return discount;
+    public double setDiscount() {
+      return (regularPrice * (discount/100));
+
     }
     public double getActualPrice() {
-        return regularPrice - setDiscount10percent();
+        return regularPrice - setDiscount();
 
     }
     void printInformation() {
 
          System.out.println("Product title:" + " " + name + " | " + "Regular price: " + " " + regularPrice + " "
-                 + "Euro"+ " | " + "Discount: " + " " + discount10percent + " " + " % " + " | "  + "Actual price: " + " "
+                 + "Euro"+ " | " + "Discount: " + " " + discount + " " + " % " + " | "  + "Actual price: " + " "
                  +  getActualPrice() + " " + "Euro");
 
      }
