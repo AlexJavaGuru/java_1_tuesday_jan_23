@@ -12,7 +12,6 @@ class DifferentTasks {
     }
 
 }
-
 class TestingClassDifferentTask {
     static int a;
 
