@@ -9,10 +9,17 @@ class CalculatorTest {
         calculatorTest.mulTest();
         calculatorTest.divisionTest();
         calculatorTest.isEvenTest();
-        calculatorTest.maxTest();
-        calculatorTest.maxNumberTest();
-        calculatorTest.numbersTest();
-        calculatorTest. threeNumbers();
+        calculatorTest.twoNumbersTest1();
+        calculatorTest.twoNumbersTest2();
+        calculatorTest.twoNumbersTest3();
+        calculatorTest. threeNumbers1();
+        calculatorTest. threeNumbers2();
+        calculatorTest. threeNumbers3();
+        calculatorTest. threeNumbers4();
+        calculatorTest. threeNumbers5();
+        calculatorTest. threeNumbers6();
+        calculatorTest. threeNumbers7();
+
     }
 
     public void sumTest() {
@@ -81,7 +88,7 @@ class CalculatorTest {
          }
     }
 
-    public void maxTest() {
+    public void twoNumbersTest1() {
         int a = 6;
         int b = 5;
         int expectedResult = 6;
@@ -93,7 +100,7 @@ class CalculatorTest {
             System.out.println("maxOfTwoNumbers = FAIL");
         }
     }
-    public void maxNumberTest() {
+    public void twoNumbersTest2() {
         int a = 5;
         int b = 6;
         int expectedResult = 6;
@@ -105,7 +112,7 @@ class CalculatorTest {
             System.out.println("maxOfTwoNumbers = FAIL");
         }
     }
-    public void numbersTest() {
+    public void twoNumbersTest3() {
         int a = 6;
         int b = 6;
         int expectedResult = 6;
@@ -118,7 +125,7 @@ class CalculatorTest {
         }
     }
 
-    public void threeNumbers() {
+    public void threeNumbers1() {
         int a = 6;
         int b = 5;
         int c = 4;
@@ -131,5 +138,87 @@ class CalculatorTest {
             System.out.println("maxOfThreeNumbers = FAIL");
         }
     }
+    public void threeNumbers2() {
+        int a = 5;
+        int b = 6;
+        int c = 4;
+        int expectedResult = 6;
+        Calculator calculator = new Calculator();
+        int realResult = calculator.maxOfThreeNumbers(a, b, c);
+        if (expectedResult == realResult) {
+            System.out.println("maxOfThreeNumbers = OK");
+        } else {
+            System.out.println("maxOfThreeNumbers = FAIL");
+        }
+    }
+
+    public void threeNumbers3() {
+        int a = 4;
+        int b = 5;
+        int c = 6;
+        int expectedResult = 6;
+        Calculator calculator = new Calculator();
+        int realResult = calculator.maxOfThreeNumbers(a, b, c);
+        if (expectedResult == realResult) {
+            System.out.println("maxOfThreeNumbers = OK");
+        } else {
+            System.out.println("maxOfThreeNumbers = FAIL");
+        }
+    }
+
+    public void threeNumbers4() {
+        int a = 6;
+        int b = 6;
+        int c = 4;
+        int expectedResult = 6;
+        Calculator calculator = new Calculator();
+        int realResult = calculator.maxOfThreeNumbers(a, b, c);
+        if (expectedResult == realResult) {
+            System.out.println("maxOfThreeNumbers = OK");
+        } else {
+            System.out.println("maxOfThreeNumbers = FAIL");
+        }
+    }
+
+    public void threeNumbers5() {
+        int a = 4;
+        int b = 6;
+        int c = 6;
+        int expectedResult = 6;
+        Calculator calculator = new Calculator();
+        int realResult = calculator.maxOfThreeNumbers(a, b, c);
+        if (expectedResult == realResult) {
+            System.out.println("maxOfThreeNumbers = OK");
+        } else {
+            System.out.println("maxOfThreeNumbers = FAIL");
+        }
+    }
+    public void threeNumbers6() {
+        int a = 6;
+        int b = 4;
+        int c = 6;
+        int expectedResult = 6;
+        Calculator calculator = new Calculator();
+        int realResult = calculator.maxOfThreeNumbers(a, b, c);
+        if (expectedResult == realResult) {
+            System.out.println("maxOfThreeNumbers = OK");
+        } else {
+            System.out.println("maxOfThreeNumbers = FAIL");
+        }
+    }
+    public void threeNumbers7() {
+        int a = 6;
+        int b = 6;
+        int c = 6;
+        int expectedResult = 6;
+        Calculator calculator = new Calculator();
+        int realResult = calculator.maxOfThreeNumbers(a, b, c);
+        if (expectedResult == realResult) {
+            System.out.println("maxOfThreeNumbers = OK");
+        } else {
+            System.out.println("maxOfThreeNumbers = FAIL");
+        }
+    }
+
 }
 

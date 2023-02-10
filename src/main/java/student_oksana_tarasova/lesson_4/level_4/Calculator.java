@@ -48,7 +48,7 @@ class Calculator {
         } else if (a <= c && b < c)
         {
             return c;
-        } else if (a == b && b == c)
+        } else
         {
            return a;
         }
