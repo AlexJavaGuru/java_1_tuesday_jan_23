@@ -20,7 +20,5 @@ class GreatNumbers {
         } else {
             System.out.println(var1);
         }
-
-
     }
 }

@@ -48,7 +48,6 @@ class CalculatorTest {
         }
     }
 
-
     public void mulTest() {
         int a = 10;
         int b = 5;
@@ -73,12 +72,11 @@ class CalculatorTest {
         } else {
             System.out.println("Division test = FAIL");
         }
-
     }
 
     public void isEvenTest() {
-        int a = 6;
-        boolean expectedResult = true;
+        int a = 7;
+        boolean expectedResult = false;
         Calculator calculator = new Calculator();
         boolean realResult = calculator.isEven(a);
          if (expectedResult == realResult) {
@@ -219,6 +217,5 @@ class CalculatorTest {
             System.out.println("maxOfThreeNumbers = FAIL");
         }
     }
-
 }
 

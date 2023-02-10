@@ -16,6 +16,5 @@ class EqualsOrDifferent {
         } else {
             System.out.println("Numbers are different");
         }
-
     }
 }

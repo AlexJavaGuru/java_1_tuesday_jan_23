@@ -18,6 +18,5 @@ class NumberSeries {
         } else {
             System.out.println("Neither increasing or decreasing order" );
         }
-
     }
 }

@@ -2,14 +2,11 @@ package student_oksana_tarasova.lesson_4.level_4;
 
 class Calculator {
 
-
     public int sum(int a, int b) {
-
         return a + b;
     }
 
     public int difference(int a, int b) {
-
         return a - b;
     }
 
@@ -18,7 +15,6 @@ class Calculator {
     }
 
     public int division(int a, int b) {
-
         return a / b;
     }
 
@@ -39,17 +35,13 @@ class Calculator {
     }
 
     public int maxOfThreeNumbers(int a, int b, int c) {
-        if (a >= b && a > c)
-        {
+        if (a >= b && a > c) {
             return a;
-        } else if (a < b && b >= c)
-        {
+        } else if (a < b && b >= c) {
             return b;
-        } else if (a <= c && b < c)
-        {
+        } else if (a <= c && b < c) {
             return c;
-        } else
-        {
+        } else {
            return a;
         }
     }

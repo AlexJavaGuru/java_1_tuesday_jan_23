@@ -3,6 +3,7 @@ package student_oksana_tarasova.lesson_4.level_1;
 import java.util.Scanner;
 
 class DayOfTheWeek {
+
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
@@ -30,8 +31,6 @@ class DayOfTheWeek {
                 break;
             default:
                 System.out.println("Sunday");
-
         }
-
     }
 }

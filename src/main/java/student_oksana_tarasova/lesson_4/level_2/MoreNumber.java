@@ -10,14 +10,10 @@ class MoreNumber {
         int val1 = num.nextInt();
         int val2 = num.nextInt();
 
-        if (val1 >= val2)
-        {
+        if (val1 >= val2) {
             System.out.println(val1);
-
-        } else
-        {
+        } else {
             System.out.println(val2);
         }
     }
-
 }

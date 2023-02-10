@@ -17,6 +17,5 @@ import java.util.Scanner;
          } else {
              System.out.println("Neither all are equal or different" );
          }
-
      }
 }
