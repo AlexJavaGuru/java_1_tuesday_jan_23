@@ -17,7 +17,7 @@ class GreatNumbers {
             System.out.println(var2);
         } else if (var1 <= var3 && var2 < var3){
             System.out.println(var3);
-        } else if (var1 == var2 && var2 == var3) {
+        } else {
             System.out.println(var1);
         }
 
