@@ -1,17 +1,4 @@
 package student_natalija_rasponomarjova.lesson_4.level_4;
-/*Добавьте в класс Calculator метод для определения максимального из двух целых чисел.
-Добавьте в класс CalculatorTest тесты для этого метода.
-Тесты должны покрывать следующие тестовые сценарии:
-- первое число больше второго
-- второе число больше первого
-- оба числа равны
-Создайте по одному тесту на каждый из сценариев!
-Подсказка:
-class Calculator {
-    public int maxOfTwoNumbers(int firstNumber, int secondNumber) {
-        // реализуйте этот метод
-    }
-}*/
 class Calculator {
     public int sum(int number1, int number2) {
         return number1 + number2;
@@ -38,10 +25,17 @@ class Calculator {
     }
 
     public int maxOfTwoNumbers(int number1, int number2) {
-
         if (number1 > number2) {
+            return number1;
+        } else {
+            return number2;
         }
-        return number1;
     }
-
-}
+    public int maxOfThreeNumbers(int number1, int number2, int number3) {
+        if (number1 > number2) {
+            return (Math.max(number1, number3));
+        } else {
+            return (Math.max(number2, number3));
+        }
+        }
+    }
