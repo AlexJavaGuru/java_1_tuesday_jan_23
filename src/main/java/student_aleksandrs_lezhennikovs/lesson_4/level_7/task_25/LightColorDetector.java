@@ -1,12 +1,5 @@
 package student_aleksandrs_lezhennikovs.lesson_4.level_7.task_25;
 
-/*
-        Инстанция класса LightColorDetector не имеет состояния,
-        она stateless. Найдите в интернете, что такое stateless класс
-        в программировании. Найдите способ использовать одну
-        инстанцию класса LightColorDetector для всех тестов.
-*/
-
 class LightColorDetector {
 
     public String detect(int wavelength) {
@@ -45,7 +38,7 @@ class LightColorDetectorTest {
     private static String checkColor(int wavelength, String expectedColor) {
         LightColorDetector lightColorDetector = new LightColorDetector();
         String result = lightColorDetector.detect(wavelength);
-        if (result == expectedColor) {
+        if (result.equals(expectedColor)) {
             return "LightColorDetector test - " + result + " = OK";
         } else {
             return "LightColorDetector test - " + result + " = FAIL";

@@ -18,9 +18,7 @@ class Calculator {
     }
 
     double divide(int firstNumber, int secondNumber) {
-        //if (secondNumber == 0) {
-        //    throw new ArithmeticException("Divide by zero not allowed!");
-        //}
+
         return firstNumber / (double)secondNumber;
     }
 
