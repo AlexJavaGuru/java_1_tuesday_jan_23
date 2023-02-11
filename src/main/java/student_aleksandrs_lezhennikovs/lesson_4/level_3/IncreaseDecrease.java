@@ -1,23 +1,17 @@
 package student_aleksandrs_lezhennikovs.lesson_4.level_3;
 
-import java.util.Scanner;
-
 class IncreaseDecrease {
 
-    void checkNumber() {
-        System.out.println("Please input three integer numbers:");
-
-        Scanner input = new Scanner(System.in);
-        int firstNumber = input.nextInt();
-        int secondNumber = input.nextInt();
-        int thirdNumber = input.nextInt();
+    String checkNumber(int firstNumber, int secondNumber, int thirdNumber) {
+        String result;
 
         if (firstNumber > secondNumber && secondNumber > thirdNumber) {
-            System.out.println("Decreasing");
+            result = "Decreasing";
         } else if (firstNumber < secondNumber && secondNumber < thirdNumber) {
-            System.out.println("Increasing");
+            result = "Increasing";
         } else {
-            System.out.println("Neither increasing or decreasing order");
+            result = "Neither increasing or decreasing order";
         }
+        return result;
     }
 }

@@ -22,11 +22,8 @@ class Stock {
 
         if (actualPrice > maximumPrice) {
             maximumPrice = actualPrice;
-        }
-
-        if (actualPrice < minimumPrice) {
+        } else if (actualPrice < minimumPrice) {
             minimumPrice = actualPrice;
         }
-
     }
 }

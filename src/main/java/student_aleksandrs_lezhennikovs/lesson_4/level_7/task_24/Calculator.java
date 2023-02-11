@@ -16,8 +16,8 @@ class Calculator {
         return firstNumber * secondNumber;
     }
 
-    public int div(int firstNumber, int secondNumber) {
-        return firstNumber / secondNumber;
+    public double div(int firstNumber, int secondNumber) {
+        return firstNumber / (double)secondNumber;
     }
 
     public boolean isEven(int number) {
@@ -55,6 +55,15 @@ class CalculatorTest {
         }
     }
 
+    private static String checks(double result, double expectedResult) {
+
+        if (result == expectedResult) {
+            return " test = OK";
+        } else {
+            return " test = FAIL";
+        }
+    }
+
     private static void sumTest() {
         int firstNumber = 35;
         int secondNumber = 40;
@@ -85,9 +94,9 @@ class CalculatorTest {
     private static void divTest() {
         int firstNumber = 40;
         int secondNumber = 8;
-        int expectedResult = 5;
+        double expectedResult = 5.0;
         Calculator calculator = new Calculator();
-        int result = calculator.div(firstNumber, secondNumber);
+        double result = calculator.div(firstNumber, secondNumber);
         System.out.println("Dividing" + checks(result, expectedResult));
     }
 
