@@ -1,0 +1,32 @@
+package student_oksana_maksimova.lesson_3.level_7;
+
+    class Product {
+
+        String name;
+        double regularPrice;
+        double discount;
+
+        protected Product(String name) {
+
+            this.name = name;
+
+            this.regularPrice = 3.5;
+
+            this.discount = 50.0;
+        }
+
+        double actualPrice() {
+            double disc = regularPrice * discount / 100;
+            double actPr = regularPrice - disc;
+            return actPr;
+        }
+
+        void printInformation() {
+
+            System.out.println("Product " + name + " regular price: " + regularPrice + "eur");
+            System.out.println("discount  -" + discount + "%");
+            System.out.println("Actual price - " + actualPrice() + " eur");
+
+
+        }
+    }
