@@ -1,4 +1,5 @@
 package student_natalija_rasponomarjova.lesson_4.level_4;
+
 class Calculator {
     public int sum(int number1, int number2) {
         return number1 + number2;
@@ -31,11 +32,12 @@ class Calculator {
             return number2;
         }
     }
+
     public int maxOfThreeNumbers(int number1, int number2, int number3) {
         if (number1 > number2) {
             return (Math.max(number1, number3));
         } else {
             return (Math.max(number2, number3));
         }
-        }
     }
+}

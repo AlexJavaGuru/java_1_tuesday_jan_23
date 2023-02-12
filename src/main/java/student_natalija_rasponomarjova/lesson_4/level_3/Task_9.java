@@ -10,14 +10,13 @@ class Task_9 {
         int number2 = scanner.nextInt();
         int number3 = scanner.nextInt();
 
-        if(number1 < number2 && number2 < number3) {
+        if (number1 < number2 && number2 < number3) {
             System.out.println("Increasing order");
         }
 
-        if(number1 > number2 && number2 > number3) {
+        if (number1 > number2 && number2 > number3) {
             System.out.println("Decreasing order");
-        }
-        else {
+        } else {
             System.out.println("Neither increasing or decreasing order");
         }
     }

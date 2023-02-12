@@ -9,9 +9,5 @@ class LightColorDetectorTest {
         System.out.println(colorDetector.checkWaveLength(600, "Violet"));
 
 
-
-
-
-
     }
 }

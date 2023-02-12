@@ -1,4 +1,5 @@
 package student_natalija_rasponomarjova.lesson_4.level_1;
+
 import java.util.Scanner;
 
 class Task_3 {

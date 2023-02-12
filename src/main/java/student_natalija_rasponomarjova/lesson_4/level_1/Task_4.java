@@ -7,10 +7,9 @@ class Task_4 {
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
 
-        if (number %2 == 0) {
+        if (number % 2 == 0) {
             System.out.println("The number is even");
-        }
-        else {
+        } else {
             System.out.println("the number is odd");
         }
     }

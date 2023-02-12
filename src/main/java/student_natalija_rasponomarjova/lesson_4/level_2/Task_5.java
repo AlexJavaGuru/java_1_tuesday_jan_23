@@ -1,5 +1,7 @@
 package student_natalija_rasponomarjova.lesson_4.level_2;
+
 import java.util.Scanner;
+
 class Task_5 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -8,8 +10,7 @@ class Task_5 {
 
         if (number1 > number2) {
             System.out.println(number1);
-        }
-        else {
+        } else {
             System.out.println(number2);
         }
     }
