@@ -6,20 +6,20 @@ public class Robot {
     private int age;
 
 
-
-      public Robot(String robotName){
+    public Robot(String robotName) {
 
         this.name = robotName;
         this.age = age;
 
     }
-      public void Robot1() {
-            System.out.println("Rider");
+
+    public void Robot1() {
+        System.out.println("Rider");
 
 
-        }
+    }
 
-        public void robotName(){
+    public void robotName() {
         System.out.println("Piter");
 
     }
@@ -28,7 +28,7 @@ public class Robot {
         System.out.println("John");
     }
 
-    public void sayHello(){
+    public void sayHello() {
         System.out.println("Hello!");
 
     }
@@ -43,20 +43,20 @@ public class Robot {
         System.out.println("Hello");
 
 
-
     }
 
 
-      public String getName() {
-          return name;
+    public String getName() {
+        return name;
 
     }
-    public void sayYourName () {
+
+    public void sayYourName() {
         System.out.println("My name is " + name);
 
 
-        }
     }
+}
 
 
 
