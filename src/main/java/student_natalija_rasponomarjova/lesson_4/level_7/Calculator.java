@@ -1,19 +1,7 @@
 package student_natalija_rasponomarjova.lesson_4.level_7;
 
-/*Дан класс Calculator и его тест CalculatorTest.
-Найдите способ упростить тесты в CalculatorTest.
-
-Тесты тоже должны быть написаны как можно лучше и качественнее!
-Дублирование кода - это почти всегда плохая идея в программировании.
-Поэтому от дублирования кода нужно избавляться.
-
-Подсказка: вынесите в отдельный метод проверку
-результата и замените её вызовом метода в каждом тесте.*/
 
 class Calculator {
-
-    //public int getResult(int firstNumber, int secondNumber) {
-    //  return result;}
 
     public int sum(int firstNumber, int secondNumber) {
         return firstNumber + secondNumber;
@@ -47,16 +35,21 @@ class CalculatorTest {
         calculatorTest.isEvenTest2();
     }
 
+    private void checkResults(boolean condition, String testName) {
+        if (condition) {
+            System.out.println(testName + " = TEST OK");
+        } else {
+            System.out.println(testName + " = TEST FAILED");
+        }
+    }
+
     public void sumTest() {
         int firstNumber = 35;
         int secondNumber = 40;
         Calculator calculator = new Calculator();
         int result = calculator.sum(firstNumber, secondNumber);
-        if (result == 75) {
-            System.out.println("Sum test = OK");
-        } else {
-            System.out.println("Sum test = FAIL");
-        }
+
+        checkResults(result == 75, "Sum");
     }
 
     public void subTest() {
@@ -64,11 +57,8 @@ class CalculatorTest {
         int secondNumber = 15;
         Calculator calculator = new Calculator();
         int result = calculator.sub(firstNumber, secondNumber);
-        if (result == 20) {
-            System.out.println("Sub test = OK");
-        } else {
-            System.out.println("Sub test = FAIL");
-        }
+
+        checkResults(result == 20, "Subtraction");
     }
 
     public void mulTest() {
@@ -76,11 +66,8 @@ class CalculatorTest {
         int secondNumber = 5;
         Calculator calculator = new Calculator();
         int result = calculator.mul(firstNumber, secondNumber);
-        if (result == 25) {
-            System.out.println("Mul test = OK");
-        } else {
-            System.out.println("Mul test = FAIL");
-        }
+
+        checkResults(result == 25, "Multiplication");
     }
 
     public void divTest() {
@@ -88,31 +75,21 @@ class CalculatorTest {
         int secondNumber = 8;
         Calculator calculator = new Calculator();
         int result = calculator.div(firstNumber, secondNumber);
-        if (result == 5) {
-            System.out.println("Div test = OK");
-        } else {
-            System.out.println("Div test = FAIL");
-        }
+
+        checkResults(result == 5, "Division");
     }
 
     public void isEvenTest1() {
         Calculator calculator = new Calculator();
         boolean result = calculator.isEven(40);
-        if (result) {
-            System.out.println("isEven test = OK");
-        } else {
-            System.out.println("isEven test = FAIL");
-        }
+
+        checkResults(result, "isEven");
     }
 
     public void isEvenTest2() {
         Calculator calculator = new Calculator();
         boolean result = calculator.isEven(41);
-        if (result == false) {
-            System.out.println("isEven test = OK");
-        } else {
-            System.out.println("isEven test = FAIL");
-        }
+        checkResults(!result, "isOdd");
     }
 }
 

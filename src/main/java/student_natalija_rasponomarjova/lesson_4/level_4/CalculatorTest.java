@@ -3,6 +3,7 @@ package student_natalija_rasponomarjova.lesson_4.level_4;
 class CalculatorTest {
 
     public static void main(String[] args) {
+
         CalculatorTest calculatorTest = new CalculatorTest();
         calculatorTest.sumTest();
         calculatorTest.subtractionTest();
@@ -10,32 +11,23 @@ class CalculatorTest {
         calculatorTest.divisionTest();
         calculatorTest.evenNumberTest();
         calculatorTest.oddNumberTest();
-        calculatorTest.number1BiggerTest();
-        calculatorTest.number2BiggerTest();
+        calculatorTest.number1MaxTest();
+        calculatorTest.number2MaxTest();
         calculatorTest.numberEqualityTest();
-        calculatorTest.number1BiggestFrom3Test();
-        calculatorTest.number2BiggestFrom3Test();
-        calculatorTest.number3BiggestFrom3Test();
+        calculatorTest.number1MaxFrom3Test();
+        calculatorTest.number2MaxFrom3Test();
+        calculatorTest.number3MaxFrom3Test();
         calculatorTest.number1and2EqualBiggerThan3Test();
         calculatorTest.allNumbersAreEqualTest();
         calculatorTest.number2and3EqualBiggerThan1Test();
 
     }
 
-    public void testResult(int expectedResult, int realResult, String testName) {
-        if (expectedResult == realResult) {
-            System.out.println("Test: " + testName + " OK");
+    private void checkResults(boolean condition, String testName) {
+        if (condition) {
+            System.out.println(testName + " = TEST OK");
         } else {
-            System.out.println("Test: " + testName + " failed");
-            System.out.println("Expected: " + expectedResult + ", but actual: " + realResult);
-        }
-    }
-
-    public void testResult(boolean realResult, String testName) {
-        if (realResult) {
-            System.out.println("Test: " + testName + " is OK");
-        } else {
-            System.out.println("Test: " + testName + " FAILED");
+            System.out.println(testName + " = TEST FAILED");
         }
     }
 
@@ -43,40 +35,36 @@ class CalculatorTest {
         Calculator calculator = new Calculator();
         int number1 = 20;
         int number2 = 5;
-        int expectedResult = 25;
         int realResult = calculator.sum(number1, number2);
 
-        testResult(expectedResult, realResult, "Sum");
+        checkResults(realResult == 25, "Sum");
     }
 
     public void subtractionTest() {
         int number1 = 20;
         int number2 = 5;
-        int expectedResult = 15;
         Calculator calculator = new Calculator();
         int realResult = calculator.subtraction(number1, number2);
 
-        testResult(expectedResult, realResult, "Subtraction");
+        checkResults(realResult == 15, "Subtraction");
     }
 
     public void multiplicationTest() {
         int number1 = 3;
         int number2 = 10;
-        int expectedResult = 30;
         Calculator calculator = new Calculator();
         int realResult = calculator.multiplication(number1, number2);
 
-        testResult(expectedResult, realResult, "Multiplication");
+        checkResults(realResult == 30, "Multiplication");
     }
 
     public void divisionTest() {
         int number1 = 30;
         int number2 = 3;
-        int expectedResult = 10;
         Calculator calculator = new Calculator();
         int realResult = calculator.division(number1, number2);
 
-        testResult(expectedResult, realResult, "Division");
+        checkResults(realResult == 10, "Division");
     }
 
     public void evenNumberTest() {
@@ -84,7 +72,7 @@ class CalculatorTest {
         Calculator calculator = new Calculator();
         boolean realResult = calculator.isEven(number);
 
-        testResult(realResult, "IsEven");
+        checkResults(realResult, "Number is Even");
     }
 
     public void oddNumberTest() {
@@ -92,108 +80,100 @@ class CalculatorTest {
         Calculator calculator = new Calculator();
         boolean realResult = calculator.isEven(number);
 
-        testResult(!realResult, "IsOdd");
+        checkResults(!realResult, "Number is Odd");
     }
 
-    public void number1BiggerTest() {
+    public void number1MaxTest() {
         int number1 = 18;
         int number2 = 8;
-        int realResult = 18;
         Calculator calculator = new Calculator();
-        int expectedResult = calculator.maxOfTwoNumbers(number1, number2);
+        int realResult = calculator.maxOfTwoNumbers(number1, number2);
 
-        testResult(expectedResult, realResult, "Number 1 is the biggest -");
-
+        checkResults(realResult == 18, "Number 1 is maximal");
     }
 
-    public void number2BiggerTest() {
-        int number1 = 8;
+    public void number2MaxTest() {
+        int number1 = 88;
         int number2 = 888;
-        int realResult = 888;
         Calculator calculator = new Calculator();
-        int expectedResult = calculator.maxOfTwoNumbers(number1, number2);
+        int realResult = calculator.maxOfTwoNumbers(number1, number2);
 
-        testResult(expectedResult, realResult, "Number 2 is the biggest -");
+        checkResults(realResult == 888, "Number 2 is maximal");
     }
 
     public void numberEqualityTest() {
-        int number1 = 10;
-        int number2 = 10;
-        int realResult = 10;
+        int number1 = 100;
+        int number2 = 100;
         Calculator calculator = new Calculator();
-        int expectedResult = calculator.maxOfTwoNumbers(number1, number2);
+        int realResult = calculator.maxOfTwoNumbers(number1, number2);
 
-        testResult(expectedResult, realResult, "Numbers are equal -");
+        checkResults(number1 == number2, "2 Numbers are equal");
 
     }
 
-    public void number1BiggestFrom3Test() {
+    public void number1MaxFrom3Test() {
         int number1 = 80;
         int number2 = 70;
         int number3 = 30;
-        int realResult = 80;
         Calculator calculator = new Calculator();
-        int expectedResult = calculator.maxOfThreeNumbers(number1, number2, number3);
+        int realResult = calculator.maxOfThreeNumbers(number1, number2, number3);
 
-        testResult(expectedResult, realResult, "Number 1 is the biggest -");
+        checkResults(realResult == number1, "Number 1 is maximal");
     }
 
-    public void number2BiggestFrom3Test() {
+    public void number2MaxFrom3Test() {
         int number1 = 80;
         int number2 = 170;
         int number3 = 30;
-        int realResult = 170;
         Calculator calculator = new Calculator();
-        int expectedResult = calculator.maxOfThreeNumbers(number1, number2, number3);
+        int realResult = calculator.maxOfThreeNumbers(number1, number2, number3);
 
-        testResult(expectedResult, realResult, "Number 2 is the biggest -");
+        checkResults(realResult == number2, "Number 2 is maximal");
 
     }
 
-    public void number3BiggestFrom3Test() {
+    public void number3MaxFrom3Test() {
         int number1 = 80;
         int number2 = 170;
         int number3 = 300;
-        int realResult = 300;
         Calculator calculator = new Calculator();
-        int expectedResult = calculator.maxOfThreeNumbers(number1, number2, number3);
+        int realResult = calculator.maxOfThreeNumbers(number1, number2, number3);
 
-        testResult(expectedResult, realResult, "Number 3 is the biggest -");
+        checkResults(realResult == number3, "Number 3 is maximal");
     }
 
     public void number1and2EqualBiggerThan3Test() {
-        int number1 = 30;
-        int number2 = 30;
-        int number3 = 15;
-        int realResult = 30;
+        int number1 = 50;
+        int number2 = 50;
+        int number3 = 10;
         Calculator calculator = new Calculator();
-        int expectedResult = calculator.maxOfThreeNumbers(number1, number2, number3);
+        int realResult = calculator.maxOfThreeNumbers(number1, number2, number3);
 
-        testResult(expectedResult, realResult, "Number 1 and 2 are equal and bigger than number 3 -");
+        checkResults(number1 == number2 && number1 > number3 && number2 > number3,
+                "Number 1 and 2 are equal and bigger than number 3");
     }
 
     public void allNumbersAreEqualTest() {
-        int number1 = 80;
-        int number2 = 80;
-        int number3 = 80;
-        int realResult = 80;
+        int number1 = 50;
+        int number2 = 50;
+        int number3 = 50;
         Calculator calculator = new Calculator();
-        int expectedResult = calculator.maxOfThreeNumbers(number1, number2, number3);
+        int realResult = calculator.maxOfThreeNumbers(number1, number2, number3);
 
-        testResult(expectedResult, realResult, "3 numbers are equal -");
+        checkResults(number1 == number2 && number2 == number3, "Numbers are equal");
     }
 
     public void number2and3EqualBiggerThan1Test() {
         int number1 = 30;
-        int number2 = 80;
-        int number3 = 80;
-        int realResult = 80;
+        int number2 = 90;
+        int number3 = 90;
         Calculator calculator = new Calculator();
-        int expectedResult = calculator.maxOfThreeNumbers(number1, number2, number3);
+        int realResult = calculator.maxOfThreeNumbers(number1, number2, number3);
 
-            testResult(expectedResult, realResult, "Number 2 and 3 are equal and bigger than number 1 -");
-        }
+        checkResults(number2 == number3 && realResult > number1,
+                "Number 2 and 3 are equal and bigger than number 1");
     }
+}
 
 
 

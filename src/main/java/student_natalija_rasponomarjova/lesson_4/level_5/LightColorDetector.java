@@ -19,18 +19,8 @@ class LightColorDetector {
             return "Invisible light";
         }
     }
-
-    public String checkWaveLength(int waveLength, String expectedColor) {
-        LightColorDetector lightColorDetector = new LightColorDetector();
-
-        String realColor = lightColorDetector.detectColor(waveLength);
-
-        if (realColor.equals(expectedColor)) {
-        }
-        return waveLength + " : " + "Test is OK";
-    }
-
 }
+
 
 
 
