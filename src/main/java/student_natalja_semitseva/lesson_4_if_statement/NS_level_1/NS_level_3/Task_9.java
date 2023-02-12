@@ -15,7 +15,7 @@ public class Task_9 {
         if (firstNumber <= secondNumber && secondNumber <= thirdNumber) {
             System.out.println(" Number " + firstNumber + " increasing");
 
-        } else if (firstNumber >= secondNumber && secondNumber >= thirdNumber){
+        } else if (firstNumber >= secondNumber && secondNumber >= thirdNumber) {
             System.out.println(" Number " + firstNumber + " decreasing");
 
         } else {

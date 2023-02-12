@@ -12,12 +12,12 @@ public class Task_7 {
         int firstNumber = scanner.nextInt();
         int secondNumber = scanner.nextInt();
 
-        if (firstNumber == secondNumber){
+        if (firstNumber == secondNumber) {
             System.out.println(firstNumber);
             System.out.println("Numbers are equals");
             return;
 
-        } else if (secondNumber != firstNumber );
+        } else if (secondNumber != firstNumber) ;
         System.out.println(secondNumber);
         System.out.println("Numbers are different");
         return;

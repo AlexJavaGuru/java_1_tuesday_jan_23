@@ -9,10 +9,10 @@ public class Task_5 {
         int firstNumber = scanner.nextInt();
         int secondNumber = scanner.nextInt();
 
-        if (firstNumber >= secondNumber){
-                 System.out.println(firstNumber);
+        if (firstNumber >= secondNumber) {
+            System.out.println(firstNumber);
 
-      } else  if (firstNumber <= secondNumber ) {
+        } else if (firstNumber <= secondNumber) {
             System.out.println(secondNumber);
 
         }
