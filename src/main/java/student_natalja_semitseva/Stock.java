@@ -1,44 +1,50 @@
 package student_natalja_semitseva;
 
-public class Stock {
+class Stock {
 
 
-        String nameCompany;
-        int currentValue;
-        int minValue;
-        int maxValue;
+    String nameCompany;
+    int currentValue;
+    int minValue;
+    int maxValue;
 
-       Stock(String nameCompany, int currentValue) {
-           this.nameCompany = nameCompany;
-           this.currentValue = currentValue;
-           this.minValue =  currentValue;
-           this.maxValue = currentValue;
+    Stock(String nameCompany, int currentValue) {
+        this.nameCompany = nameCompany;
+        this.currentValue = currentValue;
+        this.minValue = currentValue;
+        this.maxValue = currentValue;
 
 
     }
 
     public void updatePrice(int newPrice) {
-           currentValue = newPrice;
-           if (newPrice > maxValue) {
-           maxValue = newPrice;
+        currentValue = newPrice;
+        if (newPrice > maxValue) {
+            maxValue = newPrice;
 
-           }else if (newPrice < maxValue) {
-               minValue = newPrice;
-           }
+        } else if (newPrice < maxValue) {
+            minValue = newPrice;
+        }
     }
+
     void getPriceInformation() {
-        System.out.println("Company: " + nameCompany);
-        System.out.println("Current price: " + currentValue);
-        System.out.println("Minimal price: " + minValue);
-        System.out.println(" Maximum price: " + maxValue);
+
+        System.out.print("\nCompany = " + nameCompany + ",  ");
+        System.out.print("Current Price = " + currentValue + "  ");
+        System.out.print("Min Price = " + minValue + "  ");
+        System.out.print("Max Price =  " + maxValue + "  ");
+
     }
+
     int getCurrentValue() {
-           return currentValue;
+        return currentValue;
     }
+
     int getMinValue() {
-           return minValue;
+        return minValue;
     }
-    int getMaxValue () {
-           return maxValue;
+
+    int getMaxValue() {
+        return maxValue;
     }
 }

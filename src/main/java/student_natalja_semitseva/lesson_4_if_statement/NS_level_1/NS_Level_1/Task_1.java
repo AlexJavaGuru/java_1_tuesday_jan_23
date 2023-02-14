@@ -2,7 +2,7 @@ package student_natalja_semitseva.lesson_4_if_statement.NS_level_1.NS_Level_1;
 
 import java.util.Scanner;
 
-public class Task_1 {
+class Task_1 {
     public static void main(String[] args) {
 
 
@@ -19,7 +19,6 @@ public class Task_1 {
             System.out.println("negative");
 
 
-
-      }
+        }
     }
 }

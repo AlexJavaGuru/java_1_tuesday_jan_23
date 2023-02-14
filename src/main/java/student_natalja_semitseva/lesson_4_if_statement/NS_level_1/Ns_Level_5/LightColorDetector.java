@@ -1,13 +1,13 @@
 package student_natalja_semitseva.lesson_4_if_statement.NS_level_1.Ns_Level_5;
 
-public class LightColorDetector {
+class LightColorDetector {
 
     public LightColorDetector() {
 
     }
 
 
-    public String detect(int  wavelength ) {
+    public String detect(int wavelength) {
         if (wavelength >= 380 && wavelength <= 449) {
             return "Violet";
         } else if (wavelength > 449 && wavelength <= 494) {
@@ -24,7 +24,6 @@ public class LightColorDetector {
             return "Invisible Light";
         }
     }
-
 
 
 }

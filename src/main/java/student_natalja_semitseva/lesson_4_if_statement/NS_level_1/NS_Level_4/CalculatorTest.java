@@ -1,7 +1,7 @@
 package student_natalja_semitseva.lesson_4_if_statement.NS_level_1.NS_Level_4;
 
 
-public class CalculatorTest {
+class CalculatorTest {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
         testCalculatorSumTest();

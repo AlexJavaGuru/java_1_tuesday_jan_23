@@ -2,7 +2,7 @@ package student_natalja_semitseva.lesson_4_if_statement.NS_level_1.NS_Level_1;
 
 import java.util.Scanner;
 
-public class Task_3 {
+class Task_3 {
     public static void main(String[] args) {
         System.out.println("1 - Monday");
         System.out.println("2 - Tuesday");

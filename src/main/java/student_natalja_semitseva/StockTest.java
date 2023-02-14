@@ -1,26 +1,25 @@
 package student_natalja_semitseva;
 
-public class StockTest {
-        public static void main(String[] args) {
+class StockTest {
+    public static void main(String[] args) {
         StockTest test = new StockTest();
-       test.testCurrantValue();
-       test.testMaxValue();
-       test.testMinValue();
-       test.StockTest();
+        test.testCurrantValue();
+        test.testMaxValue();
+        test.testMinValue();
+        test.stockTest();
 
 
     }
-    public void StockTest() {
-    Stock google = new Stock("Google",10);
-    google.getPriceInformation();
 
-    google.updatePrice(15);
-    google.getPriceInformation();
-    google.updatePrice(7);
-    google.getPriceInformation();
-    google.updatePrice(14);
-    google.getPriceInformation();
-
+    public void stockTest() {
+        Stock google = new Stock("GOOG", 10);
+        google.getPriceInformation();
+        google.updatePrice(15);
+        google.getPriceInformation();
+        google.updatePrice(7);
+        google.getPriceInformation();
+        google.updatePrice(14);
+        google.getPriceInformation();
 
 
     }
@@ -29,25 +28,25 @@ public class StockTest {
     void testCurrantValue() {
         Stock test = new Stock("GOOG", 10);
         test.updatePrice(12);
-        test.updatePrice( 5);
+        test.updatePrice(5);
         test.updatePrice(7);
         test.updatePrice(99);
         test.updatePrice(77);
         int expectedResult = 77;
         int actualResult = test.getCurrentValue();
-        checkResult(expectedResult, actualResult,"CurrentValue test");
+        checkResult(expectedResult, actualResult, "CurrentValue test");
     }
 
     void testMinValue() {
         Stock test = new Stock("GOOG", 10);
         test.updatePrice(12);
-        test.updatePrice( 5);
+        test.updatePrice(5);
         test.updatePrice(7);
         test.updatePrice(99);
         test.updatePrice(77);
         int expectedResult = 77;
         int actualResult = test.getCurrentValue();
-        checkResult(expectedResult, actualResult,"MinValue");
+        checkResult(expectedResult, actualResult, "MinValue");
 
     }
 
@@ -63,7 +62,7 @@ public class StockTest {
         checkResult(expectedResult, actualResult, "MaxValue");
     }
 
-    public void checkResult(int  expectedResult, int actualResult, String name) {
+    public void checkResult(int expectedResult, int actualResult, String name) {
         if (expectedResult == actualResult) {
             System.out.println(name + " has passed!");
         } else {

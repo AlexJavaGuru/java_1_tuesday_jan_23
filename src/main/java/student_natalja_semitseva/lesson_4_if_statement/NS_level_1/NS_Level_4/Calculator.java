@@ -2,7 +2,7 @@ package student_natalja_semitseva.lesson_4_if_statement.NS_level_1.NS_Level_4;
 
 import java.util.Scanner;
 
-public class Calculator {
+class Calculator {
 
     public int sum(int firstNumberA, int secondNumberB) {
 

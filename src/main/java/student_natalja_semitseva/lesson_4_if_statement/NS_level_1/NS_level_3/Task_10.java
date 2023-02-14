@@ -2,7 +2,7 @@ package student_natalja_semitseva.lesson_4_if_statement.NS_level_1.NS_level_3;
 
 import java.util.Scanner;
 
-public class Task_10 {
+class Task_10 {
     public static void main(String[] args) {
 
 
