@@ -1,5 +1,6 @@
 package student_natalja_semitseva.lesson_4_if_statement.NS_level_1.NS_Level_4;
 
+
 public class CalculatorTest {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
@@ -11,7 +12,9 @@ public class CalculatorTest {
         testCalculatorIsOdd1Test();
         testCalculatorIsEvenTest();
         testCalculatorIsOddTest();
-
+        testMaxOfTwoNumbersTest();
+        testMaxOfTwoNumbersTest1();
+        testMaxOfTwoNumbersTest2();
 
     }
 
@@ -123,4 +126,78 @@ public class CalculatorTest {
             System.out.println("Test " + testName + " has passed!");
         }
     }
+
+
+    private static int testMaxOfTwoNumbersTest() {
+        Calculator calculator = new Calculator();
+        {
+
+
+            {
+
+            }
+            int firstNumber = 5;
+            int secondNumber = 1;
+
+            int realResult = calculator.maxOfTwoNumbers(firstNumber, secondNumber);
+            if ((secondNumber < firstNumber)) {
+                System.out.println("Test Max = true");
+            } else {
+                System.out.println("Test Max = False");
+            }
+            {
+            }
+            return 0;
+        }
+    }
+
+    private static int testMaxOfTwoNumbersTest1() {
+        Calculator calculator = new Calculator();
+        {
+
+
+            {
+
+            }
+            int firstNumber = 6;
+            int secondNumber =7;
+            int realResult = calculator.maxOfTwoNumbers(firstNumber, secondNumber);
+            if (secondNumber > firstNumber) {
+                System.out.println("Test Max1 = true");
+            } else {
+                System.out.println("Test Max1 = False");
+            }
+        }
+
+    return 0;
+    }
+
+    private static int testMaxOfTwoNumbersTest2() {
+        Calculator calculator = new Calculator();
+        {
+
+
+            {
+
+            }
+            int firstNumber = 6;
+            int secondNumber = 6;
+            int realResult = calculator.maxOfTwoNumbers(firstNumber, secondNumber);
+            if (secondNumber == firstNumber) {
+                System.out.println("Test Max2 = true");
+            } else {
+                System.out.println("Test Max2 = False");
+            }
+        }
+
+        return 0;
+    }
 }
+
+
+
+
+
+
+
+
