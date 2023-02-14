@@ -6,15 +6,15 @@ public class Task_10 {
 
     public static void main(String[] agrs){
 
-        Scanner radius = new Scanner(System.in);
+        Scanner Scanner = new Scanner(System.in);
         System.out.println("Write the radius");
-        double r = radius.nextDouble();
+        double radius = Scanner.nextDouble();
         double pi = 3.14;
-        double c = 2 * pi * r;
-        double r2 = r * r;
-        double s = pi * r2;
-        System.out.println("Perimeter is =" +c);
-        System.out.println("Area is " +s);
+        double perimeter = 2 * pi * radius;
+        double radius2 = radius * radius;
+        double square = pi * radius2;
+        System.out.println("Perimeter is =" +perimeter);
+        System.out.println("Area is " +square);
 
 
 
