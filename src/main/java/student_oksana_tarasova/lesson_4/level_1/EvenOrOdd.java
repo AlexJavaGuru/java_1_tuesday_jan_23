@@ -5,9 +5,12 @@ import java.util.Scanner;
 class EvenOrOdd {
     public static void main(String[] args) {
 
-        Scanner num = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         System.out.println("Enter number...");
-        int number = num.nextInt();
+        EvenOrOdd.isEven(input.nextInt());
+    }
+
+    static void isEven(int number) {
 
         if (number % 2 == 0) {
             System.out.println(number + " is even");
@@ -16,3 +19,4 @@ class EvenOrOdd {
         }
     }
 }
+

@@ -11,19 +11,17 @@ class Calculator {
     }
 
     public int mul(int a, int b) {
+
         return a * b;
     }
 
-    public int division(int a, int b) {
+    public int divide(int a, int b) {
+
         return a / b;
     }
 
     public boolean isEven(int a) {
-        if (a % 2 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return (a % 2 == 0);
     }
 
     public int maxOfTwoNumbers(int a, int b) {

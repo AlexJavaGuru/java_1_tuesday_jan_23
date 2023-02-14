@@ -8,13 +8,15 @@ class SmallNumber {
 
         Scanner num = new Scanner(System.in);
         System.out.println("Enter two numbers...");
-        int val1 = num.nextInt();
-        int val2 = num.nextInt();
+        SmallNumber.numberSmall(num.nextInt(), num.nextInt());
+    }
 
-        if (val1 < val2) {
-            System.out.println(val1);
+    static void numberSmall(int num1, int num2) {
+        if (num1 < num2) {
+            System.out.println(num1);
         } else {
-            System.out.println(val2);
+            System.out.println(num2);
         }
     }
 }
+

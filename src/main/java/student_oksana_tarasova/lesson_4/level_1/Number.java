@@ -6,13 +6,15 @@ class Number {
 
     public static void main(String[] args) {
 
-        Scanner num = new Scanner (System.in);
+        Scanner num = new Scanner(System.in);
         System.out.println("Enter number...");
-        int number = num.nextInt();
+        Number.posit(num.nextInt());
+    }
 
-        if (number>0) {
+    static void posit(int number) {
+        if (number > 0) {
             System.out.println(number + " is positive");
-        } else  if (number < 0) {
+        } else if (number < 0) {
             System.out.println(number + " is negative");
         }
     }

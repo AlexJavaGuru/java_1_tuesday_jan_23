@@ -8,9 +8,13 @@ class DayOfTheWeek {
 
         Scanner input = new Scanner(System.in);
         System.out.println("Enter an integer from 1 to 7");
-        int num = input.nextInt();
+        DayOfTheWeek.week(input.nextInt());
+    }
 
-        switch (num) {
+
+    static void week(int number) {
+
+        switch (number) {
             case 1:
                 System.out.println("Monday");
                 break;
@@ -31,6 +35,8 @@ class DayOfTheWeek {
                 break;
             default:
                 System.out.println("Sunday");
+
+
         }
     }
 }

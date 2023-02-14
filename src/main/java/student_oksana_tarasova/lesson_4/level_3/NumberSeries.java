@@ -7,16 +7,17 @@ class NumberSeries {
 
         Scanner num = new Scanner(System.in);
         System.out.println("Enter three numbers...");
-        int var1  = num.nextInt();
-        int var2 = num.nextInt();
-        int var3 = num.nextInt();
+        NumberSeries.seriesNumber(num.nextInt(), num.nextInt(), num.nextInt());
+    }
+
+    static void seriesNumber(int var1, int var2, int var3) {
 
         if (var1 < var2 && var2 < var3) {
             System.out.println("increasing");
         } else if (var1 > var2 && var2 > var3) {
             System.out.println("decreasing");
         } else {
-            System.out.println("Neither increasing or decreasing order" );
+            System.out.println("Neither increasing or decreasing order");
         }
     }
 }

@@ -7,15 +7,16 @@ class GreatNumbers {
 
         Scanner num = new Scanner(System.in);
         System.out.println("Enter three numbers...");
-        int var1  = num.nextInt();
-        int var2 = num.nextInt();
-        int var3 = num.nextInt();
+        GreatNumbers.numberGreat(num.nextInt(), num.nextInt(), num.nextInt());
+    }
+
+    static void numberGreat(int var1, int var2, int var3) {
 
         if (var1 >= var2 && var1 > var3) {
             System.out.println(var1);
         } else if (var1 < var2 && var2 >= var3) {
             System.out.println(var2);
-        } else if (var1 <= var3 && var2 < var3){
+        } else if (var1 <= var3 && var2 < var3) {
             System.out.println(var3);
         } else {
             System.out.println(var1);

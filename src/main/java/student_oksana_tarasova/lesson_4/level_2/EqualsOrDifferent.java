@@ -8,13 +8,15 @@ class EqualsOrDifferent {
 
         Scanner num = new Scanner(System.in);
         System.out.println("Enter two numbers...");
-        int val1 = num.nextInt();
-        int val2 = num.nextInt();
+        EqualsOrDifferent.equals(num.nextInt(), num.nextInt());
+    }
 
-        if (val1 == val2) {
+    static void equals(int num1, int num2) {
+        if (num1 == num2) {
             System.out.println("Numbers are equals");
         } else {
             System.out.println("Numbers are different");
         }
     }
 }
+

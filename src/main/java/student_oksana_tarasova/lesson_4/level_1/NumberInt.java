@@ -6,9 +6,12 @@ class NumberInt {
 
     public static void main(String[] args) {
 
-        Scanner num = new Scanner (System.in);
+        Scanner num = new Scanner(System.in);
         System.out.println("Input number...");
-        int number = num.nextInt();
+        NumberInt.number(num.nextInt());
+    }
+
+        static void number(int number) {
 
         if (number > 0) {
             System.out.println( number + " is positive ");
