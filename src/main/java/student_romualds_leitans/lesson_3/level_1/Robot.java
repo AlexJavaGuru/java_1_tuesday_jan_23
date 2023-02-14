@@ -1,11 +1,12 @@
 package student_romualds_leitans.lesson_3.level_1;
 
-public class Robot {
+class Robot {
     String name;
 
-    public Robot(String RobotName){
-        this.name = RobotName;
+    public  Robot (String robotName) {
+        this.name = robotName;
     }
+
     public void sayHello() {
         System.out.println("Hello");
     }

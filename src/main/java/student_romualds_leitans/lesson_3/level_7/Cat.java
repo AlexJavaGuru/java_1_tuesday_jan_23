@@ -5,10 +5,10 @@ public class Cat {
     int age;
     String color;
 
-    public Cat(String newName, int newAge, String newColor){
-        this.name = newName;
-        this.age = newAge;
-        this.color = newColor;
+    public Cat(String name, int age, String color){
+        this.name = name;
+        this.age = age;
+        this.color = color;
     }
 
     void eat(){
