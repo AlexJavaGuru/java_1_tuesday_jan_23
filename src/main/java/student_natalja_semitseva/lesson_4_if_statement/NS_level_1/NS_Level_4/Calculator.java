@@ -43,7 +43,8 @@ public class Calculator {
 
 
 
-    public  class MaxOfTwoNumbers {
+    public static class MaxOfTwoNumbers {
+
         public MaxOfTwoNumbers() {
         }
     }
@@ -65,4 +66,30 @@ public class Calculator {
         }
         return firstNumber;
     }
+
+    public static int maxOfThreeNumbers(int firstNumber, int secondNumber,int thirdNumber) {
+
+
+
+        if (firstNumber > secondNumber && firstNumber > thirdNumber) {
+            System.out.println("Number " + firstNumber + " bigger");
+            return firstNumber;
+
+
+        } else if (secondNumber > firstNumber && secondNumber > thirdNumber) {
+            System.out.println("Number " + secondNumber + " bigger");
+
+        } else if (thirdNumber > firstNumber && thirdNumber > secondNumber) {
+            System.out.println("Number " + thirdNumber + " bigger");
+
+            System.out.println("Number " + firstNumber + "or" + secondNumber + " bigger");
+
+        } else if ((thirdNumber = firstNumber) >  secondNumber) {
+                System.out.println("ThirdNumber or FirstNumber = number; Number" + thirdNumber + " bigger");
+        } else {
+            System.out.println("Numbers are equal");
+        }
+        return firstNumber;
+    }
 }
+
