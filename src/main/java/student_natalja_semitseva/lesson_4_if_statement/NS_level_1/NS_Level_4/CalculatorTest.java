@@ -285,6 +285,7 @@ public class CalculatorTest {
         }
         return 0;
     }
+
     private static int testMaxOfThreeNumbersTest4() {
         Calculator calculator = new Calculator();
         {
@@ -295,9 +296,10 @@ public class CalculatorTest {
             int firstNumber = 12;
             int secondNumber = 12;
             int thirdNumber = 12;
-            int result = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
 
-            if ((secondNumber == firstNumber) && firstNumber== thirdNumber) {
+            int Result = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
+
+            if ((secondNumber == firstNumber) && firstNumber == thirdNumber) {
                 System.out.println("Test ThreeMax4 = true");
             } else {
                 System.out.println("Test ThreeMax4 = False");
