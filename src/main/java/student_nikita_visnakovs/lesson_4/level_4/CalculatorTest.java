@@ -53,10 +53,10 @@ public class CalculatorTest {
 
     public void testDiv() {
         Calculator calculator = new Calculator();
-        int fistNum = 10;
-        int secondNumber = 2;
-        int expectedResult = 5;
-        int realResult = calculator.div(fistNum, secondNumber);
+        double fistNum = 10;
+        double secondNumber = 2;
+        double expectedResult = 5;
+        double realResult = calculator.div(fistNum, secondNumber);
         checkResult(realResult, expectedResult, "Division test");
     }
 
@@ -177,6 +177,14 @@ public class CalculatorTest {
         } else {
             System.out.println(testName + " failed!");
             System.out.println("Expected result was " + true + " but real result is " + realResult);
+        }
+    }
+    public void checkResult(double expectedResult, double realResult, String testName) {
+        if (expectedResult == realResult) {
+            System.out.println(testName + " has passed!");
+        } else {
+            System.out.println(testName + " failed!");
+            System.out.println("Expected result was " + expectedResult + " but " + "actual result is " + realResult);
         }
     }
 }
