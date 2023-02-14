@@ -1,7 +1,9 @@
 package student_natalija_rasponomarjova.lesson_4.level_7;
+
 /*Написать класс для определения високосный год или нет.
     // return true - если год високосный
     // return false - если год обычный
+
     public boolean isLeapYear(int year) {
         // Если год не делится на 4, значит он обычный.
         // Иначе надо проверить не делится ли год на 100.
@@ -11,4 +13,12 @@ package student_natalija_rasponomarjova.lesson_4.level_7;
         // Иначе год обычный.
     }}*/
 class LeapYear {
+
+    public boolean isLeapYear(int year) {
+
+        if (year % 4 != 0) {
+        }
+        return false;
+    }
+
 }

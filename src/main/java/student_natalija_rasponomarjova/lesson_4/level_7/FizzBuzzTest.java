@@ -2,19 +2,18 @@ package student_natalija_rasponomarjova.lesson_4.level_7;
 
 class FizzBuzzTest {
     public static void main(String[] args) {
-        FizzBuzzTest fizzBuzztest = new FizzBuzzTest();
-        fizzBuzztest.fizzTest();
-        fizzBuzztest.buzzTest();
-
+        FizzBuzzTest fizzBuzzTest = new FizzBuzzTest();
+        fizzBuzzTest.fizzTest();
+        fizzBuzzTest.buzzTest();
+        fizzBuzzTest.fizzBuzzTest();
+        fizzBuzzTest.nonFizzBuzzTest();
 
     }
 
     public void fizzTest() {
-        int number = 333;
-        String correctResult = "Fizz";
+
         FizzBuzz fizzBuzz = new FizzBuzz();
-        String realResult = fizzBuzz.detectNumber(number);
-        if (realResult.equals(correctResult)) {
+        if (fizzBuzz.detectNumber(333).equals("Fizz")) {
             System.out.println("Test OK");
         } else {
             System.out.println("Test Failed");
@@ -22,17 +21,33 @@ class FizzBuzzTest {
     }
 
     public void buzzTest() {
-        int number = 250;
-        String correctResult = "Buzz";
+
         FizzBuzz fizzBuzz = new FizzBuzz();
-        String realResult = fizzBuzz.detectNumber(number);
-        if (realResult.equals(correctResult)) {
+        if (fizzBuzz.detectNumber(250).equals("Buzz")) {
             System.out.println("Test OK");
         } else {
             System.out.println("Test Failed");
         }
     }
 
+    public void fizzBuzzTest() {
+
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        if (fizzBuzz.detectNumber(150).equals("FizzBuzz")) {
+            System.out.println("Test OK");
+        } else {
+            System.out.println("Test Failed");
+        }
+    }
+
+    public void nonFizzBuzzTest() {
+        int number = 11;
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        if (fizzBuzz.detectNumber(11).equals("11")) {
+            System.out.println("The number is: " + number);
+        }
+    }
 }
+
 
 
