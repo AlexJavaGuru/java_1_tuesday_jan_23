@@ -9,7 +9,7 @@ class Task_15 {
         Random random = new Random();
         System.out.println("Input three elements to array:");
 
-        int[] numbers = putRandomElements(random, 2);
+        int[] numbers = putRandomElements(random, 3);
         int[] numbers2 = putRandomElements(random, 4);
 
         System.out.println("Your array: " + Arrays.toString(numbers));

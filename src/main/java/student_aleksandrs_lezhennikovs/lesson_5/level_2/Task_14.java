@@ -10,7 +10,7 @@ class Task_14 {
         Random random = new Random();
         System.out.println("Input three elements to array:");
 
-        int[] numbers = putRandomElements(random, 2);
+        int[] numbers = putRandomElements(random, 3);
         int[] numbers2 = putRandomElements(random, 4);
 
         System.out.println("Your array: " + Arrays.toString(numbers));
@@ -19,8 +19,8 @@ class Task_14 {
         double result = avgOfElements(numbers);
         double result2 = avgOfElements(numbers2);
 
-        System.out.println("Sum of arrays element is: " + result);
-        System.out.println("Sum of arrays element is: " + result2);
+        System.out.println("Average of arrays element is: " + result);
+        System.out.println("Average of arrays element is: " + result2);
     }
 
     private static int[] putRandomElements(Random random, int sizeOfArray) {
@@ -34,19 +34,10 @@ class Task_14 {
     private static double avgOfElements(int[] numbers) {
 
         double result = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            result += numbers[i];
-        }
-        return result / (double)numbers.length;
-    }
-
-    private static double avgOfElementsTest(int[] numbers) {
-
-        double result = 0;
-        for (int i : numbers) {
-            result += numbers[i];
+        for (int number : numbers) {
+            result += number;
         }
         return result / (double)numbers.length;
     }
 }
-}
+

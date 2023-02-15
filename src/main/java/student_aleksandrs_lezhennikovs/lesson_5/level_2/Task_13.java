@@ -26,6 +26,7 @@ class Task_13 {
     private static int[] putRandomElements(Random random, int sizeOfArray) {
         int[] numbers = new int[sizeOfArray];
         for (int i = 0; i < sizeOfArray; i++) {
+        //for (int number : numbers) {
             numbers[i] = random.nextInt(10);
         }
         return numbers;
@@ -34,8 +35,8 @@ class Task_13 {
     private static int sumElements(int[] numbers) {
 
         int result = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            result += numbers[i];
+        for (int number : numbers) {
+            result += number;
         }
         return result;
     }
