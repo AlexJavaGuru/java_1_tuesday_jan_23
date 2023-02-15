@@ -3,7 +3,7 @@ package student_aleksandrs_lezhennikovs.lesson_5.level_4;
 import java.util.Arrays;
 import java.util.Random;
 
-class Task_27 {
+class Task_30 {
 
     public static void main(String[] args) {
 
@@ -11,8 +11,9 @@ class Task_27 {
         fillArrayWithRandomElements(numbers);
         System.out.println("Your array: " + Arrays.toString(numbers));
 
-        int maxResult = maxElementsInArray(numbers);
-        System.out.println("Max element in array is: " + maxResult);
+        String evenElements = oddsElementsInArray(numbers);
+        System.out.println("Odds elements in array : " + evenElements);
+
     }
 
     private static int[] createRandomSizeArray() {
@@ -32,17 +33,19 @@ class Task_27 {
         }
     }
 
-    private static int maxElementsInArray(int[] numbers) {
+    private static String oddsElementsInArray(int[] numbers) {
 
-        int result = numbers[0];
+        String result = "";
         for (int number : numbers) {
-            result = maxOfTwo(result, number);
+            if (isOdd(number)) {
+                result = result + " " + number;
+            }
         }
         return result;
     }
 
-    private static int maxOfTwo(int firstNumber, int secondNumber) {
+    private static boolean isOdd(int number) {
 
-        return (firstNumber >= secondNumber) ? firstNumber : secondNumber;
+        return (number % 2 != 0);
     }
 }

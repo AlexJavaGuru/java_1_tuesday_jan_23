@@ -3,15 +3,14 @@ package student_aleksandrs_lezhennikovs.lesson_5.level_4;
 import java.util.Arrays;
 import java.util.Random;
 
-class Task_27 {
-
+class Task_28 {
     public static void main(String[] args) {
 
         int[] numbers  = createRandomSizeArray();
         fillArrayWithRandomElements(numbers);
         System.out.println("Your array: " + Arrays.toString(numbers));
 
-        int maxResult = maxElementsInArray(numbers);
+        int maxResult = minElementsInArray(numbers);
         System.out.println("Max element in array is: " + maxResult);
     }
 
@@ -32,17 +31,17 @@ class Task_27 {
         }
     }
 
-    private static int maxElementsInArray(int[] numbers) {
+    private static int minElementsInArray(int[] numbers) {
 
         int result = numbers[0];
         for (int number : numbers) {
-            result = maxOfTwo(result, number);
+            result = minOfTwo(result, number);
         }
         return result;
     }
 
-    private static int maxOfTwo(int firstNumber, int secondNumber) {
+    private static int minOfTwo(int firstNumber, int secondNumber) {
 
-        return (firstNumber >= secondNumber) ? firstNumber : secondNumber;
+        return (firstNumber <= secondNumber) ? firstNumber : secondNumber;
     }
 }
