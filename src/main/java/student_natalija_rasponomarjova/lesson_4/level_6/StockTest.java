@@ -29,4 +29,42 @@ Company = "GOOG", Current Price = 10, Min Price = 10, Max Price = 10
 Company = "GOOG", Current Price = 14, Min Price = 7, Max Price = 15*/
 
 class StockTest {
+    public static void main(String[] args) {
+        StockTest stockTest = new StockTest();
+        stockTest.testMaxValue();
+
+    }
+
+    public void testMaxValue() {
+
+        Stock tesla = new Stock("TESLA", 999);
+        System.out.println(tesla.getPriceInformation());
+
+        tesla.updateValue(12);
+        checkResults(tesla.maxValue == 12, "Max price test 1");
+
+        tesla.updateValue(5);
+        checkResults(tesla.maxValue == 5, "Max price test 2");
+
+        tesla.updateValue(7);
+        checkResults(tesla.maxValue == 7, "Max price test 3");
+
+        tesla.updateValue(99);
+        checkResults(tesla.maxValue == 99, "Max price test 4");
+
+        tesla.updateValue(77);
+        checkResults(tesla.maxValue == 77, "Max price test 5");
+
+        System.out.println(tesla.getPriceInformation());
+    }
+
+    private void checkResults(boolean condition, String testName) {
+        if (condition) {
+            System.out.println(testName + " = OK");
+        } else {
+            System.out.println(testName + " = FAIL");
+        }
+    }
 }
+
+
