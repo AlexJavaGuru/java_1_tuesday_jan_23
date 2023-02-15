@@ -1,15 +1,5 @@
-package student_oleg_gryazev._lesson_3;
+package student_oleg_gryazev._lesson_3.level_7;
 
-public class DemoTrafficLightControlsTheCar {
-    public static void main(String[] args) {
-        TrafficLightControlsTheCar car = new TrafficLightControlsTheCar();
-        TrafficLightControlsTheCar trafficLight = new TrafficLightControlsTheCar();
-
-        car.carPosition();
-        trafficLight.positionOfTrafficLight();
-    }
-
-}
 class Computer {
 
     String manufacturer;
@@ -20,18 +10,19 @@ class Computer {
         this.model = model;
 
     }
-    public String getManufacturer(){
-      return manufacturer;
+
+    public String getManufacturer() {
+        return manufacturer;
     }
-    public String getModel(){
+
+    public String getModel() {
         return model;
     }
 
 
+    public void setManufacturer(String manufacturer) {
 
-public void setManufacturer(String manufacturer){
-
-}
+    }
 }
 
 class ComputerDemo {
@@ -45,3 +36,4 @@ class ComputerDemo {
     }
 
 }
+
