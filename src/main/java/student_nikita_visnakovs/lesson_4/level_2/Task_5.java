@@ -9,13 +9,13 @@ public class Task_5 {
 
         System.out.println("Enter two integers");
         Scanner scanner = new Scanner(System.in);
-        int firstUserNum = scanner.nextInt();
-        int secondUserNum = scanner.nextInt();
+        int firstUserNumber = scanner.nextInt();
+        int secondUserNumber = scanner.nextInt();
 
-        if (firstUserNum > secondUserNum) {
-            System.out.println(firstUserNum);
+        if (firstUserNumber > secondUserNumber) {
+            System.out.println(firstUserNumber);
         } else {
-            System.out.println(secondUserNum);
+            System.out.println(secondUserNumber);
         }
     }
 }

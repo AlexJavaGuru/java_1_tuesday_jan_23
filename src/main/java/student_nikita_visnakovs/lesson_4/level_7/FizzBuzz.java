@@ -7,18 +7,20 @@ public class FizzBuzz {
 
         if (numDivThree(number) && numDivFive(number)) {
             return "FizzBuzz";
-        }
-        if (numDivThree(number)) {
+        } else if
+        (numDivThree(number)) {
             return "Fizz";
-        }
-        if (numDivFive(number)) {
+        } else if (numDivFive(number)) {
             return "Buzz";
+        } else {
+            return "" + number;
         }
-        return "" + number;
     }
+
     private boolean numDivThree(int number) {
         return number % 3 == 0;
     }
+
     private boolean numDivFive(int number) {
         return number % 5 == 0;
     }
