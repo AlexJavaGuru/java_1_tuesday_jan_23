@@ -2,12 +2,12 @@ package student_vladislav_romanov.lesson_5.level_4;
 
 import java.util.Random;
 
-class Task_27 {
+class Task_30 {
 
     public static void main(String[] args) {
         int[] numbers;
+
         int arrayLength;
-        int maxNumber = 0;
         Random random = new Random();
 
         arrayLength = random.nextInt(1, 10);
@@ -19,12 +19,16 @@ class Task_27 {
 
         for (int number : numbers) {
             System.out.println(number);
-            if (number > maxNumber) {
-                maxNumber = number;
+        }
+
+        System.out.println("Odd numbers in array:");
+
+        for (int number : numbers) {
+            if (number % 2 != 0) {
+                System.out.println(number);
             }
         }
 
-        System.out.println("Max number in array is " + maxNumber);
     }
 
 }

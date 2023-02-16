@@ -10,7 +10,7 @@ class Task_28 {
         int minNumber = 100;
         Random random = new Random();
 
-        arrayLength = random.nextInt(10);
+        arrayLength = random.nextInt(1, 10);
         numbers = new int[arrayLength];
 
         for (int i = 0; i < arrayLength; i++) {
