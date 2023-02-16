@@ -7,12 +7,13 @@ class StockTest {
         test.testMaxValue();
         test.testMinValue();
         test.stockTest();
+        test.testMaxPriceToInitialPrice();
 
 
     }
 
     public void stockTest() {
-        Stock google = new Stock("GOOG", 10);
+        Stock google = new Stock("Google", 10);
         google.getPriceInformation();
         google.updatePrice(15);
         google.getPriceInformation();
@@ -26,7 +27,7 @@ class StockTest {
 
 
     void testCurrantValue() {
-        Stock test = new Stock("GOOG", 10);
+        Stock test = new Stock("Google", 10);
         test.updatePrice(12);
         test.updatePrice(5);
         test.updatePrice(7);
@@ -34,11 +35,11 @@ class StockTest {
         test.updatePrice(77);
         int expectedResult = 77;
         int actualResult = test.getCurrentValue();
-        checkResult(expectedResult, actualResult, "CurrentValue test");
+        checkResult("CurrentValue test  - ", expectedResult, actualResult);
     }
 
     void testMinValue() {
-        Stock test = new Stock("GOOG", 10);
+        Stock test = new Stock("Google", 10);
         test.updatePrice(12);
         test.updatePrice(5);
         test.updatePrice(7);
@@ -46,12 +47,12 @@ class StockTest {
         test.updatePrice(77);
         int expectedResult = 77;
         int actualResult = test.getCurrentValue();
-        checkResult(expectedResult, actualResult, "MinValue");
+        checkResult("MinValue  - ", expectedResult, actualResult);
 
     }
 
     void testMaxValue() {
-        Stock test = new Stock("GOOG", 10);
+        Stock test = new Stock("Google", 10);
         test.updatePrice(12);
         test.updatePrice(5);
         test.updatePrice(7);
@@ -59,16 +60,27 @@ class StockTest {
         test.updatePrice(77);
         int expectedResult = 77;
         int actualResult = test.getCurrentValue();
-        checkResult(expectedResult, actualResult, "MaxValue");
+        checkResult("MaxValue  -", expectedResult, actualResult);
     }
 
-    public void checkResult(int expectedResult, int actualResult, String name) {
+    public void checkResult(String name, int expectedResult, int actualResult) {
         if (expectedResult == actualResult) {
-            System.out.println(name + " has passed!");
+            System.out.println(name + expectedResult + " price  " + actualResult + " OK");
         } else {
-            System.out.println(name + " failed!");
-            System.out.println("Expected result" + expectedResult + ", but real result is " + actualResult);
+            System.out.println(name + expectedResult + " price  " + actualResult + " FAIL");
         }
     }
+
+    private void testMaxPriceToInitialPrice() {
+        Stock stock = new Stock("Google", 999);
+        stock.updatePrice(1);
+        int actualMaxPrice = stock.getMaxValue();
+        int expectedMaxPrice = 999;
+
+        checkResult("Google ", 999, 999);
+
+
+    }
 }
+
 
