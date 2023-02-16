@@ -1,6 +1,7 @@
 package student_dmitry_kupcus.lesson_4;
 
 import java.util.Scanner;
+
 class DayOfTheWeek {
     public static void main(String[] args) {
 
