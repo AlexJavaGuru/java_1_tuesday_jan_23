@@ -1,4 +1,4 @@
-package student_vladislav_romanov.lesson_5;
+package student_vladislav_romanov.lesson_5.level_1;
 
 class ArrayDefinition6 {
 
