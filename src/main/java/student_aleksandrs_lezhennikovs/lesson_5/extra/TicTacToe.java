@@ -137,17 +137,6 @@ class TicTacToe {
         return field;
     }
 
-    private static Move getNextMove() {
-
-        Scanner input = new Scanner(System.in);
-        System.out.println("Input new coordinates please");
-        int x = input.nextInt();
-        int y = input.nextInt();
-
-        Move move = new Move(x, y);
-
-        return move;
-    }
 
     public void play(int fieldSize) {
 
@@ -183,14 +172,35 @@ class TicTacToe {
         }
     }
 
+    private static Move getNextMove() {
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("Input new coordinates please");
+        int x = input.nextInt();
+        int y = input.nextInt();
+
+        Move move = new Move(x, y);
+
+        return move;
+    }
+
     private static void nextMove(int [][] field, int playerToCheck) {
 
         Move move = getNextMove();
-        if (isCellEmpty(field[move.getX()][move.getY()])) {
-            field[move.getX()][move.getY()] = playerToCheck;
-            printFieldToConsole(field);
+        if(isInFieldRange(field, move.getX(), move.getY())) {
+            int checkCell = field[move.getX()][move.getY()];
+
+            if (isCellEmpty(checkCell)) {
+                field[move.getX()][move.getY()] = playerToCheck;
+                printFieldToConsole(field);
+            } else {
+                System.out.println("Cell is busy");
+                printFieldToConsole(field);
+                nextMove(field, playerToCheck);
+            }
+
         } else {
-            System.out.println("Cell is busy");
+            System.out.println("Cell is out of Field range");
             printFieldToConsole(field);
             nextMove(field, playerToCheck);
         }
@@ -198,5 +208,9 @@ class TicTacToe {
 
     private static boolean isCellEmpty(int cell) {
         return (cell == -1);
+    }
+
+    private static boolean isInFieldRange(int[][] field, int x, int y) {
+        return (x >= 0 && x < field.length && y >= 0 && y < field.length);
     }
 }
