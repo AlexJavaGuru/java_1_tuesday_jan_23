@@ -6,6 +6,7 @@ class ArrayUtilTest {
         ArrayUtilTest test = new ArrayUtilTest();
         test.shouldCreateArray();
         test.shouldFindMaxNumber();
+        test.shouldFindMinNumber();
     }
 
     public void shouldCreateArray() {
@@ -34,6 +35,21 @@ class ArrayUtilTest {
             System.out.println("findMaxNumber method test SUCCEED!");
         } else {
             System.out.println("findMaxNumber method test FAILED! Expected " + expectedMaxNumber + ", but in fact " + currentMaxNumber);
+        }
+    }
+
+    public void shouldFindMinNumber() {
+        int expectedMinNumber = 11;
+        ArrayUtil arrayUtil = new ArrayUtil();
+
+        int[] array = {14, 94, 19, 74, 11, 58, 87, 62, 50, 85};
+
+        int currentMinNumber = arrayUtil.findMinNumber(array);
+
+        if (currentMinNumber == expectedMinNumber) {
+            System.out.println("findMinNumber method test SUCCEED!");
+        } else {
+            System.out.println("findMinNumber method test FAILED! Expected " + expectedMinNumber + ", but in fact " + currentMinNumber);
         }
     }
 
