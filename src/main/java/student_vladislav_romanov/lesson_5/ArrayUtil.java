@@ -1,4 +1,4 @@
-package student_vladislav_romanov.lesson_5.level_5;
+package student_vladislav_romanov.lesson_5;
 
 import java.util.Random;
 
@@ -13,6 +13,12 @@ class ArrayUtil {
     public void fillArrayWithRandomNumbers(int[] array) {
         for (int i = 0; i < array.length; i++) {
             array[i] = random.nextInt(100);
+        }
+    }
+
+    public void printArrayToConsole(int[] array) {
+        for (int number : array) {
+            System.out.print(number + " ");
         }
     }
 
