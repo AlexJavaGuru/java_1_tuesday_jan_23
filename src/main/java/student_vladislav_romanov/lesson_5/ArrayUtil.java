@@ -17,9 +17,23 @@ class ArrayUtil {
     }
 
     public void printArrayToConsole(int[] array) {
-        for (int number : array) {
-            System.out.print(number + " ");
+        for (int i = 0; i < array.length; i++) {
+            if (i < array.length - 1) {
+                System.out.print(array[i] + " ");
+            } else {
+                System.out.println(array[i]);
+            }
         }
+    }
+
+    public int findMaxNumber(int[] array) {
+        int maxNumber = 0;
+        for (int number : array) {
+            if (number > maxNumber) {
+                maxNumber = number;
+            }
+        }
+        return maxNumber;
     }
 
 }
