@@ -5,15 +5,11 @@ import java.util.Random;
 class Task_28 {
 
     public static void main(String[] args) {
-        int[] numbers;
-        int arrayLength;
-        int minNumber = 100;
         Random random = new Random();
+        int[] numbers = new int[random.nextInt(1, 10)];
+        int minNumber = 100;
 
-        arrayLength = random.nextInt(1, 10);
-        numbers = new int[arrayLength];
-
-        for (int i = 0; i < arrayLength; i++) {
+        for (int i = 0; i < numbers.length; i++) {
             numbers[i] = random.nextInt(minNumber);
         }
 

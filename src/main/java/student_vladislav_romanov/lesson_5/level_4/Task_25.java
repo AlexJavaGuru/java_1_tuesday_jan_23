@@ -5,15 +5,12 @@ import java.util.Scanner;
 class Task_25 {
 
     public static void main(String[] args) {
-        int[] numbers;
-        int arrayLength;
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Please enter array length: ");
-        arrayLength = scanner.nextInt();
-        numbers = new int[arrayLength];
+        int[] numbers = new int[scanner.nextInt()];
 
-        for (int i = 0; i < arrayLength; i++) {
+        for (int i = 0; i < numbers.length; i++) {
             System.out.print("Please enter number " + (i + 1) + ": ");
             numbers[i] = scanner.nextInt();
         }
