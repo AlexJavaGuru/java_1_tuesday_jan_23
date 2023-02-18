@@ -4,55 +4,18 @@ import java.util.Scanner;
 
 class TicTacToe {
 
-    private static String winCombination (int fieldSize, int playerToCheck) {
+    public int[][] createField(int fieldSize) {
 
-        String result = "";
-        for (int i = 0; i < fieldSize; i++) {
-            result = result + playerToCheck;
-        }
-        return result;
-    }
-
-    private static boolean isWinPositionForHorizontals(int[][] field, int playerToCheck) {
-
-        boolean result = false;
-        int fieldSize = field.length;
-
-        String playerCombinationWin = winCombination(fieldSize, playerToCheck);
-        String testCombination = "";
-
+        int[][] field = new int[fieldSize][fieldSize];
         for (int rows = 0; rows < fieldSize; rows++) {
-            for (int columns = 0; columns < fieldSize; columns++) {
-                testCombination += field[rows][columns];
+            for (int columns = 0; columns < fieldSize; columns++){
+                field[rows][columns] = -1;
             }
-            if (testCombination.equals(playerCombinationWin)){
-                result = true;
-                break;
-            }
-            testCombination = "";
         }
-        return result;
+        return field;
     }
 
-    private static boolean isWinPositionForVerticals(int[][] field, int playerToCheck) {
-        boolean result = false;
-        String playerCombinationWin = winCombination(field.length, playerToCheck);
-        String testCombination = "";
-
-        for (int columns = 0; columns < field.length; columns++) {
-            for (int rows = 0; rows < field.length; rows++) {
-                testCombination += field[rows][columns];
-            }
-            if (testCombination.equals(playerCombinationWin)){
-                result = true;
-                break;
-            }
-            testCombination = "";
-        }
-        return result;
-    }
-
-    private static void printFieldToConsole(int[][] field) {
+    public void printFieldToConsole(int[][] field) {
 
         for (int rows = 0; rows < field.length; rows++) {
             for (int columns = 0; columns < field.length; columns++) {
@@ -74,12 +37,61 @@ class TicTacToe {
         System.out.println("");
     }
 
-    private static boolean isWinPositionForDiagonals(int[][] field, int playerToCheck) {
+    public String winCombination (int fieldSize, int playerToCheck) {
+
+        String result = "";
+        for (int i = 0; i < fieldSize; i++) {
+            result = result + playerToCheck;
+        }
+        return result;
+    }
+
+    public boolean isWinPositionForHorizontals(int[][] field, int playerToCheck) {
+
+        boolean result = false;
+        int fieldSize = field.length;
+
+        String playerCombinationWin = winCombination(fieldSize, playerToCheck);
+        String testCombination = "";
+
+        for (int rows = 0; rows < fieldSize; rows++) {
+            for (int columns = 0; columns < fieldSize; columns++) {
+                testCombination += field[rows][columns];
+            }
+            if (testCombination.equals(playerCombinationWin)){
+                result = true;
+                break;
+            }
+            testCombination = "";
+        }
+        return result;
+    }
+
+    public boolean isWinPositionForVerticals(int[][] field, int playerToCheck) {
+
+        boolean result = false;
+        String playerCombinationWin = winCombination(field.length, playerToCheck);
+        String testCombination = "";
+
+        for (int columns = 0; columns < field.length; columns++) {
+            for (int rows = 0; rows < field.length; rows++) {
+                testCombination += field[rows][columns];
+            }
+            if (testCombination.equals(playerCombinationWin)){
+                result = true;
+                break;
+            }
+            testCombination = "";
+        }
+        return result;
+    }
+
+    public boolean isWinPositionForDiagonals(int[][] field, int playerToCheck) {
 
         return (firstDiagonal(field, playerToCheck) || secondDiagonal(field, playerToCheck));
     }
 
-    private static boolean firstDiagonal(int[][] field, int playerToCheck) {
+    public boolean firstDiagonal(int[][] field, int playerToCheck) {
 
         String playerCombinationWin = winCombination(field.length, playerToCheck);
         String testCombination = "";
@@ -90,7 +102,7 @@ class TicTacToe {
         return  (testCombination.equals(playerCombinationWin));
     }
 
-    private static boolean secondDiagonal(int[][] field, int playerToCheck) {
+    public boolean secondDiagonal(int[][] field, int playerToCheck) {
 
         String playerCombinationWin = winCombination(field.length, playerToCheck);
         String testCombination = "";
@@ -103,7 +115,7 @@ class TicTacToe {
         return  (testCombination.equals(playerCombinationWin));
     }
 
-    private static boolean isWinPosition(int[][] field, int playerToCheck) {
+    public boolean isWinPosition(int[][] field, int playerToCheck) {
 
         boolean isHorizontalWin = isWinPositionForHorizontals(field, playerToCheck);
         boolean isVerticalWin = isWinPositionForVerticals(field, playerToCheck);
@@ -112,7 +124,7 @@ class TicTacToe {
         return (isHorizontalWin || isVerticalWin || isDiagonalsWin);
     }
 
-    private static boolean isDrawPosition(int[][] field) {
+    public boolean isDrawPosition(int[][] field) {
 
         int check = 0;
 
@@ -126,23 +138,12 @@ class TicTacToe {
         return (check == 0);
     }
 
-    public int[][] createField(int fieldSize) {
-
-        int[][] field = new int[fieldSize][fieldSize];
-        for (int rows = 0; rows < fieldSize; rows++) {
-            for (int columns = 0; columns < fieldSize; columns++){
-                field[rows][columns] = -1;
-            }
-        }
-        return field;
-    }
-
-
     public void play(int fieldSize) {
 
         int[][] field = createField(fieldSize);
         int playerCheck = 0;
-        boolean reverse = false;
+
+        PlayerSwitcher playerSwitcher = new PlayerSwitcher(playerCheck);
         boolean isWin = isWinPosition(field, playerCheck);
         boolean isDraw = isDrawPosition(field);
         boolean isContinue = !(isWin || isDraw);
@@ -150,13 +151,6 @@ class TicTacToe {
         printFieldToConsole(field);
 
         while(isContinue) {
-
-            if (reverse) {
-                playerCheck = 1;
-            } else {
-                playerCheck = 0;
-            }
-            reverse = !reverse;
 
             nextMove(field, playerCheck);
             isWin = isWinPosition(field, playerCheck);
@@ -169,10 +163,11 @@ class TicTacToe {
                 printFieldToConsole(field);
                 System.out.println("DRAW!");
             }
+            playerCheck = playerSwitcher.changePlayer(playerCheck);
         }
     }
 
-    private static Move getNextMove() {
+    public Move getNextMove() {
 
         Scanner input = new Scanner(System.in);
         System.out.println("Input new coordinates please");
@@ -184,7 +179,7 @@ class TicTacToe {
         return move;
     }
 
-    private static void nextMove(int [][] field, int playerToCheck) {
+    public void nextMove(int [][] field, int playerToCheck) {
 
         Move move = getNextMove();
         if(isInFieldRange(field, move.getX(), move.getY())) {
