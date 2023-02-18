@@ -11,32 +11,30 @@ class ArrayUtil {
         int arrayLength = arrayLength_input.nextInt();
         Random random = new Random();
         int[] results = new int[arrayLength];
-
+        for (int i = 0; i < arrayLength; i++) {
+            results[i] = random.nextInt(100);
+        }
+        System.out.println(Arrays.toString(results));
         int maxNumber = results[0];
         int minNumber = results[0];
         int evenNumber;
         int oddNumber;
-        for (int i = 0; i < arrayLength; i++) {
-            results[i] = random.nextInt(100);
-            if (results[i] % 2 == 0) {
-                evenNumber = results[i];
+        for (int y = 0; y < results.length; y++) {
+            if (results[y] % 2 == 0) {
+                evenNumber = results[y];
                 System.out.println(evenNumber + " is even number");
             }
-            if (results[i] % 2 != 0) {
-                oddNumber = results[i];
+            if (results[y] % 2 != 0) {
+                oddNumber = results[y];
                 System.out.println(oddNumber + " is odd number");
             }
-            if (results[i] > maxNumber) {
-                maxNumber = results[i];
-
+            if (results[y] > maxNumber) {
+                maxNumber = results[y];
             }
-            if (i > 0) {
-                if (results[i] < results[0]) {
-                    minNumber = results[i];
-                }
+            if (results[y] < minNumber) {
+                minNumber = results[y];
             }
         }
-        System.out.println(Arrays.toString(results));
         System.out.println("Largest number is: " + maxNumber);
         System.out.println("Smallest number is: " + minNumber);
     }

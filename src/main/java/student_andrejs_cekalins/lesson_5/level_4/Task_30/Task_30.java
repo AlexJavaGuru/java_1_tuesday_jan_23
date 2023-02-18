@@ -9,12 +9,14 @@ class Task_30 {
         Random random = new Random();
         for (int i = 0; i < results.length; i++) {
             results[i] = random.nextInt(100);
-            {
-            }
-            if (results[i] % 2 != 0) {
-                System.out.println("Odd numbers are: " + results[i]);
-            }
         }
         System.out.println(Arrays.toString(results));
+        int oddNumber;
+        for (int y = 0; y < results.length; y++) {
+            if (results[y] % 2 != 0) {
+                oddNumber = results[y];
+                System.out.println("Odd number is: " + oddNumber);
+            }
+        }
     }
 }

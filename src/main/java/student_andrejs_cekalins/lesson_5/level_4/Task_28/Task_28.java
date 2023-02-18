@@ -5,18 +5,18 @@ import java.util.Random;
 
 class Task_28 {
     public static void main(String[] args) {
-        int[] results = new int[10];
+        int[] results = new int[5];
         Random random = new Random();
-        int minNumber = results[0];
         for (int i = 0; i < results.length; i++) {
             results[i] = random.nextInt(100);
-            if (i > 0) {
-                if (results[i] < results[0]) {
-                    minNumber = results[i];
-                }
-            }
         }
         System.out.println(Arrays.toString(results));
+        int minNumber = results[0];
+        for (int y = 0; y < results.length; y++) {
+            if (results[y] < minNumber) {
+                minNumber = results[y];
+            }
+        }
         System.out.println("Smallest number is: " + minNumber);
     }
 }

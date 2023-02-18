@@ -8,16 +8,19 @@ class Task_27 {
     public static void main(String[] args) {
         int[] results = new int[7];
         Random random = new Random();
-        int maxNumber = results[0];
         for (int i = 0; i < results.length; i++) {
             results[i] = random.nextInt(100);
-            if (results[i] > maxNumber) {
-                maxNumber = results[i];
-            }
         }
         System.out.println(Arrays.toString(results));
-        System.out.println("Largest number is: " + maxNumber);
+        int maxNumber = results[0];
+        for (int y = 0; y < results.length; y++) {
+            if (results[y] > maxNumber) {
+                maxNumber = results[y];
+            }
+        }
+        System.out.println("Smallest number is: " + maxNumber);
     }
 }
+
 
 
