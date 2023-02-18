@@ -7,9 +7,9 @@ import java.util.Scanner;
 public class Task_26 {
     public static void main(String[] args) {
         Random random = new Random();
-        Scanner arrayLength_input = new Scanner(System.in);
+        Scanner arrayLengthInput = new Scanner(System.in);
         System.out.print("Enter array length: ");
-        int arrayLength = arrayLength_input.nextInt();
+        int arrayLength = arrayLengthInput.nextInt();
         int[] results = new int[arrayLength];
         for (int i = 0; i < arrayLength; i++) {
             results[i] = random.nextInt(100);

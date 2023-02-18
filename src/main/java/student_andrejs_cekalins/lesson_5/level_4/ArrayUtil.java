@@ -6,9 +6,10 @@ import java.util.Scanner;
 
 class ArrayUtil {
     public static void main(String[] args) {
-        Scanner arrayLength_input = new Scanner(System.in);
+        Scanner arrayLengthInput = new Scanner(System.in);
         System.out.print("Please enter array length: ");
-        int arrayLength = arrayLength_input.nextInt();
+        int arrayLength = arrayLengthInput.nextInt();
+
         Random random = new Random();
         int[] results = new int[arrayLength];
         for (int i = 0; i < arrayLength; i++) {

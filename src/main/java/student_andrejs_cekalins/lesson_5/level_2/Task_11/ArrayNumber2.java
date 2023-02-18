@@ -12,12 +12,10 @@ class ArrayNumber2 {
         int secondIntegerNumber = number_input.nextInt();
         System.out.print("Enter third integer number: ");
         int thirdIntegerNumber = number_input.nextInt();
-
         int[] numbers = new int[3];
         numbers[0] = firstIntegerNumber;
         numbers[1] = secondIntegerNumber;
         numbers[2] = thirdIntegerNumber;
         System.out.print(Arrays.toString(numbers));
-
     }
 }

@@ -18,7 +18,7 @@ class Task_27 {
                 maxNumber = results[y];
             }
         }
-        System.out.println("Smallest number is: " + maxNumber);
+        System.out.println("Largest number is: " + maxNumber);
     }
 }
 
