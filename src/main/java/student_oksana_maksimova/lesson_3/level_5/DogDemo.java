@@ -1,6 +1,6 @@
 package student_oksana_maksimova.lesson_3.level_5;
 
-    class DogDemo {
+class DogDemo {
 
     public static void main(String[] args) {
 

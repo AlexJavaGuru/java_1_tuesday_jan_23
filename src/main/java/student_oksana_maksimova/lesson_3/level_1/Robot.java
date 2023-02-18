@@ -1,6 +1,6 @@
 package student_oksana_maksimova.lesson_3.level_1;
 
-    class Robot {
+class Robot {
 
 
     Robot() {

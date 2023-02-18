@@ -1,18 +1,15 @@
 package student_oksana_maksimova.lesson_3.level_7;
 
-    class Product {
+class Product {
 
         String name;
         double regularPrice;
         double discount;
 
-        protected Product(String name) {
-
+        protected Product(String name, double regularPrice, double discount) {
             this.name = name;
-
-            this.regularPrice = 3.5;
-
-            this.discount = 50.0;
+            this.regularPrice = regularPrice;
+            this.discount = discount;
         }
 
         double actualPrice() {

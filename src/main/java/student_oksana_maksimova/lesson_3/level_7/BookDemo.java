@@ -1,6 +1,6 @@
 package student_oksana_maksimova.lesson_3.level_7;
 
-    class BookDemo {
+class BookDemo {
 
     public static void main(String[] args){
         Book book = new Book("La Mangragola", "Niccolo Machiavelli", 62);

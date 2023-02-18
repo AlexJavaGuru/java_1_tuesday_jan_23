@@ -1,6 +1,6 @@
 package student_oksana_maksimova.lesson_3.level_7;
 
-    class Circle {
+class Circle {
 
         double radius;
 
