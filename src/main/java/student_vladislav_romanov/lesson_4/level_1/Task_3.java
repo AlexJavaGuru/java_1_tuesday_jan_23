@@ -34,6 +34,9 @@ class Task_3 {
             case 7:
                 dayOfWeek = "Воскресенье";
                 break;
+            default:
+                dayOfWeek = "Введённое число не соответствует номеру дня недели";
+                break;
         }
 
         System.out.println(dayOfWeek);
