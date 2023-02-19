@@ -6,18 +6,18 @@ class Task_10 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Insert first number: ");
-        int a = scanner.nextInt();
+        int firstNumber = scanner.nextInt();
         System.out.print("Insert second number: ");
-        int b = scanner.nextInt();
+        int secondNumber = scanner.nextInt();
         System.out.print("Insert third number: ");
-        int c = scanner.nextInt();
+        int thirdNumber = scanner.nextInt();
 
-        if(a >= b && a >= c){
-            System.out.println( a + " largest number");
-        } else if (b >= a && b >= c){
-            System.out.println( b + " largest number");
-        } else if ( c >= a && c >= b){
-            System.out.println( c + " largest number");
+        if(firstNumber >= secondNumber && secondNumber >= thirdNumber){
+            System.out.println( firstNumber + " largest number");
+        } else if (secondNumber >= firstNumber && secondNumber >= thirdNumber){
+            System.out.println( secondNumber + " largest number");
+        } else if ( thirdNumber >= secondNumber && thirdNumber >= firstNumber){
+            System.out.println( thirdNumber + " largest number");
         }
     }
 }

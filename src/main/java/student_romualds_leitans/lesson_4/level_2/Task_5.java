@@ -12,7 +12,7 @@ class Task_5 {
 
         if (num1 > num2 ){
             System.out.print("First number is greater than the second");
-        }else if (num1 < num2){
+        }else {
             System.out.println("Second number is greater than the first");
         }
     }

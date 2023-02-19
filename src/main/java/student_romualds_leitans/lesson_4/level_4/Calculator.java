@@ -1,7 +1,7 @@
 package student_romualds_leitans.lesson_4.level_4;
 
 class Calculator {
-    public int threeNumbers (int Number1, int Number2, int Number3) {return Math.max( Math.max(Number1, Number2),Number3); }
+    public int maxOFThreeNumbers (int number1, int number2, int number3) {return Math.max( Math.max(number1, number2),number3); }
     public boolean isEven (int number) {return (number % 2 == 0 ); }
     public int maxOfTwoNumber (int firstNumber, int secondNumber){return Math.max(firstNumber,secondNumber); }
     public int sum (int firstNumber, int secondNumber) {

@@ -10,7 +10,7 @@ class Task_4 {
 
         if (userInput % 2 == 0){
             System.out.println(userInput + " is even number");
-        } else if (userInput % 1 == 0){
+        } else  {
             System.out.println(userInput + " is not even number");
         }
     }

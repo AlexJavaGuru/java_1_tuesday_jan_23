@@ -1,6 +1,6 @@
 package student_romualds_leitans.lesson_4.level_6;
 
-public class StockDemo {
+class StockDemo {
     public static void main(String[] args) {
         Stock google = new Stock("GOOG", 10);
         String priceInformation = google.getPriceInformation();

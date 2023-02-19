@@ -5,99 +5,94 @@ class CalculatorTest {
 
     public static void main(String[] args) {
         CalculatorTest calculatorTest = new CalculatorTest();
-        calculatorTest.threeNumbers();
+        calculatorTest.maxOfThreeNumbers();
         calculatorTest.isEvenTest();
-        calculatorTest.maxOfTwonumbers();
+        calculatorTest.maxOfTwoNumbers();
         calculatorTest.sumTest();
         calculatorTest.subTest();
         calculatorTest.mulTest();
         calculatorTest.divTest();
     }
-    public void threeNumbers () {
+
+    public void maxOfThreeNumbers() {
         Calculator calculator = new Calculator();
-        int Number1 = 1;
-        int Number2 = 44;
-        int Number3 = 44;
-        int result = calculator.threeNumbers(Number1, Number2, Number3);
-        if (Number1 > Number2 && Number1 > Number3) {
-        System.out.println("The first number is greater than the others");
-    }else if (Number1 < Number2 && Number2 > Number3) {
-            System.out.println("The second number is greater than the others ");
-        }else if (Number3 > Number1 && Number3 > Number2){
-            System.out.println("The third number is greater than the others");
-        }else if(Number1 == Number2 && Number1>Number3){
-            System.out.println("The first two are equal and greater than the third");
-        }else if(Number1 == Number2 && Number1 == Number3) {
-            System.out.println("Three numbers are equal");
-        }else{
-            System.out.println("Other options");
-        }
-    }
-
-
-
-
-    public void maxOfTwonumbers(){
-        Calculator calculator = new Calculator();
-        int firstNumber = 90;
-        int secondNumber = 90;
-        int result = calculator.maxOfTwoNumber(firstNumber, secondNumber);
-        if(firstNumber > secondNumber){
-            System.out.println("First number is greater that the second");
-        } else if (firstNumber < secondNumber){
-            System.out.println("Second number is greater that the first");
-        }else if (firstNumber == secondNumber){
-            System.out.println("First number and Second numbers are equal");
-        }
-    }
-
-    public void isEvenTest(){
-        Calculator calculator = new Calculator();
-        int number = 9897;
-        boolean realResult = calculator.isEven(number);
-        if (!realResult){
-            System.out.println("Not Even number");
+        int number1 = 1;
+        int number2 = 44;
+        int number3 = 50;
+        int expectedResult = 50;
+        int actualResult = calculator.maxOFThreeNumbers(number1, number2, number3);
+        if (expectedResult == actualResult) {
+            System.out.println("TEST, Max of tree numbers = OK");
         } else {
-            System.out.println("Even number");
+            System.out.println("TEST, Max of tree numbers = FAIL");
         }
     }
 
-    public void sumTest(){
+
+    public void maxOfTwoNumbers() {
+        Calculator calculator = new Calculator();
+        int firstNumber = 200;
+        int secondNumber = 100;
+        int expectedResult = 200;
+        int result = calculator.maxOfTwoNumber(firstNumber, secondNumber);
+        if (expectedResult == result) {
+            System.out.println("TEST, Max of two numbers = OK");
+        } else {
+            System.out.println("TEST, Max of tho numbers = FAIL");
+        }
+
+    }
+
+    public void isEvenTest() {
+        Calculator calculator = new Calculator();
+        int number = 8;
+        boolean realResult = calculator.isEven(number);
+        if (realResult) {
+            System.out.println("Even number = Test OK");
+        } else {
+            System.out.println("Not even number = Test FAIL");
+        }
+    }
+
+    public void sumTest() {
         Calculator calculator = new Calculator();
         int firstNumber = 10;
         int secondNumber = 40;
         int expectedResult = 50;
-        int realResult = calculator.sum(firstNumber,secondNumber);
-        if (realResult == expectedResult){
+        int realResult = calculator.sum(firstNumber, secondNumber);
+        if (realResult == expectedResult) {
             System.out.println("Sum Test is OK");
-        }else {
+        } else {
             System.out.println("Test failed");
         }
     }
-    public void subTest(){
+
+    public void subTest() {
         Calculator calculator = new Calculator();
         int firstNumber = 10;
         int secondNumber = 5;
         int expectedResult = 5;
-        int realResult = calculator.sub(firstNumber,secondNumber);
-        if (realResult == expectedResult){
+        int realResult = calculator.sub(firstNumber, secondNumber);
+        if (realResult == expectedResult) {
             System.out.println("Sub Test is OK");
-        }else {
+        } else {
             System.out.println("Test failed");
         }
     }
-    public void mulTest(){
+
+    public void mulTest() {
         Calculator calculator = new Calculator();
         int firstNumber = 3;
         int secondNumber = 3;
         int expectedResult = 9;
-        int realResult = calculator.mul(firstNumber,secondNumber);
-        if (realResult == expectedResult){
+        int realResult = calculator.mul(firstNumber, secondNumber);
+        if (realResult == expectedResult) {
             System.out.println("Mul Test is OK");
-        }else {
+        } else {
             System.out.println("Test failed");
         }
     }
+
     public void divTest() {
         Calculator calculator = new Calculator();
         int firstNumber = 10;
