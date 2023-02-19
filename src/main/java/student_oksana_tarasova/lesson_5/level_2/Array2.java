@@ -1,6 +1,6 @@
 package student_oksana_tarasova.lesson_5.level_2;
 
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 public class Array2 {
