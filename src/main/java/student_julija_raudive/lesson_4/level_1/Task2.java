@@ -2,7 +2,7 @@ package student_julija_raudive.lesson_4.level_1;
 
 import java.util.Scanner;
 
- class Task2 {
+class Task2 {
 
     public static void main(String[] args) {
 
@@ -11,13 +11,11 @@ import java.util.Scanner;
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
 
-        if (number > 0){
+        if (number > 0) {
             System.out.println("The number is positive.");
-        }
-        else if (number < 0){
+        } else if (number < 0) {
             System.out.println("The number is negative.");
-        }
-        else{
+        } else {
             System.out.println("The number is 0.");
         }
 

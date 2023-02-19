@@ -2,7 +2,7 @@ package student_julija_raudive.lesson_4.level_2;
 
 import java.util.Scanner;
 
- class Task7 {
+class Task7 {
     public static void main(String[] args) {
 
         System.out.println("Enter two numbers.");
@@ -14,10 +14,9 @@ import java.util.Scanner;
         System.out.println("Number two:");
         int varB = scanner.nextInt();
 
-        if  (varA == varB){
+        if (varA == varB) {
             System.out.println("Numbers are equals.");
-        }
-        else{
+        } else {
             System.out.println("Numbers are different.");
         }
     }

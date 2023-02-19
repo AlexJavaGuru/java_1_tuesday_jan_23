@@ -50,10 +50,10 @@ package student_julija_raudive.lesson_4.level_4;
      }
 
      public void divisionTest(){
-         int firstNumber = 10;
-         int secondNumber = 5;
-         int realResult = calculator.division(firstNumber, secondNumber);
-         checkResults(realResult == 2, "Division test");
+         int firstNumber = 5;
+         int secondNumber = 2;
+         double realResult = calculator.division(firstNumber, secondNumber);
+         checkResults(realResult == 2.5, "Division test");
 
      }
 

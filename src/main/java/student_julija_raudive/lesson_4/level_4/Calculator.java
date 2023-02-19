@@ -17,8 +17,9 @@ package student_julija_raudive.lesson_4.level_4;
          return firstNumber * secondNumber;
      }
 
-     public int division(int firstNumber, int secondNumber) {
-         return firstNumber / secondNumber;
+     public double division(int firstNumber, int secondNumber) {
+         double result = (double)firstNumber / secondNumber;
+         return result;
      }
 
 
