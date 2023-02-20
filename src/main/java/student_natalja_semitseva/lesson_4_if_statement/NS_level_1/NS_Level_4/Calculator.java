@@ -52,15 +52,9 @@ class Calculator {
 
 
         if (firstNumber > secondNumber) {
-            System.out.println("Number " + firstNumber + " bigger");
-            System.out.println("FirstNumber > SecondNumber");
-
-
         } else if (secondNumber > firstNumber) {
-            System.out.println("Number " + secondNumber + " bigger");
-            System.out.println("SecondNumber > FirstNumber");
         } else {
-            System.out.println("SecondNumber == FirstNumber");
+
         }
         return firstNumber;
     }
@@ -69,22 +63,17 @@ class Calculator {
 
 
         if (firstNumber > secondNumber && firstNumber > thirdNumber) {
-            System.out.println("Number " + firstNumber + " bigger");
+
             return firstNumber;
 
-
         } else if (secondNumber > firstNumber && secondNumber > thirdNumber) {
-            System.out.println("Number " + secondNumber + " bigger");
 
         } else if (thirdNumber > firstNumber && thirdNumber > secondNumber) {
-            System.out.println("Number " + thirdNumber + " bigger");
-
-            System.out.println("Number " + firstNumber + "or" + secondNumber + " bigger");
 
         } else if ((thirdNumber = firstNumber) > secondNumber) {
-            System.out.println("ThirdNumber or FirstNumber = number; Number" + thirdNumber + " bigger");
+
         } else {
-            System.out.println("Numbers are equal");
+
         }
         return firstNumber;
     }

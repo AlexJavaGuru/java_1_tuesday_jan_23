@@ -20,11 +20,10 @@ class Task_10 {
 
         if (firstNumber > secondNumber && firstNumber > thirdNumber) {
             System.out.println("Number " + firstNumber + " bigger");
-            return;
         } else if (secondNumber > firstNumber && secondNumber > thirdNumber) {
             System.out.println("Number " + secondNumber + " bigger");
 
-        } else if (thirdNumber > firstNumber && thirdNumber > secondNumber) {
+        } else {
             System.out.println("Number " + thirdNumber + " bigger");
 
         }

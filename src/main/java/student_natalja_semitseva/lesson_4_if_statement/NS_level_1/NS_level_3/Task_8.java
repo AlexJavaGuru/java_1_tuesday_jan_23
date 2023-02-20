@@ -16,10 +16,8 @@ class Task_8 {
         if (firstNumber == secondNumber && firstNumber == thirdNumber) {
             System.out.println(firstNumber);
             System.out.println("All numbers are equals");
-            return;
         } else if (firstNumber != secondNumber && secondNumber != thirdNumber && firstNumber != thirdNumber) {
             System.out.println("All numbers are different");
-            return;
         } else {
             System.out.println("Neither all are equal or different");
         }

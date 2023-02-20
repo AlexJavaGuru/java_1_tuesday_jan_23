@@ -13,15 +13,13 @@ class Task_7 {
         int secondNumber = scanner.nextInt();
 
         if (firstNumber == secondNumber) {
-            System.out.println(firstNumber);
-            System.out.println("Numbers are equals");
-            return;
+            System.out.println("Numbers are equals = " + firstNumber);
 
-        } else if (secondNumber != firstNumber) ;
-        System.out.println(secondNumber);
-        System.out.println("Numbers are different");
-        return;
-
+        } else if (secondNumber > firstNumber) {
+            System.out.println("Numbers are different ");
+        } else if (secondNumber > firstNumber) {
+            System.out.println("Numbers are different ");
+        }
     }
 
 }

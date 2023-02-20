@@ -108,8 +108,6 @@ class CalculatorTest {
         } else {
             System.out.println("Test isOdd = False");
         }
-
-
     }
 
 
@@ -119,7 +117,6 @@ class CalculatorTest {
         } else {
             System.out.println("Test " + testName + " has passed!");
             System.out.println("Expected " + realResult + ", but actual:" + expectedResult);
-
 
         }
     }
@@ -135,175 +132,127 @@ class CalculatorTest {
 
     private static int testMaxOfTwoNumbersTest() {
         Calculator calculator = new Calculator();
-        {
-            {
 
-            }
-            int firstNumber = 5;
-            int secondNumber = 1;
+        int firstNumber = 5;
+        int secondNumber = 1;
 
-            int result = calculator.maxOfTwoNumbers(firstNumber, secondNumber);
-            if ((secondNumber < firstNumber)) {
-                System.out.println("Test Max = true");
-            } else {
-                System.out.println("Test Max = False");
-            }
-            {
-            }
-            return 0;
+        int result = calculator.maxOfTwoNumbers(firstNumber, secondNumber);
+        if ((secondNumber < firstNumber)) {
+            System.out.println("Test Max = true");
+        } else {
+            System.out.println("Test Max = False");
         }
+        return 0;
     }
 
     private static int testMaxOfTwoNumbersTest1() {
         Calculator calculator = new Calculator();
-        {
 
+        int firstNumber = 6;
+        int secondNumber = 7;
+        int result = calculator.maxOfTwoNumbers(firstNumber, secondNumber);
 
-            {
-
-            }
-            int firstNumber = 6;
-            int secondNumber = 7;
-            int result = calculator.maxOfTwoNumbers(firstNumber, secondNumber);
-
-            if (secondNumber > firstNumber) {
-                System.out.println("Test Max1 = true");
-            } else {
-                System.out.println("Test Max1 = False");
-            }
+        if (secondNumber > firstNumber) {
+            System.out.println("Test Max1 = true");
+        } else {
+            System.out.println("Test Max1 = False");
         }
-
         return 0;
     }
 
     private static int testMaxOfTwoNumbersTest2() {
         Calculator calculator = new Calculator();
-        {
 
+        int firstNumber = 6;
+        int secondNumber = 6;
+        int result = calculator.maxOfTwoNumbers(firstNumber, secondNumber);
 
-            {
-
-            }
-            int firstNumber = 6;
-            int secondNumber = 6;
-            int result = calculator.maxOfTwoNumbers(firstNumber, secondNumber);
-
-            if (secondNumber == firstNumber) {
-                System.out.println("Test Max2 = true");
-            } else {
-                System.out.println("Test Max2 = False");
-            }
+        if (secondNumber == firstNumber) {
+            System.out.println("Test Max2 = true");
+        } else {
+            System.out.println("Test Max2 = False");
         }
-
         return 0;
     }
 
     private static int testMaxOfThreeNumbersTest() {
         Calculator calculator = new Calculator();
-        {
 
+        int firstNumber = 7;
+        int secondNumber = 2;
+        int thirdNumber = 4;
+        int result = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
 
-            {
-
-            }
-            int firstNumber = 7;
-            int secondNumber = 2;
-            int thirdNumber = 4;
-            int result = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
-
-            if (firstNumber > secondNumber && firstNumber > thirdNumber) {
-                System.out.println("Test ThreeMax = true");
-            } else {
-                System.out.println("Test ThreeMax = False");
-            }
+        if (firstNumber > secondNumber && firstNumber > thirdNumber) {
+            System.out.println("Test ThreeMax = true");
+        } else {
+            System.out.println("Test ThreeMax = False");
         }
         return 0;
     }
 
     private static int testMaxOfThreeNumbersTest1() {
         Calculator calculator = new Calculator();
-        {
 
+        int firstNumber = 7;
+        int secondNumber = 10;
+        int thirdNumber = 4;
 
-            {
+        int result = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
 
-            }
-            int firstNumber = 7;
-            int secondNumber = 10;
-            int thirdNumber = 4;
-
-            int result = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
-
-            if (secondNumber > firstNumber && secondNumber > thirdNumber) {
-                System.out.println("Test ThreeMax1 = true");
-            } else {
-                System.out.println("Test ThreeMax1 = False");
-            }
+        if (secondNumber > firstNumber && secondNumber > thirdNumber) {
+            System.out.println("Test ThreeMax1 = true");
+        } else {
+            System.out.println("Test ThreeMax1 = False");
         }
         return 0;
     }
 
     private static int testMaxOfThreeNumbersTest2() {
         Calculator calculator = new Calculator();
-        {
 
+        int firstNumber = 7;
+        int secondNumber = 5;
+        int thirdNumber = 12;
+        int result = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
 
-            {
-
-            }
-            int firstNumber = 7;
-            int secondNumber = 5;
-            int thirdNumber = 12;
-            int result = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
-
-            if (thirdNumber > firstNumber && thirdNumber > secondNumber) {
-                System.out.println("Test ThreeMax2 = true");
-            } else {
-                System.out.println("Test ThreeMax2 = False");
-            }
+        if (thirdNumber > firstNumber && thirdNumber > secondNumber) {
+            System.out.println("Test ThreeMax2 = true");
+        } else {
+            System.out.println("Test ThreeMax2 = False");
         }
         return 0;
     }
 
     private static int testMaxOfThreeNumbersTest3() {
         Calculator calculator = new Calculator();
-        {
 
-            {
+        int firstNumber = 12;
+        int secondNumber = 12;
+        int thirdNumber = 12;
+        int result = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
 
-            }
-            int firstNumber = 12;
-            int secondNumber = 12;
-            int thirdNumber = 12;
-            int result = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
-
-            if ((thirdNumber = firstNumber) > secondNumber) {
-                System.out.println("Test ThreeMax3 = true");
-            } else {
-                System.out.println("Test ThreeMax3 = False");
-            }
+        if ((thirdNumber = firstNumber) > secondNumber) {
+            System.out.println("Test ThreeMax3 = true");
+        } else {
+            System.out.println("Test ThreeMax3 = False");
         }
         return 0;
     }
 
     private static int testMaxOfThreeNumbersTest4() {
         Calculator calculator = new Calculator();
-        {
 
-            {
+        int firstNumber = 12;
+        int secondNumber = 12;
+        int thirdNumber = 12;
 
-            }
-            int firstNumber = 12;
-            int secondNumber = 12;
-            int thirdNumber = 12;
+        int Result = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
 
-            int Result = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
-
-            if ((secondNumber == firstNumber) && firstNumber == thirdNumber) {
-                System.out.println("Test ThreeMax4 = true");
-            } else {
-                System.out.println("Test ThreeMax4 = False");
-            }
+        if ((secondNumber == firstNumber) && firstNumber == thirdNumber) {
+            System.out.println("Test ThreeMax4 = true");
+        } else {
+            System.out.println("Test ThreeMax4 = False");
         }
         return 0;
     }

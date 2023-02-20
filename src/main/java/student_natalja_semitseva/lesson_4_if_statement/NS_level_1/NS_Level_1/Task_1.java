@@ -15,7 +15,7 @@ class Task_1 {
         if (number > 0) {
             System.out.println("positive");
 
-        } else if (number < 0) {
+        } else {
             System.out.println("negative");
 
 
