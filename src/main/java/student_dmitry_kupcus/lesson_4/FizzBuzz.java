@@ -6,11 +6,9 @@ class FizzBuzz {
 
         if (isDividedBy3(number) && isDividedBy5(number)) {
             return "FizzBuzz";
-        }
-        if (isDividedBy3(number)) {
+        } else if (isDividedBy3(number)) {
             return "Fizz";
-        }
-        if (isDividedBy5(number)) {
+        } else if (isDividedBy5(number)) {
             return "Buzz";
         }
         return "" + number;

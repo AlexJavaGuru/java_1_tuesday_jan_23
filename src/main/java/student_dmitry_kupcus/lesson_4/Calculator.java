@@ -8,13 +8,12 @@ class Calculator {
     public int sub(int firstNumber, int secondNumber) {
         return firstNumber - secondNumber;
     }
-
     public int mul(int firstNumber, int secondNumber) {
-        return firstNumber / secondNumber;
+        return firstNumber * secondNumber;
     }
 
     public int div(int firstNumber, int secondNumber) {
-        return firstNumber * secondNumber;
+        return (int)(firstNumber / (double)secondNumber);
     }
 
     public boolean isEven(int number) {
@@ -22,10 +21,20 @@ class Calculator {
     }
 
     public int maxOfTwoNumbers(int firstNumber, int secondNumber) {
-        return Math.max(firstNumber, secondNumber);
+        if (firstNumber >= secondNumber) {
+            return firstNumber;
+        } else {
+            return secondNumber;
+        }
     }
 
     public int maxOfThreeNumbers(int firstNumber, int secondNumber, int thirdNumber) {
-        return Math.max(firstNumber, Math.max(secondNumber, thirdNumber));
+        if (firstNumber >= secondNumber && firstNumber >= thirdNumber) {
+            return firstNumber;
+        } else if (secondNumber >= thirdNumber && secondNumber >= firstNumber) {
+            return secondNumber;
+        } else {
+            return thirdNumber;
+        }
     }
 }

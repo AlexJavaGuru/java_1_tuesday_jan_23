@@ -9,13 +9,20 @@ class CalculatorTest {
         calculatorTest.mulTest();
         calculatorTest.isEven();
 
-        calculatorTest.maxOfTwoNumbersTest();
-        calculatorTest.maxOfTwoNumbersEqualTest();
+        calculatorTest.maxOfTwoNumbersTestFirstHigherThenSecond();
+        calculatorTest.maxOfTwoNumbersTestSecondHigherThenFirst();
+        calculatorTest.maxOfTwoNumbersEqual();
 
-        calculatorTest.maxOfThreeNumbers();
-        calculatorTest.maxOfThreeNumbersEqualTest();
+        calculatorTest.maxOfThreeNumbersFirstHigher();
+        calculatorTest.maxOfThreeNumbersSecondHigher();
+        calculatorTest.maxOfThreeNumbersThirdHigher();
+        calculatorTest.maxOfThreeNumbersFirstAndSecondHigherThenThird();
+        calculatorTest.maxOfThreeNumbersFirstAndThirdHigherThenSecond();
+        calculatorTest.maxOfThreeNumbersSecondAndThirdHigherThenFirst();
+        calculatorTest.maxOfThreeNumbersEqual();
 
     }
+
     public void sumTest() {
         int firstNumber = 10;
         int secondNumber = 5;
@@ -24,6 +31,7 @@ class CalculatorTest {
         int realResult = calculator.sum(firstNumber, secondNumber);
         checkResult(expectedResult, realResult, "Sum");
     }
+
     public void subTest() {
         int firstNumber = 10;
         int secondNumber = 2;
@@ -32,80 +40,130 @@ class CalculatorTest {
         int realResult = calculator.sub(firstNumber, secondNumber);
         checkResult(expectedResult, realResult, "Sub");
     }
+
     public void divTest() {
-        int firstNumber = 10;
-        int secondNumber = 2;
-        int expectedResult = 20;
-        Calculator calculator = new Calculator();
-        int realResult = calculator.div(firstNumber, secondNumber);
-        checkResult(expectedResult, realResult, "Div");
-    }
-    public void mulTest() {
         int firstNumber = 10;
         int secondNumber = 2;
         int expectedResult = 5;
         Calculator calculator = new Calculator();
+        int realResult = calculator.div(firstNumber, secondNumber);
+        checkResult(expectedResult, realResult, "Div");
+    }
+
+    public void mulTest() {
+        int firstNumber = 10;
+        int secondNumber = 2;
+        int expectedResult = 20;
+        Calculator calculator = new Calculator();
         int realResult = calculator.mul(firstNumber, secondNumber);
         checkResult(expectedResult, realResult, "Mul");
     }
+
     public void isEven() {
-        Calculator calculator = new Calculator();
         int firstNumber = 20;
+        Calculator calculator = new Calculator();
         boolean result = calculator.isEven(firstNumber);
         checkResult(result, "isEven test");
     }
-    public void maxOfTwoNumbersTest() {
+
+    public void maxOfTwoNumbersTestSecondHigherThenFirst() {
+        int firstNumber = 2;
+        int secondNumber = 3;
+        int expectedResult = 3;
+        Calculator calculator = new Calculator();
+        int realResult = calculator.maxOfTwoNumbers(secondNumber, firstNumber);
+        checkResult(expectedResult, realResult, "maxOfTwoNumbersTestSecondHigherThenFirst test");
+    }
+
+    public void maxOfTwoNumbersTestFirstHigherThenSecond() {
+        int firstNumber = 3;
+        int secondNumber = 2;
+        int expectedResult = 3;
+        Calculator calculator = new Calculator();
+        int realResult = calculator.maxOfTwoNumbers(firstNumber, secondNumber);
+        checkResult(expectedResult, realResult, "maxOfTwoNumbersTestFirstHigherThenSecond test");
+    }
+
+    public void maxOfTwoNumbersEqual() {
         int firstNumber = 2;
         int secondNumber = 2;
         int expectedResult = 2;
         Calculator calculator = new Calculator();
         int realResult = calculator.maxOfTwoNumbers(firstNumber, secondNumber);
-        checkResult(expectedResult, realResult, "maxOfTwoNumbers test");
+        checkResult(expectedResult, realResult, "maxOfTwoNumbersEqual test");
     }
-    public void maxOfTwoNumbersEqualTest() {
-        int firstNumber = 2;
-        int secondNumber = 5;
+
+    public void maxOfThreeNumbersFirstHigher() {
+        int firstNumber = 10;
+        int secondNumber = 2;
+        int thirdNumber = 5;
+        int expectedResult = 10;
         Calculator calculator = new Calculator();
-        int realResult = calculator.maxOfTwoNumbers(firstNumber, secondNumber);
-        if (realResult == firstNumber && realResult == secondNumber) {
-            System.out.println("Test: maxOfThoNumbersEqual = both numbers are equal");
-        } else if (firstNumber != secondNumber) {
-            System.out.println("Test: maxOfThoNumbersEqual = both numbers are not equal");
-        }
+        int realResult = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
+        checkResult(expectedResult, realResult, "maxOfThreeNumbersFirstHigher test");
     }
-    public void maxOfThreeNumbers(){
+
+    public void maxOfThreeNumbersSecondHigher() {
+        int firstNumber = 10;
+        int secondNumber = 20;
+        int thirdNumber = 5;
+        int expectedResult = 20;
+        Calculator calculator = new Calculator();
+        int realResult = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
+        checkResult(expectedResult, realResult, "maxOfThreeNumbersSecondHigher test");
+    }
+
+    public void maxOfThreeNumbersThirdHigher() {
+        int firstNumber = 10;
+        int secondNumber = 5;
+        int thirdNumber = 50;
+        int expectedResult = 50;
+        Calculator calculator = new Calculator();
+        int realResult = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
+        checkResult(expectedResult, realResult, "maxOfThreeNumbersThirdHigher test");
+    }
+
+    public void maxOfThreeNumbersEqual() {
+        int firstNumber = 3;
+        int secondNumber = 3;
+        int thirdNumber = 3;
+        int expectedResult = 3;
+        Calculator calculator = new Calculator();
+        int realResult = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
+        checkResult(expectedResult, realResult, "maxOfThreeNumbersEqualTest test");
+    }
+
+    public void maxOfThreeNumbersFirstAndSecondHigherThenThird() {
         int firstNumber = 5;
         int secondNumber = 5;
+        int thirdNumber = 3;
+        int expectedResult = 5;
+        Calculator calculator = new Calculator();
+        int realResult = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
+        checkResult(expectedResult, realResult, "maxOfThreeNumbersFirstAndSecondHigherThenThird test");
+    }
+
+    public void maxOfThreeNumbersFirstAndThirdHigherThenSecond() {
+        int firstNumber = 5;
+        int secondNumber = 3;
         int thirdNumber = 5;
         int expectedResult = 5;
         Calculator calculator = new Calculator();
         int realResult = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
-        checkResult(expectedResult, realResult,"maxOfThreeNumbers test");
+        checkResult(expectedResult, realResult, "maxOfThreeNumbersFirstAndThirdHigherThenSecond test");
     }
-    public void maxOfThreeNumbersEqualTest() {
-        int firstNumber = 3;
-        int secondNumber = 1;
-        int thirdNumber = 2;
+
+    public void maxOfThreeNumbersSecondAndThirdHigherThenFirst() {
+        int firstNumber = 5;
+        int secondNumber = 3;
+        int thirdNumber = 5;
+        int expectedResult = 5;
         Calculator calculator = new Calculator();
         int realResult = calculator.maxOfThreeNumbers(firstNumber, secondNumber, thirdNumber);
-        if (realResult == firstNumber && realResult == secondNumber && realResult == thirdNumber) {
-            System.out.println("Test: maxOfThreeNumbersEqual = all three numbers are equal!");
-        } else if (firstNumber > secondNumber && firstNumber > thirdNumber) {
-            System.out.println("Test: maxOfThreeNumbersEqual = First number are higher then second and third!");
-        } else if (secondNumber > firstNumber && secondNumber > thirdNumber) {
-            System.out.println("Test: maxOfThreeNumbersEqual = Second number are higher then first and third!");
-        } else if (thirdNumber > secondNumber && thirdNumber > firstNumber) {
-            System.out.println("Test: maxOfThreeNumbersEqual = Third number are higher then first and second!");
-        } else if (firstNumber == secondNumber && firstNumber > thirdNumber && secondNumber > thirdNumber) {
-            System.out.println("Test: maxOfThreeNumbersEqual = First number is equal to second number and both are higher then third!");
-        } else if (secondNumber == thirdNumber && secondNumber > firstNumber && thirdNumber > firstNumber) {
-            System.out.println("Test: maxOfThreeNumbersEqual = Second number is equal to third number and both are higher then first!");
-        } else if (firstNumber == thirdNumber && firstNumber > secondNumber && thirdNumber > secondNumber) {
-            System.out.println("Test: maxOfThreeNumbersEqual = First number is equal to third number and both are higher then second!");
-        } else {
-            System.out.println("Test: maxOfThreeNumbersEqual test failed!");
-        }
+        checkResult(expectedResult, realResult, "maxOfThreeNumbersSecondAndThirdHigherThenFirst test");
+
     }
+
     public void checkResult(boolean actualResult, String testName) {
         if (actualResult) {
             System.out.println("Test: " + testName + " has passed!");
@@ -113,6 +171,7 @@ class CalculatorTest {
             System.out.println("Test: " + testName + " failed");
         }
     }
+
     public void checkResult(int expectedResult, int realResult, String testName) {
         if (expectedResult == realResult) {
             System.out.println("Test: " + testName + " has passed!");
