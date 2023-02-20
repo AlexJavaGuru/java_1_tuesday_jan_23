@@ -6,6 +6,7 @@ import java.util.Scanner;
 class Task11 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Please input first number:");
         int firstNumber = scanner.nextInt();
         System.out.println("Please input second number:");

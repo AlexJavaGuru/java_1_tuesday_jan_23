@@ -1,12 +1,12 @@
 package student_dmitry_kupcus.lesson_5;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 class Task25 {
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
+        ArrayUtil arrayUtil = new ArrayUtil();
+
         System.out.println("Please enter quantity of arrays:");
         int arraySize = scanner.nextInt();
         int array[] = new int[arraySize];
@@ -17,7 +17,7 @@ class Task25 {
             System.out.println("Please enter elements in " + i + " array:");
             array[i] = scanner.nextInt();
         }
-        System.out.println(array.length);
-        System.out.println(Arrays.toString(array));
+        System.out.println("Total arrays: " + array.length);
+        arrayUtil.printArrayToConsole(array);
     }
 }

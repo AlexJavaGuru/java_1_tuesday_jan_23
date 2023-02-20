@@ -6,6 +6,7 @@ import java.util.Random;
 class Task12 {
     public static void main(String[] args) {
         Random rand = new Random();
+
         int firstNumber = rand.nextInt();
         int secondNumber = rand.nextInt();
         int thirdNumber = rand.nextInt();
