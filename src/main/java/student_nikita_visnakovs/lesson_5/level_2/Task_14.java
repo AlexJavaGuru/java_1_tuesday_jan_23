@@ -16,7 +16,7 @@ public class Task_14 {
 
         System.out.println(Arrays.toString(randomNum));
 
-        int averageNum = (randomNum[0] = randomNum[1] + randomNum[2]) / 3;
+        double averageNum = (randomNum[0] + randomNum[1] + randomNum[2]) / (double) 3;
 
         System.out.println("Average = " + averageNum);
     }
