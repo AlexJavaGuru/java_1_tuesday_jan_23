@@ -15,10 +15,8 @@ class TicTacToe {
     }
 
     public boolean isWinPositionForHorizontals(char[][] field, char playerToCheck) {
-        boolean winPosition = true;
-
         for (int x = 0; x < field.length; x++) {
-            winPosition = true;
+            boolean winPosition = true;
             for (int y = 0; y < field[x].length; y++) {
                 if (field[x][y] != playerToCheck) {
                     winPosition = false;
@@ -26,16 +24,15 @@ class TicTacToe {
                 }
             }
             if (winPosition) {
-                break;
+                return true;
             }
         }
-        return winPosition;
+        return false;
     }
 
     public boolean isWinPositionForVerticals(char[][] field, char playerToCheck) {
-        boolean winPosition = true;
-
         for (int x = 0; x < field.length; x++) {
+            boolean winPosition = true;
             for (int y = 0; y < field[x].length; y++) {
                 if (field[y][x] != playerToCheck) {
                     winPosition = false;
@@ -43,37 +40,29 @@ class TicTacToe {
                 }
             }
             if (winPosition) {
-                break;
+                return true;
             }
         }
-        return winPosition;
+        return false;
     }
 
     public boolean isWinPositionForMainDiagonal(char[][] field, char playerToCheck) {
-        boolean winPosition = true;
-
         for (int x = 0; x < field.length; x++) {
             if (field[x][x] != playerToCheck) {
-                winPosition = false;
-                break;
+                return false;
             }
         }
-
-        return winPosition;
+        return true;
     }
 
     public boolean isWinPositionForSideDiagonal(char[][] field, char playerToCheck) {
-        boolean winPosition = true;
-
         for (int x = 0; x < field.length; x++) {
             int y = field.length - x - 1;
             if (field[x][y] != playerToCheck) {
-                winPosition = false;
-                break;
+                return false;
             }
         }
-
-        return winPosition;
+        return true;
     }
 
     public boolean isWinPositionForDiagonals(char[][] field, char playerToCheck) {
