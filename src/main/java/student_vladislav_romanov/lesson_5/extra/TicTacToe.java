@@ -15,75 +15,69 @@ class TicTacToe {
     }
 
     public boolean isWinPositionForHorizontals(char[][] field, char playerToCheck) {
-        int counter = 0;
+        boolean winPosition = true;
 
         for (int x = 0; x < field.length; x++) {
+            winPosition = true;
             for (int y = 0; y < field[x].length; y++) {
-                if (field[x][y] == playerToCheck) {
-                    counter++;
-                } else if (field[x][y] != cell) {
-                    counter = 0;
-                }
-            }
-            if (counter == field.length) {
-                break;
-            }
-            counter = 0;
-        }
-
-        return counter == field.length;
-    }
-
-    public boolean isWinPositionForVerticals(char[][] field, char playerToCheck) {
-        int counter = 0;
-
-        for (int x = 0; x < field.length; x++) {
-            for (int y = 0; y < field[x].length; y++) {
-                if (field[y][x] == playerToCheck) {
-                    counter++;
-                } else if (field[y][x] != cell) {
-                    counter = 0;
-                }
-            }
-            if (counter == field.length) {
-                break;
-            }
-            counter = 0;
-        }
-
-        return counter == field.length;
-    }
-
-    public boolean isWinPositionForDiagonals(char[][] field, char playerToCheck) {
-        int counter = 0;
-
-        for (int x = 0; x < field.length; x++) {
-            if (field[x][x] == playerToCheck) {
-                counter++;
-            } else if (field[x][x] != cell) {
-                counter = 0;
-            }
-            if (counter == field.length) {
-                break;
-            }
-        }
-
-        if (counter < field.length) {
-            counter = 0;
-            for (int x = 0; x < field.length; x++) {
-                int y = field.length - x - 1;
-                if (field[x][y] == playerToCheck) {
-                    counter++;
-                } else if (field[x][y] != cell) {
-                    counter = 0;
-                }
-                if (counter == field.length) {
+                if (field[x][y] != playerToCheck) {
+                    winPosition = false;
                     break;
                 }
             }
+            if (winPosition) {
+                break;
+            }
+        }
+        return winPosition;
+    }
+
+    public boolean isWinPositionForVerticals(char[][] field, char playerToCheck) {
+        boolean winPosition = true;
+
+        for (int x = 0; x < field.length; x++) {
+            for (int y = 0; y < field[x].length; y++) {
+                if (field[y][x] != playerToCheck) {
+                    winPosition = false;
+                    break;
+                }
+            }
+            if (winPosition) {
+                break;
+            }
+        }
+        return winPosition;
+    }
+
+    public boolean isWinPositionForMainDiagonal(char[][] field, char playerToCheck) {
+        boolean winPosition = true;
+
+        for (int x = 0; x < field.length; x++) {
+            if (field[x][x] != playerToCheck) {
+                winPosition = false;
+                break;
+            }
         }
 
-        return counter == field.length;
+        return winPosition;
+    }
+
+    public boolean isWinPositionForSideDiagonal(char[][] field, char playerToCheck) {
+        boolean winPosition = true;
+
+        for (int x = 0; x < field.length; x++) {
+            int y = field.length - x - 1;
+            if (field[x][y] != playerToCheck) {
+                winPosition = false;
+                break;
+            }
+        }
+
+        return winPosition;
+    }
+
+    public boolean isWinPositionForDiagonals(char[][] field, char playerToCheck) {
+        return isWinPositionForMainDiagonal(field, playerToCheck) || isWinPositionForSideDiagonal(field, playerToCheck) ;
     }
 
     public boolean isWinPosition(char[][] field, char playerToCheck) {
@@ -91,18 +85,21 @@ class TicTacToe {
     }
 
     public boolean isDrawPosition(char[][] field) {
-        int counter = 0;
+        boolean hasEmptyCell = false;
 
         for (int x = 0; x < field.length; x++) {
             for (int y = 0; y < field[x].length; y++) {
                 if (field[x][y] == cell) {
-                    counter++;
+                    hasEmptyCell = true;
                     break;
                 }
             }
+            if (hasEmptyCell) {
+                break;
+            }
         }
 
-        return counter == 0;
+        return !hasEmptyCell;
     }
 
     public char[][] createField(int size) {

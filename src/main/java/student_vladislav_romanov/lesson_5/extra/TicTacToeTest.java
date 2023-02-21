@@ -16,6 +16,10 @@ public class TicTacToeTest {
         test.isWinPositionForVerticalsTestSucceed();
         test.isWinPositionForVerticalsTestFailed();
         test.isWinPositionForDiagonalsTestSucceed();
+        test.isWinPositionForMainDiagonalTestSucceed();
+        test.isWinPositionForMainDiagonalTestFailed();
+        test.isWinPositionForSideDiagonalTestSucceed();
+        test.isWinPositionForSideDiagonalTestFailed();
         test.isWinPositionForDiagonalsTestFailed();
         test.isWinPositionTestSucceed();
         test.isWinPositionTestFailed();
@@ -58,6 +62,42 @@ public class TicTacToeTest {
 
         ticTacToe.printFieldToConsole(field);
         printResult(currentResult, false, "isWinPositionForVerticalsTestFailed");
+    }
+
+    public void isWinPositionForMainDiagonalTestSucceed() {
+        TicTacToe ticTacToe = new TicTacToe();
+        char[][] field = {{playerOne, playerOne, playerTwo}, {playerTwo, playerOne, cell}, {playerTwo, cell, playerOne}};
+        boolean currentResult = ticTacToe.isWinPositionForMainDiagonal(field, playerOne);
+
+        ticTacToe.printFieldToConsole(field);
+        printResult(currentResult, true, "isWinPositionForMainDiagonalTestSucceed");
+    }
+
+    public void isWinPositionForMainDiagonalTestFailed() {
+        TicTacToe ticTacToe = new TicTacToe();
+        char[][] field = {{playerOne, playerOne, playerTwo}, {playerOne, playerOne, cell}, {playerOne, cell, cell}};
+        boolean currentResult = ticTacToe.isWinPositionForMainDiagonal(field, playerOne);
+
+        ticTacToe.printFieldToConsole(field);
+        printResult(currentResult, false, "isWinPositionForMainDiagonalTestFailed");
+    }
+
+    public void isWinPositionForSideDiagonalTestSucceed() {
+        TicTacToe ticTacToe = new TicTacToe();
+        char[][] field = {{playerOne, playerTwo, playerOne}, {playerTwo, playerOne, cell}, {playerOne, cell, playerTwo}};
+        boolean currentResult = ticTacToe.isWinPositionForSideDiagonal(field, playerOne);
+
+        ticTacToe.printFieldToConsole(field);
+        printResult(currentResult, true, "isWinPositionForSideDiagonalTestSucceed");
+    }
+
+    public void isWinPositionForSideDiagonalTestFailed() {
+        TicTacToe ticTacToe = new TicTacToe();
+        char[][] field = {{playerOne, playerTwo, playerTwo}, {playerTwo, playerOne, cell}, {playerOne, cell, cell}};
+        boolean currentResult = ticTacToe.isWinPositionForSideDiagonal(field, playerOne);
+
+        ticTacToe.printFieldToConsole(field);
+        printResult(currentResult, false, "isWinPositionForSideDiagonalTestFailed");
     }
 
     public void isWinPositionForDiagonalsTestSucceed() {
@@ -111,7 +151,7 @@ public class TicTacToeTest {
         boolean currentResult = ticTacToe.isDrawPosition(field);
 
         ticTacToe.printFieldToConsole(field);
-        printResult(currentResult, false, "isWinPositionTestSucceed");
+        printResult(currentResult, false, "isDrawPositionTestFailed");
     }
 
     public void createFieldTest() {
@@ -129,6 +169,7 @@ public class TicTacToeTest {
         } else {
             System.out.println(test + " test FAILED");
         }
+        System.out.println("----------------------------------------------------");
     }
 
     public void printResult(boolean result, String test) {
@@ -137,5 +178,6 @@ public class TicTacToeTest {
         } else {
             System.out.println(test + " test FAILED");
         }
+        System.out.println("----------------------------------------------------");
     }
 }
