@@ -9,7 +9,6 @@ public class CalculatorTest {
         System.out.println("Введите число A и B");
         double a = sc.nextDouble();
         double b = sc.nextDouble();
-
         Calculator calc = new Calculator();
         System.out.println("Sum: " + calc.sum(a, b));
         System.out.println("Subtraction: " + calc.subtraction(a, b));

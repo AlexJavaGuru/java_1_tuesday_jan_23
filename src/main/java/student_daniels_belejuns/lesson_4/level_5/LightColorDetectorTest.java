@@ -4,6 +4,7 @@ import student_daniels_belejuns.lesson_4.level_7.LightColorDetector;
 
 public class LightColorDetectorTest {
     public static LightColorDetector lightColorDetector = new LightColorDetector();
+
     public static void main(String[] args) {
         violetMin();
         violetMax();
@@ -21,37 +22,41 @@ public class LightColorDetectorTest {
         InvisibleLightMax();
 
     }
-    static void violetMin(){
+
+    static void violetMin() {
         int wave = 380;
         String expectedResult = "Violet";
         String actualResult = lightColorDetector.detect(wave);
-        if(expectedResult.equals(actualResult)){
+        if (expectedResult.equals(actualResult)) {
             System.out.println("Violet minimum passed");
-        }else {
+        } else {
             System.out.println("Violet maximum passed");
         }
     }
-    static void violetMax(){
+
+    static void violetMax() {
         int wave = 449;
         String expectedResult = "Violet";
         String actualResult = lightColorDetector.detect(wave);
-        if(expectedResult.equals(actualResult)){
+        if (expectedResult.equals(actualResult)) {
             System.out.println("Violet maximum passed");
-        }else {
+        } else {
             System.out.println("Violet minimum failed");
         }
 
     }
-    static void blueMin(){
+
+    static void blueMin() {
         int wave = 450;
         String expectedResult = "blue";
         String actualResult = lightColorDetector.detect(wave);
-        if(expectedResult.equals(actualResult)){
+        if (expectedResult.equals(actualResult)) {
             System.out.println("blue minimum passed");
-        }else {
+        } else {
             System.out.println("blue minimum passed");
         }
     }
+
     static void blueMax() {
         int wave = 494;
         String expectedResult = "blue";
@@ -62,105 +67,115 @@ public class LightColorDetectorTest {
             System.out.println("blue maximum failed");
         }
     }
-    static void greenMin(){
+
+    static void greenMin() {
         int wave = 495;
         String expectedResult = "green";
         String actualResult = lightColorDetector.detect(wave);
-        if(expectedResult.equals(actualResult)){
+        if (expectedResult.equals(actualResult)) {
             System.out.println("green minimum passed");
-        }else {
+        } else {
             System.out.println("green minimum failed");
         }
 
     }
-    static void greenMax(){
+
+    static void greenMax() {
         int wave = 569;
         String expectedResult = "green";
         String actualResult = lightColorDetector.detect(wave);
-        if(expectedResult.equals(actualResult)){
+        if (expectedResult.equals(actualResult)) {
             System.out.println("green maximum passed");
-        }else {
+        } else {
             System.out.println("green maximum passed");
         }
     }
-    static void yellowMin(){
+
+    static void yellowMin() {
         int wave = 570;
         String expectedResult = "yellow";
         String actualResult = lightColorDetector.detect(wave);
-        if(expectedResult.equals(actualResult)){
+        if (expectedResult.equals(actualResult)) {
             System.out.println("yellow minimum passed");
-        }else {
+        } else {
             System.out.println("yellow minimum passed");
         }
     }
-    static void yellowMax(){
+
+    static void yellowMax() {
         int wave = 589;
         String expectedResult = "yellow";
         String actualResult = lightColorDetector.detect(wave);
-        if(expectedResult.equals(actualResult)){
+        if (expectedResult.equals(actualResult)) {
             System.out.println("yellow maximum passed");
-        }else {
+        } else {
             System.out.println("yellow maximum passed");
         }
     }
-    static void orangeMin(){
+
+    static void orangeMin() {
         int wave = 590;
         String expectedResult = "orange";
         String actualResult = lightColorDetector.detect(wave);
-        if(expectedResult.equals(actualResult)){
+        if (expectedResult.equals(actualResult)) {
             System.out.println("orange minimum passed");
-        }else {
+        } else {
             System.out.println("orange minimum passed");
         }
     }
-    static void orangeMax(){
+
+    static void orangeMax() {
         int wave = 619;
         String expectedResult = "orange";
         String actualResult = lightColorDetector.detect(wave);
-        if(expectedResult.equals(actualResult)){
+        if (expectedResult.equals(actualResult)) {
             System.out.println("orange maximum passed");
-        }else {
+        } else {
             System.out.println("orange maximum passed");
         }
     }
-    static void redMin(){
+
+    static void redMin() {
         int wave = 620;
         String expectedResult = "red";
         String actualResult = lightColorDetector.detect(wave);
-        if(expectedResult.equals(actualResult)){
+        if (expectedResult.equals(actualResult)) {
             System.out.println("red minimum passed");
-        }else {
+        } else {
             System.out.println("red minimum passed");
         }
     }
-    static void redMax(){
+
+    static void redMax() {
         int wave = 750;
         String expectedResult = "red";
         String actualResult = lightColorDetector.detect(wave);
-        if(expectedResult.equals(actualResult)){
+        if (expectedResult.equals(actualResult)) {
             System.out.println("red maximum passed");
-        }else {
+        } else {
             System.out.println("red maximum passed");
         }
     }
-        static void InvisibleLightMin(){
+
+    static void InvisibleLightMin() {
         int wave = 379;
         String expectedResult = "Invisible Light";
         String actualResult = lightColorDetector.detect(wave);
-        if(expectedResult.equals(actualResult)){
+        if (expectedResult.equals(actualResult)) {
             System.out.println("Invisible Light passed");
-        }else{
+        } else {
             System.out.println("Invisible Light failed");
         }
-}
-static void InvisibleLightMax(){
+    }
+
+    static void InvisibleLightMax() {
         int wave = 751;
         String expectedResult = "Invisible Light";
         String actualResult = lightColorDetector.detect(wave);
-        if(expectedResult.equals(actualResult)){
+        if (expectedResult.equals(actualResult)) {
             System.out.println("Invisible Light passed");
-        }else{
+        } else {
             System.out.println("Invisible Light failed");
         }
-}
+    }
 }

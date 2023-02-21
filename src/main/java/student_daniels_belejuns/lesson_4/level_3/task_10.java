@@ -1,4 +1,5 @@
 package student_daniels_belejuns.lesson_4.level_3;
+
 import java.util.Scanner;
 
 public class task_10 {

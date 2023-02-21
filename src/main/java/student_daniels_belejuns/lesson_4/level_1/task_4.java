@@ -1,4 +1,5 @@
 package student_daniels_belejuns.lesson_4.level_1;
+
 import java.util.Scanner;
 
 public class task_4 {
@@ -9,8 +10,7 @@ public class task_4 {
         number = input.nextInt();
         if (number % 2 == 0) {
             System.out.println("Четное число");
-        }
-        else {
+        } else {
             System.out.println("Нечетное число");
         }
     }

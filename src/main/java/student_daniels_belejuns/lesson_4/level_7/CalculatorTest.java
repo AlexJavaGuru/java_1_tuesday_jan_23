@@ -12,7 +12,6 @@ class CalculatorTest {
         calculatorTest.isEvenTest1();
         calculatorTest.isEvenTest2();
     }
-
     public void sumTest() {
         int firstNumber = 35;
         int secondNumber = 40;
@@ -20,7 +19,6 @@ class CalculatorTest {
         int result = calculator.sum(firstNumber, secondNumber);
         System.out.println(firstNumber + secondNumber);
     }
-
     public void subTest() {
         int firstNumber = 35;
         int secondNumber = 15;
@@ -28,7 +26,6 @@ class CalculatorTest {
         int result = calculator.sum(firstNumber, secondNumber);
         System.out.println(firstNumber - secondNumber);
     }
-
     public void mulTest() {
         int firstNumber = 5;
         int secondNumber = 5;
@@ -36,7 +33,6 @@ class CalculatorTest {
         int result = calculator.mul(firstNumber, secondNumber);
         System.out.println(firstNumber * secondNumber);
     }
-
     public void divTest() {
         int firstNumber = 40;
         int secondNumber = 8;
@@ -44,12 +40,10 @@ class CalculatorTest {
         int result = calculator.div(firstNumber, secondNumber);
         System.out.println(firstNumber / secondNumber);
     }
-
     public void isEvenTest1() {
         boolean result = calculator.isEven(40);
         System.out.println("Even" + result);
     }
-
     public void isEvenTest2() {
         boolean result = calculator.isEven(41);
         System.out.println("Odd" + result);

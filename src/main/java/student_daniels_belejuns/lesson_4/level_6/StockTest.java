@@ -1,7 +1,7 @@
 package student_daniels_belejuns.lesson_4.level_6;
 
 public class StockTest {
-    public static void main(String[]args){
+    public static void main(String[] args) {
         Stock google = new Stock("GOOG", 10);
         String priceInformation = google.getPriceInformation();
         System.out.println(priceInformation);
@@ -21,24 +21,21 @@ public class StockTest {
         double actualMinPrice = google.minPrice;
         double actualMaxPrice = google.maxPrice;
 
-        if(actualCurrentPrice == expectedCurrentPrice){
+        if (actualCurrentPrice == expectedCurrentPrice) {
             System.out.println("Current price passed");
-        }
-        else{
+        } else {
             System.out.println("Current price failed");
         }
 
-        if (actualMinPrice == expectedMinPrice){
+        if (actualMinPrice == expectedMinPrice) {
             System.out.println("Min price passed");
-        }
-        else{
+        } else {
             System.out.println("Min price failed");
         }
 
-        if (actualMaxPrice == expectedMaxPrice){
+        if (actualMaxPrice == expectedMaxPrice) {
             System.out.println("Max price passed");
-        }
-        else{
+        } else {
             System.out.println("Min price failed");
         }
 

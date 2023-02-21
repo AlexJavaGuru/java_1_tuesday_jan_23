@@ -3,7 +3,7 @@ package student_daniels_belejuns.lesson_4.level_3;
 import java.util.Scanner;
 
 public class task_9 {
-    public static void main(String[]args){
+    public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.println("First number: ");
         double x = scan.nextInt();
@@ -12,12 +12,11 @@ public class task_9 {
         System.out.println("Third number: ");
         double z = scan.nextInt();
 
-        if( x < y && y > z){
+        if (x < y && y > z) {
             System.out.println("increasing");
         } else if (x > y && y > z) {
             System.out.println("decreasing");
-        }
-        else{
+        } else {
             System.out.println("Neither increasing or decreasing order");
         }
 

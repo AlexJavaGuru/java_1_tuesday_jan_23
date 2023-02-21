@@ -3,7 +3,6 @@ package student_daniels_belejuns.lesson_4.level_7;
 public class LightColorDetector {
 
     public String detect(int wavelength) {
-
         if (wavelength >= 380 && wavelength <= 449) {
             return "Violet";
         } else if (wavelength >= 450 && wavelength <= 494) {
