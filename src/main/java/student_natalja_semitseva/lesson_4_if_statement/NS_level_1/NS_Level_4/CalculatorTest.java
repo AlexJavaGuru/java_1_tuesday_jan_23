@@ -3,13 +3,10 @@ package student_natalja_semitseva.lesson_4_if_statement.NS_level_1.NS_Level_4;
 
 class CalculatorTest {
     public static void main(String[] args) {
-        Calculator calculator = new Calculator();
         testCalculatorSumTest();
         testCalculatorMulTest();
         testCalculatorSubtractTest();
         testCalculatorDivideTest();
-        testCalculatorIsEven1Test();
-        testCalculatorIsOdd1Test();
         testCalculatorIsEvenTest();
         testCalculatorIsOddTest();
         testMaxOfTwoNumbersTest();
@@ -20,7 +17,6 @@ class CalculatorTest {
         testMaxOfThreeNumbersTest2();
         testMaxOfThreeNumbersTest3();
         testMaxOfThreeNumbersTest4();
-
     }
 
     private static void testCalculatorSumTest() {
@@ -63,26 +59,8 @@ class CalculatorTest {
         int firstNumberA = 20;
         int secondNumberB = 2;
         int expectedResult = 10;
-        int realResult = calculator.divide(firstNumberA, secondNumberB);
+        double realResult = calculator.divide(firstNumberA, secondNumberB);
         checkResult(realResult, expectedResult, "Divide");
-
-    }
-
-    private static void testCalculatorIsEven1Test() {
-
-        Calculator calculator = new Calculator();
-        int firstNumberA = 4;
-        boolean realResult = calculator.isEven1(firstNumberA);
-        checkResult(realResult, "isEven1");
-    }
-
-    private static void testCalculatorIsOdd1Test() {
-
-        Calculator calculator = new Calculator();
-        int firstNumberA = 9;
-        boolean realResult = calculator.isEven1(firstNumberA);
-        checkResult(realResult, "isOdd1");
-
 
     }
 
@@ -103,10 +81,10 @@ class CalculatorTest {
         Calculator calculator = new Calculator();
         int firstNumberA = 9;
         boolean realResult = calculator.isEven(firstNumberA);
-        if (realResult) {
-            System.out.println("Test isOdd = true");
+        if (!realResult) {
+            System.out.println("Test isOdd successful");
         } else {
-            System.out.println("Test isOdd = False");
+            System.out.println("Test isOdd failed");
         }
     }
 
@@ -118,14 +96,6 @@ class CalculatorTest {
             System.out.println("Test " + testName + " has passed!");
             System.out.println("Expected " + realResult + ", but actual:" + expectedResult);
 
-        }
-    }
-
-    private static void checkResult(boolean realResult, String testName) {
-        if (realResult) {
-            System.out.println("Test " + testName + " has passed!");
-        } else {
-            System.out.println("Test " + testName + " has passed!");
         }
     }
 
@@ -145,19 +115,14 @@ class CalculatorTest {
         return 0;
     }
 
-    private static int testMaxOfTwoNumbersTest1() {
+    private static void testMaxOfTwoNumbersTest1() {
         Calculator calculator = new Calculator();
 
         int firstNumber = 6;
         int secondNumber = 7;
+        int expectedResult = 7;
         int result = calculator.maxOfTwoNumbers(firstNumber, secondNumber);
-
-        if (secondNumber > firstNumber) {
-            System.out.println("Test Max1 = true");
-        } else {
-            System.out.println("Test Max1 = False");
-        }
-        return 0;
+        checkResult(expectedResult, result, "Test max of two numbers");
     }
 
     private static int testMaxOfTwoNumbersTest2() {
@@ -208,7 +173,7 @@ class CalculatorTest {
         return 0;
     }
 
-    private static int testMaxOfThreeNumbersTest2() {
+    private static void testMaxOfThreeNumbersTest2() {
         Calculator calculator = new Calculator();
 
         int firstNumber = 7;
@@ -221,7 +186,6 @@ class CalculatorTest {
         } else {
             System.out.println("Test ThreeMax2 = False");
         }
-        return 0;
     }
 
     private static int testMaxOfThreeNumbersTest3() {
@@ -240,7 +204,7 @@ class CalculatorTest {
         return 0;
     }
 
-    private static int testMaxOfThreeNumbersTest4() {
+    private static void testMaxOfThreeNumbersTest4() {
         Calculator calculator = new Calculator();
 
         int firstNumber = 12;
@@ -254,7 +218,26 @@ class CalculatorTest {
         } else {
             System.out.println("Test ThreeMax4 = False");
         }
-        return 0;
+    }
+
+
+
+    private static void checkResult(double realResult, double expectedResult, String testName) {
+        if (realResult == expectedResult) {
+            System.out.println("Test " + testName + " has passed!");
+        } else {
+            System.out.println("Test " + testName + " has passed!");
+            System.out.println("Expected " + realResult + ", but actual:" + expectedResult);
+
+        }
+    }
+
+    private static void checkResult(boolean realResult, String testName) {
+        if (realResult) {
+            System.out.println("Test " + testName + " has passed!");
+        } else {
+            System.out.println("Test " + testName + " has passed!");
+        }
     }
 }
 

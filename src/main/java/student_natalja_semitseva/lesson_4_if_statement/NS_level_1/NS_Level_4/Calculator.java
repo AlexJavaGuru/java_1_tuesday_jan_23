@@ -20,17 +20,8 @@ class Calculator {
 
     }
 
-    public int divide(int firstNumberA, int secondNumberB) {
-        return firstNumberA / secondNumberB;
-
-    }
-
-    boolean isEven1(int value) {
-        if (value % 2 == 0) {
-            return true;
-        }
-        return false;
-
+    public double divide(int firstNumberA, int secondNumberB) {
+        return firstNumberA / (double) secondNumberB;
 
     }
 
@@ -42,40 +33,22 @@ class Calculator {
     }
 
 
-    public static class MaxOfTwoNumbers {
-
-        public MaxOfTwoNumbers() {
-        }
-    }
-
-    public static int maxOfTwoNumbers(int firstNumber, int secondNumber) {
-
-
+    public int maxOfTwoNumbers(int firstNumber, int secondNumber) {
         if (firstNumber > secondNumber) {
-        } else if (secondNumber > firstNumber) {
+            return firstNumber;
         } else {
-
+            return secondNumber;
         }
-        return firstNumber;
     }
 
-    public static int maxOfThreeNumbers(int firstNumber, int secondNumber, int thirdNumber) {
-
-
+    public int maxOfThreeNumbers(int firstNumber, int secondNumber, int thirdNumber) {
         if (firstNumber > secondNumber && firstNumber > thirdNumber) {
-
             return firstNumber;
-
         } else if (secondNumber > firstNumber && secondNumber > thirdNumber) {
-
-        } else if (thirdNumber > firstNumber && thirdNumber > secondNumber) {
-
-        } else if ((thirdNumber = firstNumber) > secondNumber) {
-
-        } else {
-
+            return secondNumber;
+        } else  {
+            return thirdNumber;
         }
-        return firstNumber;
     }
 }
 
