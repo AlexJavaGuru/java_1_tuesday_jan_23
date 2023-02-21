@@ -11,35 +11,35 @@ class CalculatorTest {
     }
 
     public void sumTest() {
-        int firstNumber = 13;
-        int secondNumber = 8;
+        double firstNumber = 13.6;
+        double secondNumber = 8;
         Calculator calculator = new Calculator();
-        int result = calculator.sum(firstNumber, secondNumber);
-        checkResult(result == 21, "Sum test");
+        double result = calculator.sum(firstNumber, secondNumber);
+        checkResult(result == 21.6, "Sum test");
     }
 
     public void subTest() {
-        int firstNumber = 6;
-        int secondNumber = 5;
+        double firstNumber = 6;
+        double secondNumber = 5;
         Calculator calculator = new Calculator();
-        int result = calculator.sub(firstNumber, secondNumber);
+        double result = calculator.sub(firstNumber, secondNumber);
         checkResult(result == 1, "Sub test");
     }
 
     public void mulTest() {
-        int firstNumber = 1;
-        int secondNumber = 4;
+        double firstNumber = 1.2;
+        double secondNumber = 4;
         Calculator calculator = new Calculator();
-        int result = calculator.mul(firstNumber, secondNumber);
-        checkResult(result == 4, "Mul test");
+        double result = calculator.mul(firstNumber, secondNumber);
+        checkResult(result == 4.8, "Mul test");
     }
 
     public void divTest() {
-        int firstNumber = 30;
-        int secondNumber = 10;
+        double firstNumber = 7;
+        double secondNumber = 5;
         Calculator calculator = new Calculator();
-        int result = calculator.div(firstNumber, secondNumber);
-        checkResult(result == 3, "Div test");
+        double result = calculator.div(firstNumber, secondNumber);
+        checkResult(result == 1.4, "Div test");
     }
 
     public void isEven(int testValue) {

@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 class Task_3 {
     public static void main(String[] args) {
-        Scanner number_input = new Scanner(System.in);
+        Scanner number = new Scanner(System.in);
         System.out.print("Please enter integer number: ");
-        int integerNumber = number_input.nextInt();
+        int integerNumber = number.nextInt();
         if (integerNumber == 1) {
             System.out.print("Today is Monday");
         } else if (integerNumber == 2) {

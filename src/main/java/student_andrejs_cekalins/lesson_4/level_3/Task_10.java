@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 class Task_10 {
     public static void main(String[] args) {
-        Scanner number_input = new Scanner(System.in);
+        Scanner number = new Scanner(System.in);
         System.out.print("Please enter first integer number: ");
-        int firstIntegerNumber = number_input.nextInt();
+        int firstIntegerNumber = number.nextInt();
         System.out.print("Please enter second integer number: ");
-        int secondIntegerNumber = number_input.nextInt();
+        int secondIntegerNumber = number.nextInt();
         System.out.print("Please enter third integer number: ");
-        int thirdIntegerNumber = number_input.nextInt();
+        int thirdIntegerNumber = number.nextInt();
         if (firstIntegerNumber > secondIntegerNumber && firstIntegerNumber > thirdIntegerNumber) {
             System.out.print("The first integer number are highest and = " + firstIntegerNumber);
         } else if (secondIntegerNumber > firstIntegerNumber && secondIntegerNumber > thirdIntegerNumber) {
