@@ -7,7 +7,7 @@ class Task_30 {
     public static void main(String[] args) {
         Random random = new Random();
         ArrayUtil arrayUtil = new ArrayUtil();
-        int[] numbers = arrayUtil.createArray(random.nextInt(1, 10));
+        int[] numbers = arrayUtil.createArray(random.nextInt(10));
 
         arrayUtil.fillArrayWithRandomNumbers(numbers);
 

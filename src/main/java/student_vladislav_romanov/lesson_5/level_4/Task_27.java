@@ -6,7 +6,7 @@ class Task_27 {
 
     public static void main(String[] args) {
         Random random = new Random();
-        int[] numbers = new int[random.nextInt(1, 10)];
+        int[] numbers = new int[random.nextInt(10)];
         int maxNumber = 0;
 
         for (int i = 0; i < numbers.length; i++) {

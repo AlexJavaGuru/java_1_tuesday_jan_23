@@ -17,7 +17,7 @@ class Task_14 {
             arraySum += number;
         }
 
-        System.out.println(arraySum / numbers.length);
+        System.out.println(arraySum / (double) numbers.length);
     }
 
 }
