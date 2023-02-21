@@ -1,4 +1,4 @@
-package student_daniels_belejuns.les2_lev6;
+package student_daniels_belejuns.lesson_2.level_6;
 
 class NoSleepNoFocus {
     public static void main(String[] args) {
