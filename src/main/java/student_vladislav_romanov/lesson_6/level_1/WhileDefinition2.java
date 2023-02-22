@@ -1,6 +1,6 @@
-package student_vladislav_romanov.lesson_6.level_2;
+package student_vladislav_romanov.lesson_6.level_1;
 
-class WhileDefinition3 {
+class WhileDefinition2 {
 
     public static void main(String[] args) {
         int i = 1;
@@ -9,5 +9,4 @@ class WhileDefinition3 {
             i++;
         }
     }
-
 }

@@ -1,4 +1,4 @@
-package student_vladislav_romanov.lesson_6.level_2;
+package student_vladislav_romanov.lesson_6.level_1;
 
 class NumberUtils {
 
