@@ -3,10 +3,8 @@ package student_aleksandrs_lezhennikovs.lesson_5.extra;
 class TicTacToeTest {
 
     public static void main(String[] args) {
-
         checkFieldSize();
         checkFieldElements();
-        checkWinCombination();
         firstRowWinCheckForZero();
         secondRowWinCheckForZero();
         thirdRowWinCheckForZero();
@@ -73,18 +71,6 @@ class TicTacToeTest {
         }
     }
 
-    static void checkWinCombination() {
-
-        TicTacToe ticTac = new TicTacToe();
-        String expectedResult = "000";
-        String calculatedResult = ticTac.winCombination(3, 0);
-
-        if (expectedResult.equals(calculatedResult)) {
-            System.out.println("Win combination is OK");
-        } else {
-            System.out.println("Win combination Test is FAIL");
-        }
-    }
 
     static String testMessage(String methodForTest, int player, boolean testStatus) {
 
@@ -108,6 +94,7 @@ class TicTacToeTest {
         return result;
     }
 
+
     static void firstRowWinCheckForZero() {
 
         TicTacToe ticTac = new TicTacToe();
@@ -121,7 +108,7 @@ class TicTacToeTest {
         }
 
         boolean expectedResult = true;
-        boolean calculatedResult = ticTac.isWinPositionForHorizontals(testField, player);
+        boolean calculatedResult = ticTac.isWinPositionInOneRow(testField, player, checkRow);
         boolean testStatus = (expectedResult == calculatedResult);
         System.out.println(testMessage(testMethod, player, testStatus));
         ticTac.printFieldToConsole(testField);
@@ -139,7 +126,7 @@ class TicTacToeTest {
         }
 
         boolean expectedResult = true;
-        boolean calculatedResult = ticTac.isWinPositionForHorizontals(testField, player);
+        boolean calculatedResult = ticTac.isWinPositionInOneRow(testField, player, checkRow);
 
         boolean testStatus = (expectedResult == calculatedResult);
         System.out.println(testMessage(testMethod, player, testStatus));
@@ -158,7 +145,7 @@ class TicTacToeTest {
         }
 
         boolean expectedResult = true;
-        boolean calculatedResult = ticTac.isWinPositionForHorizontals(testField, player);
+        boolean calculatedResult = ticTac.isWinPositionInOneRow(testField, player, checkRow);
 
         boolean testStatus = (expectedResult == calculatedResult);
         System.out.println(testMessage(testMethod, player, testStatus));
@@ -176,7 +163,7 @@ class TicTacToeTest {
             testField[checkRow][column] = player;
         }
         boolean expectedResult = true;
-        boolean calculatedResult = ticTac.isWinPositionForHorizontals(testField, player);
+        boolean calculatedResult = ticTac.isWinPositionInOneRow(testField, player, checkRow);
 
         boolean testStatus = (expectedResult == calculatedResult);
         System.out.println(testMessage(testMethod, player, testStatus));
@@ -195,7 +182,7 @@ class TicTacToeTest {
         }
 
         boolean expectedResult = true;
-        boolean calculatedResult = ticTac.isWinPositionForHorizontals(testField, player);
+        boolean calculatedResult = ticTac.isWinPositionInOneRow(testField, player, checkRow);
 
         boolean testStatus = (expectedResult == calculatedResult);
         System.out.println(testMessage(testMethod, player, testStatus));
@@ -214,7 +201,7 @@ class TicTacToeTest {
         }
 
         boolean expectedResult = true;
-        boolean calculatedResult = ticTac.isWinPositionForHorizontals(testField, player);
+        boolean calculatedResult = ticTac.isWinPositionInOneRow(testField, player, checkRow);
 
         boolean testStatus = (expectedResult == calculatedResult);
         System.out.println(testMessage(testMethod, player, testStatus));
@@ -234,7 +221,7 @@ class TicTacToeTest {
         }
 
         boolean expectedResult = true;
-        boolean calculatedResult = ticTac.isWinPositionForVerticals(testField, player);
+        boolean calculatedResult = ticTac.isWinPositionInOneColumn(testField, player, checkColumn);
         boolean testStatus = (expectedResult == calculatedResult);
         System.out.println(testMessage(testMethod, player, testStatus));
         ticTac.printFieldToConsole(testField);
@@ -253,7 +240,7 @@ class TicTacToeTest {
         }
 
         boolean expectedResult = true;
-        boolean calculatedResult = ticTac.isWinPositionForVerticals(testField, player);
+        boolean calculatedResult = ticTac.isWinPositionInOneColumn(testField, player, checkColumn);
         boolean testStatus = (expectedResult == calculatedResult);
         System.out.println(testMessage(testMethod, player, testStatus));
         ticTac.printFieldToConsole(testField);
@@ -272,7 +259,7 @@ class TicTacToeTest {
         }
 
         boolean expectedResult = true;
-        boolean calculatedResult = ticTac.isWinPositionForVerticals(testField, player);
+        boolean calculatedResult = ticTac.isWinPositionInOneColumn(testField, player ,checkColumn);
         boolean testStatus = (expectedResult == calculatedResult);
         System.out.println(testMessage(testMethod, player, testStatus));
         ticTac.printFieldToConsole(testField);
@@ -291,7 +278,7 @@ class TicTacToeTest {
         }
 
         boolean expectedResult = true;
-        boolean calculatedResult = ticTac.isWinPositionForVerticals(testField, player);
+        boolean calculatedResult = ticTac.isWinPositionInOneColumn(testField, player, checkColumn);
         boolean testStatus = (expectedResult == calculatedResult);
         System.out.println(testMessage(testMethod, player, testStatus));
         ticTac.printFieldToConsole(testField);
@@ -310,7 +297,7 @@ class TicTacToeTest {
         }
 
         boolean expectedResult = true;
-        boolean calculatedResult = ticTac.isWinPositionForVerticals(testField, player);
+        boolean calculatedResult = ticTac.isWinPositionInOneColumn(testField, player, checkColumn);
         boolean testStatus = (expectedResult == calculatedResult);
         System.out.println(testMessage(testMethod, player, testStatus));
         ticTac.printFieldToConsole(testField);
@@ -329,7 +316,7 @@ class TicTacToeTest {
         }
 
         boolean expectedResult = true;
-        boolean calculatedResult = ticTac.isWinPositionForVerticals(testField, player);
+        boolean calculatedResult = ticTac.isWinPositionInOneColumn(testField, player, checkColumn);
         boolean testStatus = (expectedResult == calculatedResult);
         System.out.println(testMessage(testMethod, player, testStatus));
         ticTac.printFieldToConsole(testField);
