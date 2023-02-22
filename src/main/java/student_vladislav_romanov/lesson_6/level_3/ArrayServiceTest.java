@@ -5,8 +5,10 @@ class ArrayServiceTest {
     public static void main(String[] args) {
         containTestSucceed();
         containTestFailed();
-        countOccurrencesTestSucceed();
-        countOccurrencesTestFailed();
+        countEntriesTestSucceed();
+        countEntriesTestFailed();
+        replaceFirstEntryTestSucceed();
+        replaceFirstEntryTestFailed();
     }
 
     public static void containTestSucceed() {
@@ -25,20 +27,36 @@ class ArrayServiceTest {
         checkTestResult(current == expected, "containTestFailed test");
     }
 
-    public static void countOccurrencesTestSucceed() {
+    public static void countEntriesTestSucceed() {
         ArrayService arrayService = new ArrayService();
         int[] array = {1, 3, 4, 3, 7, 8, 3, 10, 3, 11, 2, 1, 3};
         int expected = 5;
-        int current = arrayService.countOccurrences(array, 3);
-        checkTestResult(current == expected, "countOccurrencesTestSucceed test");
+        int current = arrayService.countEntries(array, 3);
+        checkTestResult(current == expected, "countEntriesTestSucceed test");
     }
 
-    public static void countOccurrencesTestFailed() {
+    public static void countEntriesTestFailed() {
         ArrayService arrayService = new ArrayService();
         int[] array = {1, 3, 4, 4, 7, 8, 3, 4, 3, 11, 2, 1, 3};
         int expected = 2;
-        int current = arrayService.countOccurrences(array, 4);
-        checkTestResult(current != expected, "countOccurrencesTestFailed test");
+        int current = arrayService.countEntries(array, 4);
+        checkTestResult(current != expected, "countEntriesTestFailed test");
+    }
+
+    public static void replaceFirstEntryTestSucceed() {
+        ArrayService arrayService = new ArrayService();
+        int[] array = {1, 3, 4, 3, 7, 8, 3, 10, 3, 11, 2, 1, 3};
+        boolean expected = true;
+        boolean current = arrayService.replaceFirstEntry(array, 4, 22);
+        checkTestResult(current == expected, "replaceFirstEntryTestSucceed test");
+    }
+
+    public static void replaceFirstEntryTestFailed() {
+        ArrayService arrayService = new ArrayService();
+        int[] array = {1, 3, 4, 4, 7, 8, 3, 4, 3, 11, 2, 1, 3};
+        boolean expected = false;
+        boolean current = arrayService.replaceFirstEntry(array, 22, 11);
+        checkTestResult(current == expected, "replaceFirstEntryTestFailed test");
     }
 
     private static void checkTestResult(boolean condition, String testName) {
