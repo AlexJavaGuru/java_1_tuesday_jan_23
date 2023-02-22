@@ -12,4 +12,15 @@ class ArrayService {
         return false;
     }
 
+    int countOccurrences(int[] array, int numberToSearch) {
+        int counter = 0;
+        for (int number : array) {
+            if (number == numberToSearch) {
+                counter++;
+            }
+        }
+
+        return counter;
+    }
+
 }
