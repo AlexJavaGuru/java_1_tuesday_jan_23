@@ -4,13 +4,12 @@ class DogDemo {
     public static void main(String[] args) {
 
         Dog dog = new Dog("Jack", 3);
-        System.out.println("Hello! my name is " + dog.dogName + " and I am " + dog.age + " years old.\n" );
+        System.out.println("Hello! my name is " + dog.dogName + " and I am " + dog.age + " years old.\n");
 
-       Dog dog1 = new Dog();
-        dog.voice(3,"Reks");
+        dog.voice(3, "Reks");
         dog.age(2);
 
-        dog.voice(2,"Jack");
+        dog.voice(2, "Jack");
         dog.happyBirthday(1);
         dog.changeColor(3);
 

@@ -14,14 +14,15 @@ class Dog {
 
     }
 
-    void voice(int n,String dogName) {
+    void voice(int n, String dogName) {
 
         if (n > 0) {
-            System.out.println("My name is,- " + dogName );
-            voice(n - 1,dogName);
+            System.out.println("My name is,- " + dogName);
+            voice(n - 1, dogName);
         }
     }
-    void age(int age){
+
+    void age(int age) {
         System.out.println("I am " + age + " years old. \n");
     }
 
@@ -32,7 +33,7 @@ class Dog {
 
     }
 
-    String[] color = {"Red", "Black", "Orange","Green"};
+    String[] color = {"Red", "Black", "Orange", "Green"};
 
     String[] changeColor(int i) {
         System.out.println("And I'am " + color[i] + " now.");
