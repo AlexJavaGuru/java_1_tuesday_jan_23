@@ -34,7 +34,7 @@ class ArrayService {
         return false;
     }
 
-    int replaceAllEntries(int[] array, int entry, int replace) {
+    int replace(int[] array, int entry, int replace) {
         int counter = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] == entry) {
@@ -44,6 +44,15 @@ class ArrayService {
         }
 
         return counter;
+    }
+
+    void reverse(int[] array) {
+        int[] auxArray = array.clone();
+        int i = 0;
+        for (int j = array.length - 1; j >= 0; j--) {
+            array[i] = auxArray[j];
+            i++;
+        }
     }
 
 }

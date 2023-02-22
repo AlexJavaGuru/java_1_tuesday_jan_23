@@ -1,5 +1,7 @@
 package student_vladislav_romanov.lesson_6.level_3;
 
+import java.util.Arrays;
+
 class ArrayServiceTest {
 
     public static void main(String[] args) {
@@ -9,8 +11,10 @@ class ArrayServiceTest {
         countEntriesTestFailed();
         replaceFirstEntryTestSucceed();
         replaceFirstEntryTestFailed();
-        replaceAllEntriesTestSucceed();
-        replaceAllEntriesTestFailed();
+        replaceTestSucceed();
+        replaceTestFailed();
+        reverseTestSucceed();
+        reverseTestFailed();
     }
 
     public static void containTestSucceed() {
@@ -61,20 +65,36 @@ class ArrayServiceTest {
         checkTestResult(current == expected, "replaceFirstEntryTestFailed test");
     }
 
-    public static void replaceAllEntriesTestSucceed() {
+    public static void replaceTestSucceed() {
         ArrayService arrayService = new ArrayService();
         int[] array = {1, 3, 4, 3, 7, 8, 3, 10, 3, 11, 2, 1, 3};
         int expected = 5;
-        int current = arrayService.replaceAllEntries(array, 3, 22);
-        checkTestResult(current == expected, "replaceAllEntriesTestSucceed test");
+        int current = arrayService.replace(array, 3, 22);
+        checkTestResult(current == expected, "replaceTestSucceed test");
     }
 
-    public static void replaceAllEntriesTestFailed() {
+    public static void replaceTestFailed() {
         ArrayService arrayService = new ArrayService();
         int[] array = {1, 3, 4, 4, 7, 8, 3, 4, 3, 11, 2, 1, 3};
         int expected = 0;
-        int current = arrayService.replaceAllEntries(array, 22, 11);
-        checkTestResult(current == expected, "replaceAllEntriesTestFailed test");
+        int current = arrayService.replace(array, 22, 11);
+        checkTestResult(current == expected, "replaceTestFailed test");
+    }
+
+    public static void reverseTestSucceed() {
+        ArrayService arrayService = new ArrayService();
+        int[] array = {1, 3, 4, 3, 7, 8, 3, 10, 3, 11, 2, 1, 3};
+        int[] expected = {3, 1, 2, 11, 3, 10, 3, 8, 7, 3, 4, 3, 1};
+        arrayService.reverse(array);
+        checkTestResult(Arrays.equals(array, expected), "reverseTestSucceed test");
+    }
+
+    public static void reverseTestFailed() {
+        ArrayService arrayService = new ArrayService();
+        int[] array = {1, 3, 4, 3, 7, 8, 3, 10, 3, 11, 2, 1, 3};
+        int[] expected = {1, 3, 4, 3, 7, 8, 3, 10, 3, 11, 2, 1, 3};
+        arrayService.reverse(array);
+        checkTestResult(!Arrays.equals(array, expected), "reverseTestFailed test");
     }
 
     private static void checkTestResult(boolean condition, String testName) {
