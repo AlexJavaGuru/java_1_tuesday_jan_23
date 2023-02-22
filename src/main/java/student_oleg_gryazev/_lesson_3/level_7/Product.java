@@ -10,12 +10,12 @@ public class Product {
     }
 
 
-    public void setRegularPrice(double regP) {
-        this.regularPrice = regP;
+    public void setRegularPrice(double regularPrice) {
+        this.regularPrice = regularPrice;
     }
 
-    public void setDiscount(double disC) {
-        this.discount = disC;
+    public void setDiscount(double discount) {
+        this.discount = discount;
     }
 
 
@@ -27,11 +27,7 @@ public class Product {
     public String getComputer() {
         return computer;
     }
-    // public void setComputer(double regP){
 
-
-    // double actualPrice(){
-    //return actualPrice;
 }
 
 
