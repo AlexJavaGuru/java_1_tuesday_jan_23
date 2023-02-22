@@ -9,6 +9,8 @@ class ArrayServiceTest {
         countEntriesTestFailed();
         replaceFirstEntryTestSucceed();
         replaceFirstEntryTestFailed();
+        replaceAllEntriesTestSucceed();
+        replaceAllEntriesTestFailed();
     }
 
     public static void containTestSucceed() {
@@ -57,6 +59,22 @@ class ArrayServiceTest {
         boolean expected = false;
         boolean current = arrayService.replaceFirstEntry(array, 22, 11);
         checkTestResult(current == expected, "replaceFirstEntryTestFailed test");
+    }
+
+    public static void replaceAllEntriesTestSucceed() {
+        ArrayService arrayService = new ArrayService();
+        int[] array = {1, 3, 4, 3, 7, 8, 3, 10, 3, 11, 2, 1, 3};
+        int expected = 5;
+        int current = arrayService.replaceAllEntries(array, 3, 22);
+        checkTestResult(current == expected, "replaceAllEntriesTestSucceed test");
+    }
+
+    public static void replaceAllEntriesTestFailed() {
+        ArrayService arrayService = new ArrayService();
+        int[] array = {1, 3, 4, 4, 7, 8, 3, 4, 3, 11, 2, 1, 3};
+        int expected = 0;
+        int current = arrayService.replaceAllEntries(array, 22, 11);
+        checkTestResult(current == expected, "replaceAllEntriesTestFailed test");
     }
 
     private static void checkTestResult(boolean condition, String testName) {

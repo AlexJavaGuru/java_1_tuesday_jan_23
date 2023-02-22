@@ -34,4 +34,16 @@ class ArrayService {
         return false;
     }
 
+    int replaceAllEntries(int[] array, int entry, int replace) {
+        int counter = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == entry) {
+                array[i] = replace;
+                counter++;
+            }
+        }
+
+        return counter;
+    }
+
 }
