@@ -27,7 +27,7 @@ class Dog {
 
 
     void happyBirthday(int newAge) {
-        newAge += age;
+        newAge = age + 1;
         System.out.println("Happy birthday to me! My name is " + dogName + ", and I'm " + newAge + " years old!\n");
 
     }
