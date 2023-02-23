@@ -15,6 +15,8 @@ class ArrayServiceTest {
         replaceTestFailed();
         reverseTestSucceed();
         reverseTestFailed();
+        sortTestSucceed();
+        sortTestFailed();
     }
 
     public static void containTestSucceed() {
@@ -95,6 +97,22 @@ class ArrayServiceTest {
         int[] expected = {1, 3, 4, 3, 7, 8, 3, 10, 3, 11, 2, 1, 3};
         arrayService.reverse(array);
         checkTestResult(!Arrays.equals(array, expected), "reverseTestFailed test");
+    }
+
+    public static void sortTestSucceed() {
+        ArrayService arrayService = new ArrayService();
+        int[] array = {3, 1, 2, 11, 1, 10, 3, 8, 14, 8, 4, 5, 1};
+        int[] expected = {1, 1, 1, 2, 3, 3, 4, 5, 8, 8, 10, 11, 14};
+        arrayService.sort(array);
+        checkTestResult(Arrays.equals(array, expected), "sortTestSucceed test");
+    }
+
+    public static void sortTestFailed() {
+        ArrayService arrayService = new ArrayService();
+        int[] array = {3, 1, 2, 11, 1, 10, 3, 8, 14, 8, 4, 5, 1};
+        int[] expected = {3, 1, 2, 11, 1, 10, 3, 8, 14, 8, 4, 5, 1};
+        arrayService.sort(array);
+        checkTestResult(!Arrays.equals(array, expected), "sortTestFailed test");
     }
 
     private static void checkTestResult(boolean condition, String testName) {
