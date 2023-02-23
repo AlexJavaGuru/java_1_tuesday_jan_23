@@ -30,7 +30,7 @@ public class TicTacToeTest {
 
     public void isWinPositionForHorizontalsTestSucceed() {
         TicTacToe ticTacToe = new TicTacToe();
-        char[][] field = { {playerTwo, playerOne, cell}, {playerOne, playerOne, playerOne}, {cell, cell, cell}};
+        char[][] field = {{playerTwo, playerOne, cell}, {playerOne, playerOne, playerOne}, {cell, cell, cell}};
         boolean currentResult = ticTacToe.isWinPositionForHorizontals(field, playerOne);
 
         ticTacToe.printFieldToConsole(field);
