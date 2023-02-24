@@ -9,21 +9,14 @@ class Task_10 {
         int number2 = scanner.nextInt();
         int number3 = scanner.nextInt();
 
-        int max;
 
-        max = number1;
-        if ((number1 > 0) && (number2 < number1) && (number3 < number1)) {
-            System.out.println("Maximal number is: " + max);
-        }
-
-        max = number2;
-        if ((number2 > 0) && (number1 < number2) && (number3 < number2)) {
-            System.out.println("Maximal number is: " + max);
-        }
-
-        max = number3;
-        if ((number3 > 0) && (number1 < number3) && (number2 < number3)) {
-            System.out.println("Maximal number is: " + max);
+        if ((number1 >= number2 && number1 >= number3)) {
+            System.out.println("Maximal number is: " + number1);
+        } else if ((number2 >= number1 && number2 >= number3)) {
+            System.out.println("Maximal number is: " + number2);
+        } else {
+            System.out.println("Maximal number is: " + number3);
         }
     }
 }
+

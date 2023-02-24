@@ -13,11 +13,9 @@ class FizzBuzz {
     public String detectNumber(int number) {
         if (isDividedBy3(number) && number % 5 != 0) {
             return "Fizz";
-        }
-        if (isDividedBy5(number) && number % 3 != 0) {
+        } else if (isDividedBy5(number) && number % 3 != 0) {
             return "Buzz";
-        }
-        if (isDividedBy3(number) && isDividedBy5(number)) {
+        } else if (isDividedBy3(number) && isDividedBy5(number)) {
             return "FizzBuzz";
 
         } else {
