@@ -13,32 +13,36 @@ class TicTacToe {
         game.play();
     }
 
+    public boolean isWinPositionForHorizontal(char[][] field, char playerToCheck, int x) {
+        for (int y = 0; y < field[x].length; y++) {
+            if (field[x][y] != playerToCheck) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public boolean isWinPositionForHorizontals(char[][] field, char playerToCheck) {
         for (int x = 0; x < field.length; x++) {
-            boolean winPosition = true;
-            for (int y = 0; y < field[x].length; y++) {
-                if (field[x][y] != playerToCheck) {
-                    winPosition = false;
-                    break;
-                }
-            }
-            if (winPosition) {
+            if (isWinPositionForHorizontal(field, playerToCheck, x)) {
                 return true;
             }
         }
         return false;
     }
 
+    public boolean isWinPositionForVertical(char[][] field, char playerToCheck, int x) {
+        for (int y = 0; y < field[x].length; y++) {
+            if (field[y][x] != playerToCheck) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public boolean isWinPositionForVerticals(char[][] field, char playerToCheck) {
         for (int x = 0; x < field.length; x++) {
-            boolean winPosition = true;
-            for (int y = 0; y < field[x].length; y++) {
-                if (field[y][x] != playerToCheck) {
-                    winPosition = false;
-                    break;
-                }
-            }
-            if (winPosition) {
+            if (isWinPositionForVertical(field, playerToCheck, x)) {
                 return true;
             }
         }
