@@ -11,10 +11,11 @@ class Task_15 {
             System.out.println(numbers[i]);
 
         }
+
         System.out.println();
-        int numberPlus2 = 0;
-        for (int number : numbers) {
-            System.out.println(numberPlus2 = number + 2);
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = numbers[i] + 2;
+            System.out.println(numbers[i]);
         }
     }
 }
