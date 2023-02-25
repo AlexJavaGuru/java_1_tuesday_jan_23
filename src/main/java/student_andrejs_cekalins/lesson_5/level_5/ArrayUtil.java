@@ -1,6 +1,5 @@
 package student_andrejs_cekalins.lesson_5.level_5;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class ArrayUtil {
@@ -15,7 +14,6 @@ public class ArrayUtil {
         for (int i = 0; i < array.length; i++) {
             results[i] = random.nextInt(100);
         }
-        System.out.println(Arrays.toString(results));
     }
 
     public int findMaxNumber(int[] array) {
