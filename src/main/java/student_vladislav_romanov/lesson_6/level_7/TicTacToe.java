@@ -77,21 +77,14 @@ class TicTacToe {
     }
 
     public boolean isDrawPosition(char[][] field) {
-        boolean hasEmptyCell = false;
-
         for (int x = 0; x < field.length; x++) {
             for (int y = 0; y < field[x].length; y++) {
                 if (field[x][y] == cell) {
-                    hasEmptyCell = true;
-                    break;
+                    return false;
                 }
             }
-            if (hasEmptyCell) {
-                break;
-            }
         }
-
-        return !hasEmptyCell;
+        return true;
     }
 
     public char[][] createField(int size) {
