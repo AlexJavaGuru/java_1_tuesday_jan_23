@@ -5,18 +5,20 @@ import java.util.Random;
 
 class Task_14 {
     public static void main(String[] args) {
-        int[] nums = new int[3];
-
+        int[] array = new int[3];
         Random random = new Random();
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(10);
+        }
 
-        nums[0] = random.nextInt(50);
-        nums[1] = random.nextInt(50);
-        nums[2] = random.nextInt(50);
+        double average = 0;
+        for (int i = 0; i < array.length; i++) {
+            average += array[i];
+            System.out.println(average);
+        }
+        average /= array.length;
+        System.out.println("Average value :" + average);
 
-        System.out.println("Random namber 1: " +nums[0]);
-        System.out.println("Random namber 2: " +nums[1]);
-        System.out.println("Random namber 3: " +nums[2]);
 
-        System.out.println("Среднее значение : " + Arrays.stream(nums).average());
     }
 }

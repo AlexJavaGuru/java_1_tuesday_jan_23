@@ -7,8 +7,9 @@ class Task_10 {
         nums[1] = 20;
         nums[2] = 30;
 
-        System.out.println(nums[2]);
-        System.out.println(nums[0]);
-        System.out.println(nums[1]);
+        for (int i = 0; i < nums.length; i++) {
+            System.out.println(nums[i]);
+
+        }
     }
 }
