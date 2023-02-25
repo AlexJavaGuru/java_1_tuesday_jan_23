@@ -100,18 +100,14 @@ class TicTacToe {
     }
 
     public Move getNextMove(char[][] field, Player player) {
-        int x;
-        int y;
+        int[] targetCell;
         if (player.isAI()) {
-            Random random = new Random();
-            x = random.nextInt(field.length);
-            y = random.nextInt(field.length);
+            targetCell = getMoveFromAI(field);
         } else {
-            System.out.print("Enter coordinate x (from 1 to " + (field.length) + "): ");
-            x = scanner.nextInt() - 1;
-            System.out.print("Enter coordinate y (from 1 to " + (field.length) + "): ");
-            y = scanner.nextInt() - 1;
+            targetCell = getMoveFromPlayer(field);
         }
+        int x = targetCell[0];
+        int y = targetCell[1];
 
         if (isMoveInRange(field, x, y)) {
             if (isCellFree(field, x, y)) {
@@ -126,6 +122,23 @@ class TicTacToe {
             System.out.println("Cell is out of range. Try again!");
             return getNextMove(field, player);
         }
+    }
+
+    public int[] getMoveFromAI(char[][] field) {
+        int[] targetCell = new int[2];
+        Random random = new Random();
+        targetCell[0] = random.nextInt(field.length);
+        targetCell[1] = random.nextInt(field.length);
+        return targetCell;
+    }
+
+    public int[] getMoveFromPlayer(char[][] field) {
+        int[] targetCell = new int[2];
+        System.out.print("Enter coordinate x (from 1 to " + (field.length) + "): ");
+        targetCell[0] = scanner.nextInt() - 1;
+        System.out.print("Enter coordinate y (from 1 to " + (field.length) + "): ");
+        targetCell[1] = scanner.nextInt() - 1;
+        return targetCell;
     }
 
     public boolean isMoveInRange(char[][] field, int x, int y) {
