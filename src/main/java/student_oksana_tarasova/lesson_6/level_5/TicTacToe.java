@@ -8,13 +8,13 @@ class TicTacToe {
         return new int[countOfLines][countOfColumns];
     }
 
-    public int[][] fillInTheField(int[][] field) {
+    public int[][] fillInTheField(int[][] field, int symbolCell) {
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length; j++ ) {
-                field[i][j] = -1;
+                field[i][j] = symbolCell;
             }
         }
-        return ;
+        return field;
     }
 
 
