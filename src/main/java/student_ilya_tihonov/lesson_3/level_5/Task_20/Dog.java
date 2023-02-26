@@ -4,16 +4,12 @@ public class Dog {
 
     int age;
 
-    int year = 1;
-
     Dog(int dogAge){
         this.age = dogAge;}
 
     void voice(){
         System.out.println("Woof woof");}
 
-    void happyBirthDay(){
-        System.out.println(age + year);
-    }
+    void happyBirthDay() {age =  age + 1;}
 
 }

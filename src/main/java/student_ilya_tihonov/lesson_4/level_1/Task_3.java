@@ -22,6 +22,6 @@ public class Task_3 {
             System.out.println("Saturday");
         } else if (day == 7) {
             System.out.println("Sunday");
-        }
+        } else {System.out.println("Error");}
     }
 }

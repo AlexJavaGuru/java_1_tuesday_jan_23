@@ -11,7 +11,7 @@ public class Task_10 {
         int firstNumber = scanner.nextInt();
         int secondNumber = scanner.nextInt();
         int thirdNumber = scanner.nextInt();
-        System.out.println(finder.check(firstNumber , secondNumber , thirdNumber));
+        System.out.println(finder.maxOfThree(firstNumber , secondNumber , thirdNumber));
 
     }
 
