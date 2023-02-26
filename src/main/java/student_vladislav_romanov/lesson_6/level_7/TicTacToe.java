@@ -102,7 +102,7 @@ class TicTacToe {
     public Move getNextMove(char[][] field, Player player) {
         int[] targetCell;
         if (player.isAI()) {
-            targetCell = getMoveFromAI(field);
+            targetCell = getMoveFromAI(field, player);
         } else {
             targetCell = getMoveFromPlayer(field);
         }
@@ -124,20 +124,148 @@ class TicTacToe {
         }
     }
 
-    public int[] getMoveFromAI(char[][] field) {
+    public int[] getMoveFromAI(char[][] field, Player player) {
         int[] targetCell = new int[2];
-        Random random = new Random();
-        targetCell[0] = random.nextInt(field.length);
-        targetCell[1] = random.nextInt(field.length);
+        int[] aiHorizontalHelperCell = aiHorizontalHelper(field, player);
+        int[] aiVerticalHelperCell = aiVerticalHelper(field, player);
+        int[] aiMainDiagonalHelperCell = aiMainDiagonalHelper(field, player);
+        int[] aiSideDiagonalHelperCell = aiSideDiagonalHelper(field, player);
+
+        if (aiHorizontalHelperCell[2] == 1) {
+            targetCell[0] = aiHorizontalHelperCell[0];
+            targetCell[1] = aiHorizontalHelperCell[1];
+        } else if (aiVerticalHelperCell[2] == 1) {
+            targetCell[0] = aiVerticalHelperCell[0];
+            targetCell[1] = aiVerticalHelperCell[1];
+        } else if (aiMainDiagonalHelperCell[2] == 1) {
+            targetCell[0] = aiMainDiagonalHelperCell[0];
+            targetCell[1] = aiMainDiagonalHelperCell[1];
+        } else if (aiSideDiagonalHelperCell[2] == 1) {
+            targetCell[0] = aiSideDiagonalHelperCell[0];
+            targetCell[1] = aiSideDiagonalHelperCell[1];
+        } else {
+            Random random = new Random();
+            targetCell[0] = random.nextInt(field.length);
+            targetCell[1] = random.nextInt(field.length);
+        }
+
         return targetCell;
+    }
+
+    public int[] aiHorizontalHelper(char[][] field, Player player) {
+        int[] helperCell = new int[3];
+
+        for (int x = 0; x < field.length; x++) {
+            int counter = 0;
+            for (int y = 0; y < field[x].length; y++) {
+                if (field[x][y] == player.getSymbol()) {
+                    counter++;
+                } else if (field[x][y] != cell) {
+                    counter--;
+                }
+                if (counter == field.length - 1 || counter == (field.length - 1) * -1) {
+                    for (int y2 = 0; y2 < field[x].length; y2++) {
+                        if (field[x][y2] == cell) {
+                            helperCell[0] = x;
+                            helperCell[1] = y2;
+                            helperCell[2] = 1;
+                            return helperCell;
+                        }
+                    }
+                }
+            }
+        }
+
+        return helperCell;
+    }
+
+    public int[] aiVerticalHelper(char[][] field, Player player) {
+        int[] helperCell = new int[3];
+
+        for (int x = 0; x < field.length; x++) {
+            int counter = 0;
+            for (int y = 0; y < field[x].length; y++) {
+                if (field[y][x] == player.getSymbol()) {
+                    counter++;
+                } else if (field[y][x] != cell) {
+                    counter--;
+                }
+                if (counter == field.length - 1 || counter == (field.length - 1) * -1) {
+                    for (int y2 = 0; y2 < field[x].length; y2++) {
+                        if (field[y2][x] == cell) {
+                            helperCell[0] = y2;
+                            helperCell[1] = x;
+                            helperCell[2] = 1;
+                            return helperCell;
+                        }
+                    }
+                }
+            }
+        }
+
+        return helperCell;
+    }
+
+    public int[] aiMainDiagonalHelper(char[][] field, Player player) {
+        int[] helperCell = new int[3];
+        int counter = 0;
+
+        for (int x = 0; x < field.length; x++) {
+            if (field[x][x] == player.getSymbol()) {
+                counter++;
+            } else if (field[x][x] != cell) {
+                counter--;
+            }
+            if (counter == field.length - 1 || counter == (field.length - 1) * -1) {
+                for (int x2 = 0; x2 < field.length; x2++) {
+                    if (field[x2][x2] == cell) {
+                        helperCell[0] = x2;
+                        helperCell[1] = x2;
+                        helperCell[2] = 1;
+                        return helperCell;
+                    }
+                }
+            }
+        }
+
+        return helperCell;
+    }
+
+    public int[] aiSideDiagonalHelper(char[][] field, Player player) {
+        int[] helperCell = new int[3];
+        int counter = 0;
+
+        for (int x = 0; x < field.length; x++) {
+            int y = field.length - x - 1;
+            if (field[x][y] == player.getSymbol()) {
+                counter++;
+            } else if (field[x][y] != cell) {
+                counter--;
+            }
+            if (counter == field.length - 1 || counter == (field.length - 1) * -1) {
+                for (int x2 = 0; x2 < field.length; x2++) {
+                    int y2 = field.length - x2 - 1;
+                    if (field[x2][y2] == cell) {
+                        helperCell[0] = x2;
+                        helperCell[1] = y2;
+                        helperCell[2] = 1;
+                        return helperCell;
+                    }
+                }
+            }
+        }
+
+        return helperCell;
     }
 
     public int[] getMoveFromPlayer(char[][] field) {
         int[] targetCell = new int[2];
+
         System.out.print("Enter coordinate x (from 1 to " + (field.length) + "): ");
         targetCell[0] = scanner.nextInt() - 1;
         System.out.print("Enter coordinate y (from 1 to " + (field.length) + "): ");
         targetCell[1] = scanner.nextInt() - 1;
+
         return targetCell;
     }
 
