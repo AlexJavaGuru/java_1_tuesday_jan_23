@@ -3,22 +3,23 @@ package student_oksana_tarasova.lesson_6.level_1;
 class NumberUtilsTest {
     public static void main(String[] args) {
         NumberUtilsTest test = new NumberUtilsTest();
-        test.checkEvenResult();
+        test.isEvenTest();
 
     }
 
-    public boolean isEvenTest() {
+    public void isEvenTest() {
         NumberUtils numberUtils = new NumberUtils();
         boolean realResult = numberUtils.isEven(9);
         boolean expectedResult = false;
-        return realResult == expectedResult;
+
+        check(expectedResult == realResult, "isEven");
     }
 
-    public void checkEvenResult() {
-        if (isEvenTest()) {
-            System.out.println("NumberUtils = ok");
+    public void check(boolean state, String nameTest) {
+        if (state) {
+            System.out.println( nameTest + "= ok");
         } else {
-            System.out.println("NumberUtils = fail");
+            System.out.println(nameTest + "= fail");
         }
     }
 }

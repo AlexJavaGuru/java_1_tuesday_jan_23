@@ -5,22 +5,14 @@ import java.util.Arrays;
 class ArrayServiceDemo {
 
     public static void main(String[] args) {
-        ArrayService arrayService = new ArrayService();
-        int[] array = {3, 5, 7, 1, 3, 9, 11, 13};
-        arrayService.containsTheGivenNumberInTheArray(array, 5);
-
-
-
-
-    /*   for (int numberArray : array) {
-            if (givenNumber == numberArray) {
-                System.out.println("yes");
-
-            } continue;
-        }
-
-    }
-*/
+        int[] arrayDemo = {1, 2, 2, 4, 5, 2, 7, 5, 9, 10};
+        System.out.println(Arrays.toString(arrayDemo));
+        ArrayService.flipArray(arrayDemo);
+        System.out.println(Arrays.toString(arrayDemo));
+        ArrayService.replaceNumber(arrayDemo, 5, 25);
+        System.out.println(Arrays.toString(arrayDemo));
+        ArrayService.replaceAllNumbers(arrayDemo, 2, 33);
+        System.out.println(Arrays.toString(arrayDemo));
     }
 }
 

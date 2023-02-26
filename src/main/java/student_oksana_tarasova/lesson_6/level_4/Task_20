@@ -1,0 +1,29 @@
+Создайте класс WhileLoopContinue и в нём продемонстрируйте
+как досрочно закончить текущую итерацию цикла while.
+
+Создайте класс ForLoopContinue и в нём продемонстрируйте
+как досрочно закончить текущую итерацию цикла for.
+
+class WhileLoopContinue {
+    int i = 0;
+    int a = 0;
+    while (i < 10) {
+        a += 1;
+        i++;
+        if (i = 5) {
+            continue;
+        }
+    }
+}
+
+
+
+
+Class ForLoopContinue {
+ for(int i = 0; i <10; i++) {
+   int a += 1;
+   if (i = 5) {
+   continue;
+   }
+ }
+
