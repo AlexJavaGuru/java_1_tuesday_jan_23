@@ -10,12 +10,12 @@ class ArraysUtilAndNewMethodsAdded {
     }
 
 
-    public void fillArrayWithRandomNumbers(int[] array) {
+    public int[] fillArrayWithRandomNumbers(int[] array) {
         Random random = new Random();
         for (int i = 0; i < array.length; i++) {
             array[i] = random.nextInt(100) - 30;
         }
-        System.out.println(Arrays.toString(array));
+        return array;
     }
 
     public void printArrayToConsole(int[] array) {
@@ -59,10 +59,11 @@ class ArraysUtilAndNewMethodsAdded {
         return sum / array.length;
     }
 
-    void doubleTheValueOfArrayNumbers(int[] array) {
+    public int[] doubleTheValueOfArrayNumbers(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            System.out.println("Double value cell [" + i + "] = " + (array[i] * 2));
+            array[i] = array[i] * 2;
         }
+        return array;
     }
 
     String evenArrayNumbers(int[] array) {

@@ -8,6 +8,7 @@ class AllTasksInOneDemo {
         demo.fillArrayWithRandomNumbers(demoArray);
         demo.printArrayToConsole(demoArray);
         demo.doubleTheValueOfArrayNumbers(demoArray);
+        demo.printArrayToConsole(demoArray);
         System.out.println("Maximum number array: " + demo.findMaxNumber(demoArray));
         System.out.println("Minimum number array: " + demo.findMinNumber(demoArray));
         System.out.println("Even numbers array: " + demo.evenArrayNumbers(demoArray));

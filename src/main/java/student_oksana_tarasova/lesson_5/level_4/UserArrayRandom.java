@@ -1,21 +1,35 @@
 package student_oksana_tarasova.lesson_5.level_4;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Random;
 
 class UserArrayRandom {
     public static void main(String[] args) {
-        Scanner userArray = new Scanner(System.in);
+        UserArrayRandom userArrayRandom = new UserArrayRandom();
+        int[] arrayRandomUser = userArrayRandom.createArray();
+        userArrayRandom.fillArrayRandom(arrayRandomUser);
+        userArrayRandom.printArray(arrayRandomUser);
+
+    }
+
+
+    public int[] createArray() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Input length array..");
-        int l = userArray.nextInt();
+        int length = scanner.nextInt();
+        return new int[length];
+    }
 
-        System.out.println("Array length = " + l);
-
-        int[] array = new int[l];
+    public int[] fillArrayRandom(int[] array) {
         Random random = new Random();
-        for (int i = 0; i < l; i++) {
+        for (int i = 0; i < array.length; i++) {
             array[i] = random.nextInt(150);
-            System.out.println("cell [" + i + "] = " + array[i]);
         }
+        return array;
+    }
+
+    public void printArray(int[] array) {
+        System.out.println(Arrays.toString(array));
     }
 }

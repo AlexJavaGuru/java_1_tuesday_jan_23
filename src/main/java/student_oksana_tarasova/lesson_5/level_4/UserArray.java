@@ -4,23 +4,33 @@ import java.util.Scanner;
 
 class UserArray {
     public static void main(String[] args) {
-        Scanner userArray = new Scanner(System.in);
-        System.out.println("Input length array..");
-        int l = userArray.nextInt();
-        System.out.println("Input " + l + " values cell..");
-        int[] array = new int[l];
+        UserArray userArray = new UserArray();
+        int[] arrayUser = userArray.createArray();
+        System.out.println(userArray.arrayFilling(arrayUser));
 
+    }
+
+    Scanner array = new Scanner(System.in);
+
+    public int[] createArray() {
+        System.out.println("Input length array..");
+        int length = array.nextInt();
+        return new int[length];
+    }
+
+    public String arrayFilling(int[] array) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Input " + array.length + " values cell..");
         int i = 0;
-        String str1 = "[";
+        String startSymbol = "[";
+        String endSymbol = "]";
+        String string = "";
         do {
-            str1 += userArray.nextInt() + ", ";
+            string += scanner.nextInt() + ", ";
             i++;
         }
-        while (i < l);
-        str1 += "]";
-
-        System.out.println("Length your array = " + l);
-        System.out.println("Data`s your array: " + str1);
+        while (i < array.length);
+        return startSymbol + string + endSymbol;
     }
 }
 
