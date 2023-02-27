@@ -1,6 +1,13 @@
 package student_oksana_tarasova.lesson_6.level_5;
 
+import java.util.Scanner;
+
 class TicTacToe {
+    public static void main(String[] args) {
+        Move move = new Move(2,2);
+
+
+    }
 
 
     public int[][] createField(int countOfLines, int countOfColumns) {
@@ -10,7 +17,7 @@ class TicTacToe {
 
     public int[][] fillInTheField(int[][] field, int symbolCell) {
         for (int i = 0; i < field.length; i++) {
-            for (int j = 0; j < field[i].length; j++ ) {
+            for (int j = 0; j < field[i].length; j++) {
                 field[i][j] = symbolCell;
             }
         }
@@ -26,17 +33,63 @@ class TicTacToe {
             System.out.println("");
         }
     }
+    public Move getNextMove() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Еnter the coordinates of your move: horizontal:");
+        System.out.println("vertical:");
+        Move move = new Move(scanner.nextInt(),scanner.nextInt());
+        return move;
+    }
+/*
+    public void play() {
+        int[][] field = createField();
+        while(true) {
+            printFieldToConsole(field);
+            Move move0 = getNextMove();
+            field[move0.getX()][move0.getY()] = 0;
+            printFieldToConsole(field);
+            if (isWin(field, 0)) {
+                System.out.println("Player 0 WIN!");
+                break;
+            }
+            if (isDraw(field)) {
+                System.out.println("DRAW!");
+                break;
+            }
 
-
-    public boolean isWinPositionForHorizontals(int[][] field, int playerToCheck) {
-        for (int i = 0; i < field.length; i++) {
-            for (int j = 0; j < field[i].length; j++) {
-                if (field[i][j] != playerToCheck) {
-                    break;
-                }
+            printFieldToConsole(field);
+            Move mo ve1 = getNextMove();
+            field[move1.getX()][move1.getY()] = 1;
+            printFieldToConsole(field);
+            if (isWin(field, 1)) {
+                System.out.println("Player 1 WIN!");
+                break;
+            }
+            if (isDraw(field)) {
+                System.out.println("DRAW!");
+                break;
             }
         }
-        return true;
+    }
+
+*/
+
+
+    public void isWinPositionForHorizontals(int[][] field, int playerToCheck) {
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < field[i].length; j++) {
+                if (field[i][j] == playerToCheck) {
+                    if(field[i][j] == field[i][j+1]) {
+                    } else {
+                        break;
+
+                    }
+                    System.out.println("no");
+                }
+            }
+
+        }
+        System.out.println("viktory");
     }
 }
 
