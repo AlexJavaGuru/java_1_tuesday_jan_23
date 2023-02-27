@@ -181,12 +181,16 @@ class TicTacToe {
     }
 
     public Move getAIMove(int[][] field, int playerCheck) {
+        Move move;
         messageAIorUserMove(playerCheck);
         if (getWin(field, playerCheck) != null) {
-            return getWin(field, playerCheck);
+            move = getWin(field, playerCheck);
+        } else if (getProtectedMoveFromLoss(field) != null) {
+            move =  getProtectedMoveFromLoss(field);
         } else {
-            return getRandomAINextMove();
+            move =  getRandomAINextMove();
         }
+        return  move;
     }
 
     public Move userOrAIMove(int[][] field, int playerCheck) {
@@ -195,6 +199,10 @@ class TicTacToe {
         } else {
             return getAIMove(field, playerCheck);
         }
+    }
+
+    public Move getProtectedMoveFromLoss(int[][] field) {
+        return getWin(field, 0);
     }
 
     public Move getWin(int[][] field, int playerCheck) {
