@@ -3,17 +3,16 @@ package student_oleg_gryazev.lesson_4.level_1_10;
 import java.util.Scanner;
 
 public class ArithmeticOperation {
-    //static int digit;
-    static int firstNumber;
-    static int secondNumber;
-    static int thirdNumber;
+    int firstNumber;
+    int secondNumber;
+    int thirdNumber;
 
 
     void readArithmeticOptions() {
-        System.out.println("Enter 1 to know if number negative, positive, even or odd.");
-        System.out.println("Enter 2 to know if 2 numbers bigger, smaller or equal each other.");
-        System.out.println("Enter 3 to know if 3 numbers are in increasing, decreasing, or nor incr. , decr.");
-        System.out.println("Enter 4 to know if 3 numbers are equal, different, neither equal or different.");
+        System.out.println("Enter digit 1, and then enter one number, to know if number negative, positive, even or odd.");
+        System.out.println("Enter digit 2, and then enter two numbers, to know if the numbers bigger, smaller or equal each other.");
+        System.out.println("Enter digit 3, and then enter three numbers, to know if 3 numbers are in increasing, decreasing, or nor incr. , decr.");
+        System.out.println("Enter digit 4, and then enter three numbers, to know if 3 numbers are equal, different, neither equal or different.");
         System.out.println("Enter 5 to quit program.");
     }
 
@@ -73,7 +72,8 @@ public class ArithmeticOperation {
             System.out.println("All numbers are not equal or different");
 
     }
-    void ifIncreasingDecreasingOrNotAll () {
+
+    void ifIncreasingDecreasingOrNotAll() {
         if (thirdNumber < secondNumber && firstNumber > secondNumber) {
             System.out.println("Numbers are in decreasing order");
         } else if (thirdNumber > secondNumber && firstNumber < secondNumber) {
