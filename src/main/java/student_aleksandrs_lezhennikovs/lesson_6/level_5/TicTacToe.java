@@ -182,11 +182,12 @@ class TicTacToe {
 
     public Move getAIMove(int[][] field, int playerCheck) {
         Move move;
+        AI aI = new AI();
         messageAIorUserMove(playerCheck);
-        if (getWin(field, playerCheck) != null) {
-            move = getWin(field, playerCheck);
-        } else if (getProtectedMoveFromLoss(field) != null) {
-            move =  getProtectedMoveFromLoss(field);
+        if (aI.getWin(field, playerCheck) != null) {
+            move = aI.getWin(field, playerCheck);
+        } else if (aI.getProtectedMoveFromLoss(field) != null) {
+            move =  aI.getProtectedMoveFromLoss(field);
         } else {
             move =  getRandomAINextMove();
         }
@@ -201,28 +202,11 @@ class TicTacToe {
         }
     }
 
-    public Move getProtectedMoveFromLoss(int[][] field) {
-        return getWin(field, 0);
-    }
-
-    public Move getWin(int[][] field, int playerCheck) {
-        Move move;
-        if (getWinInHorizontals(field, playerCheck) != null) {
-            move = getWinInHorizontals(field, playerCheck);
-        } else if (getWinInVerticals(field, playerCheck) != null) {
-            move = getWinInVerticals(field, playerCheck);
-        } else if (getWinInFirstDiagonal(field, playerCheck) != null) {
-            move = getWinInFirstDiagonal(field, playerCheck);
-        } else {
-            move = getWinInSecondDiagonal(field, playerCheck);
-        }
-        return move;
-    }
-
     public void nextMove(int[][] field, int playerCheck) {
         Move move = userOrAIMove(field, playerCheck);
+        AI ai = new AI();
         if(isInFieldRange(field, move.getX(), move.getY())) {
-            if (isCellEmpty(field[move.getX()][move.getY()])) {
+            if (AI.isCellEmpty(field[move.getX()][move.getY()])) {
                 field[move.getX()][move.getY()] = playerCheck;
                 printFieldToConsole(field);
             } else {
@@ -231,100 +215,6 @@ class TicTacToe {
         } else {
             nextMove(field, playerCheck);
         }
-    }
-
-    public Move getWinInOneRow(int[][] field, int playerCheck, int row) {
-        int winCounter = 0;
-        for (int column = 0; column < fieldSize; column++) {
-                if (playerCheck == field[row][column]) {
-                    winCounter++;
-                }
-        }
-        if (winCounter == 2) {
-            for (int column = 0; column < fieldSize; column++) {
-                if (isCellEmpty(field[row][column])) {
-                    return new Move(row, column);
-                }
-            }
-        }
-        return null;
-    }
-
-    public Move getWinInHorizontals(int[][] field, int playerToCheck) {
-        for (int rows = 0; rows < fieldSize; rows++) {
-            if (getWinInOneRow(field, playerToCheck, rows) != null) {
-                return getWinInOneRow(field, playerToCheck, rows);
-            }
-        }
-        return null;
-    }
-
-    public Move getWinInOneCol(int[][] field, int playerCheck, int col) {
-        int winCounter = 0;
-        for (int row = 0; row < fieldSize; row++) {
-            if (playerCheck == field[row][col]) {
-                winCounter++;
-            }
-        }
-        if (winCounter == 2) {
-            for (int row = 0; row < fieldSize; row++) {
-                if (isCellEmpty(field[row][col])) {
-                    return new Move(row, col);
-                }
-            }
-        }
-        return null;
-    }
-
-    public Move getWinInVerticals(int[][] field, int playerToCheck) {
-        for (int col = 0; col < fieldSize; col++) {
-            if (getWinInOneCol(field, playerToCheck, col) != null) {
-                return getWinInOneCol(field, playerToCheck, col);
-            }
-        }
-        return null;
-    }
-
-    public Move getWinInFirstDiagonal(int[][] field, int playerToCheck) {
-        int winCounter = 0;
-        for (int cell = 0; cell < fieldSize; cell++) {
-            if (playerToCheck == field[cell][cell]) {
-                winCounter++;
-            }
-        }
-        if (winCounter == 2) {
-            for (int cell = 0; cell < fieldSize; cell++) {
-                if (isCellEmpty(field[cell][cell])) {
-                    return new Move(cell, cell);
-                }
-            }
-        }
-        return null;
-    }
-
-    public Move getWinInSecondDiagonal(int[][] field, int playerToCheck) {
-        int fromEnd = fieldSize - 1;
-        int winCounter = 0;
-        for (int fromStart = 0; fromStart < fieldSize; fromStart++) {
-            if (playerToCheck == field[fromStart][fromEnd ]) {
-                winCounter++;
-            }
-            fromEnd--;
-        }
-        if (winCounter == 2) {
-            fromEnd = fieldSize - 1;
-            for (int fromStart = 0; fromStart < fieldSize; fromStart++) {
-                if (isCellEmpty(field[fromStart][fromEnd])) {
-                    return new Move(fromStart, fromEnd);
-                }
-                fromEnd--;
-            }
-        }
-        return null;
-    }
-
-    public static boolean isCellEmpty(int cell) {
-        return (cell == -1);
     }
 
     public boolean isInFieldRange(int[][] field, int x, int y) {
