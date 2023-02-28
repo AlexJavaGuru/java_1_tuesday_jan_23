@@ -70,7 +70,6 @@ public class ArithmeticOperation {
             System.out.println(" All numbers are not equal");
         } else
             System.out.println("All numbers are not equal or different");
-
     }
 
     void ifIncreasingDecreasingOrNotAll() {

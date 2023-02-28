@@ -1,5 +1,4 @@
 package student_oleg_gryazev.lesson_4.level_1_10;
-
 import java.util.Scanner;
 
 public class SwitchArithmeticOperation {
