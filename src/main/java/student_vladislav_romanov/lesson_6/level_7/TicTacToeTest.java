@@ -4,10 +4,6 @@ import java.util.Arrays;
 
 public class TicTacToeTest {
 
-    char playerOne = '\u2612';
-    char playerTwo = '\u2b24';
-    char cell = '\u25a2';
-
     public static void main(String[] args) {
         TicTacToeTest test = new TicTacToeTest();
 
@@ -30,8 +26,8 @@ public class TicTacToeTest {
 
     public void isWinPositionForHorizontalsTestSucceed() {
         TicTacToe ticTacToe = new TicTacToe();
-        char[][] field = {{playerOne, playerOne, playerOne}, {playerTwo, playerOne, cell}, {cell, cell, cell}};
-        boolean currentResult = ticTacToe.isWinPositionForHorizontals(field, playerOne);
+        int[][] field = {{1, 1, 1}, {-1, 1, 0}, {0, 0, 0}};
+        boolean currentResult = ticTacToe.isWinPositionForHorizontals(field, 1);
 
         ticTacToe.printFieldToConsole(field);
         printResult(currentResult, true, "isWinPositionForHorizontalsTestSucceed");
@@ -39,8 +35,8 @@ public class TicTacToeTest {
 
     public void isWinPositionForHorizontalsTestFailed() {
         TicTacToe ticTacToe = new TicTacToe();
-        char[][] field = {{playerOne, playerOne, playerTwo}, {playerOne, playerOne, cell}, {playerOne, cell, cell}};
-        boolean currentResult = ticTacToe.isWinPositionForHorizontals(field, playerOne);
+        int[][] field = {{1, 1, -1}, {1, 1, 0}, {1, 0, 0}};
+        boolean currentResult = ticTacToe.isWinPositionForHorizontals(field, 1);
 
         ticTacToe.printFieldToConsole(field);
         printResult(currentResult, false, "isWinPositionForHorizontalsTestFailed");
@@ -48,8 +44,8 @@ public class TicTacToeTest {
 
     public void isWinPositionForVerticalsTestSucceed() {
         TicTacToe ticTacToe = new TicTacToe();
-        char[][] field = {{playerOne, playerOne, playerTwo}, {playerOne, playerOne, cell}, {playerOne, cell, cell}};
-        boolean currentResult = ticTacToe.isWinPositionForVerticals(field, playerOne);
+        int[][] field = {{1, 1, -1}, {1, 1, 0}, {1, 0, 0}};
+        boolean currentResult = ticTacToe.isWinPositionForVerticals(field, 1);
 
         ticTacToe.printFieldToConsole(field);
         printResult(currentResult, true, "isWinPositionForVerticalsTestSucceed");
@@ -57,8 +53,8 @@ public class TicTacToeTest {
 
     public void isWinPositionForVerticalsTestFailed() {
         TicTacToe ticTacToe = new TicTacToe();
-        char[][] field = {{playerOne, playerOne, playerOne}, {playerTwo, playerOne, cell}, {cell, cell, cell}};
-        boolean currentResult = ticTacToe.isWinPositionForVerticals(field, playerOne);
+        int[][] field = {{1, 1, 1}, {-1, 1, 0}, {0, 0, 0}};
+        boolean currentResult = ticTacToe.isWinPositionForVerticals(field, 1);
 
         ticTacToe.printFieldToConsole(field);
         printResult(currentResult, false, "isWinPositionForVerticalsTestFailed");
@@ -66,8 +62,8 @@ public class TicTacToeTest {
 
     public void isWinPositionForMainDiagonalTestSucceed() {
         TicTacToe ticTacToe = new TicTacToe();
-        char[][] field = {{playerOne, playerOne, playerTwo}, {playerTwo, playerOne, cell}, {playerTwo, cell, playerOne}};
-        boolean currentResult = ticTacToe.isWinPositionForMainDiagonal(field, playerOne);
+        int[][] field = {{1, 1, -1}, {-1, 1, 0}, {-1, 0, 1}};
+        boolean currentResult = ticTacToe.isWinPositionForMainDiagonal(field, 1);
 
         ticTacToe.printFieldToConsole(field);
         printResult(currentResult, true, "isWinPositionForMainDiagonalTestSucceed");
@@ -75,8 +71,8 @@ public class TicTacToeTest {
 
     public void isWinPositionForMainDiagonalTestFailed() {
         TicTacToe ticTacToe = new TicTacToe();
-        char[][] field = {{playerOne, playerOne, playerTwo}, {playerOne, playerOne, cell}, {playerOne, cell, cell}};
-        boolean currentResult = ticTacToe.isWinPositionForMainDiagonal(field, playerOne);
+        int[][] field = {{1, 1, -1}, {1, 1, 0}, {1, 0, 0}};
+        boolean currentResult = ticTacToe.isWinPositionForMainDiagonal(field, 1);
 
         ticTacToe.printFieldToConsole(field);
         printResult(currentResult, false, "isWinPositionForMainDiagonalTestFailed");
@@ -84,8 +80,8 @@ public class TicTacToeTest {
 
     public void isWinPositionForSideDiagonalTestSucceed() {
         TicTacToe ticTacToe = new TicTacToe();
-        char[][] field = {{playerOne, playerTwo, playerOne}, {playerTwo, playerOne, cell}, {playerOne, cell, playerTwo}};
-        boolean currentResult = ticTacToe.isWinPositionForSideDiagonal(field, playerOne);
+        int[][] field = {{1, -1, 1}, {-1, 1, 0}, {1, 0, -1}};
+        boolean currentResult = ticTacToe.isWinPositionForSideDiagonal(field, 1);
 
         ticTacToe.printFieldToConsole(field);
         printResult(currentResult, true, "isWinPositionForSideDiagonalTestSucceed");
@@ -93,8 +89,8 @@ public class TicTacToeTest {
 
     public void isWinPositionForSideDiagonalTestFailed() {
         TicTacToe ticTacToe = new TicTacToe();
-        char[][] field = {{playerOne, playerTwo, playerTwo}, {playerTwo, playerOne, cell}, {playerOne, cell, cell}};
-        boolean currentResult = ticTacToe.isWinPositionForSideDiagonal(field, playerOne);
+        int[][] field = {{1, -1, -1}, {-1, 1, 0}, {1, 0, 0}};
+        boolean currentResult = ticTacToe.isWinPositionForSideDiagonal(field, 1);
 
         ticTacToe.printFieldToConsole(field);
         printResult(currentResult, false, "isWinPositionForSideDiagonalTestFailed");
@@ -102,8 +98,8 @@ public class TicTacToeTest {
 
     public void isWinPositionForDiagonalsTestSucceed() {
         TicTacToe ticTacToe = new TicTacToe();
-        char[][] field = {{playerOne, playerOne, playerTwo}, {playerTwo, playerOne, cell}, {playerTwo, cell, playerOne}};
-        boolean currentResult = ticTacToe.isWinPositionForDiagonals(field, playerOne);
+        int[][] field = {{1, 1, -1}, {-1, 1, 0}, {-1, 0, 1}};
+        boolean currentResult = ticTacToe.isWinPositionForDiagonals(field, 1);
 
         ticTacToe.printFieldToConsole(field);
         printResult(currentResult, true, "isWinPositionForDiagonalsTestSucceed");
@@ -111,8 +107,8 @@ public class TicTacToeTest {
 
     public void isWinPositionForDiagonalsTestFailed() {
         TicTacToe ticTacToe = new TicTacToe();
-        char[][] field = {{playerOne, playerOne, playerTwo}, {playerOne, playerOne, cell}, {playerOne, cell, cell}};
-        boolean currentResult = ticTacToe.isWinPositionForDiagonals(field, playerOne);
+        int[][] field = {{1, 1, -1}, {1, 1, 0}, {1, 0, 0}};
+        boolean currentResult = ticTacToe.isWinPositionForDiagonals(field, 1);
 
         ticTacToe.printFieldToConsole(field);
         printResult(currentResult, false, "isWinPositionForDiagonalsTestFailed");
@@ -120,8 +116,8 @@ public class TicTacToeTest {
 
     public void isWinPositionTestSucceed() {
         TicTacToe ticTacToe = new TicTacToe();
-        char[][] field = {{playerOne, playerOne, playerTwo}, {playerTwo, playerOne, cell}, {playerTwo, cell, playerOne}};
-        boolean currentResult = ticTacToe.isWinPosition(field, playerOne);
+        int[][] field = {{1, 1, -1}, {-1, 1, 0}, {-1, 0, 1}};
+        boolean currentResult = ticTacToe.isWinPosition(field, 1);
 
         ticTacToe.printFieldToConsole(field);
         printResult(currentResult, true, "isWinPositionTestSucceed for player one");
@@ -129,8 +125,8 @@ public class TicTacToeTest {
 
     public void isWinPositionTestFailed() {
         TicTacToe ticTacToe = new TicTacToe();
-        char[][] field = {{playerOne, playerOne, playerTwo}, {playerTwo, playerOne, cell}, {playerTwo, cell, playerOne}};
-        boolean currentResult = ticTacToe.isWinPosition(field, playerTwo);
+        int[][] field = {{1, 1, -1}, {-1, 1, 0}, {-1, 0, 1}};
+        boolean currentResult = ticTacToe.isWinPosition(field, -1);
 
         ticTacToe.printFieldToConsole(field);
         printResult(currentResult, false, "isWinPositionTestFailed for player two");
@@ -138,7 +134,7 @@ public class TicTacToeTest {
 
     public void isDrawPositionTestSucceed() {
         TicTacToe ticTacToe = new TicTacToe();
-        char[][] field = {{playerOne, playerTwo, playerTwo}, {playerTwo, playerTwo, playerOne}, {playerOne, playerOne, playerTwo}};
+        int[][] field = {{1, -1, -1}, {-1, -1, 1}, {1, 1, -1}};
         boolean currentResult = ticTacToe.isDrawPosition(field);
 
         ticTacToe.printFieldToConsole(field);
@@ -147,7 +143,7 @@ public class TicTacToeTest {
 
     public void isDrawPositionTestFailed() {
         TicTacToe ticTacToe = new TicTacToe();
-        char[][] field = {{playerOne, playerTwo, playerTwo}, {playerTwo, playerTwo, playerOne}, {playerOne, cell, playerTwo}};
+        int[][] field = {{1, -1, -1}, {-1, -1, 1}, {1, 0, -1}};
         boolean currentResult = ticTacToe.isDrawPosition(field);
 
         ticTacToe.printFieldToConsole(field);
@@ -156,8 +152,8 @@ public class TicTacToeTest {
 
     public void createFieldTest() {
         TicTacToe ticTacToe = new TicTacToe();
-        char[][] expectedResult = {{cell, cell, cell}, {cell, cell, cell}, {cell, cell, cell}};
-        char[][] currentResult = ticTacToe.createField(3);
+        int[][] expectedResult = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+        int[][] currentResult = ticTacToe.createField(3);
 
         ticTacToe.printFieldToConsole(currentResult);
         printResult(Arrays.deepEquals(currentResult, expectedResult), "createFieldTest");

@@ -5,13 +5,13 @@ import java.util.Random;
 class AI {
 
     Random random = new Random();
-    char cell = '\u25a2';
+    int cell = 0;
 
-    public Move getAIMove(char[][] field, Player player) {
-        Move checkHorizontalsResult = checkHorizontals(field, player);
-        Move checkVerticalsResult = checkVerticals(field, player);
-        Move checkMainDiagonalResult = checkMainDiagonal(field, player);
-        Move checkSideDiagonalResult = checkSideDiagonal(field, player);
+    public Move getAIMove(int[][] field) {
+        Move checkHorizontalsResult = checkHorizontals(field);
+        Move checkVerticalsResult = checkVerticals(field);
+        Move checkMainDiagonalResult = checkMainDiagonal(field);
+        Move checkSideDiagonalResult = checkSideDiagonal(field);
 
         if (checkHorizontalsResult != null) {
             return checkHorizontalsResult;
@@ -26,11 +26,11 @@ class AI {
         return new Move(random.nextInt(field.length), random.nextInt(field.length));
     }
 
-    public Move checkHorizontals(char[][] field, Player player) {
+    public Move checkHorizontals(int[][] field) {
         Move move;
 
         for (int x = 0; x < field.length; x++) {
-            move = checkSingleHorizontal(field, player, x);
+            move = checkSingleHorizontal(field, x);
             if (move != null) {
                 return move;
             }
@@ -40,31 +40,28 @@ class AI {
     }
 
 
-    public Move checkSingleHorizontal(char[][] field, Player player, int x) {
+    public Move checkSingleHorizontal(int[][] field, int x) {
         Move potentialMove = new Move();
-        int counter = 0;
+        int sum = 0;
 
         for (int y = 0; y < field[x].length; y++) {
-            if (field[x][y] == player.getSymbol()) {
-                counter++;
-            } else if (field[x][y] != cell) {
-                counter--;
-            } else {
+            sum += field[x][y];
+            if (field[x][y] == cell) {
                 potentialMove = new Move(x, y);
             }
         }
-        if (counter == field.length - 1 || counter == (field.length - 1) * -1) {
+        if (sum == field.length - 1 || sum == (field.length - 1) * -1) {
             return potentialMove;
         }
 
         return null;
     }
 
-    public Move checkVerticals(char[][] field, Player player) {
+    public Move checkVerticals(int[][] field) {
         Move move;
 
         for (int x = 0; x < field.length; x++) {
-            move = checkSingleVertical(field, player, x);
+            move = checkSingleVertical(field, x);
             if (move != null) {
                 return move;
             }
@@ -73,60 +70,51 @@ class AI {
         return null;
     }
 
-    public Move checkSingleVertical(char[][] field, Player player, int x) {
+    public Move checkSingleVertical(int[][] field, int x) {
         Move potentialMove = new Move();
-        int counter = 0;
+        int sum = 0;
 
         for (int y = 0; y < field[x].length; y++) {
-            if (field[y][x] == player.getSymbol()) {
-                counter++;
-            } else if (field[y][x] != cell) {
-                counter--;
-            } else {
+            sum += field[y][x];
+            if (field[y][x] == cell) {
                 potentialMove = new Move(y, x);
             }
         }
-        if (counter == field.length - 1 || counter == (field.length - 1) * -1) {
+        if (sum == field.length - 1 || sum == (field.length - 1) * -1) {
             return potentialMove;
         }
 
         return null;
     }
 
-    public Move checkMainDiagonal(char[][] field, Player player) {
+    public Move checkMainDiagonal(int[][] field) {
         Move potentialMove = new Move();
-        int counter = 0;
+        int sum = 0;
 
         for (int x = 0; x < field.length; x++) {
-            if (field[x][x] == player.getSymbol()) {
-                counter++;
-            } else if (field[x][x] != cell) {
-                counter--;
-            } else {
+            sum += field[x][x];
+            if (field[x][x] == cell) {
                 potentialMove = new Move(x, x);
             }
         }
-        if (counter == field.length - 1 || counter == (field.length - 1) * -1) {
+        if (sum == field.length - 1 || sum == (field.length - 1) * -1) {
             return potentialMove;
         }
 
         return null;
     }
 
-    public Move checkSideDiagonal(char[][] field, Player player) {
+    public Move checkSideDiagonal(int[][] field) {
         Move potentialMove = new Move();
-        int counter = 0;
+        int sum = 0;
 
-        for (int x = 0, y = field.length - x - 1; x < field.length; x++, y--) {
-            if (field[x][y] == player.getSymbol()) {
-                counter++;
-            } else if (field[x][y] != cell) {
-                counter--;
-            } else {
-                potentialMove = new Move(x, y);
+        for (int x = 0; x < field.length; x++) {
+            sum += field[x][field.length - x - 1];
+            if (field[x][field.length - x - 1] == cell) {
+                potentialMove = new Move(x, field.length - x - 1);
             }
         }
-        if (counter == field.length - 1 || counter == (field.length - 1) * -1) {
+        if (sum == field.length - 1 || sum == (field.length - 1) * -1) {
             return potentialMove;
         }
 

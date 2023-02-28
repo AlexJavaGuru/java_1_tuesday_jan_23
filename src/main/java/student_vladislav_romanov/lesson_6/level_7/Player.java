@@ -1,11 +1,12 @@
 package student_vladislav_romanov.lesson_6.level_7;
 
 class Player {
+
     private final String name;
-    private final char symbol;
+    private final int symbol;
     private final boolean isAI;
 
-    public Player(String name, char symbol, boolean isAI) {
+    public Player(String name, int symbol, boolean isAI) {
         this.name = name;
         this.symbol = symbol;
         this.isAI = isAI;
@@ -15,7 +16,7 @@ class Player {
         return name;
     }
 
-    public char getSymbol() {
+    public int getSymbol() {
         return symbol;
     }
 
