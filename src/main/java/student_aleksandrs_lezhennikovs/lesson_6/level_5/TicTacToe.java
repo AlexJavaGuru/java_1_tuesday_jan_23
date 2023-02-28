@@ -175,8 +175,8 @@ class TicTacToe {
 
     public Move getRandomAINextMove() {
         Random random = new Random();
-        int x = random.nextInt(3);
-        int y = random.nextInt(3);
+        int x = random.nextInt(fieldSize);
+        int y = random.nextInt(fieldSize);
         return new Move(x, y);
     }
 
@@ -204,9 +204,9 @@ class TicTacToe {
 
     public void nextMove(int[][] field, int playerCheck) {
         Move move = userOrAIMove(field, playerCheck);
-        AI ai = new AI();
-        if(isInFieldRange(field, move.getX(), move.getY())) {
-            if (AI.isCellEmpty(field[move.getX()][move.getY()])) {
+        AI aI = new AI();
+        if(isInFieldRange(move.getX(), move.getY())) {
+            if (aI.isCellEmpty(field[move.getX()][move.getY()])) {
                 field[move.getX()][move.getY()] = playerCheck;
                 printFieldToConsole(field);
             } else {
@@ -217,7 +217,7 @@ class TicTacToe {
         }
     }
 
-    public boolean isInFieldRange(int[][] field, int x, int y) {
+    public boolean isInFieldRange(int x, int y) {
         return (x >= 0 && x < fieldSize && y >= 0 && y < fieldSize);
     }
 

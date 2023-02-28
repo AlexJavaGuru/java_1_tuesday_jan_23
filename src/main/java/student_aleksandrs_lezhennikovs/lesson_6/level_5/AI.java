@@ -1,6 +1,6 @@
 package student_aleksandrs_lezhennikovs.lesson_6.level_5;
 
-public class AI {
+class AI {
     public Move getWin(int[][] field, int playerCheck) {
         Move move;
         if (getWinInHorizontals(field, playerCheck) != null) {
