@@ -1,0 +1,19 @@
+Task 12:
+https://csharpcoderr.com/5869/
+
+Task 13:
+https://www.fandroid.info/8-kompilyatsiya-i-vypolnenie-java-programmy-s-komandnoj-stroki/
+
+Task 14:
+"2. Запуск
+Как мы уже знаем, MyFirstApp.class содержит байт-код. Для его
+исполнения воспользуемся утилитой java. Именно она стартует JVM,
+которая, в свою очередь, запустит класс MyFirstApp.
+Пишем java MyFirstApp:
+Программа отработала верно, выведя в консоль WORA.
+Обратите внимание, что необходимо указать не имя файла MyFirstApp.class,
+а имя класса. При этом писать какое-либо расширение не нужно.
+Утилита java принимает в качестве параметра именно имя класса,
+а не имя файла, где он находится."
+
+https://topjava.ru/blog/kompilyatsiya-i-zapusk-programm-na-java
