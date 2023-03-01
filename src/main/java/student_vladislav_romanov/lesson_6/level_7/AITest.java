@@ -5,6 +5,8 @@ public class AITest {
     public static void main(String[] args) {
         AITest aiTest = new AITest();
 
+        aiTest.getAIMoveSuccess();
+        aiTest.getAIMoveFail();
         aiTest.aiHorizontalCombinationTestSuccess();
         aiTest.aiHorizontalCombinationTestFail();
         aiTest.aiVerticalCombinationTestSuccess();
@@ -13,6 +15,24 @@ public class AITest {
         aiTest.aiMainDiagonalCombinationTestFail();
         aiTest.aiSideDiagonalCombinationTestSuccess();
         aiTest.aiSideDiagonalCombinationTestFail();
+    }
+
+    public void getAIMoveSuccess() {
+        AI ai = new AI();
+        int[][] field = {{1, 1, 0}, {-1, 0, 0}, {1, -1, 0}};
+        Move expectedResult = new Move(0,2);
+        Move currentResult = ai.checkHorizontals(field);
+
+        printResult(compareResults(expectedResult, currentResult), "getAIMoveSuccess");
+    }
+
+    public void getAIMoveFail() {
+        AI ai = new AI();
+        int[][] field = {{1, 1, 0}, {-1, 0, 0}, {1, -1, 0}};
+        Move expectedResult = new Move(0,1);
+        Move currentResult = ai.checkHorizontals(field);
+
+        printResult(!compareResults(expectedResult, currentResult), "getAIMoveFail");
     }
 
     public void aiHorizontalCombinationTestSuccess() {

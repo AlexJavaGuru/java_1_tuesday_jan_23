@@ -4,8 +4,11 @@ import java.util.Scanner;
 
 class TicTacToe {
 
+    private static final char X = '\u2612';
+    private static final char O = '\u2b24';
+    private static final char CELL = '\u25a2';
+    private static final int cell = 0;
     Scanner scanner = new Scanner(System.in);
-    int cell = 0;
 
     public static void main(String[] args) {
         TicTacToe game = new TicTacToe();
@@ -143,9 +146,9 @@ class TicTacToe {
         for (int x = 0; x < field.length; x++) {
             for (int y = 0; y < field[x].length; y++) {
                 switch (field[x][y]) {
-                    case 1 -> System.out.print('\u2612');
-                    case -1 -> System.out.print('\u2b24');
-                    default -> System.out.print('\u25a2');
+                    case 1 -> System.out.print(X);
+                    case -1 -> System.out.print(O);
+                    default -> System.out.print(CELL);
                 }
             }
             System.out.println();
@@ -191,20 +194,19 @@ class TicTacToe {
     }
 
     public void play() {
-        Player playerOne = setPlayer("Player 1", 1);
-        Player playerTwo = setPlayer("Player 2", -1);
-
+        Player[] players = { setPlayer("Player 1", 1), setPlayer("Player 2", -1) };
         int[][] field = createField(setFieldSize());
-        printFieldToConsole(field);
-        while(true) {
-            playerMove(field, playerOne);
-            if (checkEndGameConditions(field, playerOne)) {
-                break;
-            }
 
-            playerMove(field, playerTwo);
-            if (checkEndGameConditions(field, playerTwo)) {
-                break;
+        printFieldToConsole(field);
+
+        boolean continueSession = true;
+        while(continueSession) {
+            for (Player player : players) {
+                playerMove(field, player);
+                if (checkEndGameConditions(field, player)) {
+                    continueSession = false;
+                    break;
+                }
             }
         }
     }

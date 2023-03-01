@@ -1,26 +1,20 @@
 package student_vladislav_romanov.lesson_6.level_7;
 
+import java.util.Optional;
 import java.util.Random;
 
 class AI {
 
     Random random = new Random();
-    int cell = 0;
+    private final int CELL = 0;
 
     public Move getAIMove(int[][] field) {
-        Move checkHorizontalsResult = checkHorizontals(field);
-        Move checkVerticalsResult = checkVerticals(field);
-        Move checkMainDiagonalResult = checkMainDiagonal(field);
-        Move checkSideDiagonalResult = checkSideDiagonal(field);
-
-        if (checkHorizontalsResult != null) {
-            return checkHorizontalsResult;
-        } else if (checkVerticalsResult != null) {
-            return checkVerticalsResult;
-        } else if (checkMainDiagonalResult != null) {
-            return checkMainDiagonalResult;
-        } else if (checkSideDiagonalResult != null) {
-            return checkSideDiagonalResult;
+        Move resultMove = Optional.ofNullable(checkHorizontals(field))
+                .orElse(Optional.ofNullable(checkVerticals(field))
+                        .orElse(Optional.ofNullable(checkMainDiagonal(field))
+                                .orElseGet(() -> checkSideDiagonal(field))));
+        if (resultMove != null) {
+            return resultMove;
         }
 
         return new Move(random.nextInt(field.length), random.nextInt(field.length));
@@ -46,7 +40,7 @@ class AI {
 
         for (int y = 0; y < field[x].length; y++) {
             sum += field[x][y];
-            if (field[x][y] == cell) {
+            if (field[x][y] == CELL) {
                 potentialMove = new Move(x, y);
             }
         }
@@ -76,7 +70,7 @@ class AI {
 
         for (int y = 0; y < field[x].length; y++) {
             sum += field[y][x];
-            if (field[y][x] == cell) {
+            if (field[y][x] == CELL) {
                 potentialMove = new Move(y, x);
             }
         }
@@ -93,7 +87,7 @@ class AI {
 
         for (int x = 0; x < field.length; x++) {
             sum += field[x][x];
-            if (field[x][x] == cell) {
+            if (field[x][x] == CELL) {
                 potentialMove = new Move(x, x);
             }
         }
@@ -110,7 +104,7 @@ class AI {
 
         for (int x = 0; x < field.length; x++) {
             sum += field[x][field.length - x - 1];
-            if (field[x][field.length - x - 1] == cell) {
+            if (field[x][field.length - x - 1] == CELL) {
                 potentialMove = new Move(x, field.length - x - 1);
             }
         }

@@ -22,6 +22,12 @@ public class TicTacToeTest {
         test.isDrawPositionTestSucceed();
         test.isDrawPositionTestFailed();
         test.createFieldTest();
+        test.isMoveInRangeTestSucceed();
+        test.isMoveInRangeTestFailed();
+        test.isCellFreeTestSucceed();
+        test.isCellFreeTestFailed();
+        test.checkEndGameConditionsSucceed();
+        test.checkEndGameConditionsFailed();
     }
 
     public void isWinPositionForHorizontalsTestSucceed() {
@@ -157,6 +163,68 @@ public class TicTacToeTest {
 
         ticTacToe.printFieldToConsole(currentResult);
         printResult(Arrays.deepEquals(currentResult, expectedResult), "createFieldTest");
+    }
+
+    public void isMoveInRangeTestSucceed() {
+        TicTacToe ticTacToe = new TicTacToe();
+        Move move = new Move(1, 2);
+        int[][] field = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+        boolean expectedResult = true;
+        boolean currentResult = ticTacToe.isMoveInRange(field, move);
+
+        printResult(expectedResult == currentResult, "isMoveInRangeTestSucceed");
+    }
+
+    public void isMoveInRangeTestFailed() {
+        TicTacToe ticTacToe = new TicTacToe();
+        Move move = new Move(1, 4);
+        int[][] field = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+        boolean expectedResult = false;
+        boolean currentResult = ticTacToe.isMoveInRange(field, move);
+
+        printResult(expectedResult == currentResult, "isMoveInRangeTestFailed");
+    }
+
+    public void isCellFreeTestSucceed() {
+        TicTacToe ticTacToe = new TicTacToe();
+        Move move = new Move(1, 1);
+        int[][] field = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+        boolean expectedResult = true;
+        boolean currentResult = ticTacToe.isCellFree(field, move);
+
+        printResult(expectedResult == currentResult, "isCellFreeTestSucceed");
+    }
+
+    public void isCellFreeTestFailed() {
+        TicTacToe ticTacToe = new TicTacToe();
+        Move move = new Move(1, 1);
+        int[][] field = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
+        boolean expectedResult = false;
+        boolean currentResult = ticTacToe.isCellFree(field, move);
+
+        printResult(expectedResult == currentResult, "isCellFreeTestFailed");
+    }
+
+    public void checkEndGameConditionsSucceed() {
+        TicTacToe ticTacToe = new TicTacToe();
+        Player player = new Player("Player 1", 1, false);
+        int[][] field = {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
+        boolean expectedResult = true;
+        boolean currentResult = ticTacToe.checkEndGameConditions(field, player);
+
+        ticTacToe.printFieldToConsole(field);
+        printResult(expectedResult == currentResult, "checkEndGameConditionsSucceed");
+    }
+
+    public void checkEndGameConditionsFailed() {
+        TicTacToe ticTacToe = new TicTacToe();
+        Player player = new Player("Player 2", -1, false);
+        int[][] field = {{1, 0, -1}, {0, 1, -1}, {0, 0, 0}};
+        boolean expectedResult = false;
+        boolean currentResult = ticTacToe.checkEndGameConditions(field, player);
+
+        ticTacToe.printFieldToConsole(field);
+        printResult(expectedResult == currentResult, "checkEndGameConditionsFailed");
     }
 
     public void printResult(boolean result, boolean expected, String test) {
