@@ -7,12 +7,12 @@ public class Task_4 {
         Scanner scan = new Scanner(System.in);
         int number = scan.nextInt();
         int ostatok = number%2;
-            if (ostatok != 0) {
-                System.out.println("Odd");
-            }
-            else {
-                System.out.println("Even");
-            }
+
+        if (ostatok != 0) {
+            System.out.println("Odd");
+        } else {
+            System.out.println("Even");
         }
     }
+}
 
