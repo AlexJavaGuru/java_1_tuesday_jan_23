@@ -3,21 +3,23 @@ package student_anastasiia_bokareva.lesson3.level5;
 public class Dog {
     String name;
     int age;
-    Dog (String dogName) {
+    String colour;
+
+    Dog (String dogName, int dogAge, String colour) {
 
         this.name = dogName;
-    }
-
-    Dog (int dogAge) {
-
         this.age = dogAge;
+        this.colour = colour;
     }
    public void voice(){
        System.out.println(name+name+name);
    }
-    void happyBirthday() {
-        int newAge=age+1;
-        System.out.println(newAge);
+    int age () {
+        age++;
+        return age;
+    }
+    public void newVoice(){
+        System.out.println(name+" " + age+ " "+colour);
     }
 
 }

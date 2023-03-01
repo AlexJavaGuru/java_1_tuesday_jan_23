@@ -6,12 +6,12 @@ public class DogDemo2 {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
-        Dog2 staford = new Dog2 (" ", 0," ");
+        Dog staford = new Dog (" ", 0, "red");
         staford.name = scan.next();
         staford.age=scan.nextInt();
         staford.colour=scan.next();
-        staford.happyBirthday();
+        staford.age();
         staford.colour=scan.next();
-        staford.voice();
+        staford.newVoice();
     }
 }
