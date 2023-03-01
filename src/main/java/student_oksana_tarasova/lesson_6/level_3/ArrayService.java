@@ -16,11 +16,13 @@ class ArrayService {
         int count = 0;
         for (int numberArray : array) {
             if (givenNumber == numberArray) {
-                count += 1;
+                count++;
             }
         }
         return count;
     }
+
+
 
     static boolean replaceNumber(int[] array, int replaceNumber, int newNumber) {
         for (int i = 0; i < array.length; i++) {
@@ -53,6 +55,7 @@ class ArrayService {
         while (i < size / 2);
         return array;
     }
+
 }
 
 

@@ -13,6 +13,7 @@ class ArrayServiceDemo {
         System.out.println(Arrays.toString(arrayDemo));
         ArrayService.replaceAllNumbers(arrayDemo, 2, 33);
         System.out.println(Arrays.toString(arrayDemo));
+        System.out.println("Number 33 occurs " + ArrayService.countOccurrences(arrayDemo, 33) + " times in the array");
     }
 }
 
