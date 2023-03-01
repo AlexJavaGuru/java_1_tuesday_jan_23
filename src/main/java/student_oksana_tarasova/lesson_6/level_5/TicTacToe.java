@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 class TicTacToe {
     public static void main(String[] args) {
-        Move move = new Move(2,2);
+        Move move = new Move(2, 2);
 
 
     }
@@ -33,11 +33,12 @@ class TicTacToe {
             System.out.println("");
         }
     }
+
     public Move getNextMove() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Еnter the coordinates of your move: horizontal:");
-        System.out.println("vertical:");
-        Move move = new Move(scanner.nextInt(),scanner.nextInt());
+        System.out.print("Еnter the coordinates of your move: horizontal: ");
+        System.out.println("vertical: ");
+        Move move = new Move(scanner.nextInt(), scanner.nextInt());
         return move;
     }
 /*
@@ -77,21 +78,23 @@ class TicTacToe {
 
     public void isWinPositionForHorizontals(int[][] field, int playerToCheck) {
         for (int i = 0; i < field.length; i++) {
-            for (int j = 0; j < field[i].length; j++) {
+            for (int j = 0; j < field[i].length - 1; j++) {
                 if (field[i][j] == playerToCheck) {
-                    if(field[i][j] == field[i][j+1]) {
-                    } else {
-                        break;
-
+                    if (field[i][j] == field[i][j + 1]) {
                     }
+                } else if (field[i][j] != playerToCheck) {
                     System.out.println("no");
+                    break;
                 }
             }
 
         }
-        System.out.println("viktory");
+        System.out.println("yes");
     }
 }
+
+
+
 
 
 /* применить при проверке диагоналей
