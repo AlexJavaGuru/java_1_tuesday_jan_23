@@ -11,12 +11,10 @@ public class Task_8 {
 
         if ((firstNumber == seconNumber) && (seconNumber == thirdNumber)) {
             System.out.println("All numbers are equal");
+        } else if ((firstNumber != seconNumber) && (seconNumber != thirdNumber) && (firstNumber != thirdNumber)) {
+            System.out.println("All numbers are different");
         } else {
-            if ((firstNumber != seconNumber) && (seconNumber != thirdNumber) && (firstNumber != thirdNumber)) {
-                System.out.println("All numbers are different");
-            } else {
-                System.out.println("Neither all are equal or different");
-            }
+            System.out.println("Neither all are equal or different");
         }
     }
 }

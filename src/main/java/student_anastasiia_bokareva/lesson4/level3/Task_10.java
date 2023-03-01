@@ -12,13 +12,11 @@ public class Task_10 {
         int thirdNumber = scan.nextInt();
         int maxNumber = 0;
 
-        if (maxNumber < firstNumber) {
+        if (secondNumber <= firstNumber && thirdNumber <= firstNumber) {
             maxNumber = firstNumber;
-        }
-        if (maxNumber < secondNumber) {
+        } else if (firstNumber <= secondNumber && thirdNumber<=secondNumber) {
             maxNumber = secondNumber;
-        }
-        if (maxNumber < thirdNumber) {
+        } else {
             maxNumber = thirdNumber;
         }
 

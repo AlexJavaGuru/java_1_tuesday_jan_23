@@ -12,12 +12,10 @@ public class Task_9 {
 
         if ((firstNumber < seconNumber) && (seconNumber < thirdNumber)) {
             System.out.println("increasing");
+        } else if ((firstNumber > seconNumber) && (seconNumber > thirdNumber)) {
+            System.out.println("decrease");
         } else {
-            if ((firstNumber > seconNumber) && (seconNumber > thirdNumber)) {
-                System.out.println("decrease");
-            } else {
-                System.out.println("Neither increase or decrease");
-            }
+            System.out.println("Neither increase or decrease");
         }
     }
 }
