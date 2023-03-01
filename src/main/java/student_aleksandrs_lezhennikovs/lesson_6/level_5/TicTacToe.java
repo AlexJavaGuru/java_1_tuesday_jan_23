@@ -6,6 +6,9 @@ import java.util.Scanner;
 class TicTacToe {
 
     private int fieldSize;
+    private final String EMPTY = "[ ]";
+    private final String X = "[x]";
+    private final String O = "[o]";
 
     public int getFieldSize() {
         return fieldSize;
@@ -25,29 +28,30 @@ class TicTacToe {
         return field;
     }
 
-    public void printFieldToConsole(int[][] field) {
+    public void printSymbolInField(int symbol, int col) {
+        if (col == fieldSize - 1) {
+            switch (symbol) {
+                case 1 -> System.out.println(X);
+                case 0 -> System.out.println(O);
+                case -1 -> System.out.println(EMPTY);
+            }
+        } else {
+            switch (symbol) {
+                case 1 -> System.out.print(X);
+                case 0 -> System.out.print(O);
+                case -1 -> System.out.print(EMPTY);
+            }
+        }
+    }
+
+    public void printAlternativeFieldToConsole(int[][] field) {
         for (int rows = 0; rows < fieldSize; rows++) {
             for (int columns = 0; columns < fieldSize; columns++) {
-                if (columns == fieldSize - 1) {
-                    if (field[rows][columns] != -1){
-                        System.out.println(" " + field[rows][columns]);
-                    } else {
-                        System.out.println(field[rows][columns]);
-                    }
-                } else {
-                    if (field[rows][columns] != -1) {
-                        System.out.print(" " + field[rows][columns] + "|");
-                    } else {
-                        System.out.print(field[rows][columns] + "|");
-                    }
-                }
+                    printSymbolInField(field[rows][columns], columns);
             }
         }
         System.out.println("");
     }
-
-
-
 
     public boolean isWinPositionInOneRow(int[][] field, int playerToCheck, int row) {
         for (int column = 0; column < fieldSize; column++) {
@@ -139,7 +143,7 @@ class TicTacToe {
         boolean isDraw = isDrawPosition(field);
         boolean isContinue = !(isWin || isDraw);
 
-        printFieldToConsole(field);
+        printAlternativeFieldToConsole(field);
 
         while(isContinue) {
 
@@ -149,13 +153,25 @@ class TicTacToe {
             isContinue = !(isWin || isDraw);
 
             if (isWin) {
-                System.out.println("Player " + playerCheck + " WIN!");
+                messageForWin(playerCheck);
             } else if (isDraw) {
-                printFieldToConsole(field);
-                System.out.println("DRAW!");
+                printAlternativeFieldToConsole(field);
+                messageForDraw();
             }
             playerCheck = playerSwitcher.changePlayer(playerCheck);
         }
+    }
+
+    public void messageForWin(int playerCheck) {
+        if (playerCheck == 1) {
+            System.out.println("Player x WIN!");
+        } else {
+            System.out.println("Player o WIN!");
+        }
+    }
+
+    public void messageForDraw() {
+        System.out.println("DRAW!");
     }
 
     public void messageAIorUserMove(int playerCheck) {
@@ -208,7 +224,7 @@ class TicTacToe {
         if(isInFieldRange(move.getX(), move.getY())) {
             if (aI.isCellEmpty(field[move.getX()][move.getY()])) {
                 field[move.getX()][move.getY()] = playerCheck;
-                printFieldToConsole(field);
+                printAlternativeFieldToConsole(field);
             } else {
                 nextMove(field, playerCheck);
             }
