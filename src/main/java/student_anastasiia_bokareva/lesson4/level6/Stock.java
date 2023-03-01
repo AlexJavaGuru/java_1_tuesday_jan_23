@@ -15,8 +15,7 @@ public class Stock {
         currentPrice = newPrice;
         if (currentPrice > maxPrice){
             maxPrice=currentPrice;
-        }
-        if (currentPrice<minPrice){
+        } else if (currentPrice<minPrice){
             minPrice=currentPrice;
         }
 
