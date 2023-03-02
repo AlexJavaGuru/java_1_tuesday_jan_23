@@ -197,15 +197,14 @@ class TicTacToe {
     }
 
     public Move getAIMove(int[][] field, int playerCheck) {
-        Move move;
         AI aI = new AI();
         messageAIorUserMove(playerCheck);
-        if (aI.getWin(field, playerCheck) != null) {
-            move = aI.getWin(field, playerCheck);
-        } else if (aI.getProtectedMoveFromLoss(field) != null) {
-            move =  aI.getProtectedMoveFromLoss(field);
-        } else {
-            move =  getRandomAINextMove();
+        Move move = aI.getWin(field, playerCheck);
+        if (move == null) {
+            move = aI.getProtectedMoveFromLoss(field);
+            if (move == null) {
+                move = getRandomAINextMove();
+            }
         }
         return  move;
     }

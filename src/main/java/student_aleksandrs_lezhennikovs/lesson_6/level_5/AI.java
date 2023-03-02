@@ -1,16 +1,17 @@
 package student_aleksandrs_lezhennikovs.lesson_6.level_5;
 
 class AI {
+
     public Move getWin(int[][] field, int playerCheck) {
-        Move move;
-        if (getWinInHorizontals(field, playerCheck) != null) {
-            move = getWinInHorizontals(field, playerCheck);
-        } else if (getWinInVerticals(field, playerCheck) != null) {
+        Move move = getWinInHorizontals(field, playerCheck);
+        if (move == null) {
             move = getWinInVerticals(field, playerCheck);
-        } else if (getWinInFirstDiagonal(field, playerCheck) != null) {
-            move = getWinInFirstDiagonal(field, playerCheck);
-        } else {
-            move = getWinInSecondDiagonal(field, playerCheck);
+            if (move == null) {
+                move = getWinInFirstDiagonal(field, playerCheck);
+                if (move == null) {
+                    move = getWinInSecondDiagonal(field, playerCheck);
+                }
+            }
         }
         return move;
     }
