@@ -12,9 +12,17 @@ class TicTacToeTest {
         test.notWinPositionForVerticals();
         test.isWinPositionForDiagonals();
         test.notWinPositionForDiagonals();
+        test.isWinPositionForDiagonalFromTheLeftToTheRight();
+        test.notWinPositionForDiagonalFromTheLeftToTheRight();
+        test.isWinPositionForDiagonalFromTheRightToTheLeft();
+        test.notWinPositionForDiagonalFromTheRightToTheLeft();
         test.isWinPosition();
         test.notWinPosition();
+        System.out.println(" ");
+        System.out.println("You need enter number of rows and columns for checking: Create Field test! ");
         test.createField();
+        System.out.println(" ");
+        System.out.println("You need enter number of rows and columns for checking: Not Create Field test! ");
         test.notCreateField();
         test.isDrawPosition();
         test.notDrawPosition();
@@ -79,6 +87,42 @@ class TicTacToeTest {
         boolean realResult = ticTacToe.isWinPositionForDiagonals(field, 0);
         checkResult(realResult == !expectedResult, "Not Win position for diagonals test ");
     }
+    public  void isWinPositionForDiagonalFromTheLeftToTheRight() {
+        TicTacToe ticTacToe = new TicTacToe();
+        int[][] field = {{1, 0, 1,},
+                {0, 1, 0},
+                {0, 0, 1}};
+        boolean expectedResult = true;
+        boolean realResult = ticTacToe.isWinPositionForDiagonalFromTheLeftToTheRight(field,1);
+        checkResult(realResult == expectedResult, "Is Win position from the left to the right by diagonal test ");
+    }
+    public  void notWinPositionForDiagonalFromTheLeftToTheRight() {
+        TicTacToe ticTacToe = new TicTacToe();
+        int[][] field = {{0, 0, 1,},
+                {0, 1, 0},
+                {0, 0, 1}};
+        boolean expectedResult = true;
+        boolean realResult = ticTacToe.isWinPositionForDiagonalFromTheLeftToTheRight(field,1);
+        checkResult(realResult ==! expectedResult, "Not Win position from the left to the right by diagonal test ");
+    }
+    public  void isWinPositionForDiagonalFromTheRightToTheLeft() {
+        TicTacToe ticTacToe = new TicTacToe();
+        int[][] field = {{1, 0, 1,},
+                {0, 1, 0},
+                {1, 0, 0}};
+        boolean expectedResult = true;
+        boolean realResult = ticTacToe.isWinPositionForDiagonalFromTheRightToTheLeft(field,1);
+        checkResult(realResult == expectedResult, "Is Win position from the right to the left by diagonal test ");
+    }
+    public  void notWinPositionForDiagonalFromTheRightToTheLeft() {
+        TicTacToe ticTacToe = new TicTacToe();
+        int[][] field = {{0, 0, 1,},
+                {0, 1, 0},
+                {0, 0, 1}};
+        boolean expectedResult = true;
+        boolean realResult = ticTacToe.isWinPositionForDiagonalFromTheRightToTheLeft(field, 0);
+        checkResult(realResult ==! expectedResult, "Not Win position from the right to the left by diagonal test ");
+    }
 
     public void isWinPosition() {
         TicTacToe ticTacToe = new TicTacToe();
@@ -111,8 +155,8 @@ class TicTacToeTest {
 
     public void notCreateField() {
         TicTacToe ticTacToe = new TicTacToe();
-        int[][] realResult = {{-1, 1, -1},
-                {-1, -1, -1},
+        int[][] realResult = {{-1, -1, -1},
+                {-1, 0, -1},
                 {-1, -1, -1}};
         int[][] expectedResult = ticTacToe.createField();
         checkResult(!(Arrays.deepEquals(realResult, expectedResult)), "Not create field test ");
