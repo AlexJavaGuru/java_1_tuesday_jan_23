@@ -17,7 +17,7 @@ class AI {
     }
 
     public Move getWinInOneRow(int[][] field, int playerCheck, int row) {
-        int fieldSize = field.length;;
+        int fieldSize = field.length;
         int winCounter = 0;
         for (int column = 0; column < fieldSize; column++) {
             if (playerCheck == field[row][column]) {
@@ -114,7 +114,7 @@ class AI {
         return getWin(field, 0);
     }
 
-    public static boolean isCellEmpty(int cell) {
+    public boolean isCellEmpty(int cell) {
         return (cell == -1);
     }
 }

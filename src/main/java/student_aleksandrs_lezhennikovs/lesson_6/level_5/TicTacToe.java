@@ -10,9 +10,6 @@ class TicTacToe {
     private final String X = "[x]";
     private final String O = "[o]";
 
-    public int getFieldSize() {
-        return fieldSize;
-    }
 
     public void setFieldSize(int fieldSize) {
         this.fieldSize = fieldSize;
@@ -20,34 +17,41 @@ class TicTacToe {
 
     public int[][] createField() {
         int[][] field = new int[fieldSize][fieldSize];
-        for (int rows = 0; rows < fieldSize; rows++) {
-            for (int columns = 0; columns < fieldSize; columns++){
-                field[rows][columns] = -1;
+        for (int row = 0; row < fieldSize; row++) {
+            for (int column = 0; column < fieldSize; column++){
+                field[row][column] = -1;
             }
         }
         return field;
     }
 
-    public void printSymbolInField(int symbol, int col) {
-        if (col == fieldSize - 1) {
-            switch (symbol) {
-                case 1 -> System.out.println(X);
-                case 0 -> System.out.println(O);
-                case -1 -> System.out.println(EMPTY);
-            }
-        } else {
-            switch (symbol) {
-                case 1 -> System.out.print(X);
-                case 0 -> System.out.print(O);
-                case -1 -> System.out.print(EMPTY);
-            }
+    public void printSymbolToColumn(int symbol) {
+        switch (symbol) {
+            case 1 -> System.out.println(X);
+            case 0 -> System.out.println(O);
+            case -1 -> System.out.println(EMPTY);
         }
     }
 
-    public void printAlternativeFieldToConsole(int[][] field) {
-        for (int rows = 0; rows < fieldSize; rows++) {
-            for (int columns = 0; columns < fieldSize; columns++) {
-                    printSymbolInField(field[rows][columns], columns);
+    public void printSymbolToRow(int symbol) {
+        switch (symbol) {
+            case 1 -> System.out.print(X);
+            case 0 -> System.out.print(O);
+            case -1 -> System.out.print(EMPTY);
+        }
+    }
+    public void printSymbolInField(int symbol, int col) {
+        if (col == fieldSize - 1) {
+            printSymbolToColumn(symbol);
+        } else {
+            printSymbolToRow(symbol);
+        }
+    }
+
+    public void printFieldToConsole(int[][] field) {
+        for (int row = 0; row < fieldSize; row++) {
+            for (int column = 0; column < fieldSize; column++) {
+                    printSymbolInField(field[row][column], column);
             }
         }
         System.out.println("");
@@ -63,8 +67,8 @@ class TicTacToe {
     }
 
     public boolean isWinPositionForHorizontals(int[][] field, int playerToCheck) {
-        for (int rows = 0; rows < fieldSize; rows++) {
-            if(isWinPositionInOneRow(field, playerToCheck, rows)) {
+        for (int row = 0; row < fieldSize; row++) {
+            if(isWinPositionInOneRow(field, playerToCheck, row)) {
                 return true;
             }
         }
@@ -123,9 +127,9 @@ class TicTacToe {
 
     public boolean isDrawPosition(int[][] field) {
         int check = 0;
-        for (int rows = 0; rows < fieldSize; rows++) {
-            for (int columns = 0; columns < fieldSize; columns++) {
-                if (field[rows][columns] == -1) {
+        for (int row = 0; row < fieldSize; row++) {
+            for (int column = 0; column < fieldSize; column++) {
+                if (field[row][column] == -1) {
                     check++;
                 }
             }
@@ -134,7 +138,6 @@ class TicTacToe {
     }
 
     public void play() {
-
         int[][] field = createField();
         int playerCheck = 0;
 
@@ -143,7 +146,7 @@ class TicTacToe {
         boolean isDraw = isDrawPosition(field);
         boolean isContinue = !(isWin || isDraw);
 
-        printAlternativeFieldToConsole(field);
+        printFieldToConsole(field);
 
         while(isContinue) {
 
@@ -155,7 +158,7 @@ class TicTacToe {
             if (isWin) {
                 messageForWin(playerCheck);
             } else if (isDraw) {
-                printAlternativeFieldToConsole(field);
+                printFieldToConsole(field);
                 messageForDraw();
             }
             playerCheck = playerSwitcher.changePlayer(playerCheck);
@@ -223,7 +226,7 @@ class TicTacToe {
         if(isInFieldRange(move.getX(), move.getY())) {
             if (aI.isCellEmpty(field[move.getX()][move.getY()])) {
                 field[move.getX()][move.getY()] = playerCheck;
-                printAlternativeFieldToConsole(field);
+                printFieldToConsole(field);
             } else {
                 nextMove(field, playerCheck);
             }
