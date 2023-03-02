@@ -1,11 +1,12 @@
 package student_aleksandrs_lezhennikovs.lesson_7.level_1;
 
-public class WordService {
+class WordService {
 
     public String findMostFrequentWord(String text){
         String[] splitText = text.split(" ");
         int[] counterArray = makeArrayOfCounter(splitText);
-        return splitText[indexOfMaxElementInArray(counterArray)];
+        int indexOfMax = indexOfMaxElementInArray(counterArray);
+        return splitText[indexOfMax];
     }
 
     public int[] makeArrayOfCounter(String[] string) {

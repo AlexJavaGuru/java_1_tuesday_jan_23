@@ -1,6 +1,6 @@
 package student_aleksandrs_lezhennikovs.lesson_7.level_1;
 
-public class WordServiceDemo {
+class WordServiceDemo {
 
     public static void main(String[] args) {
 
