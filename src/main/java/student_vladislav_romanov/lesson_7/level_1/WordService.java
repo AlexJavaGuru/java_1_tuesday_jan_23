@@ -4,10 +4,10 @@ class WordService {
 
     private String maxMentionedWord = "";
     private int maxMentionedWordCounter = 0;
+    private int counter = 0;
 
     public String findMostFrequentWord(String text) {
-        String[] split = splitString(text);
-        countMentions(split);
+        countWordMentions(splitString(text));
         return getMaxMentionedWord();
     }
 
@@ -15,23 +15,57 @@ class WordService {
         return text.split("\\s|\\.\\s|,\\s|;\\s|\\.|,|;");
     }
 
-    public void countMentions(String[] split) {
+    public void countWordMentions(String[] split) {
+        iterateWordsArray(split);
+    }
+
+    public void iterateWordsArray(String[] split) {
         for (String word: split) {
-            int counter = 0;
-            for (String word2: split) {
-                if (word.equalsIgnoreCase(word2)) {
-                    counter++;
-                }
-            }
-            compareMentions(counter, word);
+            iterateWordsArrayActions(split, word);
         }
     }
 
-    public void compareMentions(int counter, String word) {
-        if (counter > getMaxMentionedWordCounter()) {
-            setMaxMentionedWordCounter(counter);
-            setMaxMentionedWord(word);
+    public void iterateWordsArrayActions(String[] split, String word) {
+        setCounter(0);
+        iterateWordsArrayAndCompareWithCurrentWord(split, word);
+        compareWordMentionsWithCurrentMaxMentionedWordMentions(getCounter(), word);
+    }
+
+    public void iterateWordsArrayAndCompareWithCurrentWord(String[] split, String word) {
+        for (String nextWord: split) {
+            compareWords(word, nextWord);
         }
+    }
+
+    public void compareWordMentionsWithCurrentMaxMentionedWordMentions(int counter, String word) {
+        if (counter > getMaxMentionedWordCounter()) {
+            setMaxValues(counter, word);
+        }
+    }
+
+    public void compareWords(String word, String nextWord) {
+        incrementCounter(areWordsEqual(word, nextWord));
+    }
+
+    public boolean areWordsEqual(String word, String nextWord) {
+        return word.equalsIgnoreCase(nextWord);
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void incrementCounter(boolean increment) {
+        counter += increment ? 1: 0;
+    }
+
+    public void setMaxValues(int counter, String word) {
+        setMaxMentionedWordCounter(counter);
+        setMaxMentionedWord(word);
     }
 
     public void setMaxMentionedWordCounter(int maxMentionedWordCounter) {
