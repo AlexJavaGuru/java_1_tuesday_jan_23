@@ -2,53 +2,51 @@ package student_vladislav_romanov.lesson_7.level_1;
 
 class WordService {
 
-    private String maxMentionedWord = "";
+    private String[] split;
+    private String maxMentionedWord;
     private int maxMentionedWordCounter = 0;
     private int counter = 0;
 
     public String findMostFrequentWord(String text) {
-        countWordMentions(splitString(text));
+        splitString(text);
+        countWordMentions();
         return getMaxMentionedWord();
     }
 
-    public String[] splitString(String text) {
-        return text.split("\\s|\\.\\s|,\\s|;\\s|\\.|,|;");
+    public void splitString(String text) {
+        setSplit(text.split("\\s|\\.\\s|,\\s|;\\s|\\.|,|;"));
     }
 
-    public void countWordMentions(String[] split) {
-        iterateWordsArray(split);
+    public void countWordMentions() {
+        iterateWordsArray();
     }
 
-    public void iterateWordsArray(String[] split) {
-        for (String word: split) {
-            iterateWordsArrayActions(split, word);
+    public void iterateWordsArray() {
+        for (String word: getSplit()) {
+            iterateWordsArrayActions(word);
         }
     }
 
-    public void iterateWordsArrayActions(String[] split, String word) {
+    public void iterateWordsArrayActions(String word) {
         setCounter(0);
-        iterateWordsArrayAndCompareWithCurrentWord(split, word);
-        compareWordMentionsWithCurrentMaxMentionedWordMentions(getCounter(), word);
+        iterateWordsArrayAndCompareWithCurrentWord(word);
+        compareWordMentionsWithCurrentMaxMentionedWordMentions(word);
     }
 
-    public void iterateWordsArrayAndCompareWithCurrentWord(String[] split, String word) {
-        for (String nextWord: split) {
+    public void iterateWordsArrayAndCompareWithCurrentWord(String word) {
+        for (String nextWord: getSplit()) {
             compareWords(word, nextWord);
         }
     }
 
-    public void compareWordMentionsWithCurrentMaxMentionedWordMentions(int counter, String word) {
-        if (counter > getMaxMentionedWordCounter()) {
-            setMaxValues(counter, word);
+    public void compareWordMentionsWithCurrentMaxMentionedWordMentions(String word) {
+        if (getCounter() > getMaxMentionedWordCounter()) {
+            setMaxValues(getCounter(), word);
         }
     }
 
     public void compareWords(String word, String nextWord) {
-        incrementCounter(areWordsEqual(word, nextWord));
-    }
-
-    public boolean areWordsEqual(String word, String nextWord) {
-        return word.equalsIgnoreCase(nextWord);
+        incrementCounter(word.equalsIgnoreCase(nextWord));
     }
 
     public void setCounter(int counter) {
@@ -66,6 +64,14 @@ class WordService {
     public void setMaxValues(int counter, String word) {
         setMaxMentionedWordCounter(counter);
         setMaxMentionedWord(word);
+    }
+
+    public void setSplit(String[] split) {
+        this.split = split;
+    }
+
+    public String[] getSplit() {
+        return split;
     }
 
     public void setMaxMentionedWordCounter(int maxMentionedWordCounter) {

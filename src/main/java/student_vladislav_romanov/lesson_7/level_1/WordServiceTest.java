@@ -8,8 +8,6 @@ class WordServiceTest {
         WordServiceTest wordServiceTest = new WordServiceTest();
         wordServiceTest.findMostFrequentWordTest();
         wordServiceTest.splitStringTest();
-        wordServiceTest.areWordsEqualTestSucceed();
-        wordServiceTest.areWordsEqualTestFailed();
         wordServiceTest.compareWordsTest();
         wordServiceTest.compareWordMentionsWithCurrentMaxMentionedWordMentionsTest();
         wordServiceTest.incrementCounterTest();
@@ -20,7 +18,8 @@ class WordServiceTest {
         WordService wordService = new WordService();
         String text = "Java. Is. Programming. Language.";
         String expected = "[Java, Is, Programming, Language]";
-        String current = Arrays.toString(wordService.splitString(text));
+        wordService.splitString(text);
+        String current = Arrays.toString(wordService.getSplit());
         printResult(current.equals(expected), "splitStringTest");
     }
 
@@ -30,20 +29,6 @@ class WordServiceTest {
         String expectedMention = "Java";
         String currentMention = wordService.findMostFrequentWord(text);
         printResult(currentMention.equals(expectedMention), "findMostFrequentWordTest");
-    }
-
-    public void areWordsEqualTestSucceed() {
-        WordService wordService = new WordService();
-        boolean expected = true;
-        boolean current = wordService.areWordsEqual("Java", "java");
-        printResult(current == expected, "areWordsEqualTestSucceed");
-    }
-
-    public void areWordsEqualTestFailed() {
-        WordService wordService = new WordService();
-        boolean expected = false;
-        boolean current = wordService.areWordsEqual("Java", "Guru");
-        printResult(current == expected, "areWordsEqualTestFailed");
     }
 
     public void compareWordsTest() {
@@ -59,7 +44,7 @@ class WordServiceTest {
         WordService wordService = new WordService();
         wordService.setCounter(2);
         wordService.setMaxMentionedWordCounter(1);
-        wordService.compareWordMentionsWithCurrentMaxMentionedWordMentions(wordService.getCounter(), "java");
+        wordService.compareWordMentionsWithCurrentMaxMentionedWordMentions("java");
         int expected = 2;
         int current = wordService.getMaxMentionedWordCounter();
         printResult(current == expected, "compareWordMentionsWithCurrentMaxMentionedWordMentionsTest");
