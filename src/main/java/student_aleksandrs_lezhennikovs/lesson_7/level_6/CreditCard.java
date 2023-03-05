@@ -17,47 +17,35 @@ class CreditCard {
         creditDebt = 0;
     }
 
-    public void setCreditLimit(int creditLimit) {
+    void setCreditLimit(int creditLimit) {
         this.creditLimit += creditLimit;
         balance += creditLimit;
     }
 
-    public long getCardNumber() {
+    long getCardNumber() {
         return cardNumber;
     }
 
-    public int getCreditLimit() {
+    int getCreditLimit() {
         return creditLimit;
     }
 
-    public int getBalance() {
+    int getBalance() {
         return balance;
     }
 
-    public int getCreditDebt() {
+    int getCreditDebt() {
         return creditDebt;
     }
 
-    public boolean authentication(long cardNumber, int pinCode) {
-        return (this.cardNumber == cardNumber && this.pinCode == pinCode);
-    }
-
-    public void withdraw(int amount, boolean authentication) {
+    void deposit(int amount, boolean authentication) {
         if (authentication) {
-            if (balance > 0 && amount <= balance) {
-                balance -= amount;
-                updateCreditDebtAfterCredit();
-            }
+            balance += amount;
+            updateCreditDebtAfterDeposit(amount);
         }
     }
 
-    public void updateCreditDebtAfterCredit() {
-        if (balance < creditLimit) {
-            creditDebt = balance - creditLimit;
-        }
-    }
-
-    public void updateCreditDebtAfterDeposit(int amount) {
+    void updateCreditDebtAfterDeposit(int amount) {
         if (creditDebt < 0) {
             creditDebt += amount;
             if (creditDebt > 0) {
@@ -66,10 +54,33 @@ class CreditCard {
         }
     }
 
-    public void deposit(int amount, boolean authentication) {
-        if (authentication) {
-            balance += amount;
-            updateCreditDebtAfterDeposit(amount);
+    void withdraw(int amount, boolean authentication) {
+        if (isAmountGrateThanZero(amount)) {
+            if (authentication) {
+                calculateBalanceAfterWithdraw(amount);
+                updateCreditDebtAfterWithdraw();
+            }
         }
     }
+
+    boolean isAmountGrateThanZero(int amount) {
+        return amount > 0;
+    }
+
+    boolean authentication(long cardNumber, int pinCode) {
+        return (this.cardNumber == cardNumber && this.pinCode == pinCode);
+    }
+
+    void calculateBalanceAfterWithdraw(int amount) {
+        if (balance > 0 && amount <= balance) {
+            balance -= amount;
+        }
+    }
+
+    void updateCreditDebtAfterWithdraw() {
+        if (balance < creditLimit) {
+            creditDebt = balance - creditLimit;
+        }
+    }
+
 }

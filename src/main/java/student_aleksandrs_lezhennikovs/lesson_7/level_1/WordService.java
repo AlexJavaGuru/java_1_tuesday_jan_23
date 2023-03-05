@@ -2,14 +2,14 @@ package student_aleksandrs_lezhennikovs.lesson_7.level_1;
 
 class WordService {
 
-    public String findMostFrequentWord(String text){
+    String findMostFrequentWord(String text){
         String[] splitText = text.split(" ");
         int[] counterArray = makeArrayOfCounter(splitText);
         int indexOfMax = indexOfMaxElementInArray(counterArray);
         return splitText[indexOfMax];
     }
 
-    public int[] makeArrayOfCounter(String[] string) {
+    int[] makeArrayOfCounter(String[] string) {
         int[] counterArray = new int[string.length];
         for (int i = 0; i < string.length; i++) {
             counterArray[i] = numberOfOccurrencesInArray(string, string[i]);
@@ -17,7 +17,7 @@ class WordService {
         return counterArray;
     }
 
-    public int numberOfOccurrencesInArray(String[] stringArray, String word) {
+    int numberOfOccurrencesInArray(String[] stringArray, String word) {
         int counter = 0;
         for (String text : stringArray) {
             if (word.equals(text)) {
@@ -27,7 +27,7 @@ class WordService {
         return counter;
     }
 
-    public int indexOfMaxElementInArray(int[] numbers) {
+    int indexOfMaxElementInArray(int[] numbers) {
         int result = numbers[0];
         int index = 0;
         for (int i = 0; i < numbers.length; i++) {

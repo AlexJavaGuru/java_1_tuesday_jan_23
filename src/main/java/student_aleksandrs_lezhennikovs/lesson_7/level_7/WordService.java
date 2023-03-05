@@ -1,7 +1,7 @@
 package student_aleksandrs_lezhennikovs.lesson_7.level_7;
 
 class WordService {
-    public String findMostFrequentWord(String text) {
+    String findMostFrequentWord(String text) {
 
         String[] textArray = text.split(" ");
         int[] wordCountArray = new int[textArray.length];
@@ -11,7 +11,7 @@ class WordService {
         return textArray[max];
     }
 
-    public void fillOutCountArray(String[] textArray, int[] wordCountArray) {
+    void fillOutCountArray(String[] textArray, int[] wordCountArray) {
         int wordCounter = 0;
         for (int wordCount = 0; wordCount < textArray.length; wordCount++) {
             for (String word : textArray) {
@@ -23,7 +23,7 @@ class WordService {
             wordCounter = 0;
         }
     }
-    public int getMax(int[] wordCountArray) {
+    int getMax(int[] wordCountArray) {
         int max = 0;
         for (int count = 0; count < wordCountArray.length; count++) {
             if (wordCountArray[count] > max) {
