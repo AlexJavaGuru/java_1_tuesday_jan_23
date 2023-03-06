@@ -2,7 +2,7 @@ package student_oleg_gryazev.lesson_6._level_1.task_6;
 
 public class NumberUtilTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
         NumberUtilTest test = new NumberUtilTest();
         test.isEvenTrueTest();
         test.isEvenFalse();
@@ -18,17 +18,17 @@ public class NumberUtilTest {
             System.out.println("Test is passed, the number is even.");
         } else {
             System.out.println("Test is failed!");
-            System.out.println("Expected result " + expectedResultEven + "actual result " + actualResult);
+            System.out.println("Expected result " + expectedResultEven + ", actual result " + actualResult);
         }
     }
 
     void isEvenFalse() {
         NumberUtil numberUtil = new NumberUtil();
 
-        boolean expectedResult = false;
+        boolean expectedResultOdd = false;
         boolean actualResult = numberUtil.isEven(11);
 
-        if (expectedResult == actualResult) {
+        if (expectedResultOdd == actualResult) {
             System.out.println("Test is passed, the number is odd.");
         } else {
             System.out.println("Test is failed!");
