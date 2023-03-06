@@ -6,8 +6,8 @@ import java.util.Random;
 class EvenAndOddNumbersArray {
     public static void main(String[] args) {
         EvenAndOddNumbersArray evenAndOddNumbersArray = new EvenAndOddNumbersArray();
-        int[] arrayNumbers = evenAndOddNumbersArray.createArray();
-        evenAndOddNumbersArray.arrayFilling(arrayNumbers);
+        int[] arrayNumbers = evenAndOddNumbersArray.createArray(15);
+        evenAndOddNumbersArray.arrayFilling(arrayNumbers, 150);
         evenAndOddNumbersArray.printInfo(arrayNumbers);
         System.out.println(evenAndOddNumbersArray.evenNumberArray(arrayNumbers));
         System.out.println(evenAndOddNumbersArray.oddNumberArray(arrayNumbers));
@@ -16,17 +16,15 @@ class EvenAndOddNumbersArray {
 
     Random random = new Random();
 
-    public int[] createArray() {
-        int arrayLength = random.nextInt(10);
-        int[] arrayNumber = new int[arrayLength];
-        return new int[arrayLength];
+    public int[] createArray(int length) {
+        int[] arrayNumber = new int[length];
+        return new int[length];
     }
 
-    public int[] arrayFilling(int[] array) {
+    public void arrayFilling(int[] array, int numberRange) {
         for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(150);
+            array[i] = random.nextInt(numberRange);
         }
-        return array;
     }
 
     public void printInfo(int[] array) {

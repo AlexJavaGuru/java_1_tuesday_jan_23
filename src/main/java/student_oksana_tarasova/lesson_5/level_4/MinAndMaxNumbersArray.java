@@ -6,8 +6,8 @@ import java.util.Random;
 class MinAndMaxNumbersArray {
     public static void main(String[] args) {
         MinAndMaxNumbersArray minAndMaxNumbersArray = new MinAndMaxNumbersArray();
-        int[] arrayNumbers = minAndMaxNumbersArray.createArray();
-        minAndMaxNumbersArray.arrayFilling(arrayNumbers);
+        int[] arrayNumbers = minAndMaxNumbersArray.createArray(12);
+        minAndMaxNumbersArray.arrayFilling(arrayNumbers,100);
         minAndMaxNumbersArray.printInfo(arrayNumbers);
         System.out.println("Maximum number array: " + minAndMaxNumbersArray.maxNumber(arrayNumbers));
         System.out.println("Minimum number array: " + minAndMaxNumbersArray.minNumber(arrayNumbers));
@@ -15,17 +15,15 @@ class MinAndMaxNumbersArray {
 
     Random random = new Random();
 
-    public int[] createArray() {
-        int arrayLength = random.nextInt(10);
-        int[] arrayNumber = new int[arrayLength];
-        return new int[arrayLength];
+    public int[] createArray(int length) {
+        int[] arrayNumber = new int[length];
+        return new int[length];
     }
 
-    public int[] arrayFilling(int[] array) {
+    public void arrayFilling(int[] array, int numberRange) {
         for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(150);
+            array[i] = random.nextInt(numberRange);
         }
-        return array;
     }
 
     public void printInfo(int[] array) {

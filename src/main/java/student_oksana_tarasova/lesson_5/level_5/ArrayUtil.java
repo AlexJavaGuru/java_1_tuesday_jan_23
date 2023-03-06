@@ -9,12 +9,11 @@ class ArrayUtil {
         return new int[arrayLength];
     }
 
-    public int[] fillArrayWithRandomNumbers(int[] array) {
+    public void fillArrayWithRandomNumbers(int[] array, int numberRange) {
         Random random = new Random();
         for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(100) - 50;
+            array[i] = random.nextInt(numberRange);
         }
-        return array;
     }
 
     public void printArrayToConsole(int[] array) {

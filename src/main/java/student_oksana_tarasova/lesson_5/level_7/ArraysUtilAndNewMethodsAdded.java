@@ -10,12 +10,11 @@ class ArraysUtilAndNewMethodsAdded {
     }
 
 
-    public int[] fillArrayWithRandomNumbers(int[] array) {
+    public void  fillArrayWithRandomNumbers(int[] array,int numberRange) {
         Random random = new Random();
         for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(100) - 30;
+            array[i] = random.nextInt(numberRange);
         }
-        return array;
     }
 
     public void printArrayToConsole(int[] array) {
