@@ -1,7 +1,7 @@
 package student_julija_raudive.lesson_6.level_3;
 
 
-import java.util.Arrays;
+
 
 class ArrayService {
 
@@ -62,19 +62,30 @@ class ArrayService {
 
     void reverse(int[] arr) {
 
-        for (int i =0; i<arr.length/2; i++){
+        for (int i = 0; i < arr.length / 2; i++) {
 
             int value = arr[i];
-            arr[i]=arr[arr.length-1-i];
-            arr[arr.length-1-i] = value;
+            arr[i] = arr[arr.length - 1 - i];
+            arr[arr.length - 1 - i] = value;
 
         }
 
     }
 
-    void sort(int[] arr){
+    void sort(int[] arr) {
 
-        Arrays.sort(arr);
+        int temp;
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+
 
     }
 
