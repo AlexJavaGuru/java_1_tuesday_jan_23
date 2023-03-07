@@ -24,7 +24,7 @@ class CreditCard {
         }
     }
 
-    private void proceedDepositAmountCheck(double amount) {
+    public void proceedDepositAmountCheck(double amount) {
         if (checkAmount(amount)) {
             proceedDepositDebtCheck(amount);
         } else {
@@ -32,11 +32,11 @@ class CreditCard {
         }
     }
 
-    private void proceedDepositDebtCheck(double amount) {
-        if (checkDebt()) {
-            cashDeposit(amount);
+    public void proceedDepositDebtCheck(double amount) {
+        if (hasDebt()) {
+            cashDeposit(debtRepay(debt - amount));
         } else {
-            cashDeposit(debtRepay(amount));
+            cashDeposit(amount);
         }
     }
 
@@ -48,28 +48,25 @@ class CreditCard {
         }
     }
 
-    private void proceedWithdrawAmountCheck(double amount) {
+    public void proceedWithdrawAmountCheck(double amount) {
         if (checkAmount(amount)) {
-            proceedWithdrawFromBalance(amount);
+            proceedWithdrawFromBalance(balance - limit - amount);
         } else {
             rejectOperation("Amount is incorrect");
         }
     }
 
-    private void proceedWithdrawFromBalance(double amount) {
-        double balanceAfterWithdrawing = balance - amount;
-
-        if (balanceAfterWithdrawing >= 0) {
-            setBalance(balanceAfterWithdrawing);
+    public void proceedWithdrawFromBalance(double pureBalanceAfterWithdrawing) {
+        if (pureBalanceAfterWithdrawing >= 0) {
+            setBalance(pureBalanceAfterWithdrawing + limit);
         } else {
-            setBalance(0);
-            proceedWithdrawFromCreditLimit(Math.abs(balanceAfterWithdrawing));
+            proceedWithdrawFromCreditLimit(Math.abs(pureBalanceAfterWithdrawing) + debt);
         }
     }
 
-    private void proceedWithdrawFromCreditLimit(double amount) {
-        double debtAfterWithdraw = debt + amount;
+    public void proceedWithdrawFromCreditLimit(double debtAfterWithdraw) {
         if (debtAfterWithdraw <= limit) {
+            setBalance(debtAfterWithdraw - debt);
             setDebt(debtAfterWithdraw);
         } else {
             rejectOperation("You cannot withdraw more than credit limit.");
@@ -78,23 +75,23 @@ class CreditCard {
 
     public void increaseLimit(double amount) {
         if (checkAmount(amount)) {
-            limit += amount;
+            setLimit(limit + amount);
         } else {
             rejectOperation("Amount is incorrect");
         }
     }
 
     public void decreaseLimit(double amount) {
-        if (checkDebt()) {
-            decreaseLimitAmountCheck(amount);
-        } else {
+        if (hasDebt()) {
             rejectOperation("Please repay debt first.");
+        } else {
+            decreaseLimitAmountCheck(amount);
         }
     }
 
-    private void decreaseLimitAmountCheck(double amount) {
-        if (checkDebt() && checkAmount(amount)) {
-            limit -= amount;
+    public void decreaseLimitAmountCheck(double amount) {
+        if (checkAmount(amount)) {
+            setLimit(limit - amount);
         } else {
             rejectOperation("Please repay debt first.");
         }
@@ -108,17 +105,15 @@ class CreditCard {
         return amount > 0;
     }
 
-    public boolean checkDebt() {
-        return debt <= 0;
+    public boolean hasDebt() {
+        return debt > 0;
     }
 
-    private void cashDeposit(double amount) {
-        setBalance(balance += amount);
+    public void cashDeposit(double amount) {
+        setBalance(balance + amount);
     }
 
-    private double debtRepay(double amount) {
-        double debtAfterRepay = debt - amount;
-
+    public double debtRepay(double debtAfterRepay) {
         if (debtAfterRepay >= 0) {
             setDebt(debtAfterRepay);
         } else {
@@ -129,7 +124,7 @@ class CreditCard {
         return debtAfterRepay * -1;
     }
 
-    private void rejectOperation(String rejectMessage) {
+    public void rejectOperation(String rejectMessage) {
         System.out.println("Operation rejected. " + rejectMessage);
     }
 
@@ -166,6 +161,7 @@ class CreditCard {
     }
 
     public void setLimit(double limit) {
+        balance = balance - this.limit + limit;
         this.limit = limit;
     }
 
