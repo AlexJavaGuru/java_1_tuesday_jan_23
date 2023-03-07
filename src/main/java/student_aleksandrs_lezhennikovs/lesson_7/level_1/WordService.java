@@ -3,7 +3,7 @@ package student_aleksandrs_lezhennikovs.lesson_7.level_1;
 class WordService {
 
     String findMostFrequentWord(String text){
-        String[] splitText = text.split(" ");
+        String[] splitText = text.replaceAll("[^a-zA-Z ]", "").split(" ");
         int[] counterArray = makeArrayOfCounter(splitText);
         int indexOfMax = indexOfMaxElementInArray(counterArray);
         return splitText[indexOfMax];

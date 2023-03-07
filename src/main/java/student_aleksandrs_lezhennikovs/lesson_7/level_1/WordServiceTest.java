@@ -13,8 +13,8 @@ class WordServiceTest {
     }
 
     public static String[] createSplitedArray() {
-        String initialString = "one two one two three two three three";
-        return initialString.split(" ");
+        String initialString = "one, two. one two three~!@#$%^&*() two_+- three;/ three{}|[]";
+        return initialString.replaceAll("[^a-zA-Z ]", "").split(" ");
     }
 
     public static void checkSplitStringByWords() {
