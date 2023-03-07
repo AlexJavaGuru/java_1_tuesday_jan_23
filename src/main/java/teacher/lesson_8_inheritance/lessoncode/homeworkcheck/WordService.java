@@ -1,9 +1,5 @@
 package teacher.lesson_8_inheritance.lessoncode.homeworkcheck;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.util.Arrays;
-
 class WordService {
 
     public String findMostFrequentWord(String text) {
