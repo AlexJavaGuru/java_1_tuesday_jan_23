@@ -1,0 +1,8 @@
+package student_konstantin_kudrjavtsev.level_1_intern;
+
+class Task_2 {
+
+    public static void main(String[] args) {
+        int[] numbers = new int[10];
+    }
+}
