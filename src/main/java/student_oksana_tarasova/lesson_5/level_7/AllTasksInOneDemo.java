@@ -5,7 +5,7 @@ class AllTasksInOneDemo {
     public static void main(String[] args) {
         ArraysUtilAndNewMethodsAdded demo = new ArraysUtilAndNewMethodsAdded();
         int[] demoArray = demo.createArray(10);
-        demo.fillArrayWithRandomNumbers(demoArray);
+        demo.fillArrayWithRandomNumbers(demoArray, 100);
         demo.printArrayToConsole(demoArray);
         demo.doubleTheValueOfArrayNumbers(demoArray);
         demo.printArrayToConsole(demoArray);
