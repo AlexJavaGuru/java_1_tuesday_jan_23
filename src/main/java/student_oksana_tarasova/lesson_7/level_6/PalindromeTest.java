@@ -12,7 +12,7 @@ class PalindromeTest {
 
     public void isPalindromeTest() {
         Palindrome palindrome = new Palindrome();
-        String text = "summus";
+        String text = "А роза упала на лапу Азора";
         Boolean expectedResult = true;
         Boolean realResult = palindrome.isPalindrome(text);
         check(expectedResult == realResult, "isPalindromeTest");

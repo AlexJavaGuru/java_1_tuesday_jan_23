@@ -1,50 +1,44 @@
 package student_oksana_tarasova.lesson_7.level_1;
 
+import java.util.Arrays;
+
 class WordService {
 
-    String text;
+    public String findMostFrequentWord(String text) {
+        String[] words = textAsAnArrayWords(text);
+        int[] countWord = repeatedWordsInText(words);
+        String word = maxRepetition(countWord, words);
+        return word;
+    }
 
-    /*
-        WordService(String text) {
-            this.text = text;
-        }
-    */
-    public String[] textAsAnArrayWords(String text) {
-        String[] words = text.split(" ");
+    public static String[] textAsAnArrayWords(String text) {
+        String[] words = text.replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
         return words;
     }
 
-    public String repeatedWordsInText(String[] words) {
-        String repeatedWord = "";
+    public static int[] repeatedWordsInText(String[] words) {
+        int[] countWord = new int[words.length];
         for (int i = 0; i < words.length; i++) {
-            repeatedWord = words[i];
-            for (i = 1; i < words.length - 1; i++) {
-                if (repeatedWord.equals(words[i])) {
+            int count = 0;
+            for (String repeat : words) {
+                if (repeat.equals(words[i])) {
+                    count++;
                 }
-
-
             }
-
-            repeatedWord = "";
+            countWord[i] = count;
         }
-        return repeatedWord;
+        return countWord;
     }
 
-
-}
-
-/*
-    public int theFirstOccurrenceOfAWordInAText(String text, String word) {
-        int indexWord = text.indexOf(word);
-        return indexWord;
+    public static String maxRepetition(int[] countWord, String[] words) {
+        int count = countWord[0];
+        int indexOfMaxWord = 0;
+        for (int i = 0; i < countWord.length; i++) {
+            if (countWord[i] > count) {
+                count = countWord[i];
+                indexOfMaxWord = i;
+            }
+        }
+        return words[indexOfMaxWord];
     }
 }
-*/
-/*1. создаем две переменные: int count = 0 и String word;
-2. проходим циклом по списку и поочередно присваиваем каждое его значение переменной word;
-3. внутри первого цикла создаем внутренний цикл по этому же списку, где проверяем каждое значение на equals с переменной word и если они совпадают: count++;
-4. выходим из тела внутренного цикла в тело внешнего и добавляем в мапу (word, count);
-5. не забываем снова обнулить count;
-6. тестируем
- Счетчик слов начинал с нуля, а надо с единицы, ибо слово-то одно уже есть.
-*/
