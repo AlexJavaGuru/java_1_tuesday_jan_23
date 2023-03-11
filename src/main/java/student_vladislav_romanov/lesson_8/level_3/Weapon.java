@@ -14,7 +14,7 @@ abstract class Weapon {
 
     abstract void shoot();
 
-    void reload() {
+    public void reload() {
         System.out.println("Ammo reloaded. Now you have " + magazine + " rounds loaded.");
     }
 

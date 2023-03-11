@@ -7,7 +7,7 @@ class Rifle extends Weapon {
     }
 
     @Override
-    void shoot() {
+    public void shoot() {
         System.out.println("Bah. Bah. Bah.");
     }
 }

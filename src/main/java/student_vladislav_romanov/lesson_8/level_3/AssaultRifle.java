@@ -9,12 +9,12 @@ class AssaultRifle extends Weapon {
         this.grenadeLauncher = grenadeLauncher;
     }
 
-    void singleShoot() {
+    public void singleShoot() {
         System.out.println("Bah. Bah. Bah.");
     }
 
     @Override
-    void shoot() {
+    public void shoot() {
         System.out.println("Bah-bah-bah. Bah-bah-bah. Bah-bah-bah.");
     }
 

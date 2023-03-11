@@ -11,6 +11,18 @@ class Machinegun extends Weapon {
         this.type = type;
     }
 
+    public void mount() {
+        if (mounting) {
+            System.out.println(model + " is mounted.");
+        }
+    }
+
+    public void unmount() {
+        if (mounting) {
+            System.out.println(model + " is unmounted.");
+        }
+    }
+
     @Override
     void shoot() {
         System.out.println("Trrrrrrrr. Trrrrrrrr. Trrrrrrrr.");
