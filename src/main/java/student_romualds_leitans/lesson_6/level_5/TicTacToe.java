@@ -10,18 +10,28 @@ public class TicTacToe {
     }
 
     public boolean isWinPositionForHorizontals(int[][] field, int playerToCheck) {
-        for (int i = 0; i < 3; i++) {
-            if (field[i][0] == playerToCheck && field[i][1] == playerToCheck && field[i][2] == playerToCheck) {
-                return true;
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < field[i].length; j++) {
+                if (playerToCheck != field[i][j]) {
+                    break;
+                } else if (j == field[i].length - 1) {
+
+                    return true;
+                }
             }
         }
         return false;
     }
 
     public boolean isWinPositionForVerticals(int[][] field, int playerToCheck) {
-        for (int i = 0; i < 3; i++) {
-            if (field[0][i] == playerToCheck && field[1][i] == playerToCheck && field[2][i] == playerToCheck) {
-                return true;
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < field[i].length; j++) {
+                if (playerToCheck != field[j][i]) {
+                    break;
+                } else if (j == field[i].length - 1) {
+
+                    return true;
+                }
             }
         }
         return false;
@@ -40,21 +50,10 @@ public class TicTacToe {
     }
 
     public boolean isWinPosition(int[][] field, int playerToCheck) {
-        for (int i = 0; i < 3; i++) {
-            if (field[0][i] == playerToCheck && field[1][i] == playerToCheck && field[2][i] == playerToCheck) {
-                return true;
-            }
-            if (field[i][0] == playerToCheck && field[i][1] == playerToCheck && field[i][2] == playerToCheck) {
-                return true;
-            }
-            if (field[0][0] == playerToCheck && field[1][1] == playerToCheck && field[2][2] == playerToCheck) {
-                return true;
-            }
-            if (field[0][2] == playerToCheck && field[1][1] == playerToCheck && field[2][0] == playerToCheck) {
-                return true;
-            }
-        }
-        return false;
+        boolean isHorizontalWin = isWinPositionForHorizontals(field,playerToCheck);
+        boolean isVerticalWin = isWinPositionForVerticals(field,playerToCheck);
+        boolean isDiagonalWin = isWinPositionForDiagonals(field,playerToCheck);
+        return isDiagonalWin || isHorizontalWin || isVerticalWin;
     }
 
     public boolean isDrawPosition(int[][] field) {

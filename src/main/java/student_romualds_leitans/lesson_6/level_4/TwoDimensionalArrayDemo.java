@@ -5,9 +5,10 @@ import java.util.Arrays;
 
 public class TwoDimensionalArrayDemo {
     public static void main(String[] args) {
-        TwoDimensionalArray array = new TwoDimensionalArray(3,3);
-        array.fillRandomNumberArray();
-        int sum = array.getSumOfArray();
+        TwoDimensionalArray twoDimensionalArray = new TwoDimensionalArray();
+        int [][] array = new int[3][4];
+        twoDimensionalArray.fillRandomNumberArray(array,3,4);
+        int sum = twoDimensionalArray.getSumOfArray(array,3,4);
         System.out.println("Сумма всех чисел в массиве: " + sum);
     }
 

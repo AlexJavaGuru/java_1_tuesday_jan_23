@@ -3,17 +3,8 @@ package student_romualds_leitans.lesson_6.level_4;
 import java.util.Random;
 
 public class TwoDimensionalArray {
-    int[][] array;
-    int rows;
-    int colums;
 
-    public TwoDimensionalArray(int rows, int colums) {
-        array = new int[rows][colums];
-        this.rows = rows;
-        this.colums = colums;
-    }
-
-    public void fillRandomNumberArray() {
+    public void fillRandomNumberArray(int array[][],int rows, int colums) {
         Random random = new Random();
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < colums; j++) {
@@ -22,7 +13,7 @@ public class TwoDimensionalArray {
         }
     }
 
-    public int getSumOfArray() {
+    public int getSumOfArray(int array[][],int rows, int colums) {
         int sum = 0;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < colums; j++) {
