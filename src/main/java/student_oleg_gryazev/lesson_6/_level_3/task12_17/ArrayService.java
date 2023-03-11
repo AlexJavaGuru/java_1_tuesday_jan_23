@@ -1,4 +1,6 @@
-package student_oleg_gryazev.lesson_6._level_3.task_12;
+package student_oleg_gryazev.lesson_6._level_3.task12_17;
+
+import java.util.Arrays;
 
 public class ArrayService {
 
@@ -42,15 +44,22 @@ public class ArrayService {
         }
         return newNumber;
     }
-    void revert(int[] arr){
+
+    void revert(int[] arr) {
         for (int i = 0; i < arr.length / 2; i++) {
             int j = arr[i];
             arr[i] = arr[arr.length - i - 1];
             arr[arr.length - i - 1] = j;
         }
-            }
+    }
 
-        }
+    void sort(int[] arr) {
+
+        Arrays.sort(arr);
+
+    }
+
+}
 
 
 

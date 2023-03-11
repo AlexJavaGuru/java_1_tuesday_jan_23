@@ -1,4 +1,4 @@
-package student_oleg_gryazev.lesson_6._level_3.task_12;
+package student_oleg_gryazev.lesson_6._level_3.task12_17;
 
 import java.util.Arrays;
 
@@ -13,6 +13,7 @@ public class TestArrayService {
         arrayService.changingFirstElementInArray();
         arrayService.changingAllSimilarElementInArray();
         arrayService.massiveTurnOver();
+        arrayService.arrayIsSorted();
     }
 
     ArrayService service = new ArrayService();
@@ -94,14 +95,27 @@ public class TestArrayService {
 
         service.revert(arr);
 
-            if (Arrays.equals(arr, revertArr)) {
+        if (Arrays.equals(arr, revertArr)) {
 
-                    System.out.println("Test is successfull, initial massive is reverted. New arr = " + Arrays.toString(arr));
-                }
-                else System.out.println("Test is no successfull");
-            }
+            System.out.println("Test is successfull, initial massive is reverted. New arr = " + Arrays.toString(arr));
+        } else System.out.println("Test is no successfull");
+    }
+
+    void arrayIsSorted() {
+        ArrayService service = new ArrayService();
+        int[] arr = {4, 5, 2, -1, 33, 6};
+        int[] sortedArray = {-1, 2, 4, 5, 6, 33};
+        service.sort(arr);
+        if (Arrays.equals(arr, sortedArray)) {
+            System.out.println("Initial massive arr is sorted and = " + Arrays.toString(sortedArray));
+
+        } else {
+            System.out.println("Initial massive has not sorted");
 
         }
+    }
+
+}
 
 
 
