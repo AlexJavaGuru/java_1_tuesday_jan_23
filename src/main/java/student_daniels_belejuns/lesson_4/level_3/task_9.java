@@ -6,15 +6,15 @@ public class task_9 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.println("First number: ");
-        double x = scan.nextInt();
+        double firstNumber = scan.nextInt();
         System.out.println("Second number: ");
-        double y = scan.nextInt();
+        double secondNumber = scan.nextInt();
         System.out.println("Third number: ");
-        double z = scan.nextInt();
+        double thirdNumber = scan.nextInt();
 
-        if (x < y && y > z) {
+        if (firstNumber < secondNumber && secondNumber > thirdNumber) {
             System.out.println("increasing");
-        } else if (x > y && y > z) {
+        } else if (firstNumber > secondNumber && secondNumber > thirdNumber) {
             System.out.println("decreasing");
         } else {
             System.out.println("Neither increasing or decreasing order");
