@@ -1,44 +1,44 @@
-package student_vladislav_romanov.lesson_8.level_4;
+package student_vladislav_romanov.lesson_8.level_4_5;
 
-class SquareTest {
+class TriangleTest {
 
     private int succeedTests;
     private int failedTests;
 
     public static void main(String[] args) {
-        SquareTest SquareTest = new SquareTest();
-        SquareTest.calculateAreaTestSucceed();
-        SquareTest.calculateAreaTestFailed();
-        SquareTest.calculatePerimeterTestSucceed();
-        SquareTest.calculatePerimeterTestFailed();
-        SquareTest.printStat();
+        TriangleTest TriangleTest = new TriangleTest();
+        TriangleTest.calculateAreaTestSucceed();
+        TriangleTest.calculateAreaTestFailed();
+        TriangleTest.calculatePerimeterTestSucceed();
+        TriangleTest.calculatePerimeterTestFailed();
+        TriangleTest.printStat();
     }
 
     public void calculateAreaTestSucceed() {
-        Square square = new Square("Square", 3);
-        double expected = 9;
-        double current = square.calculateArea();
+        Triangle triangle = new Triangle("Triangle", 3, 4, 5, 4, 3);
+        double expected = 6;
+        double current = triangle.calculateArea();
         printResult(current == expected, "calculateAreaTestSucceed");
     }
 
     public void calculateAreaTestFailed() {
-        Square square = new Square("Square", 3);
+        Triangle triangle = new Triangle("Triangle", 3, 4, 5, 4, 3);
         double expected = 10;
-        double current = square.calculateArea();
+        double current = triangle.calculateArea();
         printResult(current != expected, "calculateAreaTestFailed");
     }
 
     public void calculatePerimeterTestSucceed() {
-        Square square = new Square("Square", 3);
+        Triangle triangle = new Triangle("Triangle", 3, 4, 5, 4, 3);
         double expected = 12;
-        double current = square.calculatePerimeter();
+        double current = triangle.calculatePerimeter();
         printResult(current == expected, "calculatePerimeterTestSucceed");
     }
 
     public void calculatePerimeterTestFailed() {
-        Square square = new Square("Square", 3);
-        double expected = 18;
-        double current = square.calculatePerimeter();
+        Triangle triangle = new Triangle("Triangle", 3, 4, 5, 4, 3);
+        double expected = 13;
+        double current = triangle.calculatePerimeter();
         printResult(current != expected, "calculatePerimeterTestFailed");
     }
 
@@ -57,4 +57,5 @@ class SquareTest {
         System.out.println(succeedTests + " tests SUCCEED.");
         System.out.println(failedTests + " tests FAILED.");
     }
+
 }

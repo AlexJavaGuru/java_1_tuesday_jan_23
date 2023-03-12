@@ -1,44 +1,44 @@
-package student_vladislav_romanov.lesson_8.level_4;
+package student_vladislav_romanov.lesson_8.level_4_5;
 
-class TriangleTest {
+public class RectangleTest {
 
     private int succeedTests;
     private int failedTests;
 
     public static void main(String[] args) {
-        TriangleTest TriangleTest = new TriangleTest();
-        TriangleTest.calculateAreaTestSucceed();
-        TriangleTest.calculateAreaTestFailed();
-        TriangleTest.calculatePerimeterTestSucceed();
-        TriangleTest.calculatePerimeterTestFailed();
-        TriangleTest.printStat();
+        RectangleTest RectangleTest = new RectangleTest();
+        RectangleTest.calculateAreaTestSucceed();
+        RectangleTest.calculateAreaTestFailed();
+        RectangleTest.calculatePerimeterTestSucceed();
+        RectangleTest.calculatePerimeterTestFailed();
+        RectangleTest.printStat();
     }
 
     public void calculateAreaTestSucceed() {
-        Triangle triangle = new Triangle("Triangle", 3, 4, 5, 4, 3);
-        double expected = 6;
-        double current = triangle.calculateArea();
+        Rectangle rectangle = new Rectangle("Rectangle", 3, 4);
+        double expected = 12;
+        double current = rectangle.calculateArea();
         printResult(current == expected, "calculateAreaTestSucceed");
     }
 
     public void calculateAreaTestFailed() {
-        Triangle triangle = new Triangle("Triangle", 3, 4, 5, 4, 3);
+        Rectangle rectangle = new Rectangle("Rectangle", 3, 4);
         double expected = 10;
-        double current = triangle.calculateArea();
+        double current = rectangle.calculateArea();
         printResult(current != expected, "calculateAreaTestFailed");
     }
 
     public void calculatePerimeterTestSucceed() {
-        Triangle triangle = new Triangle("Triangle", 3, 4, 5, 4, 3);
-        double expected = 12;
-        double current = triangle.calculatePerimeter();
+        Rectangle rectangle = new Rectangle("Rectangle", 3, 4);
+        double expected = 14;
+        double current = rectangle.calculatePerimeter();
         printResult(current == expected, "calculatePerimeterTestSucceed");
     }
 
     public void calculatePerimeterTestFailed() {
-        Triangle triangle = new Triangle("Triangle", 3, 4, 5, 4, 3);
+        Rectangle rectangle = new Rectangle("Rectangle", 3, 4);
         double expected = 13;
-        double current = triangle.calculatePerimeter();
+        double current = rectangle.calculatePerimeter();
         printResult(current != expected, "calculatePerimeterTestFailed");
     }
 
