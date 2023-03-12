@@ -15,28 +15,28 @@ class TriangleTest {
     }
 
     public void calculateAreaTestSucceed() {
-        Triangle triangle = new Triangle("Triangle", 3, 4, 5, 4, 3);
+        Triangle triangle = new Triangle("Triangle", 3, 4);
         double expected = 6;
         double current = triangle.calculateArea();
         printResult(current == expected, "calculateAreaTestSucceed");
     }
 
     public void calculateAreaTestFailed() {
-        Triangle triangle = new Triangle("Triangle", 3, 4, 5, 4, 3);
+        Triangle triangle = new Triangle("Triangle", 3, 4);
         double expected = 10;
         double current = triangle.calculateArea();
         printResult(current != expected, "calculateAreaTestFailed");
     }
 
     public void calculatePerimeterTestSucceed() {
-        Triangle triangle = new Triangle("Triangle", 3, 4, 5, 4, 3);
+        Triangle triangle = new Triangle("Triangle", 3, 4);
         double expected = 12;
         double current = triangle.calculatePerimeter();
         printResult(current == expected, "calculatePerimeterTestSucceed");
     }
 
     public void calculatePerimeterTestFailed() {
-        Triangle triangle = new Triangle("Triangle", 3, 4, 5, 4, 3);
+        Triangle triangle = new Triangle("Triangle", 3, 4);
         double expected = 13;
         double current = triangle.calculatePerimeter();
         printResult(current != expected, "calculatePerimeterTestFailed");

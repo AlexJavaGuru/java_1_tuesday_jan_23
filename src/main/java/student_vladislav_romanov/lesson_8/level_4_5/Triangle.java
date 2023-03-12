@@ -2,29 +2,23 @@ package student_vladislav_romanov.lesson_8.level_4_5;
 
 class Triangle extends Shape {
 
-    private double sideA;
-    private double sideB;
-    private double sideC;
-    private double mount;
+    private double side;
     private double height;
 
-    Triangle(String title, double sideA, double sideB, double sideC, double mount, double height) {
+    Triangle(String title, double side, double height) {
         super(title);
-        this.sideA = sideA;
-        this.sideB = sideB;
-        this.sideC = sideC;
-        this.mount = mount;
+        this.side = side;
         this.height = height;
     }
 
     @Override
     double calculateArea() {
-        return 0.5 * mount * height;
+        return 0.5 * side * height;
     }
 
     @Override
     double calculatePerimeter() {
-        return sideA + sideB + sideC;
+        return 3 * side;
     }
 
 }
