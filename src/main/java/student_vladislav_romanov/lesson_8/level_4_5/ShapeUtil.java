@@ -14,4 +14,7 @@ class ShapeUtil {
         return new Square("Square", random.nextDouble(100));
     }
 
+    Rectangle createRandomRectangle() {
+        return new Rectangle("Rectangle", random.nextDouble(100), random.nextDouble(100));
+    }
 }
