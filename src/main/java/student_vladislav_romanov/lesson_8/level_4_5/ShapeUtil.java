@@ -35,4 +35,13 @@ class ShapeUtil {
         }
     }
 
+    double calculateArea(Shape[] shapes) {
+        double sumOfAllShapesAreas = 0;
+        for (Shape shape : shapes) {
+            sumOfAllShapesAreas += shape.calculateArea();
+        }
+        return sumOfAllShapesAreas;
+    }
+
+
 }
