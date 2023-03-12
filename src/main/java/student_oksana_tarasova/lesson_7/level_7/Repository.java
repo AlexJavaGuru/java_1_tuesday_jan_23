@@ -1,16 +1,17 @@
 package student_oksana_tarasova.lesson_7.level_7;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Repository {
 
     private UserEntity[] users;
 
-    public void setUsers(UserEntity[] users) {
+    Repository(UserEntity[] users) {
         this.users = users;
     }
 
-    Repository(UserEntity[] users) {
+    public void setUsers(UserEntity[] users) {
         this.users = users;
     }
 
@@ -36,7 +37,7 @@ public class Repository {
         return null;
     }
 
-    void deleteUser(long id) {
+    UserEntity[] deleteUser(long id) {
         for (int i = 0; i < users.length; i++) {
             if (id == users[i].getId()) {
                 users[i] = null;
@@ -44,19 +45,21 @@ public class Repository {
             }
         }
         setUsers(users);
+        return users;
     }
 
-    void addUser(UserEntity user) {
+     UserEntity[] addUser(UserEntity user) {
         int j = 0;
         for (int i = 0; i < users.length; i++) {
             if (users[i] == null) {
-                users[j] = user;
+                users[i] = user;
                 break;
-            } else {
+            } else if (users[users.length - 1] != null && i == users.length - 1) {
                 arrayIncrease();
-                j += 1;
+                j++;
             }
         }
+        return users;
     }
 
     private UserEntity[] arrayIncrease() {
@@ -65,6 +68,26 @@ public class Repository {
             usersAdd[i] = users[i];
         }
         return users = usersAdd;
+    }
+
+    void correctedUserData() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Correct user data. Enter user id:");
+        long id = scanner.nextLong();
+        System.out.println(getUserId(id));
+        System.out.println("Make changes name: ");
+        String name = scanner.next();
+        nameSubstitution(id, name);
+    }
+
+    private UserEntity nameSubstitution(long id, String name) {
+        for (UserEntity user : users) {
+            if (id == user.getId()) {
+                user.setName(name);
+                return user;
+            }
+        }
+        return null;
     }
 
     @Override

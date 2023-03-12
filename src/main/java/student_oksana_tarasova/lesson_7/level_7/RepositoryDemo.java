@@ -1,6 +1,6 @@
 package student_oksana_tarasova.lesson_7.level_7;
 
-public class UserRepositoryTest {
+public class RepositoryDemo {
     public static void main(String[] args) {
         UserEntity userFirst = new UserEntity(1000000, "Ivan", "Ivanov", 11111111);
         UserEntity userSecond = new UserEntity(2000000, "Petr", "Petrov", 22222222);
@@ -24,6 +24,10 @@ public class UserRepositoryTest {
         UserEntity userFive = new UserEntity(5000000, "Ivan", "Ivanov", 55555555);
         userRepository.addUser(userFive);
         System.out.println(userRepository.toString());
-
+        userRepository.deleteUser(4000000);
+        System.out.println(userRepository.toString());
+        userRepository.correctedUserData();
+        System.out.println(userRepository.toString());
+        //System.out.println(userRepository.getUserId(6));
     }
 }
