@@ -21,7 +21,7 @@ class LibraryUtil {
         return null;
     }
 
-    public void eventSender(Reader reader) {
+    public void eventSender(Reader reader, Event event) {
     }
 
 }
