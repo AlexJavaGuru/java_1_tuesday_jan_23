@@ -1,7 +1,6 @@
 package student_vladislav_romanov.lesson_8.level_7_library;
 
 import java.util.Date;
-import java.util.Objects;
 
 class Book {
 
