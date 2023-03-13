@@ -1,0 +1,17 @@
+Создайте класс WhileInfiniteLoop и в нём напишите бесконечный
+цикл при помощи цикла while.
+
+Создайте класс ForInfiniteLoop и в нём напишите бесконечный
+цикл при помощи цикла for.
+
+
+class WhileInfiniteLoop {
+ int i = 1;
+ while (i > 0) {
+    i++;
+ }
+
+ class ForInfinityLoop {
+ for(int i = 1; i > 0; i++) {
+   i += 1;
+   }

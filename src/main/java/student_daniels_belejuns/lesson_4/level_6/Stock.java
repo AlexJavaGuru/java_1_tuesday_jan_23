@@ -13,17 +13,19 @@ public class Stock {
         maxPrice = price;
     }
 
-    void updatePrice(double newPrice) {
+    public void updatePrice(int newPrice) {
         currentPrice = newPrice;
-        if (newPrice < maxPrice) {
+        if (newPrice < minPrice) {
             minPrice = newPrice;
-        }
-        if (newPrice > maxPrice) {
+        } else if (newPrice > maxPrice) {
             maxPrice = newPrice;
         }
     }
 
-    String getPriceInformation() {
-        return "Company = " + company + ", CurrentPrice = " + currentPrice + ", Min Price = " + minPrice + ", Max price = " + maxPrice;
+    public String getPriceInformation() {
+        return "Company = \"" + company + "\"" +
+                ", Current Price = " + currentPrice +
+                ", Min Price = " + minPrice +
+                ", Max Price = " + maxPrice;
     }
 }
