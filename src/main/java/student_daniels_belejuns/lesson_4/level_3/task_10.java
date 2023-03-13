@@ -4,27 +4,19 @@ import java.util.Scanner;
 
 public class task_10 {
     public static void main(String[] args) {
-        try (Scanner input = new Scanner(System.in)) {
-            int a;
-            int b;
-            int c;
-            int max;
-            System.out.println("Iput A");
-            a = input.nextInt();
-            System.out.println("Iput B");
-            b = input.nextInt();
-            System.out.println("Iput C");
-            c = input.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Input three numbers: ");
 
-            max = a;
-            if (b > max) {
-                max = b;
-            }
-            if (c > max) {
-                max = c;
-            }
+        int first = scanner.nextInt();
+        int second = scanner.nextInt();
+        int third = scanner.nextInt();
 
-            System.out.println("Max = " + max);
+        if (first > second && first > third) {
+            System.out.println(first);
+        } else if (first < second && second > third) {
+            System.out.println(second);
+        } else {
+            System.out.println(third);
         }
     }
 }

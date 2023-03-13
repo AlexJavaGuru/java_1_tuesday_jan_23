@@ -2,42 +2,92 @@ package student_daniels_belejuns.lesson_4.level_6;
 
 public class StockTest {
     public static void main(String[] args) {
-        Stock google = new Stock("GOOG", 10);
-        String priceInformation = google.getPriceInformation();
-        System.out.println(priceInformation);
 
-        google.updatePrice(15);
-        google.updatePrice(7);
-        google.updatePrice(14);
+        StockTest cola = new StockTest();
+        cola.maxStocktest();
+        cola.minStocktest();
+        cola.currentStocktest();
 
-        priceInformation = google.getPriceInformation();
-        System.out.println(priceInformation);
+    }
 
-        double expectedCurrentPrice = 14;
-        double expectedMinPrice = 7;
-        double expectedMaxPrice = 15;
+    public void maxStocktest() {
 
-        double actualCurrentPrice = google.currentPrice;
-        double actualMinPrice = google.minPrice;
-        double actualMaxPrice = google.maxPrice;
+        Stock cocaCola = new Stock("Coca cola", 10);
 
-        if (actualCurrentPrice == expectedCurrentPrice) {
-            System.out.println("Current price passed");
+        System.out.println(cocaCola.getPriceInformation());
+
+        cocaCola.updatePrice(12);
+        checkResults(cocaCola.maxPrice == 12, "Max price test 1");
+
+        cocaCola.updatePrice(5);
+        checkResults(cocaCola.maxPrice == 12, "Max price test 2");
+
+        cocaCola.updatePrice(7);
+        checkResults(cocaCola.maxPrice == 12, "Max price test 3");
+
+        cocaCola.updatePrice(99);
+        checkResults(cocaCola.maxPrice == 99, "Max price test 4");
+
+        cocaCola.updatePrice(77);
+        checkResults(cocaCola.maxPrice == 99, "Max price test 5");
+
+        System.out.println(cocaCola.getPriceInformation());
+    }
+
+    public void minStocktest() {
+
+        Stock cocaCola = new Stock("Coca cola", 10);
+
+        System.out.println(cocaCola.getPriceInformation());
+
+        cocaCola.updatePrice(12);
+        checkResults(cocaCola.minPrice == 10, "Min price test 1");
+
+        cocaCola.updatePrice(5);
+        checkResults(cocaCola.minPrice == 5, "Min price test 2");
+
+        cocaCola.updatePrice(7);
+        checkResults(cocaCola.minPrice == 5, "Min price test 3");
+
+        cocaCola.updatePrice(99);
+        checkResults(cocaCola.minPrice == 5, "Min price test 4");
+
+        cocaCola.updatePrice(77);
+        checkResults(cocaCola.minPrice == 5, "Min price test 5");
+
+        System.out.println(cocaCola.getPriceInformation());
+    }
+
+    public void currentStocktest() {
+
+        Stock cocaCola = new Stock("Coca cola", 10);
+
+        System.out.println(cocaCola.getPriceInformation());
+
+        cocaCola.updatePrice(12);
+        checkResults(cocaCola.currentPrice == 12, "Current price test 1");
+
+        cocaCola.updatePrice(5);
+        checkResults(cocaCola.currentPrice == 5, "Current price test 2");
+
+        cocaCola.updatePrice(7);
+        checkResults(cocaCola.currentPrice == 7, "Current price test 3");
+
+        cocaCola.updatePrice(99);
+        checkResults(cocaCola.currentPrice == 99, "Current price test 4");
+
+        cocaCola.updatePrice(77);
+        checkResults(cocaCola.currentPrice == 77, "Current price test 5");
+
+        System.out.println(cocaCola.getPriceInformation());
+
+    }
+
+    private void checkResults(boolean condition, String testName) {
+        if (condition) {
+            System.out.println(testName + " = OK");
         } else {
-            System.out.println("Current price failed");
+            System.out.println(testName + " = FAIL");
         }
-
-        if (actualMinPrice == expectedMinPrice) {
-            System.out.println("Min price passed");
-        } else {
-            System.out.println("Min price failed");
-        }
-
-        if (actualMaxPrice == expectedMaxPrice) {
-            System.out.println("Max price passed");
-        } else {
-            System.out.println("Min price failed");
-        }
-
     }
 }
