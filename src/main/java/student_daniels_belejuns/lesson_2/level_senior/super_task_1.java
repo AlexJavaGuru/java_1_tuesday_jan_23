@@ -1,4 +1,4 @@
-package student_daniels_belejuns.level_senior;
+package student_daniels_belejuns.lesson_2.level_senior;
 
 public class super_task_1 {
     class book{

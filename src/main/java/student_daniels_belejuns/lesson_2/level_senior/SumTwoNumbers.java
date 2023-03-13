@@ -1,18 +1,20 @@
-package student_daniels_belejuns.level_senior;
+package student_daniels_belejuns.lesson_2.level_senior;
 
-public class CorrectDataTypes {
+public class SumTwoNumbers {
 
     public static void main(String[] args) {
 
         int numberOne = 10;
-        double numberTwo = 20.0;
+        int numberTwo = 20;
 
         System.out.println("Number 1 = " + numberOne);
         System.out.println("Number 2 = " + numberTwo);
 
-        float sum = (float) ((float)numberOne + numberTwo);
+
+        int sum = numberOne + numberTwo;
 
         System.out.println("Sum = " + sum);
     }
 
 }
+
