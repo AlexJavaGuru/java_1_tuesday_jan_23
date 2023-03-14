@@ -1,5 +1,7 @@
 package teacher.lesson_8_inheritance.lessoncode.inheritance;
 
+import java.util.Arrays;
+
 public class CarDemo {
 
     public static void main(String[] args) {
@@ -14,6 +16,9 @@ public class CarDemo {
         for (Car car : cars) {
             car.startEngine();
         }
+
+        int[] numbers = new int[]{1, 2, 3, 4, 5};
+        System.out.println(Arrays.toString(numbers));
 
         System.out.println(electricCar.getCurrentSpeed());
         System.out.println(petrolCar.getCurrentSpeed());
