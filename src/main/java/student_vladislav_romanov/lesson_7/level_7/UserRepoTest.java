@@ -1,7 +1,5 @@
 package student_vladislav_romanov.lesson_7.level_7;
 
-import java.util.Arrays;
-
 class UserRepoTest {
 
     int succeedTests;
@@ -54,7 +52,7 @@ class UserRepoTest {
         userRepo.saveUserToDataBase(userEntity5);
         UserEntity[] expected = {userEntity2, userEntity4, userEntity5};
         UserEntity[] current = userRepo.getUsersByName("John");
-        printResult(Arrays.deepEquals(current, expected), "getUsersByNameTest");
+        printResult(checkUserRepo(current, expected), "getUsersByNameTest");
     }
 
     public void getUserEntitiesTest() {
@@ -67,7 +65,7 @@ class UserRepoTest {
         userRepo.saveUserToDataBase(userEntity3);
         UserEntity[] expected = {userEntity1, userEntity2, userEntity3};
         UserEntity[] current = userRepo.getUserEntities();
-        printResult(Arrays.deepEquals(current, expected), "getUserEntitiesTest");
+        printResult(checkUserRepo(current, expected), "getUserEntitiesTest");
     }
 
     public void editUserTest() {
@@ -95,7 +93,19 @@ class UserRepoTest {
         UserEntity[] expected = {userEntity1, userEntity3};
         userRepo.deleteUser(2);
         UserEntity[] current = userRepo.getUserEntities();
-        printResult(Arrays.deepEquals(current, expected), "deleteUserTest");
+        printResult(checkUserRepo(current, expected), "deleteUserTest");
+    }
+
+    public boolean checkUserRepo(UserEntity[] current, UserEntity[] expected) {
+        if (current.length != expected.length) {
+            return false;
+        }
+        for (int i =0; i < current.length; i++) {
+            if (current[i] != expected[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void printResult(boolean result, String test) {

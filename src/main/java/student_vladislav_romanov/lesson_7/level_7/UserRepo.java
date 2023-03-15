@@ -28,13 +28,12 @@ class UserRepo {
     }
 
     public UserEntity getUserById(int id) {
-        UserEntity userEntity = new UserEntity("","","");
         for (UserEntity user : userEntities) {
             if (user.getId() == id) {
-                userEntity = user;
+                return user;
             }
         }
-        return userEntity;
+        return null;
     }
 
     public UserEntity[] getUsersByName(String name) {
