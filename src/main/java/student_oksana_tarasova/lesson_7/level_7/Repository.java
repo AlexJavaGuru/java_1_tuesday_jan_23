@@ -62,15 +62,7 @@ public class Repository {
         return users;
     }
 
-    private UserEntity[] arrayIncrease() {
-        UserEntity[] usersAdd = new UserEntity[users.length + 1];
-        for (int i = 0; i < users.length; i++) {
-            usersAdd[i] = users[i];
-        }
-        return users = usersAdd;
-    }
-
-    void correctedUserData() {
+    UserEntity[] correctedUserData() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Correct user data. Enter user id:");
         long id = scanner.nextLong();
@@ -78,6 +70,16 @@ public class Repository {
         System.out.println("Make changes name: ");
         String name = scanner.next();
         nameSubstitution(id, name);
+        return users;
+    }
+
+
+    private UserEntity[] arrayIncrease() {
+        UserEntity[] usersAdd = new UserEntity[users.length + 1];
+        for (int i = 0; i < users.length; i++) {
+            usersAdd[i] = users[i];
+        }
+        return users = usersAdd;
     }
 
     private UserEntity nameSubstitution(long id, String name) {

@@ -1,5 +1,7 @@
 package student_oksana_tarasova.lesson_7.level_7;
 
+import java.util.Objects;
+
 class UserEntity {
 
     private long id;
@@ -47,5 +49,13 @@ class UserEntity {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserEntity that = (UserEntity) o;
+        return id == that.id && personalCode == that.personalCode && Objects.equals(name, that.name) && Objects.equals(surname, that.surname);
     }
 }
