@@ -1,7 +1,10 @@
-package student_aleksandrs_lezhennikovs.lesson_9.level_3;
+package student_aleksandrs_lezhennikovs.lesson_9.level_3.task_10;
+
+import java.util.Optional;
 
 class InMemoryDatabase implements ProductDatabase {
     Product[] storage = new Product[1];
+
     @Override
     public void save(Product product) {
         int index = getIndexOfEmptyElement(storage);
@@ -40,12 +43,15 @@ class InMemoryDatabase implements ProductDatabase {
     }
 
     @Override
-    public Product findByTitle(String productTitle) {
+    public Optional<Product> findByTitle(String productTitle) {
         for (Product product : storage) {
-            if (product.getTitle().equals(productTitle)) {
-                return product;
+            Optional<Product> optProduct = Optional.ofNullable(product);
+            if (optProduct.isPresent()) {
+                if (optProduct.get().equals(productTitle)) {
+                    return optProduct;
+                }
             }
         }
-        return null;
+        return Optional.empty();
     }
 }
