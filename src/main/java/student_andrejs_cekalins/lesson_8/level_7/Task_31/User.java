@@ -5,8 +5,9 @@ public class User {
     private String name;
     private String lastname;
     private String address;
-    private int personalCode;
+    private String personalCode;
     private int phone;
     private String email;
     private String genderTyp;
+    private boolean reservationOverdue;
 }

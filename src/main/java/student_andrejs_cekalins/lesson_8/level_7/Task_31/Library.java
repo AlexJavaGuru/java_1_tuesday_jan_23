@@ -5,6 +5,8 @@ public class Library {
     private String libraryAddress;
     private String email;
     private String homePage;
-
-
+    private Book[] books;
+    private User[] users;
+    private Reservation[] reservations;
+    private Message[] messages;
 }
