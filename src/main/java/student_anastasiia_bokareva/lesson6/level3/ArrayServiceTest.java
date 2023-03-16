@@ -8,6 +8,8 @@ public class ArrayServiceTest {
         test.countRepeats();
         test.changeFirstNumber();
         test.changeAnyNumber();
+        test.revertedArray();
+        test.sortSmallToBig();
 
 
     }
@@ -50,9 +52,28 @@ public class ArrayServiceTest {
         checkResultInt(expextedResult,realResult,"Change any number");
 
     }
-
-
-
+    public void revertedArray() {
+        ArrayService arr = new ArrayService();
+        boolean result =true;
+        int[] array = {3,4,5};
+        int[] expectedArray = {5,4,3};
+        arr.revert(array);
+        for (int i = 0; i < array.length; i++) {
+            if ((result = true) && (array[i] == expectedArray[i])) {
+                result = true;
+            }
+        }
+        checkResult(result,true,"Revert test");
+    }
+    public void sortSmallToBig(){
+        ArrayService arr = new ArrayService();
+        int[] array ={3,2,4};
+        int[] expectedArray ={2,3,4};
+        arr.sort(array);
+        for (int i =0;i<array.length;i++){
+            checkResultInt(array[i],expectedArray[i],"Sort test ");
+        }
+    }
 
     public void checkResult (boolean expectedResult, boolean realResult, String nameTest){
         if (expectedResult==realResult){

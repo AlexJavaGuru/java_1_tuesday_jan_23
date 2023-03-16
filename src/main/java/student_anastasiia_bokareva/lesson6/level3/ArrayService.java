@@ -26,4 +26,29 @@ public class ArrayService {
         array[arrayLength]=changedNumber;
         return array[arrayLength];
     }
+    void revert(int[]array){
+        int arrayLength = array.length-1;
+        int revertedArray;
+        for (int i=0;i<arrayLength/2;i++){
+            revertedArray=array[i];
+            array[i]=array[arrayLength];
+            array[arrayLength]=revertedArray;
+            arrayLength--;
+        }
+    }
+    void sort (int[] array){
+        int arrayLength = array.length-1;
+        int sortedArray=array[0];
+        int saveNumber;
+        for (int i=1;i<arrayLength;i++){
+            if (sortedArray>array[i]) {
+                saveNumber=array[i];
+                array[i]=sortedArray;
+                array[i-1]=saveNumber;
+                sortedArray=array[i];
+            } else {
+                sortedArray=array[i];
+            }
+        }
+    }
 }
