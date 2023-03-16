@@ -1,9 +1,9 @@
 package student_anastasiia_bokareva.lesson6.level4;
 
-public class WhileInFiniteLoop {
+public class ForInfiniteLoop {
     public static void main(String[] args) {
-        while (true){
-            System.out.println("Hello world");
+        for (int i=1; i>0;i++){
+            System.out.println("Hello World");
         }
     }
 }
