@@ -108,15 +108,12 @@ public class TicTacToeTest {
         boolean expectedResult = true;
         checkResultInt(realResult,expectedResult,"is draw position ");
     }
-    public void printEmptyField(){
+    public void printEmptyField() {
         TicTacToe toe = new TicTacToe();
         int[][] gameField = toe.createField();
-        for (int x=0; x<3;x++){
-            for (int y=0;y<3;y++){
-                System.out.println(gameField[x][y]);
-            }
-        }
+        toe.printFieldToConsole(gameField);
     }
+
 
     public void checkResultInt (boolean expectedResult, boolean realResult, String nameTest){
         if (expectedResult==realResult){

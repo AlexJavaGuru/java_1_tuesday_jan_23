@@ -1,6 +1,9 @@
 package student_anastasiia_bokareva.lesson6.level5;
 
+import java.util.Scanner;
+
 public class TicTacToe {
+
     public boolean isWinPositionForHorizontals(int[][] field, int playerToCheck){
          boolean isWin = false;
          for (int x=0; x<3;x++){
@@ -53,7 +56,6 @@ public class TicTacToe {
         }
         return true;
     }
-
     public int[][] createField(){
         int[][] gameField = new int[3][3];
         for (int x=0;x<3;x++){
@@ -62,6 +64,24 @@ public class TicTacToe {
             }
         }
         return gameField;
+    }
+    public Move getNextMove() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(" ");
+        System.out.print("Set coordinate vertical ");
+        int x = scanner.nextInt();
+        System.out.print("Set coordinates horizontal ");
+        int y = scanner.nextInt();
+        return new Move(x, y);
+    }
+    public void printFieldToConsole(int[][] field) {
+        for (int x = 0; x<field.length;x++){
+            for (int y=0;y<field.length;y++){
+                System.out.print(" | "+field[x][y]);
+            }
+            System.out.print(" | ");
+            System.out.println(" ");
+        }
     }
 
 }

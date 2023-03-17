@@ -1,5 +1,6 @@
 package student_anastasiia_bokareva.lesson6.level5;
 
+
 import java.util.Scanner;
 
 public class TicTacToeGame {
@@ -22,5 +23,4 @@ public class TicTacToeGame {
         System.out.println("First player will be - "+playerNameOne);
         System.out.println("Second player will be - "+playerNameTwo);
     }
-
 }
