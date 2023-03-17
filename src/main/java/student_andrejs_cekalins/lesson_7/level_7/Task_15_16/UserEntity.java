@@ -1,20 +1,20 @@
 package student_andrejs_cekalins.lesson_7.level_7.Task_15_16;
 
 class UserEntity {
-    private int id;
+    private int id = 0;
     private String name;
     private String surname;
-    private int personalCode;
-    private UserEntity[] allUsers;
+    private String personalCode;
 
-    UserEntity(int id, String name, String surname, int personalCode) {
+
+    UserEntity(int id, String name, String surname, String personalCode) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.personalCode = personalCode;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -38,22 +38,11 @@ class UserEntity {
         this.surname = surname;
     }
 
-    public long getPersonalCode() {
+    public String getPersonalCode() {
         return personalCode;
     }
 
-    public void setPersonalCode(int personalCode) {
+    public void setPersonalCode(String personalCode) {
         this.personalCode = personalCode;
-    }
-
-    public UserEntity[] getAllUsers() {
-        return allUsers;
-    }
-    public void deleteUser(int personalCode) {
-        for (int i = 0; i < allUsers.length; i++) {
-            if (personalCode ==allUsers[i].getPersonalCode()) {
-                allUsers[i] =null;
-            }
-        }
     }
 }
