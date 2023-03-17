@@ -32,8 +32,8 @@ public class TicTacToe {
         return true;
     }
     public boolean isWinPositionForDiagonalsLeftToRight(int[][] field, int playerToCheck){
-        for (int x= field.length-1; x>=0;x--){
-            if (field[x][x]!= playerToCheck){
+        for (int x= 2 ; x>=0;x--){
+            if (field[2-x][x]!= playerToCheck){
                 return false;
             }
         }
@@ -43,17 +43,25 @@ public class TicTacToe {
         return isWinPositionForVerticals(field,playerToCheck)||isWinPositionForHorizontals(field,playerToCheck)||isWinPositionForDiagonalsRighttoLeft(field,playerToCheck)||isWinPositionForDiagonalsLeftToRight(field,playerToCheck);
     }
     public boolean isDrawPosition(int[][] field){
-        if (isWinPosition(field,1)||(isWinPosition(field,0))) {
-            return false;
-        } else {
-            for (int x = 0; x<field.length; x++){
-                for (int y =0 ; y<field.length;y++) {
-                    if (field[x][y] == -1) {
+        int empty = -1;
+        for (int x=0;x<field.length;x++){
+            for (int y=0; y< field.length;y++){
+                if (field[x][y]==empty){
                     return false;
-                    }
-                 }
+                }
             }
         }
         return true;
     }
+
+    public int[][] createField(){
+        int[][] gameField = new int[3][3];
+        for (int x=0;x<3;x++){
+            for (int y=0;y<3;y++){
+                gameField[x][y]=-1;
+            }
+        }
+        return gameField;
+    }
+
 }
