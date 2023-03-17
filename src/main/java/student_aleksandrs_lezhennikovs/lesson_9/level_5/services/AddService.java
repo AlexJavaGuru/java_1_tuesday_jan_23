@@ -14,4 +14,8 @@ public class AddService {
         BookEntity book = new BookEntity(title, author);
         bookReader.add(book);
     }
+
+    public boolean checkBookBeforeAdd(BookEntity book) {
+        return bookReader.notNulls(book);
+    }
 }

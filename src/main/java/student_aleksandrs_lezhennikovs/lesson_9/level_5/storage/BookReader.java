@@ -2,6 +2,8 @@ package student_aleksandrs_lezhennikovs.lesson_9.level_5.storage;
 
 import student_aleksandrs_lezhennikovs.lesson_9.level_5.domain.BookEntity;
 
+import java.util.List;
+
 public interface BookReader {
     void add(BookEntity book);
 
@@ -10,4 +12,6 @@ public interface BookReader {
     boolean notExistBook(BookEntity book);
 
     boolean notNulls(BookEntity book);
+
+    List<BookEntity> getAll();
 }

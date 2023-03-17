@@ -25,7 +25,8 @@ public class BookReaderImpl implements BookReader {
 
     @Override
     public boolean notNulls(BookEntity checkBook) {
-        return checkBook.getAuthor() != null && checkBook.getTitle() != null;
+        return checkBook.getAuthor() != null && checkBook.getTitle() != null &&
+                !checkBook.getAuthor().equals("") && !checkBook.getTitle().equals("");
     }
 
     @Override
@@ -51,6 +52,11 @@ public class BookReaderImpl implements BookReader {
             }
         }
         return true;
+    }
+
+    @Override
+    public List<BookEntity> getAll() {
+        return bookDatabase;
     }
 
     private boolean allChecks(BookEntity book) {

@@ -20,12 +20,15 @@ public class DeleteUIAction implements UIActions{
         System.out.println("Input book Author for delete");
         String author = input.nextLine();
         BookEntity book = new BookEntity(title, author);
+        deleteBookUI(book);
+    }
+
+    private void deleteBookUI(BookEntity book) {
         if (deleteService.checkBookBeforeDelete(book)) {
             System.out.println("Not exist book!");
         } else {
             deleteService.deleteBook(book);
             System.out.println("Book was deleted!");
         }
-
     }
 }
