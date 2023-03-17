@@ -3,46 +3,25 @@ package student_oleg_gryazev.lesson_4.level_1_10;
 import java.util.Scanner;
 
 public class ArithmeticOperation {
-    int firstNumber;
-    int secondNumber;
-    int thirdNumber;
 
-
-    void readArithmeticOptions() {
-        System.out.println("Enter digit 1, and then enter one number, to know if number negative, positive, even or odd.");
-        System.out.println("Enter digit 2, and then enter two numbers, to know if the numbers bigger, smaller or equal each other.");
-        System.out.println("Enter digit 3, and then enter three numbers, to know if 3 numbers are in increasing, decreasing, or nor incr. , decr.");
-        System.out.println("Enter digit 4, and then enter three numbers, to know if 3 numbers are equal, different, neither equal or different.");
-        System.out.println("Enter 5 to quit program.");
-    }
-
-    void typeInOneDigit() {
+    int typeInOneDigit() {
         Scanner scanner = new Scanner(System.in);
-        firstNumber = scanner.nextInt();
-    }
+      return   scanner.nextInt();
+           }
 
-    void typeInTwoDigits() {
-        Scanner scanner = new Scanner(System.in);
-        firstNumber = scanner.nextInt();
-        secondNumber = scanner.nextInt();
-    }
-
-    void typeInThreeDigits() {
-        Scanner scanner = new Scanner(System.in);
-        firstNumber = scanner.nextInt();
-        secondNumber = scanner.nextInt();
-        thirdNumber = scanner.nextInt();
-    }
-
-    void ifDigitEvenOrQdd() {
+      void ifDigitEvenOrQdd() {
+        ArithmeticOperation operation =new ArithmeticOperation();
+        int firstNumber = operation.typeInOneDigit();
         if (firstNumber % 2 == 0) {
             System.out.println("The digit is even");
         } else {
             System.out.println("The digit is odd");
         }
+
     }
 
     void negativePositiveOrZero() {
+               int firstNumber = typeInOneDigit();
         if (firstNumber < 0) {
 
             System.out.println("The digit is negative and = " + firstNumber);
@@ -53,6 +32,8 @@ public class ArithmeticOperation {
     }
 
     void ifBiggerSmallerEqual() {
+        int firstNumber = typeInOneDigit();
+        int secondNumber = typeInOneDigit();
         if (firstNumber > secondNumber) {
             System.out.println("First number is bigger the second, " + firstNumber + " > " + secondNumber + ".");
         } else if (firstNumber < secondNumber) {
@@ -64,15 +45,21 @@ public class ArithmeticOperation {
     }
 
     void ifEqualDifferentOrNotAll() {
+        int firstNumber = typeInOneDigit();
+        int secondNumber = typeInOneDigit();
+        int thirdNumber = typeInOneDigit();
         if (thirdNumber == secondNumber && firstNumber == secondNumber) {
             System.out.println("All numbers are equal");
         } else if (firstNumber != thirdNumber && thirdNumber != secondNumber && firstNumber != secondNumber) {
             System.out.println(" All numbers are not equal");
         } else
             System.out.println("All numbers are not equal or different");
-    }
 
-    void ifIncreasingDecreasingOrNotAll() {
+    }
+    void ifIncreasingDecreasingOrNotAll () {
+        int firstNumber = typeInOneDigit();
+        int secondNumber = typeInOneDigit();
+        int thirdNumber = typeInOneDigit();
         if (thirdNumber < secondNumber && firstNumber > secondNumber) {
             System.out.println("Numbers are in decreasing order");
         } else if (thirdNumber > secondNumber && firstNumber < secondNumber) {
