@@ -4,37 +4,18 @@ import java.util.Random;
 
 class Task_14 {
     public static void main(String[] args) {
-        int[] kidsyears = new int[3];
+        int[] numbers = new int[3];
         Random random = new Random();
 
-        for (int i = 0; i < kidsyears.length; i++) {
-            kidsyears[i] = random.nextInt(100);
-            System.out.println("Array cell: " + kidsyears[i]);
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = random.nextInt(100);
         }
 
-
-/*        int min = kidsyears[0];
-        for (int i = 0; i < kidsyears.length; i++) {
-            if (min > kidsyears[i]) ;
-            {
-                min = kidsyears[i];
-                System.out.println("Min: " + min);
-            }
-        }
-
-        int max = kidsyears[0];
-        for (int i = 0; i < kidsyears.length; i++) {
-            if (max < kidsyears[i]) ;
-            {
-                max = kidsyears[i];
-                System.out.println("Max: " + max);
-            }
-        }
-*/
         double average = 0;
-        for (int i = 0; i < kidsyears.length; i++) {
-            average += kidsyears[i] / kidsyears.length;
-            System.out.println("Average: " + average);
+        for (int i = 0; i < numbers.length; i++) {
+            average += numbers[i] / numbers.length;
         }
+
+        System.out.println("Average: " + average);
     }
 }

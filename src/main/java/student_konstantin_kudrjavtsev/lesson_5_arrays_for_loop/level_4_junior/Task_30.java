@@ -1,19 +1,24 @@
 package student_konstantin_kudrjavtsev.lesson_5_arrays_for_loop.level_4_junior;
 
-//- создайте массив произвольной длины
-  //     - заполните массив случайными числами
-    //    - распечатайте на консоль все элементы массива
-      //  - найдите все нечётные числа в массиве и выведети их на консоль.
-
 import java.util.Random;
+import java.util.Scanner;
 
 class Task_30 {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("enter the length of the array: ");
         Random random = new Random();
-        int[] arbitraryLength = new int[random.nextInt(15)];
+        int[] numbers = new int[scanner.nextInt()];
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = random.nextInt(100);
+            System.out.println(numbers[i]);
+        }
 
-        for (int i = 0; i < arbitraryLength.length; i++) {
-            System.out.println("Arrays cell: " + i);
+        for (int number : numbers) {
+            if (number % 2 == 0) {
+            } else {
+                System.out.println("odd numbers: " + number);
+            }
         }
     }
 }
