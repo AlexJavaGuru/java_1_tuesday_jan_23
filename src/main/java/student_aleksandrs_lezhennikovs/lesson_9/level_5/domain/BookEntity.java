@@ -5,6 +5,9 @@ import java.util.Objects;
 public class BookEntity {
 
     private long bookId;
+    private String title;
+    private String author;
+    private boolean isRead;
 
     public BookEntity(String title, String author) {
         this.title = title;
@@ -40,8 +43,7 @@ public class BookEntity {
         this.bookId = bookId;
     }
 
-    private String title;
-    private String author;
+
 
     public String getTitle() {
         return title;

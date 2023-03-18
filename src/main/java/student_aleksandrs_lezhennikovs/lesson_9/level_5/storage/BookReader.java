@@ -14,4 +14,10 @@ public interface BookReader {
     boolean notNulls(BookEntity book);
 
     List<BookEntity> getAll();
+    List<BookEntity> searchByAuthor(String author);
+    List<BookEntity> searchByAuthorLetters(String partOfAuthorName);
+    //List<BookEntity> searchByTitle(String title); todo
+    //List<BookEntity> searchByTitleLetters(String partOfWord); todo
+    //void markAsRead(BookEntity book); todo
+    //void marsAsUnread(BookEntity book); // TODO: 3/18/23
 }

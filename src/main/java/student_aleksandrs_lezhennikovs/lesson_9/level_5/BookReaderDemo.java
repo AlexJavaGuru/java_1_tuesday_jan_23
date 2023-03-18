@@ -1,13 +1,11 @@
 package student_aleksandrs_lezhennikovs.lesson_9.level_5;
 
-import student_aleksandrs_lezhennikovs.lesson_9.level_5.consoleUI.AddUIAction;
-import student_aleksandrs_lezhennikovs.lesson_9.level_5.consoleUI.DeleteUIAction;
-import student_aleksandrs_lezhennikovs.lesson_9.level_5.consoleUI.GetAllUIAction;
-import student_aleksandrs_lezhennikovs.lesson_9.level_5.consoleUI.UIActions;
+import student_aleksandrs_lezhennikovs.lesson_9.level_5.consoleUI.*;
 import student_aleksandrs_lezhennikovs.lesson_9.level_5.domain.BookEntity;
 import student_aleksandrs_lezhennikovs.lesson_9.level_5.services.AddService;
 import student_aleksandrs_lezhennikovs.lesson_9.level_5.services.DeleteService;
 import student_aleksandrs_lezhennikovs.lesson_9.level_5.services.GetAllService;
+import student_aleksandrs_lezhennikovs.lesson_9.level_5.services.SearchByAuthorService;
 import student_aleksandrs_lezhennikovs.lesson_9.level_5.storage.BookReader;
 import student_aleksandrs_lezhennikovs.lesson_9.level_5.storage.BookReaderImpl;
 
@@ -29,12 +27,16 @@ class BookReaderDemo {
         BookEntity thirdBook = new BookEntity("Some title", "Some Author");
         bookReader.add(thirdBook);
 
-        DeleteService deleteService = new DeleteService(bookReader);
+        /*DeleteService deleteService = new DeleteService(bookReader);
         DeleteUIAction deleteUIAction = new DeleteUIAction(deleteService);
-        deleteUIAction.execute();
+        deleteUIAction.execute();*/
         GetAllService getAllService = new GetAllService(bookReader);
         GetAllUIAction getAllUIAction = new GetAllUIAction(getAllService);
         getAllUIAction.execute();
+        SearchByAuthorService searchByAuthorService = new SearchByAuthorService(bookReader);
+        SearchByAuthorUIAction searchByAuthorUIAction = new SearchByAuthorUIAction(searchByAuthorService);
+        searchByAuthorUIAction.execute();
+
 
 
 

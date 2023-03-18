@@ -59,6 +59,33 @@ public class BookReaderImpl implements BookReader {
         return bookDatabase;
     }
 
+    @Override
+    public List<BookEntity> searchByAuthor(String author) {
+        List<BookEntity> resultOfSearch = new ArrayList<>();
+        for (BookEntity book : bookDatabase) {
+            if (author.equals(book.getAuthor())) {
+                resultOfSearch.add(book);
+            }
+        }
+        return resultOfSearch;
+    }
+    @Override
+    public List<BookEntity> searchByAuthorLetters(String partOfAuthorName) {
+        List<BookEntity> resultOfSearch = new ArrayList<>();
+        for (BookEntity book : bookDatabase) {
+            if (checkPartOfWord(book.getAuthor(), partOfAuthorName)) {
+                resultOfSearch.add(book);
+            }
+        }
+        return resultOfSearch;
+    }
+
+    private boolean checkPartOfWord(String author, String partOfName) {
+        boolean isIndexZero = author.indexOf(partOfName) == 0;
+        boolean check = author.contains(partOfName);
+        return check && isIndexZero;
+    }
+
     private boolean allChecks(BookEntity book) {
         return (isEmptyBookDatabase(bookDatabase) || notExistBook(book)) && notNulls(book);
     }
