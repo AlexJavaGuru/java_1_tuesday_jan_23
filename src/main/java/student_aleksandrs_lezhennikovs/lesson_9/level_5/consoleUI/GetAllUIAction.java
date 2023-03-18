@@ -7,6 +7,7 @@ import java.util.List;
 
 public class GetAllUIAction implements UIActions{
     private GetAllService getAllService;
+    private UtilitiesUI utilitiesUI = new UtilitiesUI();
 
     public GetAllUIAction(GetAllService getAllService) {
         this.getAllService = getAllService;
@@ -14,13 +15,6 @@ public class GetAllUIAction implements UIActions{
 
     @Override
     public void execute() {
-        System.out.println("List of Books:");
-        printBookList(getAllService.getAllBooks());
-    }
-
-    private void printBookList(List<BookEntity> books) {
-        for (int i = 0; i < books.size(); i++) {
-            System.out.println(books.get(i).getTitle() + " [" + books.get(i).getAuthor() + "]");
-        }
+        utilitiesUI.printBookListFullInfo(getAllService.getAllBooks());
     }
 }

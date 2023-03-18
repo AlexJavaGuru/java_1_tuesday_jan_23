@@ -5,14 +5,14 @@ import student_aleksandrs_lezhennikovs.lesson_9.level_5.storage.BookReader;
 
 import java.util.List;
 
-public class SearchByAuthorService {
+public class GetReadBooksService {
     private BookReader bookReader;
 
-    public SearchByAuthorService(BookReader bookReader) {
+    public GetReadBooksService(BookReader bookReader) {
         this.bookReader = bookReader;
     }
 
-    public List<BookEntity> searchByAuthor(String author) {
-        return bookReader.searchByAuthor(author);
+    public List<BookEntity> returnReadBooks() {
+        return bookReader.returnReadBooks();
     }
 }

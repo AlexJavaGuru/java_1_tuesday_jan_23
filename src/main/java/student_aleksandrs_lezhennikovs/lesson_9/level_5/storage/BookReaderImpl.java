@@ -9,6 +9,7 @@ import java.util.List;
 public class BookReaderImpl implements BookReader {
     private long bookId = 10L;
     private List<BookEntity> bookDatabase = new ArrayList<>();
+
     @Override
     public void add(BookEntity book) {
         if (allChecks(book)) {
@@ -26,7 +27,8 @@ public class BookReaderImpl implements BookReader {
     @Override
     public boolean notNulls(BookEntity checkBook) {
         return checkBook.getAuthor() != null && checkBook.getTitle() != null &&
-                !checkBook.getAuthor().equals("") && !checkBook.getTitle().equals("");
+                !checkBook.getAuthor().isEmpty() && !checkBook.getTitle().isEmpty() &&
+                !checkBook.getAuthor().isBlank() && !checkBook.getTitle().isBlank();
     }
 
     @Override
@@ -69,6 +71,17 @@ public class BookReaderImpl implements BookReader {
         }
         return resultOfSearch;
     }
+
+    @Override
+    public List<BookEntity> searchByTitle(String title) {
+        List<BookEntity> resultOfSearch = new ArrayList<>();
+        for (BookEntity book : bookDatabase) {
+            if (title.equals(book.getTitle())) {
+                resultOfSearch.add(book);
+            }
+        }
+        return resultOfSearch;
+    }
     @Override
     public List<BookEntity> searchByAuthorLetters(String partOfAuthorName) {
         List<BookEntity> resultOfSearch = new ArrayList<>();
@@ -80,11 +93,63 @@ public class BookReaderImpl implements BookReader {
         return resultOfSearch;
     }
 
-    private boolean checkPartOfWord(String author, String partOfName) {
-        boolean isIndexZero = author.indexOf(partOfName) == 0;
-        boolean check = author.contains(partOfName);
+    @Override
+    public List<BookEntity> searchByTitleLetters(String partOfTitle) {
+        List<BookEntity> resultOfSearch = new ArrayList<>();
+        for (BookEntity book : bookDatabase) {
+            if (checkPartOfWord(book.getTitle(), partOfTitle)) {
+                resultOfSearch.add(book);
+            }
+        }
+        return resultOfSearch;
+    }
+
+    @Override
+    public void markAsRead(long bookId) {
+        for (int i = 0; i < bookDatabase.size(); i++) {
+            if (bookDatabase.get(i).getBookId() == bookId) {
+                bookDatabase.get(i).setRead(true);
+            }
+        }
+    }
+
+    @Override
+    public void markAsUnread(long bookId) {
+        for (int i = 0; i < bookDatabase.size(); i++) {
+            if (bookDatabase.get(i).getBookId() == bookId) {
+                bookDatabase.get(i).setRead(false);
+            }
+        }
+    }
+
+    @Override
+    public List<BookEntity> returnUnreadBooks() {
+        List<BookEntity> resultOfSearch = new ArrayList<>();
+        for (BookEntity book : bookDatabase) {
+            if (!book.getIsRead()){
+                resultOfSearch.add(book);
+            }
+        }
+        return resultOfSearch;
+    }
+
+    @Override
+    public List<BookEntity> returnReadBooks() {
+        List<BookEntity> resultOfSearch = new ArrayList<>();
+        for (BookEntity book : bookDatabase) {
+            if (book.getIsRead()){
+                resultOfSearch.add(book);
+            }
+        }
+        return resultOfSearch;
+    }
+
+    private boolean checkPartOfWord(String checkWord, String partOfWord) {
+        boolean isIndexZero = checkWord.indexOf(partOfWord) == 0;
+        boolean check = checkWord.contains(partOfWord);
         return check && isIndexZero;
     }
+
 
     private boolean allChecks(BookEntity book) {
         return (isEmptyBookDatabase(bookDatabase) || notExistBook(book)) && notNulls(book);

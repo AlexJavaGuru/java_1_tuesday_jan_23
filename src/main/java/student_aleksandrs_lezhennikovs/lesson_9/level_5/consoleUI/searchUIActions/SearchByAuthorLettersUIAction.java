@@ -1,12 +1,14 @@
-package student_aleksandrs_lezhennikovs.lesson_9.level_5.consoleUI;
+package student_aleksandrs_lezhennikovs.lesson_9.level_5.consoleUI.searchUIActions;
 
-import student_aleksandrs_lezhennikovs.lesson_9.level_5.services.SearchByAuthorLettersService;
+import student_aleksandrs_lezhennikovs.lesson_9.level_5.consoleUI.UIActions;
+import student_aleksandrs_lezhennikovs.lesson_9.level_5.consoleUI.UtilitiesUI;
+import student_aleksandrs_lezhennikovs.lesson_9.level_5.services.searchServices.SearchByAuthorLettersService;
 
 import java.util.Scanner;
 
-public class SearchByAuthorLettersUIAction implements UIActions{
+public class SearchByAuthorLettersUIAction implements UIActions {
     private SearchByAuthorLettersService searchByAuthorLettersService;
-    private UtilitiesUI utilitiesUI;
+    private UtilitiesUI utilitiesUI = new UtilitiesUI();
 
     public SearchByAuthorLettersUIAction(SearchByAuthorLettersService searchByAuthorLettersService) {
         this.searchByAuthorLettersService = searchByAuthorLettersService;

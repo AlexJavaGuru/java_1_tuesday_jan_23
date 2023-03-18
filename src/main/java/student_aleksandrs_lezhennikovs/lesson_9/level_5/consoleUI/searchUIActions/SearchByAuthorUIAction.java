@@ -1,6 +1,8 @@
-package student_aleksandrs_lezhennikovs.lesson_9.level_5.consoleUI;
+package student_aleksandrs_lezhennikovs.lesson_9.level_5.consoleUI.searchUIActions;
 
-import student_aleksandrs_lezhennikovs.lesson_9.level_5.services.SearchByAuthorService;
+import student_aleksandrs_lezhennikovs.lesson_9.level_5.consoleUI.UIActions;
+import student_aleksandrs_lezhennikovs.lesson_9.level_5.consoleUI.UtilitiesUI;
+import student_aleksandrs_lezhennikovs.lesson_9.level_5.services.searchServices.SearchByAuthorService;
 
 import java.util.Scanner;
 

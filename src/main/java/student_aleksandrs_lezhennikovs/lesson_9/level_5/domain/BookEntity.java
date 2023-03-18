@@ -9,6 +9,14 @@ public class BookEntity {
     private String author;
     private boolean isRead;
 
+    public boolean getIsRead() {
+        return isRead;
+    }
+
+    public void setRead(boolean read) {
+        isRead = read;
+    }
+
     public BookEntity(String title, String author) {
         this.title = title;
         this.author = author;

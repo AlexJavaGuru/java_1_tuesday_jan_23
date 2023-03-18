@@ -16,8 +16,10 @@ public interface BookReader {
     List<BookEntity> getAll();
     List<BookEntity> searchByAuthor(String author);
     List<BookEntity> searchByAuthorLetters(String partOfAuthorName);
-    //List<BookEntity> searchByTitle(String title); todo
-    //List<BookEntity> searchByTitleLetters(String partOfWord); todo
-    //void markAsRead(BookEntity book); todo
-    //void marsAsUnread(BookEntity book); // TODO: 3/18/23
+    List<BookEntity> searchByTitle(String title);
+    List<BookEntity> searchByTitleLetters(String partOfWord);
+    void markAsRead(long bookId);
+    void markAsUnread(long bookId);
+    List<BookEntity> returnUnreadBooks();
+    List<BookEntity> returnReadBooks();
 }
