@@ -1,5 +1,7 @@
 package student_aleksandrs_lezhennikovs.lesson_7.level_7;
 
+import java.util.Objects;
+
 class UserEntity {
 
     private int id;
@@ -40,5 +42,13 @@ class UserEntity {
 
     public void setPersonalCode(String personalCode) {
         this.personalCode = personalCode;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserEntity that = (UserEntity) o;
+        return id == that.id && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(personalCode, that.personalCode);
     }
 }
