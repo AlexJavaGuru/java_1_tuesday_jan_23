@@ -1,0 +1,15 @@
+interface List{
+
+public fillList(List<> list, Item item);
+public addItem(List<> list, Item item);
+public deleteItem(List<> list, int index);
+public size(List<> list);
+public changeOfSize(List<> list);
+public indexItem(List<> list);
+public printAllItem(List<> list);
+public replaceItem(List<> list, Item item);
+public sortingTheListByCriteria(List<> list, Criteria char);
+public sortingTheList(List<> list, Criteria value);
+public extractPartOfTheList(List<> list, int startIndex, int endIndex);
+
+}
