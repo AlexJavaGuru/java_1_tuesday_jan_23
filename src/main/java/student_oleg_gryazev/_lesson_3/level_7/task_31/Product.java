@@ -1,7 +1,8 @@
-package student_oleg_gryazev._lesson_3.level_7;
+package student_oleg_gryazev._lesson_3.level_7.task_31;
 
 public class Product {
     double regularPrice;
+    double actualPrice;
     double discount;
     String computer;
 

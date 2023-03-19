@@ -1,4 +1,4 @@
-package student_oleg_gryazev._lesson_3;
+package student_oleg_gryazev._lesson_3.level_7.task_29;
 
 import java.util.Random;
 

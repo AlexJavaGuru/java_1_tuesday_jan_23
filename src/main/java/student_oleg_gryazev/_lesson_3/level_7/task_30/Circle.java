@@ -1,4 +1,4 @@
-package student_oleg_gryazev._lesson_3.level_7;
+package student_oleg_gryazev._lesson_3.level_7.task_30;
 
 public class Circle {
 
