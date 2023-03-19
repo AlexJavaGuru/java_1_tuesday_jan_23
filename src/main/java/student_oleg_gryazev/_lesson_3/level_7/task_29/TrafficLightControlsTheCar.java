@@ -3,7 +3,6 @@ package student_oleg_gryazev._lesson_3.level_7.task_29;
 import java.util.Random;
 
 public class TrafficLightControlsTheCar {
-    static int mirrorCarPosition;
 
     void carGo() {
         System.out.println("Go");
@@ -36,20 +35,18 @@ public class TrafficLightControlsTheCar {
     void trafficLightRed() {
         System.out.println("Traffic light is red, moving is restricted!");
     }
-
-    void carPosition() {
-        TrafficLightControlsTheCar traffic = new TrafficLightControlsTheCar();
+}
+ /*   void carPosition() {
 
         Random random = new Random();
-
-        int i = random.nextInt(90);
-        traffic.mirrorCarPosition = i;
+        int mirrorCarPosition;
+        mirrorCarPosition = random.nextInt(90);
 
         System.out.println(mirrorCarPosition);
 
     }
-
-    void positionOfTrafficLight() {
+}
+   int positionOfTrafficLight(int mirrorCarPosition) {
 
         if (mirrorCarPosition <= 5) {
             trafficLightIsYellowReadyToStop();
@@ -75,10 +72,11 @@ public class TrafficLightControlsTheCar {
         } else if (mirrorCarPosition > 75) {
             trafficLightRed();
             urgentBrake();
-        } else System.out.println("TrafficLight Does not work");
+        } else System.out.println("Traffic Light Does not work");
+        return mirrorCarPosition;
     }
 }
-
+*/
 
 
 
