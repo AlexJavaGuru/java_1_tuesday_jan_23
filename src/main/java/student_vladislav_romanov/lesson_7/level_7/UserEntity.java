@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 class UserEntity {
 
-    static int idBase = 0;
     private int id;
     private String name;
     private String surname;
@@ -13,8 +12,8 @@ class UserEntity {
     public UserEntity() {
     }
 
-    public UserEntity(String text) {
-        id = ++idBase;
+    public UserEntity(int id, String text) {
+        this.id = id;
         Scanner scanner = new Scanner(System.in);
         System.out.print("Please enter user name: " );
         name = scanner.next();
@@ -24,13 +23,6 @@ class UserEntity {
 
         System.out.print("Please enter user personal code: ");
         personalCode = scanner.next();
-    }
-
-    public UserEntity(String name, String surname, String personalCode) {
-        id = ++idBase;
-        this.name = name;
-        this.surname = surname;
-        this.personalCode = personalCode;
     }
 
     public UserEntity(int id, String name, String surname, String personalCode) {

@@ -9,6 +9,9 @@ class UserRepoTest {
         UserRepoTest userRepoTest = new UserRepoTest();
 
         userRepoTest.saveUserToDataBaseTest();
+        userRepoTest.isIdNotUniqueTestSuccess();
+        userRepoTest.isIdNotUniqueTestFailed();
+        userRepoTest.createUniqueIdTest();
         userRepoTest.getUserByIdTest();
         userRepoTest.getUsersByNameTest();
         userRepoTest.getUserEntitiesTest();
@@ -18,32 +21,65 @@ class UserRepoTest {
     }
 
     public void saveUserToDataBaseTest() {
-        UserEntity userEntity1 = new UserEntity("Jarmene", "Jones", "224213-32145");
+        UserEntity userEntity1 = new UserEntity(1, "Jarmene", "Jones", "224213-32145");
         UserRepo expected = new UserRepo(userEntity1);
         UserRepo current = new UserRepo();
         current.saveUserToDataBase(userEntity1);
         printResult(current.equals(expected), "saveUserToDataBaseTest");
     }
 
-    public void getUserByIdTest() {
-        UserEntity userEntity2 = new UserEntity("Ian", "Smith", "545263-43456");
-        UserEntity userEntity3 = new UserEntity("Mike", "Hoar", "243956-97923");
-        UserEntity userEntity4 = new UserEntity("John", "Dee", "123465-23456");
+    public void isIdNotUniqueTestSuccess() {
         UserRepo userRepo = new UserRepo();
+        UserEntity userEntity1 = new UserEntity(1, "Ian", "Smith", "545263-43456");
+        UserEntity userEntity2 = new UserEntity(2, "Mike", "Hoar", "243956-97923");
+        userRepo.saveUserToDataBase(userEntity1);
+        userRepo.saveUserToDataBase(userEntity2);
+        boolean expected = true;
+        boolean current = userRepo.isIdNotUnique(2);
+        printResult(current == expected, "isIdNotUniqueTestSuccess");
+    }
+
+    public void isIdNotUniqueTestFailed() {
+        UserRepo userRepo = new UserRepo();
+        UserEntity userEntity1 = new UserEntity(1, "Ian", "Smith", "545263-43456");
+        UserEntity userEntity2 = new UserEntity(2, "Mike", "Hoar", "243956-97923");
+        userRepo.saveUserToDataBase(userEntity1);
+        userRepo.saveUserToDataBase(userEntity2);
+        boolean expected = false;
+        boolean current = userRepo.isIdNotUnique(2);
+        printResult(current != expected, "isIdNotUniqueTestFailed");
+    }
+
+    public void createUniqueIdTest() {
+        UserRepo userRepo = new UserRepo();
+        UserEntity userEntity1 = new UserEntity(12, "Ian", "Smith", "545263-43456");
+        UserEntity userEntity2 = new UserEntity(2563712, "Mike", "Hoar", "243956-97923");
+        userRepo.saveUserToDataBase(userEntity1);
+        userRepo.saveUserToDataBase(userEntity2);
+        int expected = 2563713;
+        int current = userRepo.createUniqueId();
+        printResult(current == expected, "createUniqueIdTest");
+    }
+
+    public void getUserByIdTest() {
+        UserEntity userEntity1 = new UserEntity(1, "Ian", "Smith", "545263-43456");
+        UserEntity userEntity2 = new UserEntity(2, "Mike", "Hoar", "243956-97923");
+        UserEntity userEntity3 = new UserEntity(2, "John", "Dee", "123465-23456");
+        UserRepo userRepo = new UserRepo();
+        userRepo.saveUserToDataBase(userEntity1);
         userRepo.saveUserToDataBase(userEntity2);
         userRepo.saveUserToDataBase(userEntity3);
-        userRepo.saveUserToDataBase(userEntity4);
-        UserEntity expected = userEntity4;
-        UserEntity current = userRepo.getUserById(4);
+        UserEntity expected = userEntity3;
+        UserEntity current = userRepo.getUserById(3);
         printResult(current.equals(expected), "getUserByIdTest");
     }
 
     public void getUsersByNameTest() {
-        UserEntity userEntity1 = new UserEntity("Ian", "Smith", "545263-43456");
-        UserEntity userEntity2 = new UserEntity("John", "Travolta", "545263-43456");
-        UserEntity userEntity3 = new UserEntity("Mike", "Hoar", "243956-97923");
-        UserEntity userEntity4 = new UserEntity("John", "Dee", "123465-23456");
-        UserEntity userEntity5 = new UserEntity("John", "Connor", "123465-23456");
+        UserEntity userEntity1 = new UserEntity(1, "Ian", "Smith", "545263-43456");
+        UserEntity userEntity2 = new UserEntity(2, "John", "Travolta", "545263-43456");
+        UserEntity userEntity3 = new UserEntity(3, "Mike", "Hoar", "243956-97923");
+        UserEntity userEntity4 = new UserEntity(4, "John", "Dee", "123465-23456");
+        UserEntity userEntity5 = new UserEntity(5, "John", "Connor", "123465-23456");
         UserRepo userRepo = new UserRepo();
         userRepo.saveUserToDataBase(userEntity1);
         userRepo.saveUserToDataBase(userEntity2);
@@ -56,9 +92,9 @@ class UserRepoTest {
     }
 
     public void getUserEntitiesTest() {
-        UserEntity userEntity1 = new UserEntity("Ian", "Smith", "545263-43456");
-        UserEntity userEntity2 = new UserEntity("John", "Travolta", "545263-43456");
-        UserEntity userEntity3 = new UserEntity("Mike", "Hoar", "243956-97923");
+        UserEntity userEntity1 = new UserEntity(1, "Ian", "Smith", "545263-43456");
+        UserEntity userEntity2 = new UserEntity(2, "John", "Travolta", "545263-43456");
+        UserEntity userEntity3 = new UserEntity(3, "Mike", "Hoar", "243956-97923");
         UserRepo userRepo = new UserRepo();
         userRepo.saveUserToDataBase(userEntity1);
         userRepo.saveUserToDataBase(userEntity2);

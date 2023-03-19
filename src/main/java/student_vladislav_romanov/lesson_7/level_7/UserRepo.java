@@ -18,6 +18,9 @@ class UserRepo {
     }
 
     public void saveUserToDataBase(UserEntity user) {
+        if (isIdNotUnique(user.getId())) {
+            user.setId(createUniqueId());
+        }
         int index = userEntities.length;
         UserEntity[] newUserEntities = new UserEntity[index + 1];
         for (int i = 0; i < userEntities.length; i++) {
@@ -25,6 +28,28 @@ class UserRepo {
         }
         newUserEntities[index] = user;
         userEntities = newUserEntities;
+    }
+
+    public boolean isIdNotUnique(int id) {
+        for (UserEntity user : userEntities) {
+            if (user.getId() == id) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public int createUniqueId() {
+        int uniqueId = 1;
+
+        for (UserEntity user : userEntities) {
+            if (user.getId() > uniqueId) {
+                uniqueId = user.getId();
+            }
+        }
+
+        return ++uniqueId;
     }
 
     public UserEntity getUserById(int id) {

@@ -16,8 +16,6 @@ class ArrayCopyTest {
         arrayCopyTest.isNumberInRangeTestFailed();
         arrayCopyTest.fillTemporaryArraySucceed();
         arrayCopyTest.fillTemporaryArrayFailed();
-        arrayCopyTest.fillTemporaryArrayWithElementsFromOriginSucceed();
-        arrayCopyTest.fillTemporaryArrayWithElementsFromOriginFailed();
         arrayCopyTest.printStat();
     }
 
@@ -53,36 +51,18 @@ class ArrayCopyTest {
 
     public void fillTemporaryArraySucceed() {
         ArrayCopy arrayCopy = new ArrayCopy();
-        int[] trim = {10, 14, 19};
-        int[] expected = {10, 14, 19, 22};
-        int[] current = arrayCopy.fillTemporaryArray(trim, 22);
+        int[] array = {47, 92, 42, 15, 84, 77, 51, 42, 39, 51, 85, 13, 44, 44, 66, 79, 3, 5, 54, 94};
+        int[] expected = {47, 42, 77, 51, 42, 39, 51, 44, 44, 66, 79, 54};
+        int[] current = arrayCopy.fillTemporaryArray(array, 12, 38, 80);
         printResult(Arrays.equals(expected, current), "fillTemporaryArraySucceed");
     }
 
     public void fillTemporaryArrayFailed() {
         ArrayCopy arrayCopy = new ArrayCopy();
-        int[] trim = {10, 14, 19};
-        int[] expected = {10, 14, 19, 22};
-        int[] current = arrayCopy.fillTemporaryArray(trim, 21);
+        int[] array = {47, 92, 42, 15, 84, 77, 51, 42, 39, 51, 85, 13, 44, 44, 66, 79, 3, 5, 54, 94};
+        int[] expected = {47, 42, 77, 51, 42, 39, 51, 44, 44, 66, 79, 54};
+        int[] current = arrayCopy.fillTemporaryArray(array, 13, 38, 80);
         printResult(!Arrays.equals(expected, current), "fillTemporaryArrayFailed");
-    }
-
-    public void fillTemporaryArrayWithElementsFromOriginSucceed() {
-        ArrayCopy arrayCopy = new ArrayCopy();
-        int[] temp = new int[4];
-        int[] trim = {10, 14, 19};
-        int[] expected = {10, 14, 19, 0};
-        int[] current = arrayCopy.fillTemporaryArrayWithElementsFromOrigin(temp, trim);
-        printResult(Arrays.equals(expected, current), "fillTemporaryArrayWithElementsFromOriginSucceed");
-    }
-
-    public void fillTemporaryArrayWithElementsFromOriginFailed() {
-        ArrayCopy arrayCopy = new ArrayCopy();
-        int[] temp = new int[4];
-        int[] trim = {10, 14, 19};
-        int[] expected = {10, 14, 19, 22};
-        int[] current = arrayCopy.fillTemporaryArrayWithElementsFromOrigin(temp, trim);
-        printResult(!Arrays.equals(expected, current), "fillTemporaryArrayWithElementsFromOriginFailed");
     }
 
     public void printResult(boolean result, String test) {

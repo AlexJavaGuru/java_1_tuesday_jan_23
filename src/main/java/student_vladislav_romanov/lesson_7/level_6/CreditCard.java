@@ -58,7 +58,7 @@ class CreditCard {
 
     public void proceedWithdrawFromBalance(double pureBalanceAfterWithdrawing) {
         if (pureBalanceAfterWithdrawing >= 0) {
-            setBalance(pureBalanceAfterWithdrawing + limit);
+            this.balance = pureBalanceAfterWithdrawing + limit;
         } else {
             proceedWithdrawFromCreditLimit(Math.abs(pureBalanceAfterWithdrawing) + debt);
         }
@@ -66,8 +66,8 @@ class CreditCard {
 
     public void proceedWithdrawFromCreditLimit(double debtAfterWithdraw) {
         if (debtAfterWithdraw <= limit) {
-            setBalance(debtAfterWithdraw - debt);
-            setDebt(debtAfterWithdraw);
+            this.balance = debtAfterWithdraw - debt;
+            this.debt = debtAfterWithdraw;
         } else {
             rejectOperation("You cannot withdraw more than credit limit.");
         }
@@ -110,15 +110,15 @@ class CreditCard {
     }
 
     public void cashDeposit(double amount) {
-        setBalance(balance + amount);
+        this.balance = balance + amount;
     }
 
     public double debtRepay(double debtAfterRepay) {
         if (debtAfterRepay >= 0) {
-            setDebt(debtAfterRepay);
+            this.debt = debtAfterRepay;
         } else {
-            setDebt(0);
-            setBalance(0);
+            this.debt = 0;
+            this.balance = 0;
         }
 
         return debtAfterRepay * -1;
