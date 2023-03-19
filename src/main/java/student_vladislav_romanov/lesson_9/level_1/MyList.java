@@ -3,22 +3,20 @@ package student_vladislav_romanov.lesson_9.level_1;
 interface MyList {
 
     // Creating new List
-    NewList create();
+    int[] create();
 
     // Add new element to List
-    void addElementToList(NewList list);
+    void addElementToList(int[] list, int number);
 
-    // Remove element from NewList by content String
-    void removeElementFromList(NewList list, String content);
+    // Remove element from List by content int
+    void removeElementFromList(int[] list, int number);
 
-    // Remove element from NewList by content int
-    void removeElementFromList(NewList list, int content);
+    // Sorting List ASC, return sorted List
+    int[] sortingNewListAsc(int[] list);
 
-    // Sorting NewList ASC
-    NewList sortingNewListAsc(NewList list);
+    // Sorting List DESC, return sorted List
+    int[] sortingNewListDesc(int[] list);
 
-    // Sorting NewList DESC
-    NewList sortingNewListDesc(NewList list);
-
-    // Find element
+    // Find element, return element if existed, else null
+    int find(int number);
 }
