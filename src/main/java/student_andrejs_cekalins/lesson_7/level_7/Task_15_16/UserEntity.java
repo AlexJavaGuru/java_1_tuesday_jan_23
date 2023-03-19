@@ -1,7 +1,7 @@
 package student_andrejs_cekalins.lesson_7.level_7.Task_15_16;
 
 class UserEntity {
-    private int id = 0;
+    private int id;
     private String name;
     private String surname;
     private String personalCode;

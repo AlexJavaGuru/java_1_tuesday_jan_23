@@ -63,7 +63,7 @@ class TDD {
                 new UserEntity(2, "Andrey", "Popov", "061299-100705"),
                 new UserEntity(3, "Sergey", "Vasiliev", "270679-104232"),
         };
-        UserEntity expectedUser = users[2];
+        UserEntity expectedUser = users[1];
         UsersRepository usersRepository = new UsersRepository(users);
         UserEntity realUser = usersRepository.getUserByName("Andrey");
         if (realUser.equals(expectedUser)) {
@@ -78,7 +78,7 @@ class TDD {
         };
         UserEntity expectedUser = users[2];
         UsersRepository usersRepository = new UsersRepository(users);
-        UserEntity realUser = usersRepository.getUserBySurname("Popov");
+        UserEntity realUser = usersRepository.getUserBySurname("Vasiliev");
         if (realUser.equals(expectedUser)) {
             System.out.println("Test FindUserBySurname: Passed");
         }

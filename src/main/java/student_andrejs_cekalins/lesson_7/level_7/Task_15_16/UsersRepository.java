@@ -47,6 +47,16 @@ class UsersRepository {
         user.setPersonalCode("");
     }
 
+    public void addUser(UserEntity newUser) {
+        int indexOfEmptyElement = users.length;
+        UserEntity[] newUserEntity = new UserEntity[users.length + 1];
+        for (int i = 0; i < users.length; i++) {
+            newUserEntity[i] = users[i];
+        }
+        newUserEntity[indexOfEmptyElement] = newUser;
+        users = newUserEntity;
+    }
+
     public void deleteUser(int id) {
         for (int i = 0; i < users.length; i++) {
             if (id == users[i].getId()) {

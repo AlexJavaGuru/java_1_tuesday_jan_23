@@ -10,14 +10,10 @@ class CreditCard {
     CreditCard(int cardsNumber, int cardsPinCode) {
         this.cardsNumber = cardsNumber;
         this.cardsPinCode = cardsPinCode;
-        balance = 0;
-        creditLimit=0;
-        loanDebt =0;
     }
 
     public void setCreditLimit(int creditLimit) {
         this.creditLimit += creditLimit;
-        balance += creditLimit;
     }
 
     public int getCardsNumber() {
@@ -50,7 +46,7 @@ class CreditCard {
             if (loanDebt < 0) {
                 loanDebt += amount;
                if (loanDebt >= 0) {
-
+                   balance+=amount;
                 }
             }
         }
