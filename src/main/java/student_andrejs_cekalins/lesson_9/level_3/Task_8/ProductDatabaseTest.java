@@ -7,7 +7,7 @@ class ProductDatabaseTest {
     }
 
     public void findByTitle() {
-        ProductDatabase productDatabase = new InMemoryDatabase();
+
         Product[] products = {
                 new Product("lemon"),
                 new Product("melon"),
@@ -15,6 +15,7 @@ class ProductDatabaseTest {
                 new Product("pear")
         };
         Product expectedResult = products[2];
+        ProductDatabase productDatabase = new InMemoryDatabase();
         Product realResult = productDatabase.findByTitle("apple");
         if (expectedResult.equals(realResult)) {
             System.out.println("Find by title test Passed");
