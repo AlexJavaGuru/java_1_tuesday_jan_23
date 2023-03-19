@@ -4,6 +4,7 @@ import java.util.Objects;
 
 class InMemoryDatabase implements ProductDatabase {
     private Product[] products;
+    InMemoryDatabase(Product[] products) {this.Product[] }
 
 
     @Override
