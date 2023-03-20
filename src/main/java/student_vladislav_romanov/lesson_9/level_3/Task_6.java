@@ -5,7 +5,7 @@ package student_vladislav_romanov.lesson_9.level_3;
 */
 
 @FunctionalInterface
-public interface Task_6 {
+interface Task_6 {
 
     void sayHello();
 
