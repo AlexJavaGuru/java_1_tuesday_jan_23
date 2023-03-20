@@ -1,9 +1,18 @@
 package student_aleksandrs_lezhennikovs.lesson_9.level_3.task_10;
 
+
 import java.util.Optional;
 
 class InMemoryDatabase implements ProductDatabase {
-    Product[] storage = new Product[1];
+    private Product[] storage;
+
+    public InMemoryDatabase(Product[] storage) {
+        this.storage = storage;
+    }
+
+    public Product[] getStorage() {
+        return storage;
+    }
 
     @Override
     public void save(Product product) {
@@ -47,7 +56,7 @@ class InMemoryDatabase implements ProductDatabase {
         for (Product product : storage) {
             Optional<Product> optProduct = Optional.ofNullable(product);
             if (optProduct.isPresent()) {
-                if (optProduct.get().equals(productTitle)) {
+                if (optProduct.get().getTitle().equals(productTitle)) {
                     return optProduct;
                 }
             }

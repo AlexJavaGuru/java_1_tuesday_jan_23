@@ -1,6 +1,6 @@
 package student_aleksandrs_lezhennikovs.lesson_9.level_3.task_7_8;
 
-public class ProductDataBaseTests {
+class ProductDataBaseTests {
     public static void main(String[] args) {
         checkFindByTitle();
         checkSaveInDatabase();
@@ -10,10 +10,10 @@ public class ProductDataBaseTests {
         Product[] products = {new Product("phone"),
                               new Product("tv"),
                               new Product("car")};
-        InMemoryDatabase actualResult = new InMemoryDatabase(products);
-        actualResult.save(new Product("NewProduct"));
+        InMemoryDatabase productDatabase = new InMemoryDatabase(products);
+        productDatabase.save(new Product("NewProduct"));
         String expectedProduct = "NewProduct";
-        String actualProduct = actualResult.getStorage()[3].getTitle();
+        String actualProduct = productDatabase.getStorage()[3].getTitle();
         check("Save in DB", expectedProduct, actualProduct);
     }
 

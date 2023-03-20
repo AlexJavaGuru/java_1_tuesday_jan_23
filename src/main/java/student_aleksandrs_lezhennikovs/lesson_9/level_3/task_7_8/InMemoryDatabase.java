@@ -1,7 +1,7 @@
 package student_aleksandrs_lezhennikovs.lesson_9.level_3.task_7_8;
 
-public class InMemoryDatabase implements ProductDatabase {
-    Product[] storage = new Product[1];
+class InMemoryDatabase implements ProductDatabase {
+    private Product[] storage;
 
     public InMemoryDatabase(Product[] storage) {
         this.storage = storage;
@@ -9,10 +9,6 @@ public class InMemoryDatabase implements ProductDatabase {
 
     public Product[] getStorage() {
         return storage;
-    }
-
-    public void setStorage(Product[] storage) {
-        this.storage = storage;
     }
 
     @Override
