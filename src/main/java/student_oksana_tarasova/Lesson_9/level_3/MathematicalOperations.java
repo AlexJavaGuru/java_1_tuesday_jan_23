@@ -1,9 +1,13 @@
 package student_oksana_tarasova.Lesson_9.level_3;
 
 public class MathematicalOperations {
+    int firstNumber;
+    int secondNumber;
+
+
     /*
-    Обычные методы приведены для сравнения
-     */
+        Обычные методы приведены для сравнения
+         */
     public int sum(int firstNumber, int secondNumber) {
         return firstNumber + secondNumber;
     }

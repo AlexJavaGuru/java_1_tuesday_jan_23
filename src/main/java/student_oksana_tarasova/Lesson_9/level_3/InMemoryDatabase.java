@@ -2,7 +2,7 @@ package student_oksana_tarasova.Lesson_9.level_3;
 
 import java.util.Arrays;
 
-public class InMemoryDatabase implements ProductDatabase {
+class InMemoryDatabase implements ProductDatabase {
 
     private Product[] products;
 
@@ -13,12 +13,10 @@ public class InMemoryDatabase implements ProductDatabase {
 
     @Override
     public void save(Product product) {
-        Product[] products1 = new Product[products.length + 1];
-        for (int i = 0; i < products.length + 1; i++) {
-            products1[i] = products[i];
-        }
-        products1[products.length] = product;
+        databaseIncrease();
+        products[products.length - 1] = product;
     }
+
 
     @Override
     public Product findByTitle(String productTitle) {
@@ -30,6 +28,14 @@ public class InMemoryDatabase implements ProductDatabase {
         return null;
     }
 
+    private Product[] databaseIncrease() {
+        Product[] products1 = new Product[products.length + 1];
+        for (int i = 0; i < products.length; i++) {
+            products1[i] = products[i];
+        }
+        return products = products1;
+    }
+
     @Override
     public String toString() {
         return "InMemoryDatabase{" +
@@ -37,10 +43,3 @@ public class InMemoryDatabase implements ProductDatabase {
                 '}';
     }
 }
-/*
-
-
-
-
-
- */

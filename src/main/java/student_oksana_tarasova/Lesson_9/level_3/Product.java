@@ -1,6 +1,6 @@
 package student_oksana_tarasova.Lesson_9.level_3;
 
-public class Product {
+class Product {
 
     private String title;
 
