@@ -1,7 +1,20 @@
-package student_aleksandrs_lezhennikovs.lesson_9.level_3;
+package student_aleksandrs_lezhennikovs.lesson_9.level_3.task_7_8;
 
-class InMemoryDatabase implements ProductDatabase {
+public class InMemoryDatabase implements ProductDatabase {
     Product[] storage = new Product[1];
+
+    public InMemoryDatabase(Product[] storage) {
+        this.storage = storage;
+    }
+
+    public Product[] getStorage() {
+        return storage;
+    }
+
+    public void setStorage(Product[] storage) {
+        this.storage = storage;
+    }
+
     @Override
     public void save(Product product) {
         int index = getIndexOfEmptyElement(storage);
