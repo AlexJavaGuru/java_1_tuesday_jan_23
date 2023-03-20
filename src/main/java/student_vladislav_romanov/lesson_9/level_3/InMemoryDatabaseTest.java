@@ -3,6 +3,7 @@ package student_vladislav_romanov.lesson_9.level_3;
 import student_vladislav_romanov.TestUtil;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 class InMemoryDatabaseTest extends TestUtil {
 
@@ -44,8 +45,8 @@ class InMemoryDatabaseTest extends TestUtil {
         Product laptop = new Product("Laptop");
 
         inMemoryDatabase.save(laptop);
-        Product expected = laptop;
-        Product current = inMemoryDatabase.findByTitle("Laptop");
+        Optional<Product> expected = Optional.of(laptop);
+        Optional<Product> current = inMemoryDatabase.findByTitle("Laptop");
 
         printResult(current.equals(expected), "findByTitleTestSucceed");
     }
@@ -55,9 +56,9 @@ class InMemoryDatabaseTest extends TestUtil {
         Product laptop = new Product("Laptop");
 
         inMemoryDatabase.save(laptop);
-        Product current = inMemoryDatabase.findByTitle("Tablet");
+        Optional<Product> current = inMemoryDatabase.findByTitle("Tablet");
 
-        printResult(current == null, "findByTitleTestFailed");
+        printResult(current.isEmpty(), "findByTitleTestFailed");
     }
 
 }
