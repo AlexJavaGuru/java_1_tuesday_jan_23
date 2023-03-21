@@ -9,12 +9,12 @@ class WordService {
         return words[indexOfMaxWord];
     }
 
-  public String[] filterPunctuationAndSplit(String text) {
-        String[]words = text.replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
+    public String[] filterPunctuationAndSplit(String text) {
+        String[] words = text.replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
         return words;
     }
 
-    private static int findMaxWordCounter(int[] wordCounters) {
+    public int findMaxWordCounter(int[] wordCounters) {
         int max = wordCounters[0];
         int indexOfMaxWord = 0;
         for (int i = 0; i < wordCounters.length; i++) {
@@ -26,7 +26,7 @@ class WordService {
         return indexOfMaxWord;
     }
 
-    private static int[] countEachWord(String[] words) {
+    public int[] countEachWord(String[] words) {
         int[] wordCounters = new int[words.length];
         for (int i = 0; i < words.length; i++) {
             int counter = 0;
