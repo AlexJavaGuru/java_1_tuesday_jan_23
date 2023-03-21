@@ -10,6 +10,12 @@ public class BookReaderTest {
         test.deleteTest();
         test.deleteTest1();
         test.printAllBooksTest();
+        test.findAllBooksByTheAuthorTest();
+        test.findAuthorByFirstLetterTest();
+        test.findAuthorByFirstLetterTest1();
+        test.findBooksByTitleTest();
+        test.findBooksByTitleTest1();
+
     }
 
     public void addTest() {
@@ -84,10 +90,78 @@ public class BookReaderTest {
         };
         BookReaderImpl bookReaderImpl = new BookReaderImpl(books);
         String realResult = bookReaderImpl.printAllBooks();
-        String expectedResult = "How I Became a God. Billy [Kudryashov]\n" + "Guests of Baba Yaga [Avers]\n" + "On the streets of Istanbul [Rashova]";
+        String expectedResult = books[0].getTitle() + " [" + books[0].getSurnameAuthor() + "]\n" +
+                books[1].getTitle() + " [" + books[1].getSurnameAuthor() + "]\n" +
+                books[2].getTitle() + " [" + books[2].getSurnameAuthor() + "]\n";
         check(realResult.equals(expectedResult), "print all books");
-
     }
+
+    public void findAllBooksByTheAuthorTest() {
+        Book[] books = {
+                new Book("Kirill", "Kudryashov", "How I Became a God. Billy"),
+                new Book("Olga", "Kudryashov", "Guests of Baba Yaga"),
+                new Book("Mariya", "Rashova", "On the streets of Istanbul")
+        };
+        BookReaderImpl bookReaderImpl = new BookReaderImpl(books);
+        String realResult = bookReaderImpl.findAllBooksByTheAuthor("Kudryashov");
+        String expectedResult = books[0].getTitle() + " [" + books[0].getSurnameAuthor() + "]\n" +
+                books[1].getTitle() + " [" + books[1].getSurnameAuthor() + "]\n";
+
+        check(realResult.equals(expectedResult), "find All Books By The Author");
+    }
+
+    public void findAuthorByFirstLetterTest() {
+        Book[] books = {
+                new Book("Kirill", "Kudryashov", "How I Became a God. Billy"),
+                new Book("Olga", "Kudryashov", "Guests of Baba Yaga"),
+                new Book("Mariya", "Rashova", "On the streets of Istanbul")
+        };
+        BookReaderImpl bookReaderImpl = new BookReaderImpl(books);
+        String realResult = bookReaderImpl.findAuthorByFirstLetter("olg");
+        String expectedResult = books[1].getTitle() + " [" + books[1].getSurnameAuthor() + "]\n";
+        check(realResult.equals(expectedResult), "find the books of the author by the first letters of the name.");
+    }
+
+    public void findAuthorByFirstLetterTest1() {
+        Book[] books = {
+                new Book("Kirill", "Kudryashov", "How I Became a God. Billy"),
+                new Book("Olga", "Kudryashov", "Guests of Baba Yaga"),
+                new Book("Mariya", "Rashova", "On the streets of Istanbul")
+        };
+        BookReaderImpl bookReaderImpl = new BookReaderImpl(books);
+        String realResult = bookReaderImpl.findAuthorByFirstLetter("kud");
+        String expectedResult = books[0].getTitle() + " [" + books[0].getSurnameAuthor() + "]\n" +
+                books[1].getTitle() + " [" + books[1].getSurnameAuthor() + "]\n";
+        check(realResult.equals(expectedResult), "find the books of the author by the first letters of the surname.");
+    }
+
+    public void findBooksByTitleTest() {
+        Book[] books = {
+                new Book("Nikita", "Kudryashov", "I am not God"),
+                new Book("Mihail", "Ilyin", "Sto tysyach pochemu"),
+                new Book("Valentina", "Oseeva", "Hozyayuska"),
+                new Book("Nikita", "Kudryashov", "I am not")
+        };
+        BookReaderImpl bookReaderImpl = new BookReaderImpl(books);
+        String realResult = bookReaderImpl.findBooksByTitle("sto");
+        String expectedResult = books[1].getTitle() + " [" + books[1].getSurnameAuthor() + "]\n";
+        check(realResult.equals(expectedResult), "find book by title fragment");
+    }
+
+    public void findBooksByTitleTest1() {
+        Book[] books = {
+                new Book("Nikita", "Kudryashov", "I am not God"),
+                new Book("Mihail", "Ilyin", "Sto tysyach pochemu"),
+                new Book("Valentina", "Oseeva", "Hozyayuska"),
+                new Book("Nikita", "Kudryashov", "I am not")
+        };
+        BookReaderImpl bookReaderImpl = new BookReaderImpl(books);
+        String realResult = bookReaderImpl.findBooksByTitle("I am not");
+        String expectedResult = books[3].getTitle() + " [" + books[3].getSurnameAuthor() + "]\n";
+        check(realResult.equals(expectedResult), "find book by title");
+    }
+
+
 
 
     public void check(boolean state, String nameTest) {

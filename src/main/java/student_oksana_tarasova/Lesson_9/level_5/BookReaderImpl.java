@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 class BookReaderImpl implements BookReader {
 
-    Book[] books;
+    private Book[] books;
 
-    BookReaderImpl(Book[] books) {
+    public BookReaderImpl(Book[] books) {
         this.books = books;
     }
 
@@ -67,25 +67,50 @@ class BookReaderImpl implements BookReader {
     @Override
     public String findAuthorByFirstLetter(String firstLetterName) {
         String list = "";
-        if (findMatchingLetters(firstLetterName)) {
-            for (int i = 0; i < books.length; i++) {
-                if (books[i].getSurnameAuthor().regionMatches(true, 0, firstLetterName, 0, 3)
-                        || books[i].getNameAuthor().regionMatches(true, 0, firstLetterName, 0, 3)) {
-                    list += books[i].getTitle() + " [" + books[i].getSurnameAuthor() + "]\n";
-                }
+        for (int i = 0; i < books.length; i++) {
+            if (findMatchingLetters(books[i], firstLetterName)) {
+                list += books[i].getTitle() + " [" + books[i].getSurnameAuthor() + "]\n";
             }
-            return list;
         }
-        return "No books by this author";
+        return list;
     }
 
-    private boolean findMatchingLetters(String firstLetterName) {
-        for (Book copyOfTheBook : books) {
-            if (copyOfTheBook.getSurnameAuthor().regionMatches(true, 0, firstLetterName, 0, 3) ||
-                    copyOfTheBook.getNameAuthor().regionMatches(true, 0, firstLetterName, 0, 3)) {
+
+    @Override
+    public String findBooksByTitle(String titleBook) {
+        String list = "";
+        for (int i = 0; i < books.length; i++) {
+            if (findACopyOfABookByTitle(books[i], titleBook) || findTitleByFragment(books[i], titleBook)) {
+                list += books[i].getTitle() + " [" + books[i].getSurnameAuthor() + "]\n";
+            }
+        }
+        return list;
+    }
+
+
+    private boolean findACopyOfABookByTitle(Book book, String titleBook) {
+        if (book.getTitle().equalsIgnoreCase(titleBook)) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean findTitleByFragment(Book book, String fragmentTitleBook) {
+        String[] string = book.getTitle().split("\\s+");
+        for (int i = 0; i < string.length; i++) {
+            if (string[i].equalsIgnoreCase(fragmentTitleBook)) {
                 return true;
             }
         }
+        return false;
+    }
+
+    private boolean findMatchingLetters(Book book, String firstLetterName) {
+        if (book.getSurnameAuthor().regionMatches(true, 0, firstLetterName, 0, 3) ||
+                book.getNameAuthor().regionMatches(true, 0, firstLetterName, 0, 3)) {
+            return true;
+        }
+
         return false;
     }
 

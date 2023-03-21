@@ -34,11 +34,6 @@ class Book {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(nameAuthor, surnameAuthor, title);
-    }
-
-    @Override
     public String toString() {
         return "Book{" +
                 "nameAuthor='" + nameAuthor + '\'' +
