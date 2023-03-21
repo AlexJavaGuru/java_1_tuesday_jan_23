@@ -1,5 +1,7 @@
 package student_oksana_tarasova.Lesson_9.level_5;
 
+import java.util.Objects;
+
 class Book {
     String nameAuthor;
     String surnameAuthor;
@@ -21,6 +23,19 @@ class Book {
 
     public String getTitle() {
         return title;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Objects.equals(nameAuthor, book.nameAuthor) && Objects.equals(surnameAuthor, book.surnameAuthor) && Objects.equals(title, book.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameAuthor, surnameAuthor, title);
     }
 
     @Override

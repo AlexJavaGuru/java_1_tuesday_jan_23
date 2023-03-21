@@ -1,36 +1,50 @@
 package student_oksana_tarasova.Lesson_9.level_5;
 
-import java.util.Objects;
+
 
 public class Demo {
     public static void main(String[] args) {
 
-
+        Book book4 = new Book("VGGVHJ", "Rakira", "ghjg");
         Book book1 = new Book("Kirill", "Kudryashov", "How I Became a God. Billy");
-        Book book2 = new Book("Olga", "Avers", "Guests of Baba Yaga");
+        Book book2 = new Book("Olga", "Kudryashov", "Guests of Baba Yaga");
         Book book3 = new Book("Mariya", "Rashova", "On the streets of Istanbul");
         System.out.println(book2.toString());
         Book[] books = new Book[1];
-        Demo2 demo = new Demo2(books);
-        demo.add(book1);
-        System.out.println(demo.toString());
-        demo.add(book2);
-        System.out.println(demo.toString());
-
-        /*
-
-
         BookReaderImpl demo = new BookReaderImpl(books);
         demo.add(book1);
         System.out.println(demo.toString());
         demo.add(book2);
         System.out.println(demo.toString());
         demo.add(book3);
+        System.out.println(demo.printAllBooks());
+        System.out.println(demo.toString());
+        demo.add(book2);
+        System.out.println(demo.toString());
+        demo.add(book3);
+        System.out.println(demo.toString());
+        System.out.println(demo.findAllBooksByTheAuthor("Kudryashov"));
+
+        System.out.println(demo.findAuthorByFirstLetter("olg"));
+
+
+        /*
+
+ Demo2 demo = new Demo2(books);
+        demo.add(book1);
+        System.out.println(demo.toString());
+        demo.add(book2);
         System.out.println(demo.toString());
 
 
+BookReaderImpl demo = new BookReaderImpl(books);
+        demo.add(book1);
+        System.out.println(demo.toString());
+        demo.add(book2);
+        System.out.println(demo.toString());
+        demo.add(book3);
+        System.out.println(demo.toString());
          */
-
 
 
     }
