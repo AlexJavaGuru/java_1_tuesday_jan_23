@@ -18,4 +18,6 @@ interface BookReader {
 
     boolean unreadBook(Book book);
 
+    List<String> listOfReadBooks();
+
 }

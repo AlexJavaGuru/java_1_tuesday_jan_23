@@ -8,7 +8,7 @@ class BookReaderImpl implements BookReader {
 
     @Override
     public boolean addBook(Book book) {
-        if (book.title.length() > 0 && book.author.length() > 0) {
+        if (book.getTitle().length() > 0 && book.getAuthor().length() > 0) {
             return books.add(book);
         }
 
@@ -25,7 +25,7 @@ class BookReaderImpl implements BookReader {
         List<String> listOfBooks = new ArrayList<>();
 
         for (Book book : books) {
-            listOfBooks.add(book.title + "[" + book.author + "]");
+            listOfBooks.add(book.getTitle() + "[" + book.getAuthor() + "]");
         }
 
         return listOfBooks;
@@ -36,8 +36,8 @@ class BookReaderImpl implements BookReader {
         List<String> listOfBooks = new ArrayList<>();
 
         for (Book book : books) {
-            if (book.author.toLowerCase().contains(author.toLowerCase())) {
-                listOfBooks.add(book.title + "[" + book.author + "]");
+            if (book.getAuthor().toLowerCase().contains(author.toLowerCase())) {
+                listOfBooks.add(book.getTitle() + "[" + book.getAuthor() + "]");
             }
         }
 
@@ -49,8 +49,8 @@ class BookReaderImpl implements BookReader {
         List<String> listOfBooks = new ArrayList<>();
 
         for (Book book : books) {
-            if (book.title.toLowerCase().contains(title.toLowerCase())) {
-                listOfBooks.add(book.title + "[" + book.author + "]");
+            if (book.getTitle().toLowerCase().contains(title.toLowerCase())) {
+                listOfBooks.add(book.getTitle() + "[" + book.getAuthor() + "]");
             }
         }
 
@@ -71,7 +71,7 @@ class BookReaderImpl implements BookReader {
     @Override
     public boolean unreadBook(Book book) {
         if (books.contains(book)) {
-            if (book.read) {
+            if (book.isRead()) {
                 books.remove(book);
                 book.unsetRead();
                 books.add(book);
@@ -79,6 +79,19 @@ class BookReaderImpl implements BookReader {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<String> listOfReadBooks() {
+        List<String> listOfReadBooks = new ArrayList<>();
+
+        for (Book book : books) {
+            if (book.isRead()) {
+                listOfReadBooks.add(book.getTitle() + "[" + book.getAuthor() + "]");
+            }
+        }
+
+        return listOfReadBooks;
     }
 
 }

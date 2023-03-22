@@ -4,14 +4,14 @@ import java.util.Objects;
 
 class Book {
 
-    String title;
-    String author;
-    String publisher;
-    int publishingYear;
-    String language;
-    int paperback;
-    String isbn;
-    boolean read;
+    private final String title;
+    private final String author;
+    private final String publisher;
+    private final int publishingYear;
+    private final String language;
+    private final int paperback;
+    private final String isbn;
+    private boolean read;
 
     Book(String title, String author, String publisher, int publishingYear, String language, int paperback, String isbn) {
         this.title = title;
@@ -22,6 +22,18 @@ class Book {
         this.paperback = paperback;
         this.isbn = isbn;
         this.read = false;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public boolean isRead() {
+        return read;
     }
 
     void setRead() {
