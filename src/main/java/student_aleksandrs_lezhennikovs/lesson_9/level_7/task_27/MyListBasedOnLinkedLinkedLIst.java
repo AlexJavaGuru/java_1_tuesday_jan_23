@@ -7,6 +7,10 @@ class MyListBasedOnLinkedLinkedLIst implements MyLinkedLIst {
     private LinkedList<Orders> storage = new LinkedList<>();
     private long orderId = 10L;
 
+    public LinkedList<Orders> getStorage() {
+        return storage;
+    }
+
     @Override
     public void add(Orders order) {
         order.setOrderId(orderId);
