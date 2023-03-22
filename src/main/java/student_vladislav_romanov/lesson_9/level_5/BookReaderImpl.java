@@ -20,4 +20,15 @@ class BookReaderImpl implements BookReader {
         return books.remove(book);
     }
 
+    @Override
+    public String[] listOfBooks() {
+        String[] listOfBooks = new String[books.size()];
+        int i = 0;
+        for (Book book : books) {
+            listOfBooks[i] = book.title + "[" + book.author + "]";
+            i++;
+        }
+        return listOfBooks;
+    }
+
 }

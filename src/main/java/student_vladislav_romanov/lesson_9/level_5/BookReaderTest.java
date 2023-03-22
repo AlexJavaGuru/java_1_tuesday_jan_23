@@ -2,6 +2,8 @@ package student_vladislav_romanov.lesson_9.level_5;
 
 import student_vladislav_romanov.TestUtil;
 
+import java.util.Arrays;
+
 class BookReaderTest extends TestUtil {
 
     public static void main(String[] args) {
@@ -14,6 +16,8 @@ class BookReaderTest extends TestUtil {
         bookReaderTest.addBookWithoutTitleTestFailed();
         bookReaderTest.removeBookTestSucceed();
         bookReaderTest.removeBookTestFailed();
+        bookReaderTest.listOfBooksSucceed();
+        bookReaderTest.listOfBooksFailed();
         bookReaderTest.printStat();
     }
 
@@ -99,6 +103,30 @@ class BookReaderTest extends TestUtil {
         boolean current = bookReader.removeBook(shogun);
 
         printResult(current == expected, "removeBookTestFailed");
+    }
+
+    public void listOfBooksSucceed() {
+        BookReader bookReader = new BookReaderImpl();
+        Book shogun = new Book("Сёгун", "Клавелл", "Амфора", 2008, "Русский", 1207, "978-5-367-00360-4");
+        Book taipan = new Book("Тай-Пэн", "Клавелл", "Амфора", 2008, "Русский", 848, "978-5-367-00593-6");
+        bookReader.addBook(shogun);
+        bookReader.addBook(taipan);
+        String[] expected = new String[] {"Сёгун[Клавелл]", "Тай-Пэн[Клавелл]"};
+        String[] current = bookReader.listOfBooks();
+
+        printResult(Arrays.deepEquals(current, expected), "listOfBooksSucceed");
+    }
+
+    public void listOfBooksFailed() {
+        BookReader bookReader = new BookReaderImpl();
+        Book shogun = new Book("Сёгун", "Клавелл", "Амфора", 2008, "Русский", 1207, "978-5-367-00360-4");
+        Book taipan = new Book("Тай-Пэн", "Клавелл", "Амфора", 2008, "Русский", 848, "978-5-367-00593-6");
+        bookReader.addBook(shogun);
+        bookReader.addBook(taipan);
+        String[] expected = new String[] {"Сёгун[Клавелл]"};
+        String[] current = bookReader.listOfBooks();
+
+        printResult(!Arrays.deepEquals(current, expected), "listOfBooksFailed");
     }
 
 }
