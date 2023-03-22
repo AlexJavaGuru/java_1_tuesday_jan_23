@@ -109,7 +109,8 @@ class BookReaderImpl implements BookReader {
         return false;
     }
 
-    public String printBookAsRead (StateBook stateBook) {
+    @Override
+    public String printBookAsRead(StateBook stateBook) {
         String list = "";
         for (int i = 0; i < books.length; i++) {
             if (stateBook.equals(books[i].getStateBook())) {
@@ -119,7 +120,8 @@ class BookReaderImpl implements BookReader {
         return list;
     }
 
-    public String printBookAsUnread (StateBook stateBook) {
+    @Override
+    public String printBookAsUnread(StateBook stateBook) {
         String list = "";
         for (int i = 0; i < books.length; i++) {
             if (stateBook.equals(books[i].getStateBook())) {

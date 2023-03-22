@@ -166,6 +166,7 @@ public class BookReaderTest {
         String expectedResult = books[3].getTitle() + " [" + books[3].getSurnameAuthor() + "]\n";
         check(realResult.equals(expectedResult), "find book by title");
     }
+
     public void markABookAsReadTest() {
         Book[] books = {
                 new Book("Nikita", "Kudryashov", "I am not God", StateBook.STATE3),
@@ -217,6 +218,7 @@ public class BookReaderTest {
         boolean expectedResult = true;
         check(realResult == expectedResult, "mark A Book As Unread");
     }
+
     public void printBookAsReadTest1() {
         Book[] books = {
                 new Book("Nikita", "Kudryashov", "I am not God", StateBook.STATE3),
@@ -225,7 +227,7 @@ public class BookReaderTest {
                 new Book("Nikita", "Kudryashov", "I am not", StateBook.STATE3)
         };
         BookReaderImpl bookReaderImpl = new BookReaderImpl(books);
-        bookReaderImpl.markABookAsRead( new Book("Nikita", "Kudryashov", "I am not God", StateBook.STATE3));
+        bookReaderImpl.markABookAsRead(new Book("Nikita", "Kudryashov", "I am not God", StateBook.STATE3));
         bookReaderImpl.markABookAsRead(new Book("Mihail", "Ilyin", "Sto tysyach pochemu", StateBook.STATE3));
         String realResult = bookReaderImpl.printBookAsRead(StateBook.STATE1);
         String expectedResult = books[0].getTitle() + " [" + books[0].getSurnameAuthor() + "]\n" +
@@ -241,18 +243,13 @@ public class BookReaderTest {
                 new Book("Nikita", "Kudryashov", "I am not", StateBook.STATE3)
         };
         BookReaderImpl bookReaderImpl = new BookReaderImpl(books);
-        bookReaderImpl.markABookAsUnread( new Book("Nikita", "Kudryashov", "I am not God", StateBook.STATE3));
+        bookReaderImpl.markABookAsUnread(new Book("Nikita", "Kudryashov", "I am not God", StateBook.STATE3));
         bookReaderImpl.markABookAsUnread(new Book("Mihail", "Ilyin", "Sto tysyach pochemu", StateBook.STATE3));
         String realResult = bookReaderImpl.printBookAsUnread(StateBook.STATE2);
         String expectedResult = books[0].getTitle() + " [" + books[0].getSurnameAuthor() + "]\n" +
                 books[1].getTitle() + " [" + books[1].getSurnameAuthor() + "]\n";
         check(realResult.equals(expectedResult), "print Book As Unread");
     }
-
-
-
-
-
 
     public void check(boolean state, String nameTest) {
         if (state) {

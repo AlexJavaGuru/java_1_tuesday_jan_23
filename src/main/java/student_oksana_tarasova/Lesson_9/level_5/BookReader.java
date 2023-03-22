@@ -17,4 +17,8 @@ public interface BookReader {
     boolean markABookAsRead(Book book);
 
     boolean markABookAsUnread(Book book);
+
+    String printBookAsRead(StateBook stateBook);
+
+    String printBookAsUnread(StateBook stateBook);
 }
