@@ -34,6 +34,8 @@ class BookReaderTest extends TestUtil {
         bookReaderTest.unreadBookFailed();
         bookReaderTest.listOfReadBooksSucceed();
         bookReaderTest.listOfReadBooksFailed();
+        bookReaderTest.listOfUnreadBooksSucceed();
+        bookReaderTest.listOfUnreadBooksFailed();
         bookReaderTest.printStat();
     }
 
@@ -375,6 +377,55 @@ class BookReaderTest extends TestUtil {
         Collections.sort(current);
 
         printResult(!current.equals(expected), "listOfReadBooksFailed");
+    }
+
+    public void listOfUnreadBooksSucceed() {
+        BookReader bookReader = new BookReaderImpl();
+        Book shogun = new Book("Сёгун", "Джеймс Клавелл", "Амфора", 2008, "Русский", 1207, "978-5-367-00360-4");
+        Book taipan = new Book("Тай-Пэн", "Джеймс Клавелл", "Амфора", 2008, "Русский", 848, "978-5-367-00593-6");
+        Book mysteryIsland = new Book("Таинственный остров", "Жюль Верн", "Альфа-книга", 2020, "Русский", 640, "978-5-9922-1270-9");
+        Book travelToTheCenterOfEarth = new Book("Путешествие к центру Земли", "Жюль Верн", "Альфа-книга", 2021, "Русский", 237, "978-5-9922-2749-9");
+        Book treasureIsland = new Book("Остров сокровищ", "Роберт Льюис Стивенсон", "Махаон", 2023, "Русский", 240, "978-5-389-17055-1");
+        bookReader.addBook(shogun);
+        bookReader.addBook(taipan);
+        bookReader.addBook(mysteryIsland);
+        bookReader.addBook(travelToTheCenterOfEarth);
+        bookReader.addBook(treasureIsland);
+        bookReader.readBook(taipan);
+        bookReader.readBook(treasureIsland);
+        List<String> expected = new ArrayList<>();
+        expected.add("Сёгун[Джеймс Клавелл]");
+        expected.add("Таинственный остров[Жюль Верн]");
+        expected.add("Путешествие к центру Земли[Жюль Верн]");
+        List<String> current = bookReader.listOfUnreadBooks();
+        Collections.sort(expected);
+        Collections.sort(current);
+
+        printResult(current.equals(expected), "listOfUnreadBooksSucceed");
+    }
+
+    public void listOfUnreadBooksFailed() {
+        BookReader bookReader = new BookReaderImpl();
+        Book shogun = new Book("Сёгун", "Джеймс Клавелл", "Амфора", 2008, "Русский", 1207, "978-5-367-00360-4");
+        Book taipan = new Book("Тай-Пэн", "Джеймс Клавелл", "Амфора", 2008, "Русский", 848, "978-5-367-00593-6");
+        Book mysteryIsland = new Book("Таинственный остров", "Жюль Верн", "Альфа-книга", 2020, "Русский", 640, "978-5-9922-1270-9");
+        Book travelToTheCenterOfEarth = new Book("Путешествие к центру Земли", "Жюль Верн", "Альфа-книга", 2021, "Русский", 237, "978-5-9922-2749-9");
+        Book treasureIsland = new Book("Остров сокровищ", "Роберт Льюис Стивенсон", "Махаон", 2023, "Русский", 240, "978-5-389-17055-1");
+        bookReader.addBook(shogun);
+        bookReader.addBook(taipan);
+        bookReader.addBook(mysteryIsland);
+        bookReader.addBook(travelToTheCenterOfEarth);
+        bookReader.addBook(treasureIsland);
+        bookReader.readBook(shogun);
+        bookReader.readBook(travelToTheCenterOfEarth);
+        List<String> expected = new ArrayList<>();
+        expected.add("Сёгун[Джеймс Клавелл]");
+        expected.add("Остров сокровищ[Роберт Льюис Стивенсон]");
+        List<String> current = bookReader.listOfUnreadBooks();
+        Collections.sort(expected);
+        Collections.sort(current);
+
+        printResult(!current.equals(expected), "listOfUnreadBooksFailed");
     }
 
 }

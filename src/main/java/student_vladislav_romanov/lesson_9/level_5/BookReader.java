@@ -20,4 +20,6 @@ interface BookReader {
 
     List<String> listOfReadBooks();
 
+    List<String> listOfUnreadBooks();
+
 }

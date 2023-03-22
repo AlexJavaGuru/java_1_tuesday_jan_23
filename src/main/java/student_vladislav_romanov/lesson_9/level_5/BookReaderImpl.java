@@ -94,4 +94,17 @@ class BookReaderImpl implements BookReader {
         return listOfReadBooks;
     }
 
+    @Override
+    public List<String> listOfUnreadBooks() {
+        List<String> listOfUnreadBooks = new ArrayList<>();
+
+        for (Book book : books) {
+            if (!book.isRead()) {
+                listOfUnreadBooks.add(book.getTitle() + "[" + book.getAuthor() + "]");
+            }
+        }
+
+        return listOfUnreadBooks;
+    }
+
 }
