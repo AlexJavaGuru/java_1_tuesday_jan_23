@@ -32,11 +32,24 @@ class BookReaderImpl implements BookReader {
     }
 
     @Override
-    public List<String> listOfBooks(String author) {
+    public List<String> listOfBooksByAuthor(String author) {
         List<String> listOfBooks = new ArrayList<>();
 
         for (Book book : books) {
-            if (book.author.contains(author)) {
+            if (book.author.toLowerCase().contains(author.toLowerCase())) {
+                listOfBooks.add(book.title + "[" + book.author + "]");
+            }
+        }
+
+        return listOfBooks;
+    }
+
+    @Override
+    public List<String> listOfBooksByTitle(String title) {
+        List<String> listOfBooks = new ArrayList<>();
+
+        for (Book book : books) {
+            if (book.title.toLowerCase().contains(title.toLowerCase())) {
                 listOfBooks.add(book.title + "[" + book.author + "]");
             }
         }

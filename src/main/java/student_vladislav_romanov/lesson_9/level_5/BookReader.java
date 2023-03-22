@@ -10,6 +10,8 @@ interface BookReader {
 
     List<String> listOfBooks();
 
-    List<String> listOfBooks(String author);
+    List<String> listOfBooksByAuthor(String author);
+
+    List<String> listOfBooksByTitle(String title);
 
 }

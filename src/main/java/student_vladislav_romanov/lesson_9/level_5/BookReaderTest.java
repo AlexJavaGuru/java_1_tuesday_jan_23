@@ -24,6 +24,10 @@ class BookReaderTest extends TestUtil {
         bookReaderTest.listOfBooksByAuthorFullNameFailed();
         bookReaderTest.listOfBooksByAuthorSucceed();
         bookReaderTest.listOfBooksByAuthorFailed();
+        bookReaderTest.listOfBooksByFullTitleSucceed();
+        bookReaderTest.listOfBooksByFullTitleFailed();
+        bookReaderTest.listOfBooksByHalfTitleSucceed();
+        bookReaderTest.listOfBooksByHalfTitleFailed();
         bookReaderTest.printStat();
     }
 
@@ -153,7 +157,7 @@ class BookReaderTest extends TestUtil {
         List<String> expected = new ArrayList<>();
         expected.add("Сёгун[Джеймс Клавелл]");
         expected.add("Тай-Пэн[Джеймс Клавелл]");
-        List<String> current = bookReader.listOfBooks("Джеймс Клавелл");
+        List<String> current = bookReader.listOfBooksByAuthor("Джеймс Клавелл");
         Collections.sort(expected);
         Collections.sort(current);
 
@@ -170,7 +174,7 @@ class BookReaderTest extends TestUtil {
         bookReader.addBook(falconGuard);
         List<String> expected = new ArrayList<>();
         expected.add("Сёгун[Джеймс Клавелл]");
-        List<String> current = bookReader.listOfBooks("Джеймс Клавелл");
+        List<String> current = bookReader.listOfBooksByAuthor("Джеймс Клавелл");
 
         printResult(!current.equals(expected), "listOfBooksByAuthorFullNameFailed");
     }
@@ -186,7 +190,7 @@ class BookReaderTest extends TestUtil {
         List<String> expected = new ArrayList<>();
         expected.add("Сёгун[Джеймс Клавелл]");
         expected.add("Тай-Пэн[Джеймс Клавелл]");
-        List<String> current = bookReader.listOfBooks("Клавелл");
+        List<String> current = bookReader.listOfBooksByAuthor("Клавелл");
         Collections.sort(expected);
         Collections.sort(current);
 
@@ -203,11 +207,77 @@ class BookReaderTest extends TestUtil {
         bookReader.addBook(falconGuard);
         List<String> expected = new ArrayList<>();
         expected.add("Сёгун[Джеймс Клавелл]");
-        List<String> current = bookReader.listOfBooks("Роберт");
+        List<String> current = bookReader.listOfBooksByAuthor("Роберт");
         Collections.sort(expected);
         Collections.sort(current);
 
         printResult(!current.equals(expected), "listOfBooksByAuthorFailed");
+    }
+
+    public void listOfBooksByFullTitleSucceed() {
+        BookReader bookReader = new BookReaderImpl();
+        Book mysteryIsland = new Book("Таинственный остров", "Жюль Верн", "Альфа-книга", 2020, "Русский", 640, "978-5-9922-1270-9");
+        Book travelToTheCenterOfEarth = new Book("Путешествие к центру Земли", "Жюль Верн", "Альфа-книга", 2021, "Русский", 237, "978-5-9922-2749-9");
+        Book treasureIsland = new Book("Остров сокровищ", "Роберт Льюис Стивенсон", "Махаон", 2023, "Русский", 240, "978-5-389-17055-1");
+        bookReader.addBook(mysteryIsland);
+        bookReader.addBook(travelToTheCenterOfEarth);
+        bookReader.addBook(treasureIsland);
+        List<String> expected = new ArrayList<>();
+        expected.add("Таинственный остров[Жюль Верн]");
+        List<String> current = bookReader.listOfBooksByTitle("Таинственный остров");
+
+        printResult(current.equals(expected), "listOfBooksByFullTitleSucceed");
+    }
+
+    public void listOfBooksByFullTitleFailed() {
+        BookReader bookReader = new BookReaderImpl();
+        Book mysteryIsland = new Book("Таинственный остров", "Жюль Верн", "Альфа-книга", 2020, "Русский", 640, "978-5-9922-1270-9");
+        Book travelToTheCenterOfEarth = new Book("Путешествие к центру Земли", "Жюль Верн", "Альфа-книга", 2021, "Русский", 237, "978-5-9922-2749-9");
+        Book treasureIsland = new Book("Остров сокровищ", "Роберт Льюис Стивенсон", "Махаон", 2023, "Русский", 240, "978-5-389-17055-1");
+        bookReader.addBook(mysteryIsland);
+        bookReader.addBook(travelToTheCenterOfEarth);
+        bookReader.addBook(treasureIsland);
+        List<String> expected = new ArrayList<>();
+        expected.add("Остров сокровищ[Роберт Льюис Стивенсон]");
+        List<String> current = bookReader.listOfBooksByTitle("Таинственный остров");
+
+        printResult(!current.equals(expected), "listOfBooksByFullTitleFailed");
+    }
+
+    public void listOfBooksByHalfTitleSucceed() {
+        BookReader bookReader = new BookReaderImpl();
+        Book mysteryIsland = new Book("Таинственный остров", "Жюль Верн", "Альфа-книга", 2020, "Русский", 640, "978-5-9922-1270-9");
+        Book travelToTheCenterOfEarth = new Book("Путешествие к центру Земли", "Жюль Верн", "Альфа-книга", 2021, "Русский", 237, "978-5-9922-2749-9");
+        Book treasureIsland = new Book("Остров сокровищ", "Роберт Льюис Стивенсон", "Махаон", 2023, "Русский", 240, "978-5-389-17055-1");
+        bookReader.addBook(mysteryIsland);
+        bookReader.addBook(travelToTheCenterOfEarth);
+        bookReader.addBook(treasureIsland);
+        List<String> expected = new ArrayList<>();
+        expected.add("Таинственный остров[Жюль Верн]");
+        expected.add("Остров сокровищ[Роберт Льюис Стивенсон]");
+        List<String> current = bookReader.listOfBooksByTitle("остров");
+        Collections.sort(expected);
+        Collections.sort(current);
+
+        printResult(current.equals(expected), "listOfBooksByHalfTitleSucceed");
+    }
+
+    public void listOfBooksByHalfTitleFailed() {
+        BookReader bookReader = new BookReaderImpl();
+        Book mysteryIsland = new Book("Таинственный остров", "Жюль Верн", "Альфа-книга", 2020, "Русский", 640, "978-5-9922-1270-9");
+        Book travelToTheCenterOfEarth = new Book("Путешествие к центру Земли", "Жюль Верн", "Альфа-книга", 2021, "Русский", 237, "978-5-9922-2749-9");
+        Book treasureIsland = new Book("Остров сокровищ", "Роберт Льюис Стивенсон", "Махаон", 2023, "Русский", 240, "978-5-389-17055-1");
+        bookReader.addBook(mysteryIsland);
+        bookReader.addBook(travelToTheCenterOfEarth);
+        bookReader.addBook(treasureIsland);
+        List<String> expected = new ArrayList<>();
+        expected.add("Таинственный остров[Жюль Верн]");
+        expected.add("Путешествие к центру Земли[Жюль Верн]");
+        List<String> current = bookReader.listOfBooksByTitle("остров");
+        Collections.sort(expected);
+        Collections.sort(current);
+
+        printResult(!current.equals(expected), "listOfBooksByHalfTitleFailed");
     }
 
 }
