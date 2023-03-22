@@ -11,6 +11,7 @@ class Book {
     String language;
     int paperback;
     String isbn;
+    boolean read;
 
     Book(String title, String author, String publisher, int publishingYear, String language, int paperback, String isbn) {
         this.title = title;
@@ -20,6 +21,11 @@ class Book {
         this.language = language;
         this.paperback = paperback;
         this.isbn = isbn;
+        this.read = false;
+    }
+
+    public void setRead() {
+        read = true;
     }
 
     @Override
@@ -45,6 +51,7 @@ class Book {
                 ", language='" + language + '\'' +
                 ", paperback=" + paperback +
                 ", isbn='" + isbn + '\'' +
+                ", read='" + read + '\'' +
                 '}';
     }
 

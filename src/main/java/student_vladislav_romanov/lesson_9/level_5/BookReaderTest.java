@@ -28,6 +28,8 @@ class BookReaderTest extends TestUtil {
         bookReaderTest.listOfBooksByFullTitleFailed();
         bookReaderTest.listOfBooksByHalfTitleSucceed();
         bookReaderTest.listOfBooksByHalfTitleFailed();
+        bookReaderTest.readBookSucceed();
+        bookReaderTest.readBookFailed();
         bookReaderTest.printStat();
     }
 
@@ -278,6 +280,26 @@ class BookReaderTest extends TestUtil {
         Collections.sort(current);
 
         printResult(!current.equals(expected), "listOfBooksByHalfTitleFailed");
+    }
+
+    public void readBookSucceed() {
+        BookReader bookReader = new BookReaderImpl();
+        Book mysteryIsland = new Book("Таинственный остров", "Жюль Верн", "Альфа-книга", 2020, "Русский", 640, "978-5-9922-1270-9");
+        bookReader.addBook(mysteryIsland);
+        boolean expected = true;
+        boolean current = bookReader.readBook(mysteryIsland);
+
+        printResult(current == expected, "readBookSucceed");
+    }
+
+    public void readBookFailed() {
+        BookReader bookReader = new BookReaderImpl();
+        Book mysteryIsland = new Book("Таинственный остров", "Жюль Верн", "Альфа-книга", 2020, "Русский", 640, "978-5-9922-1270-9");
+        bookReader.addBook(mysteryIsland);
+        boolean expected = false;
+        boolean current = bookReader.readBook(mysteryIsland);
+
+        printResult(current != expected, "readBookFailed");
     }
 
 }

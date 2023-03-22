@@ -14,4 +14,6 @@ interface BookReader {
 
     List<String> listOfBooksByTitle(String title);
 
+    boolean readBook(Book book);
+
 }
