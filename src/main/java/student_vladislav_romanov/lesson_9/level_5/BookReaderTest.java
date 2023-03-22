@@ -12,12 +12,14 @@ class BookReaderTest extends TestUtil {
         bookReaderTest.addBookWithoutAuthorTestFailed();
         bookReaderTest.addBookWithoutTitleTestSucceed();
         bookReaderTest.addBookWithoutTitleTestFailed();
+        bookReaderTest.removeBookTestSucceed();
+        bookReaderTest.removeBookTestFailed();
         bookReaderTest.printStat();
     }
 
     public void addBookTestSucceed() {
         BookReader bookReader = new BookReaderImpl();
-        Book shogun = new Book("Сёгун", "Клавелл", "Амфора", 2008, "Русский", 1207, 1258, 222, 152, "978-5-367-00360-4");
+        Book shogun = new Book("Сёгун", "Клавелл", "Амфора", 2008, "Русский", 1207, "978-5-367-00360-4");
 
         boolean expected = true;
         boolean current = bookReader.addBook(shogun);
@@ -27,7 +29,7 @@ class BookReaderTest extends TestUtil {
 
     public void addBookTestFailed() {
         BookReader bookReader = new BookReaderImpl();
-        Book shogun = new Book("Сёгун", "Клавелл", "Амфора", 2008, "Русский", 1207, 1258, 222, 152, "978-5-367-00360-4");
+        Book shogun = new Book("Сёгун", "Клавелл", "Амфора", 2008, "Русский", 1207, "978-5-367-00360-4");
 
         bookReader.addBook(shogun);
         boolean expected = false;
@@ -38,7 +40,7 @@ class BookReaderTest extends TestUtil {
 
     public void addBookWithoutAuthorTestSucceed() {
         BookReader bookReader = new BookReaderImpl();
-        Book shogun = new Book("Сёгун", "", "Амфора", 2008, "Русский", 1207, 1258, 222, 152, "978-5-367-00360-4");
+        Book shogun = new Book("Сёгун", "", "Амфора", 2008, "Русский", 1207, "978-5-367-00360-4");
 
         boolean expected = false;
         boolean current = bookReader.addBook(shogun);
@@ -48,7 +50,7 @@ class BookReaderTest extends TestUtil {
 
     public void addBookWithoutAuthorTestFailed() {
         BookReader bookReader = new BookReaderImpl();
-        Book shogun = new Book("Сёгун", "", "Амфора", 2008, "Русский", 1207, 1258, 222, 152, "978-5-367-00360-4");
+        Book shogun = new Book("Сёгун", "", "Амфора", 2008, "Русский", 1207, "978-5-367-00360-4");
 
         boolean expected = true;
         boolean current = bookReader.addBook(shogun);
@@ -58,7 +60,7 @@ class BookReaderTest extends TestUtil {
 
     public void addBookWithoutTitleTestSucceed() {
         BookReader bookReader = new BookReaderImpl();
-        Book shogun = new Book("", "Клавелл", "Амфора", 2008, "Русский", 1207, 1258, 222, 152, "978-5-367-00360-4");
+        Book shogun = new Book("", "Клавелл", "Амфора", 2008, "Русский", 1207, "978-5-367-00360-4");
 
         boolean expected = false;
         boolean current = bookReader.addBook(shogun);
@@ -68,12 +70,35 @@ class BookReaderTest extends TestUtil {
 
     public void addBookWithoutTitleTestFailed() {
         BookReader bookReader = new BookReaderImpl();
-        Book shogun = new Book("", "Клавелл", "Амфора", 2008, "Русский", 1207, 1258, 222, 152, "978-5-367-00360-4");
+        Book shogun = new Book("", "Клавелл", "Амфора", 2008, "Русский", 1207, "978-5-367-00360-4");
 
         boolean expected = true;
         boolean current = bookReader.addBook(shogun);
 
         printResult(current != expected, "addBookWithoutTitleTestFailed");
+    }
+
+    public void removeBookTestSucceed() {
+        BookReader bookReader = new BookReaderImpl();
+        Book shogun = new Book("Сёгун", "Клавелл", "Амфора", 2008, "Русский", 1207, "978-5-367-00360-4");
+
+        bookReader.addBook(shogun);
+        boolean expected = true;
+        boolean current = bookReader.removeBook(shogun);
+
+        printResult(current == expected, "removeBookTestSucceed");
+    }
+
+    public void removeBookTestFailed() {
+        BookReader bookReader = new BookReaderImpl();
+        Book shogun = new Book("Сёгун", "Клавелл", "Амфора", 2008, "Русский", 1207, "978-5-367-00360-4");
+        Book taipan = new Book("Тай-Пэн", "Клавелл", "Амфора", 2008, "Русский", 848, "978-5-367-00593-6");
+
+        bookReader.addBook(taipan);
+        boolean expected = false;
+        boolean current = bookReader.removeBook(shogun);
+
+        printResult(current == expected, "removeBookTestFailed");
     }
 
 }

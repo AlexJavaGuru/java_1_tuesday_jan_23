@@ -15,4 +15,9 @@ class BookReaderImpl implements BookReader {
         return false;
     }
 
+    @Override
+    public boolean removeBook(Book book) {
+        return books.remove(book);
+    }
+
 }
