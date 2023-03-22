@@ -68,4 +68,17 @@ class BookReaderImpl implements BookReader {
         return false;
     }
 
+    @Override
+    public boolean unreadBook(Book book) {
+        if (books.contains(book)) {
+            if (book.read) {
+                books.remove(book);
+                book.unsetRead();
+                books.add(book);
+            }
+            return true;
+        }
+        return false;
+    }
+
 }

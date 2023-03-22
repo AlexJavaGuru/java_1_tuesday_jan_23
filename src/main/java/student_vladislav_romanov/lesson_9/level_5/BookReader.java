@@ -16,4 +16,6 @@ interface BookReader {
 
     boolean readBook(Book book);
 
+    boolean unreadBook(Book book);
+
 }

@@ -24,8 +24,12 @@ class Book {
         this.read = false;
     }
 
-    public void setRead() {
+    void setRead() {
         read = true;
+    }
+
+    void unsetRead() {
+        read = false;
     }
 
     @Override
