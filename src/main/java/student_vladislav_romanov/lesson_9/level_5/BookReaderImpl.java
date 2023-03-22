@@ -9,7 +9,10 @@ class BookReaderImpl implements BookReader {
 
     @Override
     public boolean addBook(Book book) {
-        return books.add(book);
+        if (book.title.length() > 0 && book.author.length() > 0) {
+            return books.add(book);
+        }
+        return false;
     }
 
 }
