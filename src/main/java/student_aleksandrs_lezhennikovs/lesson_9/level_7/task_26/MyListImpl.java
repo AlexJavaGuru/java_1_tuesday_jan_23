@@ -1,21 +1,27 @@
 package student_aleksandrs_lezhennikovs.lesson_9.level_7.task_26;
 
 import java.util.Arrays;
-import java.util.Optional;
 
 class MyListImpl implements MyList {
     private long orderId = 10L;
     private Orders[] ordersRepository;
 
-    public MyListImpl(Orders[] ordersRepository) {
-        this.ordersRepository = ordersRepository;
+    public Orders[] getOrdersRepo() {
+        return ordersRepository;
     }
 
     @Override
     public void add(Orders order) {
-        extendOrdersRepository();
-        incrementId(order);
-        ordersRepository[ordersRepository.length - 1] = order;
+        if (isNullRepository(ordersRepository)) {
+            ordersRepository = new Orders[1];
+            incrementId(order);
+            ordersRepository[0] = order;
+        } else {
+            extendOrdersRepository();
+            incrementId(order);
+            ordersRepository[ordersRepository.length - 1] = order;
+        }
+
     }
 
     @Override
@@ -78,6 +84,10 @@ class MyListImpl implements MyList {
             newStorage[i] = ordersRepository[i];
         }
         ordersRepository = newStorage;
+    }
+
+    private boolean isNullRepository(Orders[] ordersRepository) {
+        return this.ordersRepository == null;
     }
 
 }

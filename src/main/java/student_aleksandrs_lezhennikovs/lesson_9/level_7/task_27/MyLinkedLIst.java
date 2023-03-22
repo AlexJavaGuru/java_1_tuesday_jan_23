@@ -10,6 +10,6 @@ interface MyLinkedLIst {
     void deleteByTitle(String title);
     void sortByTitle();
     LinkedList<Orders> printAll();
-    Orders searchByTitle(String title);
+    Optional<Orders> searchByTitle(String title);
 
 }

@@ -22,6 +22,18 @@ public class BookEntity {
         this.author = author;
     }
 
+    public BookEntity(String title, String author, boolean isRead) {
+        this.title = title;
+        this.author = author;
+        this.isRead = isRead;
+    }
+
+    public BookEntity(long bookId, String title, String author) {
+        this.bookId = bookId;
+        this.title = title;
+        this.author = author;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

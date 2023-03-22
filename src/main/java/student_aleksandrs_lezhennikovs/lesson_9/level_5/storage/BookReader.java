@@ -11,7 +11,7 @@ public interface BookReader {
 
     boolean notExistBook(BookEntity book);
 
-    boolean notNulls(BookEntity book);
+    boolean notNullsTitleAuthor(BookEntity book);
 
     List<BookEntity> getAll();
     List<BookEntity> searchByAuthor(String author);

@@ -20,8 +20,10 @@ class MyListBasedOnLinkedLinkedLIst implements MyLinkedLIst {
 
     @Override
     public void deleteByTitle(String title) {
-            Orders order = searchByTitleOpt(title).get();
-            storage.remove(order);
+       Optional<Orders> orderOpt = searchByTitle(title);
+      if (orderOpt.isPresent()) {
+          storage.remove(orderOpt.get());
+      }
     }
 
     public void sortByTitle() {
@@ -39,19 +41,16 @@ class MyListBasedOnLinkedLinkedLIst implements MyLinkedLIst {
     }
 
     @Override
-    public Orders searchByTitle(String title) {
-        return searchByTitleOpt(title).get();
+    public Optional<Orders> searchByTitle(String title) {
+        return Optional.ofNullable(searchTitle(title));
     }
 
-    private Optional<Orders> searchByTitleOpt(String title) {
+    private Orders searchTitle(String title) {
         for (Orders order : storage) {
-            Optional<Orders> optOrder = Optional.ofNullable(order);
-            if (optOrder.isPresent()) {
-                if (optOrder.get().getTitle().equals(title)) {
-                    return optOrder;
-                }
+            if (title.equals(order.getTitle())) {
+                return order;
             }
         }
-        return Optional.empty();
+        return null;
     }
 }

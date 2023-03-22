@@ -1,7 +1,6 @@
 package student_aleksandrs_lezhennikovs.lesson_9.level_5.storage;
 
 import student_aleksandrs_lezhennikovs.lesson_9.level_5.domain.BookEntity;
-import student_aleksandrs_lezhennikovs.lesson_9.level_5.storage.BookReader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +24,7 @@ public class BookReaderImpl implements BookReader {
     }
 
     @Override
-    public boolean notNulls(BookEntity checkBook) {
+    public boolean notNullsTitleAuthor(BookEntity checkBook) {
         return checkBook.getAuthor() != null && checkBook.getTitle() != null &&
                 !checkBook.getAuthor().isBlank() && !checkBook.getTitle().isBlank();
     }
@@ -143,6 +142,10 @@ public class BookReaderImpl implements BookReader {
         return resultOfSearch;
     }
 
+    public boolean notNullBook(BookEntity checkBook) {
+        return checkBook != null;
+    }
+
     private boolean checkPartOfWord(String checkWord, String partOfWord) {
         boolean isIndexZero = checkWord.indexOf(partOfWord) == 0;
         boolean check = checkWord.contains(partOfWord);
@@ -151,6 +154,12 @@ public class BookReaderImpl implements BookReader {
 
 
     private boolean allChecks(BookEntity book) {
-        return (isEmptyBookDatabase(bookDatabase) || notExistBook(book)) && notNulls(book);
+        if (notNullBook(book)) {
+            return notNullsTitleAuthor(book) && (isEmptyBookDatabase(bookDatabase) || notExistBook(book));
+        }
+        return false;
+
     }
+
+
 }

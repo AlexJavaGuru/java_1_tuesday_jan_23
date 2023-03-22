@@ -16,6 +16,6 @@ public class AddService {
     }
 
     public boolean checkBookBeforeAdd(BookEntity book) {
-        return bookReader.notNulls(book);
+        return bookReader.notNullsTitleAuthor(book);
     }
 }

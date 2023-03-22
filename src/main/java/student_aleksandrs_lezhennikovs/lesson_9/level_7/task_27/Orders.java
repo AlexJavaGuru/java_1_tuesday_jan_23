@@ -71,11 +71,11 @@ class Orders {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Orders orders)) return false;
-        return orderId == orders.orderId && Double.compare(orders.volume, volume) == 0 && Double.compare(orders.weight, weight) == 0 && title.equals(orders.title) && flow == orders.flow;
+        return Double.compare(orders.volume, volume) == 0 && Double.compare(orders.weight, weight) == 0 && title.equals(orders.title) && flow == orders.flow;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId, title, flow, volume, weight);
+        return Objects.hash(title, flow, volume, weight);
     }
 }
