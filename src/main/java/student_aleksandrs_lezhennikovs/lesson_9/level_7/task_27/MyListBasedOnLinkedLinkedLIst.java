@@ -16,10 +16,8 @@ class MyListBasedOnLinkedLinkedLIst implements MyLinkedLIst {
 
     @Override
     public void deleteByTitle(String title) {
-            //Orders order = searchByTitle(title);
-            //storage.remove(order);
-            //storage.remove(order.getTitle().equals(title));
-
+            Orders order = searchByTitleOpt(title).get();
+            storage.remove(order);
     }
 
     public void sortByTitle() {
@@ -37,7 +35,11 @@ class MyListBasedOnLinkedLinkedLIst implements MyLinkedLIst {
     }
 
     @Override
-    public Optional<Orders> searchByTitle(String title) {
+    public Orders searchByTitle(String title) {
+        return searchByTitleOpt(title).get();
+    }
+
+    private Optional<Orders> searchByTitleOpt(String title) {
         for (Orders order : storage) {
             Optional<Orders> optOrder = Optional.ofNullable(order);
             if (optOrder.isPresent()) {
@@ -47,12 +49,5 @@ class MyListBasedOnLinkedLinkedLIst implements MyLinkedLIst {
             }
         }
         return Optional.empty();
-    }
-
-    @Override
-    public String toString() {
-        return "MyListBasedOnLinkedLinkedLIst{" +
-                "storage=" + storage +
-                '}';
     }
 }

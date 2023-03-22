@@ -11,10 +11,13 @@ class MyLinkedListDemo {
         myLinkedLIst.add(firstOrder);
         myLinkedLIst.add(secondOrder);
         myLinkedLIst.add(thirdOrder);
-        System.out.println(myLinkedLIst);
+        System.out.println("Print all storage: \n" + myLinkedLIst.printAll());
         myLinkedLIst.sortByTitle();
-        System.out.println(myLinkedLIst);
+        System.out.println("Print after sort: \n" + myLinkedLIst.printAll());
         myLinkedLIst.deleteByTitle("Apple");
-        System.out.println(myLinkedLIst);
+        System.out.println("Print after delete: \n" + myLinkedLIst.printAll());
+        String find = "Milk package";
+        System.out.println("Print search result: " + find + "\n" + myLinkedLIst.searchByTitle(find));
+        System.out.println("Print all storage: \n" + myLinkedLIst.printAll());
     }
 }
