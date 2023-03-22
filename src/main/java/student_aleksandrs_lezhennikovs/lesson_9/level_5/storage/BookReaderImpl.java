@@ -27,7 +27,6 @@ public class BookReaderImpl implements BookReader {
     @Override
     public boolean notNulls(BookEntity checkBook) {
         return checkBook.getAuthor() != null && checkBook.getTitle() != null &&
-                !checkBook.getAuthor().isEmpty() && !checkBook.getTitle().isEmpty() &&
                 !checkBook.getAuthor().isBlank() && !checkBook.getTitle().isBlank();
     }
 
