@@ -1,7 +1,6 @@
 package student_vladislav_romanov.lesson_9.level_5;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 class BookReaderImpl implements BookReader {
 
@@ -12,6 +11,7 @@ class BookReaderImpl implements BookReader {
         if (book.title.length() > 0 && book.author.length() > 0) {
             return books.add(book);
         }
+
         return false;
     }
 
@@ -21,13 +21,26 @@ class BookReaderImpl implements BookReader {
     }
 
     @Override
-    public String[] listOfBooks() {
-        String[] listOfBooks = new String[books.size()];
-        int i = 0;
+    public List<String> listOfBooks() {
+        List<String> listOfBooks = new ArrayList<>();
+
         for (Book book : books) {
-            listOfBooks[i] = book.title + "[" + book.author + "]";
-            i++;
+            listOfBooks.add(book.title + "[" + book.author + "]");
         }
+
+        return listOfBooks;
+    }
+
+    @Override
+    public List<String> listOfBooks(String author) {
+        List<String> listOfBooks = new ArrayList<>();
+
+        for (Book book : books) {
+            if (Objects.equals(book.author, author)) {
+                listOfBooks.add(book.title + "[" + book.author + "]");
+            }
+        }
+
         return listOfBooks;
     }
 
