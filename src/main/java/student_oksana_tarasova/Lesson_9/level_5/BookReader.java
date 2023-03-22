@@ -12,5 +12,9 @@ public interface BookReader {
 
     String findAuthorByFirstLetter(String firstLetterName);
 
-    String findBooksByTitle (String titleBook);
+    String findBooksByTitle(String titleBook);
+
+    boolean markABookAsRead(Book book);
+
+    boolean markABookAsUnread(Book book);
 }

@@ -6,9 +6,11 @@ class BookReaderImpl implements BookReader {
 
     private Book[] books;
 
+
     public BookReaderImpl(Book[] books) {
         this.books = books;
     }
+
 
     public Book[] getBooks() {
         return books;
@@ -18,7 +20,7 @@ class BookReaderImpl implements BookReader {
     public boolean add(Book book) {
         int j = 0;
         for (int i = 0; i < books.length; i++) {
-            if (!findingACopyOfABook(book) || !titleAndAuthorOfTheBook(book)) {
+            if (copyOfABook(book) || !titleAndAuthorOfTheBook(book)) {
                 return false;
             } else if (books[i] == null) {
                 books[i] = book;
@@ -32,12 +34,10 @@ class BookReaderImpl implements BookReader {
 
     @Override
     public boolean delete(Book book) {
-        if (!findingACopyOfABook(book)) {
-            for (int i = 0; i < books.length; i++) {
-                if (books[i].equals(book)) {
-                    books[i] = null;
-                    return true;
-                }
+        for (int i = 0; i < books.length; i++) {
+            if (findingACopyOfABook(books[i], book)) {
+                books[i] = null;
+                return true;
             }
         }
         return false;
@@ -68,7 +68,7 @@ class BookReaderImpl implements BookReader {
     public String findAuthorByFirstLetter(String firstLetterName) {
         String list = "";
         for (int i = 0; i < books.length; i++) {
-            if (findMatchingLetters(books[i], firstLetterName)) {
+            if (findMatchingLettersSurname(books[i], firstLetterName) || findMatchingLettersName(books[i], firstLetterName)) {
                 list += books[i].getTitle() + " [" + books[i].getSurnameAuthor() + "]\n";
             }
         }
@@ -81,6 +81,48 @@ class BookReaderImpl implements BookReader {
         String list = "";
         for (int i = 0; i < books.length; i++) {
             if (findACopyOfABookByTitle(books[i], titleBook) || findTitleByFragment(books[i], titleBook)) {
+                list += books[i].getTitle() + " [" + books[i].getSurnameAuthor() + "]\n";
+            }
+        }
+        return list;
+    }
+
+    @Override
+    public boolean markABookAsRead(Book book) {
+        for (Book copyOfTheBook : books) {
+            if (book.equals(copyOfTheBook)) {
+                copyOfTheBook.setStateBook(StateBook.STATE1);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean markABookAsUnread(Book book) {
+        for (Book copyOfTheBook : books) {
+            if (book.equals(copyOfTheBook)) {
+                copyOfTheBook.setStateBook(StateBook.STATE2);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public String printBookAsRead (StateBook stateBook) {
+        String list = "";
+        for (int i = 0; i < books.length; i++) {
+            if (stateBook.equals(books[i].getStateBook())) {
+                list += books[i].getTitle() + " [" + books[i].getSurnameAuthor() + "]\n";
+            }
+        }
+        return list;
+    }
+
+    public String printBookAsUnread (StateBook stateBook) {
+        String list = "";
+        for (int i = 0; i < books.length; i++) {
+            if (stateBook.equals(books[i].getStateBook())) {
                 list += books[i].getTitle() + " [" + books[i].getSurnameAuthor() + "]\n";
             }
         }
@@ -105,13 +147,26 @@ class BookReaderImpl implements BookReader {
         return false;
     }
 
-    private boolean findMatchingLetters(Book book, String firstLetterName) {
-        if (book.getSurnameAuthor().regionMatches(true, 0, firstLetterName, 0, 3) ||
-                book.getNameAuthor().regionMatches(true, 0, firstLetterName, 0, 3)) {
-            return true;
+    private boolean findMatchingLettersSurname(Book book, String firstLetterName) {
+        String[] bookAuthor = book.getSurnameAuthor().split("");
+        String[] userBookAuthor = firstLetterName.split("");
+        for (int i = 0; i < userBookAuthor.length; i++) {
+            if (!bookAuthor[i].equalsIgnoreCase(userBookAuthor[i])) {
+                return false;
+            }
         }
+        return true;
+    }
 
-        return false;
+    private boolean findMatchingLettersName(Book book, String firstLetterName) {
+        String[] bookAuthor = book.getNameAuthor().split("");
+        String[] userBookAuthor = firstLetterName.split("");
+        for (int i = 0; i < userBookAuthor.length; i++) {
+            if (!bookAuthor[i].equalsIgnoreCase(userBookAuthor[i])) {
+                return false;
+            }
+        }
+        return true;
     }
 
 
@@ -123,14 +178,22 @@ class BookReaderImpl implements BookReader {
         return books = books1;
     }
 
-    private boolean findingACopyOfABook(Book book) {
+    private boolean findingACopyOfABook(Book book, Book userBook) {
+        if (book.equals(userBook)) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean copyOfABook(Book book) {
         for (Book copyOfTheBook : books) {
             if (book.equals(copyOfTheBook)) {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
+
 
     private boolean titleAndAuthorOfTheBook(Book book) {
         if (book.getTitle() == null
@@ -149,7 +212,6 @@ class BookReaderImpl implements BookReader {
         return Arrays.equals(books, that.books);
     }
 
-
     @Override
     public String toString() {
         return "BookReaderImpl{" +
@@ -157,4 +219,3 @@ class BookReaderImpl implements BookReader {
                 '}';
     }
 }
-
