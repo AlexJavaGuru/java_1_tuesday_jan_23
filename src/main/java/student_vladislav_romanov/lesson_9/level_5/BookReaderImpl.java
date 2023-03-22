@@ -36,7 +36,7 @@ class BookReaderImpl implements BookReader {
         List<String> listOfBooks = new ArrayList<>();
 
         for (Book book : books) {
-            if (Objects.equals(book.author, author)) {
+            if (book.author.contains(author)) {
                 listOfBooks.add(book.title + "[" + book.author + "]");
             }
         }

@@ -20,6 +20,8 @@ class BookReaderTest extends TestUtil {
         bookReaderTest.removeBookTestFailed();
         bookReaderTest.listOfBooksSucceed();
         bookReaderTest.listOfBooksFailed();
+        bookReaderTest.listOfBooksByAuthorFullNameSucceed();
+        bookReaderTest.listOfBooksByAuthorFullNameFailed();
         bookReaderTest.listOfBooksByAuthorSucceed();
         bookReaderTest.listOfBooksByAuthorFailed();
         bookReaderTest.printStat();
@@ -140,7 +142,7 @@ class BookReaderTest extends TestUtil {
         printResult(!current.equals(expected), "listOfBooksFailed");
     }
 
-    public void listOfBooksByAuthorSucceed() {
+    public void listOfBooksByAuthorFullNameSucceed() {
         BookReader bookReader = new BookReaderImpl();
         Book shogun = new Book("Сёгун", "Джеймс Клавелл", "Амфора", 2008, "Русский", 1207, "978-5-367-00360-4");
         Book taipan = new Book("Тай-Пэн", "Джеймс Клавелл", "Амфора", 2008, "Русский", 848, "978-5-367-00593-6");
@@ -152,6 +154,39 @@ class BookReaderTest extends TestUtil {
         expected.add("Сёгун[Джеймс Клавелл]");
         expected.add("Тай-Пэн[Джеймс Клавелл]");
         List<String> current = bookReader.listOfBooks("Джеймс Клавелл");
+        Collections.sort(expected);
+        Collections.sort(current);
+
+        printResult(current.equals(expected), "listOfBooksByAuthorFullNameSucceed");
+    }
+
+    public void listOfBooksByAuthorFullNameFailed() {
+        BookReader bookReader = new BookReaderImpl();
+        Book shogun = new Book("Сёгун", "Джеймс Клавелл", "Амфора", 2008, "Русский", 1207, "978-5-367-00360-4");
+        Book taipan = new Book("Тай-Пэн", "Джеймс Клавелл", "Амфора", 2008, "Русский", 848, "978-5-367-00593-6");
+        Book falconGuard = new Book("Соколиная стража", "Роберт Торстон", "Армада", 1995, "Русский", 363, "5-87994-125-6");
+        bookReader.addBook(shogun);
+        bookReader.addBook(taipan);
+        bookReader.addBook(falconGuard);
+        List<String> expected = new ArrayList<>();
+        expected.add("Сёгун[Джеймс Клавелл]");
+        List<String> current = bookReader.listOfBooks("Джеймс Клавелл");
+
+        printResult(!current.equals(expected), "listOfBooksByAuthorFullNameFailed");
+    }
+
+    public void listOfBooksByAuthorSucceed() {
+        BookReader bookReader = new BookReaderImpl();
+        Book shogun = new Book("Сёгун", "Джеймс Клавелл", "Амфора", 2008, "Русский", 1207, "978-5-367-00360-4");
+        Book taipan = new Book("Тай-Пэн", "Джеймс Клавелл", "Амфора", 2008, "Русский", 848, "978-5-367-00593-6");
+        Book falconGuard = new Book("Соколиная стража", "Роберт Торстон", "Армада", 1995, "Русский", 363, "5-87994-125-6");
+        bookReader.addBook(shogun);
+        bookReader.addBook(taipan);
+        bookReader.addBook(falconGuard);
+        List<String> expected = new ArrayList<>();
+        expected.add("Сёгун[Джеймс Клавелл]");
+        expected.add("Тай-Пэн[Джеймс Клавелл]");
+        List<String> current = bookReader.listOfBooks("Клавелл");
         Collections.sort(expected);
         Collections.sort(current);
 
@@ -168,7 +203,9 @@ class BookReaderTest extends TestUtil {
         bookReader.addBook(falconGuard);
         List<String> expected = new ArrayList<>();
         expected.add("Сёгун[Джеймс Клавелл]");
-        List<String> current = bookReader.listOfBooks("Джеймс Клавелл");
+        List<String> current = bookReader.listOfBooks("Роберт");
+        Collections.sort(expected);
+        Collections.sort(current);
 
         printResult(!current.equals(expected), "listOfBooksByAuthorFailed");
     }
