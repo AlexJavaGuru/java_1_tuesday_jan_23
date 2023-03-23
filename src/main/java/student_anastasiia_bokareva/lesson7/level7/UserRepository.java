@@ -23,5 +23,8 @@ public class UserRepository {
         }
         return null;
     }
+    UserEntity[] getAllUsers(){
+        return users;
+    }
 
 }
