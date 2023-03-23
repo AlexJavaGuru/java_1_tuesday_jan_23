@@ -7,8 +7,8 @@ class Person extends Object {
     String nationality;
     String profession;
 
-    public Person(int age, double height, boolean hunger, double maxSpeed, String name, String surname, String address, String nationality, String profession) {
-        super(age, height, hunger, maxSpeed);
+    public Person(int age, double height, boolean hunger, String name, String surname, String address, String nationality, String profession) {
+        super(age, height, hunger);
         this.name = name;
         this.surname = surname;
         this.address = address;

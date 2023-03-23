@@ -4,13 +4,13 @@ class Object {
    int age;
    double height;
    boolean hunger;
-   double maxSpeed;
 
-   public Object(int age, double height, boolean hunger, double maxSpeed) {
+
+   public Object(int age, double height, boolean hunger) {
       this.age = age;
       this.height = height;
       this.hunger = hunger;
-      this.maxSpeed = maxSpeed;
+
    }
 
    public int getAge() {
@@ -25,10 +25,6 @@ class Object {
       return hunger;
    }
 
-   public double getMaxSpeed() {
-      return maxSpeed;
-   }
-
    public void setAge(int age) {
       this.age = age;
    }
@@ -41,10 +37,6 @@ class Object {
       this.hunger = hunger;
    }
 
-   public void setMaxSpeed(double maxSpeed) {
-      this.maxSpeed = maxSpeed;
-   }
-
    public void age() {
       this.age++;
    }
@@ -55,7 +47,6 @@ class Object {
               "age=" + age +
               ", height=" + height +
               ", hunger=" + hunger +
-              ", maxSpeed=" + maxSpeed +
               '}';
    }
 }
