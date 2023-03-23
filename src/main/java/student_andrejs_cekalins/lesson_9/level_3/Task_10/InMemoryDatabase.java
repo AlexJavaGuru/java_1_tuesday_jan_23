@@ -1,11 +1,12 @@
-package student_andrejs_cekalins.lesson_9.level_3.Task_8;
+package student_andrejs_cekalins.lesson_9.level_3.Task_10;
 
 import java.util.Objects;
+import java.util.Optional;
 
-class InMemoryDatabase implements ProductDatabase {
+class InMemoryDatabase implements ProductDatabase{
+
     private Product[] products;
     InMemoryDatabase(Product[] productsArray) {this.products = productsArray;}
-
 
     @Override
     public void save(Product product) {
@@ -16,15 +17,14 @@ class InMemoryDatabase implements ProductDatabase {
     }
 
     @Override
-    public Product findByTitle(String productTitle) {
+    public Optional<Product> findByTitle(String productTitle) {
         for (Product product : products) {
             if (Objects.equals(productTitle, product.getTitle())) {
-                return product;
+                return Optional.of(product);
             }
         }
-        return null;
+        return Optional.empty();
     }
-
     private int getIndexOfEmptyElement(Product[] products) {
         for (int i = 0; i < products.length; i++) {
             if(products[i]==null) {

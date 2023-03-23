@@ -5,6 +5,7 @@ class DayOfTheWeekDetectorTest {
         DayOfTheWeekDetectorTest test = new DayOfTheWeekDetectorTest();
         test.DayOfTheWeekDetectorIfVersion();
         test.DayOfTheWeekDetectorSwitchVersion();
+        test.DayOfTheWeekDetectorArrayVersion();
     }
 
     public void DayOfTheWeekDetectorIfVersion() {
@@ -18,6 +19,12 @@ class DayOfTheWeekDetectorTest {
         String expectedResult = "Tuesday";
         String realResult = dayOfTheWeekDetector.detectDayName(2);
         checkResult(expectedResult.equals(realResult), "DayOfTheWeekDetectorSwitchVersion test");
+    }
+    public void DayOfTheWeekDetectorArrayVersion() {
+        DayOfTheWeekDetector dayOfTheWeekDetector = new DayOfTheWeekDetectorArrayVersion();
+        String expectedResult = "Tuesday";
+        String realResult = dayOfTheWeekDetector.detectDayName(1);
+        checkResult(expectedResult.equals(realResult), "DayOfTheWeekDetectorArrayVersion test");
     }
 
     private void checkResult(boolean condition, String testName) {
