@@ -24,16 +24,16 @@ class BookReaderImpl implements BookReader {
 
     @Override
     public boolean delete(Book book) {
-        if (!equalBooks(book)) {
-            for (int i = 0; i < books.length; i++) {
-                if (books[i].equals(book)) {
-                    books[i] = null;
-                    return true;
-                }
+        for (int i = 0; i < books.length; i++) {
+            if (equalBooks(books[i])) {
+                books[i] = null;
+                return true;
             }
         }
         return false;
     }
+
+
     private boolean equalBooks(Book book) {
         for (Book newBook : books) {
             if (book.equals(newBook))
@@ -41,15 +41,13 @@ class BookReaderImpl implements BookReader {
         }
         return true;
     }
+
     private boolean bookNameOrAuthorEntered(Book book) {
-        if (book.getBookName() ==null || book.getAuthor()==null) {
+        if (book.getBookName() == null || book.getAuthor() == null) {
             return false;
         }
         return true;
     }
-
-
-
 
 
     private int getIndexOfEmptyElement(Book[] books) {
