@@ -138,6 +138,18 @@ class BookDatabaseImpl implements BookDatabase {
     }
 
     @Override
+    public boolean contains(Book requestedBook) {
+        for (Book book : books) {
+            if (book.getTitle().equals(requestedBook.getTitle()) &&
+                    book.getAuthor().equals(requestedBook.getAuthor()) &&
+                    book.getYearOfIssue().equals(requestedBook.getYearOfIssue())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
     public String toString() {
         return "BookDatabaseImpl{" +
                 "books=" + books +

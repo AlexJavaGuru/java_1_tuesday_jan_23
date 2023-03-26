@@ -54,6 +54,8 @@ class BookDatabaseTest extends TestUtil {
         bookDatabaseTest.findUniqueTitlesTestFailed();
         bookDatabaseTest.findUniqueBooksTestSucceed();
         bookDatabaseTest.findUniqueBooksTestFailed();
+        bookDatabaseTest.containsTestSucceed();
+        bookDatabaseTest.containsTestFailed();
         bookDatabaseTest.printStat();
     }
 
@@ -759,6 +761,38 @@ class BookDatabaseTest extends TestUtil {
         Set<Book> current = bookDatabase.findUniqueBooks();
 
         printResult(!current.containsAll(expected), "findUniqueBooksTestFailed");
+    }
+
+    public void containsTestSucceed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book shogun = new Book("Джеймс Клавелл", "Сёгун", "2020");
+        Book taipan = new Book("Джеймс Клавелл", "Тай-Пэн", "2020");
+        Book falconGuard = new Book("Роберт Торстон", "Соколиная стража");
+
+        bookDatabase.save(shogun);
+        bookDatabase.save(taipan);
+        bookDatabase.save(falconGuard);
+
+        boolean expected = true;
+        boolean current = bookDatabase.contains(new Book("Джеймс Клавелл", "Тай-Пэн", "2020"));
+
+        printResult(current == expected, "containsTestSucceed");
+    }
+
+    public void containsTestFailed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book shogun = new Book("Джеймс Клавелл", "Сёгун", "2020");
+        Book taipan = new Book("Джеймс Клавелл", "Тай-Пэн", "2020");
+        Book falconGuard = new Book("Роберт Торстон", "Соколиная стража");
+
+        bookDatabase.save(shogun);
+        bookDatabase.save(taipan);
+        bookDatabase.save(falconGuard);
+
+        boolean expected = false;
+        boolean current = bookDatabase.contains(new Book("Жюль Верн", "Путешествие к центру Земли", "2023"));
+
+        printResult(current == expected, "containsTestFailed");
     }
 
 }
