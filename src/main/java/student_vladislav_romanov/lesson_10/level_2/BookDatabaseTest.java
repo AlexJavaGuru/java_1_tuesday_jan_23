@@ -24,6 +24,10 @@ class BookDatabaseTest extends TestUtil {
         bookDatabaseTest.findByTitleTestFailed();
         bookDatabaseTest.countAllBooksTestSucceed();
         bookDatabaseTest.countAllBooksTestFailed();
+        bookDatabaseTest.deleteByAuthorSucceed();
+        bookDatabaseTest.deleteByAuthorFailed();
+        bookDatabaseTest.deleteByTitleSucceed();
+        bookDatabaseTest.deleteByTitleFailed();
         bookDatabaseTest.printStat();
     }
 
@@ -220,6 +224,84 @@ class BookDatabaseTest extends TestUtil {
         int current = bookDatabase.countAllBooks();
 
         printResult(current != expected, "countAllBooksTestFailed");
+    }
+
+    public void deleteByAuthorSucceed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book shogun = new Book("Джеймс Клавелл", "Сёгун");
+        Book taipan = new Book("Джеймс Клавелл", "Тай-Пэн");
+        Book falconGuard = new Book("Роберт Торстон", "Соколиная стража");
+
+        bookDatabase.save(shogun);
+        bookDatabase.save(taipan);
+        bookDatabase.save(falconGuard);
+        bookDatabase.deleteByAuthor("торстон");
+
+        BookDatabase expected = new BookDatabaseImpl();
+        expected.save(shogun);
+        expected.save(taipan);
+
+        BookDatabase current = bookDatabase;
+
+        printResult(current.equals(expected), "findByAuthorTestSucceed");
+    }
+
+    public void deleteByAuthorFailed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book shogun = new Book("Джеймс Клавелл", "Сёгун");
+        Book taipan = new Book("Джеймс Клавелл", "Тай-Пэн");
+        Book falconGuard = new Book("Роберт Торстон", "Соколиная стража");
+
+        bookDatabase.save(shogun);
+        bookDatabase.save(taipan);
+        bookDatabase.save(falconGuard);
+        bookDatabase.deleteByAuthor("торстон");
+
+        BookDatabase expected = new BookDatabaseImpl();
+        expected.save(shogun);
+
+        BookDatabase current = bookDatabase;
+
+        printResult(!current.equals(expected), "findByAuthorTestFailed");
+    }
+
+    public void deleteByTitleSucceed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book mysteryIsland = new Book("Жюль Верн", "Таинственный остров");
+        Book travelToTheCenterOfEarth = new Book("Жюль Верн", "Путешествие к центру Земли");
+        Book treasureIsland = new Book("Роберт Льюис Стивенсон", "Остров сокровищ");
+
+        bookDatabase.save(mysteryIsland);
+        bookDatabase.save(travelToTheCenterOfEarth);
+        bookDatabase.save(treasureIsland);
+        bookDatabase.deleteByTitle("путешествие");
+
+        BookDatabase expected = new BookDatabaseImpl();
+        expected.save(mysteryIsland);
+        expected.save(treasureIsland);
+
+        BookDatabase current = bookDatabase;
+
+        printResult(current.equals(expected), "findByTitleTestSucceed");
+    }
+
+    public void deleteByTitleFailed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book mysteryIsland = new Book("Жюль Верн", "Таинственный остров");
+        Book travelToTheCenterOfEarth = new Book("Жюль Верн", "Путешествие к центру Земли");
+        Book treasureIsland = new Book("Роберт Льюис Стивенсон", "Остров сокровищ");
+
+        bookDatabase.save(mysteryIsland);
+        bookDatabase.save(travelToTheCenterOfEarth);
+        bookDatabase.save(treasureIsland);
+        bookDatabase.deleteByTitle("путешествие");
+
+        BookDatabase expected = new BookDatabaseImpl();
+        expected.save(mysteryIsland);
+
+        BookDatabase current = bookDatabase;
+
+        printResult(!current.equals(expected), "findByTitleTestFailed");
     }
 
 }

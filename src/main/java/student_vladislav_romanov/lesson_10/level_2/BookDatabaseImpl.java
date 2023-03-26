@@ -1,8 +1,6 @@
 package student_vladislav_romanov.lesson_10.level_2;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 class BookDatabaseImpl implements BookDatabase {
 
@@ -18,9 +16,11 @@ class BookDatabaseImpl implements BookDatabase {
 
     @Override
     public boolean delete(Long bookId) {
-        for (Book book : books) {
+        Iterator<Book> iterator = books.iterator();
+        while (iterator.hasNext()) {
+            Book book = iterator.next();
             if (book.getId().equals(bookId)) {
-                books.remove(book);
+                iterator.remove();
                 return true;
             }
         }
@@ -29,9 +29,11 @@ class BookDatabaseImpl implements BookDatabase {
 
     @Override
     public boolean delete(Book book) {
-        for (Book bookFromList : books) {
+        Iterator<Book> iterator = books.iterator();
+        while (iterator.hasNext()) {
+            Book bookFromList = iterator.next();
             if (bookFromList.equals(book)) {
-                books.remove(book);
+                iterator.remove();
                 return true;
             }
         }
@@ -76,9 +78,44 @@ class BookDatabaseImpl implements BookDatabase {
     }
 
     @Override
+    public void deleteByAuthor(String author) {
+        Iterator<Book> iterator = books.iterator();
+        while (iterator.hasNext()) {
+            Book book = iterator.next();
+            if (book.getAuthor().toLowerCase().contains(author.toLowerCase())) {
+                iterator.remove();
+            }
+        }
+    }
+
+    @Override
+    public void deleteByTitle(String title) {
+        Iterator<Book> iterator = books.iterator();
+        while (iterator.hasNext()) {
+            Book book = iterator.next();
+            if (book.getTitle().toLowerCase().contains(title.toLowerCase())) {
+                iterator.remove();
+            }
+        }
+    }
+
+    @Override
     public String toString() {
         return "BookDatabaseImpl{" +
                 "books=" + books +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BookDatabaseImpl that = (BookDatabaseImpl) o;
+        return books.equals(that.books);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(books);
     }
 }
