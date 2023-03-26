@@ -24,10 +24,16 @@ class BookDatabaseTest extends TestUtil {
         bookDatabaseTest.findByTitleTestFailed();
         bookDatabaseTest.countAllBooksTestSucceed();
         bookDatabaseTest.countAllBooksTestFailed();
-        bookDatabaseTest.deleteByAuthorSucceed();
-        bookDatabaseTest.deleteByAuthorFailed();
-        bookDatabaseTest.deleteByTitleSucceed();
-        bookDatabaseTest.deleteByTitleFailed();
+        bookDatabaseTest.deleteByAuthorTestSucceed();
+        bookDatabaseTest.deleteByAuthorTestFailed();
+        bookDatabaseTest.deleteByTitleTestSucceed();
+        bookDatabaseTest.deleteByTitleTestFailed();
+        bookDatabaseTest.authorSearchCriteriaTestSucceed();
+        bookDatabaseTest.authorSearchCriteriaTestFailed();
+        bookDatabaseTest.titleSearchCriteriaTestSucceed();
+        bookDatabaseTest.titleSearchCriteriaTestFailed();
+        bookDatabaseTest.yearOfIssueToSearchTestSucceed();
+        bookDatabaseTest.yearOfIssueToSearchTestFailed();
         bookDatabaseTest.printStat();
     }
 
@@ -226,7 +232,7 @@ class BookDatabaseTest extends TestUtil {
         printResult(current != expected, "countAllBooksTestFailed");
     }
 
-    public void deleteByAuthorSucceed() {
+    public void deleteByAuthorTestSucceed() {
         BookDatabase bookDatabase = new BookDatabaseImpl();
         Book shogun = new Book("Джеймс Клавелл", "Сёгун");
         Book taipan = new Book("Джеймс Клавелл", "Тай-Пэн");
@@ -243,10 +249,10 @@ class BookDatabaseTest extends TestUtil {
 
         BookDatabase current = bookDatabase;
 
-        printResult(current.equals(expected), "findByAuthorTestSucceed");
+        printResult(current.equals(expected), "deleteByAuthorTestSucceed");
     }
 
-    public void deleteByAuthorFailed() {
+    public void deleteByAuthorTestFailed() {
         BookDatabase bookDatabase = new BookDatabaseImpl();
         Book shogun = new Book("Джеймс Клавелл", "Сёгун");
         Book taipan = new Book("Джеймс Клавелл", "Тай-Пэн");
@@ -262,10 +268,10 @@ class BookDatabaseTest extends TestUtil {
 
         BookDatabase current = bookDatabase;
 
-        printResult(!current.equals(expected), "findByAuthorTestFailed");
+        printResult(!current.equals(expected), "deleteByAuthorTestFailed");
     }
 
-    public void deleteByTitleSucceed() {
+    public void deleteByTitleTestSucceed() {
         BookDatabase bookDatabase = new BookDatabaseImpl();
         Book mysteryIsland = new Book("Жюль Верн", "Таинственный остров");
         Book travelToTheCenterOfEarth = new Book("Жюль Верн", "Путешествие к центру Земли");
@@ -282,10 +288,10 @@ class BookDatabaseTest extends TestUtil {
 
         BookDatabase current = bookDatabase;
 
-        printResult(current.equals(expected), "findByTitleTestSucceed");
+        printResult(current.equals(expected), "deleteByTitleTestSucceed");
     }
 
-    public void deleteByTitleFailed() {
+    public void deleteByTitleTestFailed() {
         BookDatabase bookDatabase = new BookDatabaseImpl();
         Book mysteryIsland = new Book("Жюль Верн", "Таинственный остров");
         Book travelToTheCenterOfEarth = new Book("Жюль Верн", "Путешествие к центру Земли");
@@ -301,7 +307,61 @@ class BookDatabaseTest extends TestUtil {
 
         BookDatabase current = bookDatabase;
 
-        printResult(!current.equals(expected), "findByTitleTestFailed");
+        printResult(!current.equals(expected), "deleteByTitleTestFailed");
+    }
+
+    public void authorSearchCriteriaTestSucceed() {
+        AuthorSearchCriteria authorSearchCriteria = new AuthorSearchCriteria("Жюль Верн");
+        Book mysteryIsland = new Book("Жюль Верн", "Таинственный остров");
+
+        boolean expected = true;
+        boolean current = authorSearchCriteria.match(mysteryIsland);
+        printResult(current == expected, "authorSearchCriteriaTestSucceed");
+    }
+
+    public void authorSearchCriteriaTestFailed() {
+        AuthorSearchCriteria authorSearchCriteria = new AuthorSearchCriteria("Жюль Верн");
+        Book treasureIsland = new Book("Роберт Льюис Стивенсон", "Остров сокровищ");
+
+        boolean expected = false;
+        boolean current = authorSearchCriteria.match(treasureIsland);
+        printResult(current == expected, "authorSearchCriteriaTestFailed");
+    }
+
+    public void titleSearchCriteriaTestSucceed() {
+        TitleSearchCriteria titleSearchCriteria = new TitleSearchCriteria("Таинственный остров");
+        Book mysteryIsland = new Book("Жюль Верн", "Таинственный остров");
+
+        boolean expected = true;
+        boolean current = titleSearchCriteria.match(mysteryIsland);
+        printResult(current == expected, "titleSearchCriteriaTestSucceed");
+    }
+
+    public void titleSearchCriteriaTestFailed() {
+        TitleSearchCriteria titleSearchCriteria = new TitleSearchCriteria("Таинственный остров");
+        Book treasureIsland = new Book("Роберт Льюис Стивенсон", "Остров сокровищ");
+
+        boolean expected = false;
+        boolean current = titleSearchCriteria.match(treasureIsland);
+        printResult(current == expected, "titleSearchCriteriaTestFailed");
+    }
+
+    public void yearOfIssueToSearchTestSucceed() {
+        YearOfIssueSearchCriteria yearOfIssueSearchCriteria = new YearOfIssueSearchCriteria("2020");
+        Book mysteryIsland = new Book("Жюль Верн", "Таинственный остров", "2020");
+
+        boolean expected = true;
+        boolean current = yearOfIssueSearchCriteria.match(mysteryIsland);
+        printResult(current == expected, "yearOfIssueToSearchTestSucceed");
+    }
+
+    public void yearOfIssueToSearchTestFailed() {
+        YearOfIssueSearchCriteria yearOfIssueSearchCriteria = new YearOfIssueSearchCriteria("2020");
+        Book treasureIsland = new Book("Роберт Льюис Стивенсон", "Остров сокровищ", "2023");
+
+        boolean expected = false;
+        boolean current = yearOfIssueSearchCriteria.match(treasureIsland);
+        printResult(current == expected, "yearOfIssueToSearchTestFailed");
     }
 
 }
