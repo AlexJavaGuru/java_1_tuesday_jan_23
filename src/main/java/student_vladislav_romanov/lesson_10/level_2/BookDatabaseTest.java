@@ -40,6 +40,12 @@ class BookDatabaseTest extends TestUtil {
         bookDatabaseTest.andSearchCriteriaAuthorTitleTestFailed();
         bookDatabaseTest.andSearchCriteriaTitleYearTestSucceed();
         bookDatabaseTest.andSearchCriteriaTitleYearTestFailed();
+        bookDatabaseTest.orSearchCriteriaAuthorYearTestSucceed();
+        bookDatabaseTest.orSearchCriteriaAuthorYearTestFailed();
+        bookDatabaseTest.orSearchCriteriaAuthorTitleTestSucceed();
+        bookDatabaseTest.orSearchCriteriaAuthorTitleTestFailed();
+        bookDatabaseTest.orSearchCriteriaTitleYearTestSucceed();
+        bookDatabaseTest.orSearchCriteriaTitleYearTestFailed();
         bookDatabaseTest.printStat();
     }
 
@@ -440,6 +446,78 @@ class BookDatabaseTest extends TestUtil {
         boolean current = andSearchCriteria.match(treasureIsland);
 
         printResult(current == expected, "andSearchCriteriaTitleYearTestFailed");
+    }
+
+    public void orSearchCriteriaAuthorYearTestSucceed() {
+        AuthorSearchCriteria authorSearchCriteria = new AuthorSearchCriteria("Жюль Верн");
+        YearOfIssueSearchCriteria yearOfIssueSearchCriteria = new YearOfIssueSearchCriteria("2023");
+        OrSearchCriteria orSearchCriteria = new OrSearchCriteria(authorSearchCriteria, yearOfIssueSearchCriteria);
+        Book mysteryIsland = new Book("Жюль Верн", "Таинственный остров", "2020");
+
+        boolean expected = true;
+        boolean current = orSearchCriteria.match(mysteryIsland);
+
+        printResult(current == expected, "orSearchCriteriaAuthorYearTestSucceed");
+    }
+
+    public void orSearchCriteriaAuthorYearTestFailed() {
+        AuthorSearchCriteria authorSearchCriteria = new AuthorSearchCriteria("Жюль Верн");
+        YearOfIssueSearchCriteria yearOfIssueSearchCriteria = new YearOfIssueSearchCriteria("2020");
+        OrSearchCriteria orSearchCriteria = new OrSearchCriteria(authorSearchCriteria, yearOfIssueSearchCriteria);
+        Book treasureIsland = new Book("Роберт Льюис Стивенсон", "Остров сокровищ", "2023");
+
+        boolean expected = false;
+        boolean current = orSearchCriteria.match(treasureIsland);
+
+        printResult(current == expected, "orSearchCriteriaAuthorYearTestFailed");
+    }
+
+    public void orSearchCriteriaAuthorTitleTestSucceed() {
+        AuthorSearchCriteria authorSearchCriteria = new AuthorSearchCriteria("Роберт Льюис Стивенсон");
+        TitleSearchCriteria titleSearchCriteria = new TitleSearchCriteria("Таинственный остров");
+        OrSearchCriteria orSearchCriteria = new OrSearchCriteria(authorSearchCriteria, titleSearchCriteria);
+        Book mysteryIsland = new Book("Жюль Верн", "Таинственный остров", "2020");
+
+        boolean expected = true;
+        boolean current = orSearchCriteria.match(mysteryIsland);
+
+        printResult(current == expected, "orSearchCriteriaAuthorTitleTestSucceed");
+    }
+
+    public void orSearchCriteriaAuthorTitleTestFailed() {
+        AuthorSearchCriteria authorSearchCriteria = new AuthorSearchCriteria("Жюль Верн");
+        TitleSearchCriteria titleSearchCriteria = new TitleSearchCriteria("Таинственный остров");
+        OrSearchCriteria orSearchCriteria = new OrSearchCriteria(authorSearchCriteria, titleSearchCriteria);
+        Book treasureIsland = new Book("Роберт Льюис Стивенсон", "Остров сокровищ", "2023");
+
+        boolean expected = false;
+        boolean current = orSearchCriteria.match(treasureIsland);
+
+        printResult(current == expected, "orSearchCriteriaAuthorTitleTestFailed");
+    }
+
+    public void orSearchCriteriaTitleYearTestSucceed() {
+        TitleSearchCriteria titleSearchCriteria = new TitleSearchCriteria("Остров сокровищ");
+        YearOfIssueSearchCriteria yearOfIssueSearchCriteria = new YearOfIssueSearchCriteria("2020");
+        OrSearchCriteria orSearchCriteria = new OrSearchCriteria(titleSearchCriteria, yearOfIssueSearchCriteria);
+        Book mysteryIsland = new Book("Жюль Верн", "Таинственный остров", "2020");
+
+        boolean expected = true;
+        boolean current = orSearchCriteria.match(mysteryIsland);
+
+        printResult(current == expected, "orSearchCriteriaTitleYearTestSucceed");
+    }
+
+    public void orSearchCriteriaTitleYearTestFailed() {
+        TitleSearchCriteria titleSearchCriteria = new TitleSearchCriteria("Таинственный остров");
+        YearOfIssueSearchCriteria yearOfIssueSearchCriteria = new YearOfIssueSearchCriteria("2020");
+        OrSearchCriteria orSearchCriteria = new OrSearchCriteria(titleSearchCriteria, yearOfIssueSearchCriteria);
+        Book treasureIsland = new Book("Роберт Льюис Стивенсон", "Остров сокровищ", "2023");
+
+        boolean expected = false;
+        boolean current = orSearchCriteria.match(treasureIsland);
+
+        printResult(current == expected, "orSearchCriteriaTitleYearTestFailed");
     }
 
 }
