@@ -49,6 +49,17 @@ class BookDatabaseImpl implements BookDatabase {
     }
 
     @Override
+    public List<Book> findByAuthor(String author) {
+        List<Book> list = new ArrayList<>();
+        for (Book book : books) {
+            if (book.getAuthor().toLowerCase().contains(author.toLowerCase())) {
+                list.add(book);
+            }
+        }
+        return list;
+    }
+
+    @Override
     public String toString() {
         return "BookDatabaseImpl{" +
                 "books=" + books +
