@@ -1,4 +1,4 @@
-package student_vladislav_romanov.lesson_10.level_2_3;
+package student_vladislav_romanov.lesson_10.bookDatabase;
 
 class TitleSearchCriteria implements SearchCriteria {
 
