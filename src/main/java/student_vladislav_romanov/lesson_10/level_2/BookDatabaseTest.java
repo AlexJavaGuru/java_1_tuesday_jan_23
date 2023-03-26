@@ -2,6 +2,8 @@ package student_vladislav_romanov.lesson_10.level_2;
 
 import student_vladislav_romanov.TestUtil;
 
+import java.util.Optional;
+
 class BookDatabaseTest extends TestUtil {
 
     public static void main(String[] args) {
@@ -12,6 +14,8 @@ class BookDatabaseTest extends TestUtil {
         bookDatabaseTest.deleteByIdTestFailed();
         bookDatabaseTest.deleteByBookTestSucceed();
         bookDatabaseTest.deleteByBookTestFailed();
+        bookDatabaseTest.findByIdTestSucceed();
+        bookDatabaseTest.findByIdTestFailed();
         bookDatabaseTest.printStat();
     }
 
@@ -74,6 +78,32 @@ class BookDatabaseTest extends TestUtil {
         bookDatabase.save(shogun);
         boolean current = bookDatabase.delete(taipan);
         printResult(current == expected, "deleteByBookTestFailed");
+    }
+
+    public void findByIdTestSucceed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book shogun = new Book("Сёгун", "Джеймс Клавелл");
+        Book taipan = new Book("Тай-Пэн", "Джеймс Клавелл");
+
+        bookDatabase.save(shogun);
+        bookDatabase.save(taipan);
+
+        Optional<Book> expected = Optional.of(taipan);
+        Optional<Book> current = bookDatabase.findById((long) 2);
+
+        printResult(current.equals(expected), "findByIdTestSucceed");
+    }
+
+    public void findByIdTestFailed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book shogun = new Book("Сёгун", "Джеймс Клавелл");
+
+        bookDatabase.save(shogun);
+
+        Optional<Book> expected = Optional.empty();
+        Optional<Book> current = bookDatabase.findById((long) 2);
+
+        printResult(current.equals(expected), "findByIdTestFailed");
     }
 
 }
