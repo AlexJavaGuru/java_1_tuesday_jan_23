@@ -52,6 +52,8 @@ class BookDatabaseTest extends TestUtil {
         bookDatabaseTest.findUniqueAuthorsTestFailed();
         bookDatabaseTest.findUniqueTitlesTestSucceed();
         bookDatabaseTest.findUniqueTitlesTestFailed();
+        bookDatabaseTest.findUniqueBooksTestSucceed();
+        bookDatabaseTest.findUniqueBooksTestFailed();
         bookDatabaseTest.printStat();
     }
 
@@ -709,6 +711,54 @@ class BookDatabaseTest extends TestUtil {
         Set<String> current = bookDatabase.findUniqueTitles();
 
         printResult(!current.equals(expected), "findUniqueTitlesTestFailed");
+    }
+
+    public void findUniqueBooksTestSucceed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book shogun = new Book("Джеймс Клавелл", "Сёгун", "2020");
+        Book taipan = new Book("Джеймс Клавелл", "Тай-Пэн", "2020");
+        Book falconGuard = new Book("Роберт Торстон", "Соколиная стража");
+        Book shogun2 = new Book("Джеймс Клавелл", "Сёгун", "2020");
+        Book taipan2 = new Book("Джеймс Клавелл", "Тай-Пэн", "2020");
+
+        bookDatabase.save(shogun);
+        bookDatabase.save(taipan);
+        bookDatabase.save(falconGuard);
+        bookDatabase.save(taipan2);
+        bookDatabase.save(shogun2);
+
+        Set<Book> expected = new HashSet<>();
+        expected.add(new Book("Джеймс Клавелл", "Сёгун", "2020"));
+        expected.add(new Book("Джеймс Клавелл", "Тай-Пэн", "2020"));
+        expected.add(new Book("Роберт Торстон", "Соколиная стража"));
+
+        Set<Book> current = bookDatabase.findUniqueBooks();
+
+        printResult(current.containsAll(expected), "findUniqueBooksTestSucceed");
+    }
+
+    public void findUniqueBooksTestFailed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book shogun = new Book("Джеймс Клавелл", "Сёгун", "2020");
+        Book taipan = new Book("Джеймс Клавелл", "Тай-Пэн", "2020");
+        Book falconGuard = new Book("Роберт Торстон", "Соколиная стража");
+        Book shogun2 = new Book("Джеймс Клавелл", "Сёгун", "2020");
+        Book taipan2 = new Book("Джеймс Клавелл", "Тай-Пэн", "2020");
+
+        bookDatabase.save(shogun);
+        bookDatabase.save(taipan);
+        bookDatabase.save(falconGuard);
+        bookDatabase.save(taipan2);
+        bookDatabase.save(shogun2);
+
+        Set<Book> expected = new HashSet<>();
+        expected.add(new Book("Джеймс Клавелл", "Сёгун", "2020"));
+        expected.add(new Book("Джеймс Клавелл", "Тай-Пэн", "2020"));
+        expected.add(new Book("Жюль Верн", "Путешествие к центру Земли", "2023"));
+
+        Set<Book> current = bookDatabase.findUniqueBooks();
+
+        printResult(!current.containsAll(expected), "findUniqueBooksTestFailed");
     }
 
 }

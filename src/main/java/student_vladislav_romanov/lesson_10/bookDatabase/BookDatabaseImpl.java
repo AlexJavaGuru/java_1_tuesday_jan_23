@@ -129,6 +129,15 @@ class BookDatabaseImpl implements BookDatabase {
     }
 
     @Override
+    public Set<Book> findUniqueBooks() {
+        Set<Book> uniqueBooks = new HashSet<>();
+        for (Book book : books) {
+            uniqueBooks.add(new Book(book.getAuthor(), book.getTitle(), book.getYearOfIssue()));
+        }
+        return uniqueBooks;
+    }
+
+    @Override
     public String toString() {
         return "BookDatabaseImpl{" +
                 "books=" + books +
