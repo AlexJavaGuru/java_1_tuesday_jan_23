@@ -46,6 +46,10 @@ class BookDatabaseTest extends TestUtil {
         bookDatabaseTest.orSearchCriteriaAuthorTitleTestFailed();
         bookDatabaseTest.orSearchCriteriaTitleYearTestSucceed();
         bookDatabaseTest.orSearchCriteriaTitleYearTestFailed();
+        bookDatabaseTest.complexAndSearchTestSucceed();
+        bookDatabaseTest.complexAndSearchTestFailed();
+        bookDatabaseTest.complexOrSearchTestSucceed();
+        bookDatabaseTest.complexOrSearchTestFailed();
         bookDatabaseTest.printStat();
     }
 
@@ -518,6 +522,83 @@ class BookDatabaseTest extends TestUtil {
         boolean current = orSearchCriteria.match(treasureIsland);
 
         printResult(current == expected, "orSearchCriteriaTitleYearTestFailed");
+    }
+
+    public void complexAndSearchTestSucceed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book shogun = new Book("Джеймс Клавелл", "Сёгун", "2020");
+        Book taipan = new Book("Джеймс Клавелл", "Тай-Пэн", "2020");
+        Book falconGuard = new Book("Роберт Торстон", "Соколиная стража");
+
+        bookDatabase.save(shogun);
+        bookDatabase.save(taipan);
+        bookDatabase.save(falconGuard);
+
+        List<Book> expected = new ArrayList<>();
+        expected.add(shogun);
+        expected.add(taipan);
+
+        List<Book> current = bookDatabase.find(new AndSearchCriteria(new AuthorSearchCriteria("Джеймс Клавелл"), new YearOfIssueSearchCriteria("2020")));
+
+        printResult(current.equals(expected), "complexAndSearchTestSucceed");
+    }
+
+    public void complexAndSearchTestFailed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book shogun = new Book("Джеймс Клавелл", "Сёгун", "2020");
+        Book taipan = new Book("Джеймс Клавелл", "Тай-Пэн", "2020");
+        Book falconGuard = new Book("Роберт Торстон", "Соколиная стража");
+
+        bookDatabase.save(shogun);
+        bookDatabase.save(taipan);
+        bookDatabase.save(falconGuard);
+
+        List<Book> expected = new ArrayList<>();
+        expected.add(shogun);
+        expected.add(falconGuard);
+
+        List<Book> current = bookDatabase.find(new AndSearchCriteria(new AuthorSearchCriteria("Джеймс Клавелл"), new YearOfIssueSearchCriteria("2020")));
+
+        printResult(!current.equals(expected), "complexAndSearchTestSucceed");
+    }
+
+    public void complexOrSearchTestSucceed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book shogun = new Book("Джеймс Клавелл", "Сёгун", "2020");
+        Book taipan = new Book("Джеймс Клавелл", "Тай-Пэн", "2020");
+        Book falconGuard = new Book("Роберт Торстон", "Соколиная стража", "2023");
+
+        bookDatabase.save(shogun);
+        bookDatabase.save(taipan);
+        bookDatabase.save(falconGuard);
+
+        List<Book> expected = new ArrayList<>();
+        expected.add(shogun);
+        expected.add(taipan);
+        expected.add(falconGuard);
+
+        List<Book> current = bookDatabase.find(new OrSearchCriteria(new AuthorSearchCriteria("Джеймс Клавелл"), new YearOfIssueSearchCriteria("2023")));
+
+        printResult(current.equals(expected), "complexAndSearchTestSucceed");
+    }
+
+    public void complexOrSearchTestFailed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book shogun = new Book("Джеймс Клавелл", "Сёгун", "2020");
+        Book taipan = new Book("Джеймс Клавелл", "Тай-Пэн", "2020");
+        Book falconGuard = new Book("Роберт Торстон", "Соколиная стража");
+
+        bookDatabase.save(shogun);
+        bookDatabase.save(taipan);
+        bookDatabase.save(falconGuard);
+
+        List<Book> expected = new ArrayList<>();
+        expected.add(shogun);
+        expected.add(falconGuard);
+
+        List<Book> current = bookDatabase.find(new OrSearchCriteria(new AuthorSearchCriteria("Джеймс Клавелл"), new YearOfIssueSearchCriteria("2023")));
+
+        printResult(!current.equals(expected), "complexOrSearchTestSucceed");
     }
 
 }

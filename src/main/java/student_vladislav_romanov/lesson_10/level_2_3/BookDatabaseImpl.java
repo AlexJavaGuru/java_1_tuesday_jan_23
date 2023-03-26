@@ -100,6 +100,17 @@ class BookDatabaseImpl implements BookDatabase {
     }
 
     @Override
+    public List<Book> find(SearchCriteria searchCriteria) {
+        List<Book> list = new ArrayList<>();
+        for (Book book : books) {
+            if (searchCriteria.match(book)) {
+                list.add(book);
+            }
+        }
+        return list;
+    }
+
+    @Override
     public String toString() {
         return "BookDatabaseImpl{" +
                 "books=" + books +
