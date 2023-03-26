@@ -1,62 +1,48 @@
 package student_andrejs_cekalins.lesson_9.level_5;
 
 
+import java.util.*;
+
 class BookReaderImpl implements BookReader {
 
-    private Book[] books;
-
-    BookReaderImpl(Book[] booksArray) {
-        this.books = booksArray;
-    }
+    Set<Book> books = new HashSet<>();
 
 
     @Override
     public boolean add(Book book) {
-        if (equalBooks(book) || bookNameOrAuthorEntered(book)) {
-            return false;
-        }
-        int indexOfEmptyElement = getIndexOfEmptyElement(books);
-        if (indexOfEmptyElement != -1) {
-            books[indexOfEmptyElement] = book;
-        }
-        return true;
-    }
-
-    @Override
-    public boolean delete(Book book) {
-        for (int i = 0; i < books.length; i++) {
-            if (equalBooks(books[i])) {
-                books[i] = null;
-                return true;
-            }
+        if (book.getBookTitle() != null && book.getAuthor() != null) {
+            return books.add(book);
         }
         return false;
     }
 
 
-    private boolean equalBooks(Book book) {
-        for (Book newBook : books) {
-            if (book.equals(newBook))
-                return false;
+    @Override
+    public boolean delete(Book book) {
+        if (book.getBookTitle() != null) {
+            return books.remove(book);
         }
-        return true;
+        return false;
     }
 
-    private boolean bookNameOrAuthorEntered(Book book) {
-        if (book.getBookName() == null || book.getAuthor() == null) {
-            return false;
+    @Override
+    public List<String> listOfBooks() {
+        List<String> listOfBooks = new ArrayList<>();
+        for (Book book : books) {
+            listOfBooks.add(book.getBookTitle() + " [" + book.getAuthor() + "]");
         }
-        return true;
+        return listOfBooks;
     }
 
-
-    private int getIndexOfEmptyElement(Book[] books) {
-        for (int i = 0; i < books.length; i++) {
-            if (books[i] == null) {
-                return i;
+    @Override
+    public List<String> authorBooks(String author) {
+        List<String> authorBooks = new ArrayList<>();
+        for (Book book : books) {
+            if (book.getAuthor().contains(author)) {
+                authorBooks.add(book.getBookTitle() + " [" + book.getAuthor() + "]");
             }
         }
-        return -1;
+        return authorBooks;
     }
 }
 
