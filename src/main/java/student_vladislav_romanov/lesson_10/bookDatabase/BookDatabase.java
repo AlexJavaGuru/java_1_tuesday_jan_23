@@ -2,6 +2,7 @@ package student_vladislav_romanov.lesson_10.bookDatabase;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 interface BookDatabase {
 
@@ -24,5 +25,7 @@ interface BookDatabase {
     void deleteByTitle(String title);
 
     List<Book> find(SearchCriteria searchCriteria);
+
+    Set<String> findUniqueAuthors();
 
 }

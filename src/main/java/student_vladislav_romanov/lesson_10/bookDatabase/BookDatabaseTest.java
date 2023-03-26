@@ -2,9 +2,7 @@ package student_vladislav_romanov.lesson_10.bookDatabase;
 
 import student_vladislav_romanov.TestUtil;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 class BookDatabaseTest extends TestUtil {
 
@@ -50,6 +48,8 @@ class BookDatabaseTest extends TestUtil {
         bookDatabaseTest.complexAndSearchTestFailed();
         bookDatabaseTest.complexOrSearchTestSucceed();
         bookDatabaseTest.complexOrSearchTestFailed();
+        bookDatabaseTest.findUniqueAuthorsTestSucceed();
+        bookDatabaseTest.findUniqueAuthorsTestFailed();
         bookDatabaseTest.printStat();
     }
 
@@ -599,6 +599,59 @@ class BookDatabaseTest extends TestUtil {
         List<Book> current = bookDatabase.find(new OrSearchCriteria(new AuthorSearchCriteria("Джеймс Клавелл"), new YearOfIssueSearchCriteria("2023")));
 
         printResult(!current.equals(expected), "complexOrSearchTestSucceed");
+    }
+
+    public void findUniqueAuthorsTestSucceed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book shogun = new Book("Джеймс Клавелл", "Сёгун", "2020");
+        Book taipan = new Book("Джеймс Клавелл", "Тай-Пэн", "2020");
+        Book falconGuard = new Book("Роберт Торстон", "Соколиная стража");
+        Book mysteryIsland = new Book("Жюль Верн", "Таинственный остров");
+        Book travelToTheCenterOfEarth = new Book("Жюль Верн", "Путешествие к центру Земли");
+        Book treasureIsland = new Book("Роберт Льюис Стивенсон", "Остров сокровищ");
+
+        bookDatabase.save(shogun);
+        bookDatabase.save(taipan);
+        bookDatabase.save(falconGuard);
+        bookDatabase.save(mysteryIsland);
+        bookDatabase.save(travelToTheCenterOfEarth);
+        bookDatabase.save(treasureIsland);
+
+        Set<String> expected = new HashSet<>();
+        expected.add("Джеймс Клавелл");
+        expected.add("Роберт Торстон");
+        expected.add("Жюль Верн");
+        expected.add("Роберт Льюис Стивенсон");
+
+        Set<String> current = bookDatabase.findUniqueAuthors();
+
+        printResult(current.equals(expected), "findUniqueAuthorsTestSucceed");
+    }
+
+    public void findUniqueAuthorsTestFailed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book shogun = new Book("Джеймс Клавелл", "Сёгун", "2020");
+        Book taipan = new Book("Джеймс Клавелл", "Тай-Пэн", "2020");
+        Book falconGuard = new Book("Роберт Торстон", "Соколиная стража");
+        Book mysteryIsland = new Book("Жюль Верн", "Таинственный остров");
+        Book travelToTheCenterOfEarth = new Book("Жюль Верн", "Путешествие к центру Земли");
+        Book treasureIsland = new Book("Роберт Льюис Стивенсон", "Остров сокровищ");
+
+        bookDatabase.save(shogun);
+        bookDatabase.save(taipan);
+        bookDatabase.save(falconGuard);
+        bookDatabase.save(mysteryIsland);
+        bookDatabase.save(travelToTheCenterOfEarth);
+        bookDatabase.save(treasureIsland);
+
+        Set<String> expected = new HashSet<>();
+        expected.add("Джеймс Клавелл");
+        expected.add("Роберт Торстон");
+        expected.add("Роберт Льюис Стивенсон");
+
+        Set<String> current = bookDatabase.findUniqueAuthors();
+
+        printResult(!current.equals(expected), "findUniqueAuthorsTestFailed");
     }
 
 }
