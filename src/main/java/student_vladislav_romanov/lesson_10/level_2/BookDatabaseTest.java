@@ -20,6 +20,8 @@ class BookDatabaseTest extends TestUtil {
         bookDatabaseTest.findByIdTestFailed();
         bookDatabaseTest.findByAuthorTestSucceed();
         bookDatabaseTest.findByAuthorTestFailed();
+        bookDatabaseTest.findByTitleTestSucceed();
+        bookDatabaseTest.findByTitleTestFailed();
         bookDatabaseTest.printStat();
     }
 
@@ -126,7 +128,7 @@ class BookDatabaseTest extends TestUtil {
 
         List<Book> current = bookDatabase.findByAuthor("Клавелл");
 
-        printResult(current.equals(expected), "findByIdTestSucceed");
+        printResult(current.equals(expected), "findByAuthorTestSucceed");
     }
 
     public void findByAuthorTestFailed() {
@@ -145,7 +147,45 @@ class BookDatabaseTest extends TestUtil {
 
         List<Book> current = bookDatabase.findByAuthor("Роберт");
 
-        printResult(!current.equals(expected), "findByIdTestFailed");
+        printResult(!current.equals(expected), "findByAuthorTestFailed");
+    }
+
+    public void findByTitleTestSucceed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book mysteryIsland = new Book("Жюль Верн", "Таинственный остров");
+        Book travelToTheCenterOfEarth = new Book("Жюль Верн", "Путешествие к центру Земли");
+        Book treasureIsland = new Book("Роберт Льюис Стивенсон", "Остров сокровищ");
+
+        bookDatabase.save(mysteryIsland);
+        bookDatabase.save(travelToTheCenterOfEarth);
+        bookDatabase.save(treasureIsland);
+
+        List<Book> expected = new ArrayList<>();
+        expected.add(mysteryIsland);
+        expected.add(treasureIsland);
+
+        List<Book> current = bookDatabase.findByTitle("остров");
+
+        printResult(current.equals(expected), "findByTitleTestSucceed");
+    }
+
+    public void findByTitleTestFailed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book mysteryIsland = new Book("Жюль Верн", "Таинственный остров");
+        Book travelToTheCenterOfEarth = new Book("Жюль Верн", "Путешествие к центру Земли");
+        Book treasureIsland = new Book("Роберт Льюис Стивенсон", "Остров сокровищ");
+
+        bookDatabase.save(mysteryIsland);
+        bookDatabase.save(travelToTheCenterOfEarth);
+        bookDatabase.save(treasureIsland);
+
+        List<Book> expected = new ArrayList<>();
+        expected.add(mysteryIsland);
+        expected.add(treasureIsland);
+
+        List<Book> current = bookDatabase.findByTitle("путешествие");
+
+        printResult(!current.equals(expected), "findByTitleTestFailed");
     }
 
 }

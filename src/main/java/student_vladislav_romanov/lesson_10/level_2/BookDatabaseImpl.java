@@ -60,6 +60,17 @@ class BookDatabaseImpl implements BookDatabase {
     }
 
     @Override
+    public List<Book> findByTitle(String title) {
+        List<Book> list = new ArrayList<>();
+        for (Book book : books) {
+            if (book.getTitle().toLowerCase().contains(title.toLowerCase())) {
+                list.add(book);
+            }
+        }
+        return list;
+    }
+
+    @Override
     public String toString() {
         return "BookDatabaseImpl{" +
                 "books=" + books +
