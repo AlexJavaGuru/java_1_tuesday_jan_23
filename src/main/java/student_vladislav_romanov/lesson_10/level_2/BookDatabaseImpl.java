@@ -16,6 +16,17 @@ class BookDatabaseImpl implements BookDatabase {
     }
 
     @Override
+    public boolean delete(Long bookId) {
+        for (Book book : books) {
+            if (book.getId().equals(bookId)) {
+                books.remove(book);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
     public String toString() {
         return "BookDatabaseImpl{" +
                 "books=" + books +
