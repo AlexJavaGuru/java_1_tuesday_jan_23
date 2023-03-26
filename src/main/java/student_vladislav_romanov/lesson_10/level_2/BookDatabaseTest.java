@@ -22,6 +22,8 @@ class BookDatabaseTest extends TestUtil {
         bookDatabaseTest.findByAuthorTestFailed();
         bookDatabaseTest.findByTitleTestSucceed();
         bookDatabaseTest.findByTitleTestFailed();
+        bookDatabaseTest.countAllBooksTestSucceed();
+        bookDatabaseTest.countAllBooksTestFailed();
         bookDatabaseTest.printStat();
     }
 
@@ -186,6 +188,38 @@ class BookDatabaseTest extends TestUtil {
         List<Book> current = bookDatabase.findByTitle("путешествие");
 
         printResult(!current.equals(expected), "findByTitleTestFailed");
+    }
+
+    public void countAllBooksTestSucceed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book mysteryIsland = new Book("Жюль Верн", "Таинственный остров");
+        Book travelToTheCenterOfEarth = new Book("Жюль Верн", "Путешествие к центру Земли");
+        Book treasureIsland = new Book("Роберт Льюис Стивенсон", "Остров сокровищ");
+
+        bookDatabase.save(mysteryIsland);
+        bookDatabase.save(travelToTheCenterOfEarth);
+        bookDatabase.save(treasureIsland);
+
+        int expected = 3;
+        int current = bookDatabase.countAllBooks();
+
+        printResult(current == expected, "countAllBooksTestSucceed");
+    }
+
+    public void countAllBooksTestFailed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book mysteryIsland = new Book("Жюль Верн", "Таинственный остров");
+        Book travelToTheCenterOfEarth = new Book("Жюль Верн", "Путешествие к центру Земли");
+        Book treasureIsland = new Book("Роберт Льюис Стивенсон", "Остров сокровищ");
+
+        bookDatabase.save(mysteryIsland);
+        bookDatabase.save(travelToTheCenterOfEarth);
+        bookDatabase.save(treasureIsland);
+
+        int expected = 2;
+        int current = bookDatabase.countAllBooks();
+
+        printResult(current != expected, "countAllBooksTestFailed");
     }
 
 }

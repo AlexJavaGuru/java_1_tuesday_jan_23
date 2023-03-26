@@ -71,6 +71,11 @@ class BookDatabaseImpl implements BookDatabase {
     }
 
     @Override
+    public int countAllBooks() {
+        return books.size();
+    }
+
+    @Override
     public String toString() {
         return "BookDatabaseImpl{" +
                 "books=" + books +
