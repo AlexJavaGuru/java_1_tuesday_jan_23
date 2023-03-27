@@ -23,7 +23,7 @@ class BookLibrary {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Выберите раздел меню: ");
+            System.out.print("Выберите раздел меню: ");
             int userSelectedMenuNumber = Integer.parseInt(sc.nextLine());
             if (userSelectedMenuNumber == 0) {
                 System.out.println("Благодарю! До свидания!");
