@@ -8,7 +8,7 @@ class BookDatabaseImpl implements BookDatabase {
 
     @Override
     public Long save(Book book) {
-        long id = books.size() + 1;
+        long id = books.size() != 0 ? books.get(books.size() - 1).getId() + 1 : 1;
         book.setId(id);
         books.add(book);
         return id;
