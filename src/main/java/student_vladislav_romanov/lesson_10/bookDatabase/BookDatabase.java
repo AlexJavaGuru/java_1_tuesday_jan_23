@@ -37,4 +37,6 @@ interface BookDatabase {
 
     Map<String, List<Book>> getAuthorToBooksMap();
 
+    Map<String, Integer> getEachAuthorBookCount();
+
 }

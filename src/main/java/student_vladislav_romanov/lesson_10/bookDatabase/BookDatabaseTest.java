@@ -58,6 +58,8 @@ class BookDatabaseTest extends TestUtil {
         bookDatabaseTest.containsTestFailed();
         bookDatabaseTest.getAuthorToBooksMapTestSucceed();
         bookDatabaseTest.getAuthorToBooksMapTestFailed();
+        bookDatabaseTest.getEachAuthorBookCountTestSucceed();
+        bookDatabaseTest.getEachAuthorBookCountTestFailed();
         bookDatabaseTest.printStat();
     }
 
@@ -818,6 +820,7 @@ class BookDatabaseTest extends TestUtil {
         expected.put("Джеймс Клавелл", clawell);
 
         Map<String, List<Book>> current = bookDatabase.getAuthorToBooksMap();
+
         printResult(current.equals(expected), "getAuthorToBooksMapTestSucceed");
     }
 
@@ -838,7 +841,48 @@ class BookDatabaseTest extends TestUtil {
         expected.put("Роберт Торстон", thurston);
 
         Map<String, List<Book>> current = bookDatabase.getAuthorToBooksMap();
+
         printResult(!current.equals(expected), "getAuthorToBooksMapTestFailed");
+    }
+
+    public void getEachAuthorBookCountTestSucceed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book shogun = new Book("Джеймс Клавелл", "Сёгун", "2020");
+        Book taipan = new Book("Джеймс Клавелл", "Тай-Пэн", "2020");
+        Book falconGuard = new Book("Роберт Торстон", "Соколиная стража");
+
+        bookDatabase.save(shogun);
+        bookDatabase.save(taipan);
+        bookDatabase.save(falconGuard);
+
+        Map<String, Integer> expected = new HashMap<>();
+        expected.put("Роберт Торстон", 1);
+        expected.put("Джеймс Клавелл", 2);
+
+        Map<String, Integer> current = bookDatabase.getEachAuthorBookCount();
+
+        printResult(current.equals(expected), "getEachAuthorBookCountTestSucceed");
+    }
+
+    public void getEachAuthorBookCountTestFailed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book shogun = new Book("Джеймс Клавелл", "Сёгун", "2020");
+        Book taipan = new Book("Джеймс Клавелл", "Тай-Пэн", "2020");
+        Book taipan2 = new Book("Джеймс Клавелл", "Тай-Пэн", "2020");
+        Book falconGuard = new Book("Роберт Торстон", "Соколиная стража");
+
+        bookDatabase.save(shogun);
+        bookDatabase.save(taipan);
+        bookDatabase.save(taipan2);
+        bookDatabase.save(falconGuard);
+
+        Map<String, Integer> expected = new HashMap<>();
+        expected.put("Роберт Торстон", 2);
+        expected.put("Джеймс Клавелл", 2);
+
+        Map<String, Integer> current = bookDatabase.getEachAuthorBookCount();
+
+        printResult(!current.equals(expected), "getEachAuthorBookCountTestFailed");
     }
 
 }
