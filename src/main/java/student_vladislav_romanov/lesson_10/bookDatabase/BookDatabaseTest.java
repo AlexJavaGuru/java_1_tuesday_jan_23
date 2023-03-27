@@ -56,6 +56,8 @@ class BookDatabaseTest extends TestUtil {
         bookDatabaseTest.findUniqueBooksTestFailed();
         bookDatabaseTest.containsTestSucceed();
         bookDatabaseTest.containsTestFailed();
+        bookDatabaseTest.getAuthorToBooksMapTestSucceed();
+        bookDatabaseTest.getAuthorToBooksMapTestFailed();
         bookDatabaseTest.printStat();
     }
 
@@ -793,6 +795,50 @@ class BookDatabaseTest extends TestUtil {
         boolean current = bookDatabase.contains(new Book("Жюль Верн", "Путешествие к центру Земли", "2023"));
 
         printResult(current == expected, "containsTestFailed");
+    }
+
+    public void getAuthorToBooksMapTestSucceed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book shogun = new Book("Джеймс Клавелл", "Сёгун", "2020");
+        Book taipan = new Book("Джеймс Клавелл", "Тай-Пэн", "2020");
+        Book falconGuard = new Book("Роберт Торстон", "Соколиная стража");
+
+        bookDatabase.save(shogun);
+        bookDatabase.save(taipan);
+        bookDatabase.save(falconGuard);
+
+        List<Book> clawell = new ArrayList<>();
+        List<Book> thurston = new ArrayList<>();
+        clawell.add(shogun);
+        clawell.add(taipan);
+        thurston.add(falconGuard);
+
+        Map<String, List<Book>> expected = new HashMap<>();
+        expected.put("Роберт Торстон", thurston);
+        expected.put("Джеймс Клавелл", clawell);
+
+        Map<String, List<Book>> current = bookDatabase.getAuthorToBooksMap();
+        printResult(current.equals(expected), "getAuthorToBooksMapTestSucceed");
+    }
+
+    public void getAuthorToBooksMapTestFailed() {
+        BookDatabase bookDatabase = new BookDatabaseImpl();
+        Book shogun = new Book("Джеймс Клавелл", "Сёгун", "2020");
+        Book taipan = new Book("Джеймс Клавелл", "Тай-Пэн", "2020");
+        Book falconGuard = new Book("Роберт Торстон", "Соколиная стража");
+
+        bookDatabase.save(shogun);
+        bookDatabase.save(taipan);
+        bookDatabase.save(falconGuard);
+
+        List<Book> thurston = new ArrayList<>();
+        thurston.add(falconGuard);
+
+        Map<String, List<Book>> expected = new HashMap<>();
+        expected.put("Роберт Торстон", thurston);
+
+        Map<String, List<Book>> current = bookDatabase.getAuthorToBooksMap();
+        printResult(!current.equals(expected), "getAuthorToBooksMapTestFailed");
     }
 
 }
