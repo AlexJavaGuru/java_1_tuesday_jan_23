@@ -8,25 +8,25 @@ class ShapeUtil {
 
     Circle createRandomCircle() {
         Random random = new Random();
-        Circle circle = new Circle("circle", random.nextDouble(10));
+        Circle circle = new Circle("circle", random.nextDouble());
         return circle;
     }
 
     Square createRandomSquare() {
         Random random = new Random();
-        Square square = new Square("square", random.nextDouble(10));
+        Square square = new Square("square", random.nextDouble());
         return square;
     }
 
     Rectangle createRandomRectangle() {
         Random random = new Random();
-        Rectangle rectangle = new Rectangle("rectangle", random.nextDouble(10), random.nextDouble(10));
+        Rectangle rectangle = new Rectangle("rectangle", random.nextDouble(), random.nextDouble());
         return rectangle;
     }
 
     Triangle createRandomTriangle() {
         Random random = new Random();
-        Triangle triangle = new Triangle("triangle", random.nextDouble(10));
+        Triangle triangle = new Triangle("triangle", random.nextDouble());
         return triangle;
     }
 
