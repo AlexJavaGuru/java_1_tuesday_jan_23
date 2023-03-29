@@ -11,4 +11,16 @@ interface BookReader {
     List<String> listOfBooks();
 
     List<String> authorBooks(String author);
+
+    List<String> listOfBooksFullTitle(String title);
+
+    List<String> listOfBooksByTitle(String title);
+
+    boolean readBook(Book book);
+
+    boolean unreadBook(Book book);
+
+    List<String> listOfReadBooks();
+
+    List<String> listOfUnreadBooks();
 }
