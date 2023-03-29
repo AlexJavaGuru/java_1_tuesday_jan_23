@@ -1,10 +1,10 @@
-package student_vladislav_romanov.lesson_10.bookDatabase;
+package student_vladislav_romanov.lesson_10.bookDatabase.search;
 
 import student_vladislav_romanov.TestUtil;
 
 import java.util.Set;
 
-class UniqueWordFinderTest extends TestUtil {
+public class UniqueWordFinderTest extends TestUtil {
 
     public static void main(String[] args) {
         UniqueWordFinderTest uniqueWordFinderTest = new UniqueWordFinderTest();

@@ -1,8 +1,10 @@
-package student_vladislav_romanov.lesson_10.bookDatabase;
+package student_vladislav_romanov.lesson_10.bookDatabase.uIActions;
+
+import student_vladislav_romanov.lesson_10.bookDatabase.core.BookDatabase;
 
 import java.util.Scanner;
 
-class DeleteByIdUIAction implements UIAction {
+public class DeleteByIdUIAction implements UIAction {
 
     private BookDatabase bookDatabase;
 

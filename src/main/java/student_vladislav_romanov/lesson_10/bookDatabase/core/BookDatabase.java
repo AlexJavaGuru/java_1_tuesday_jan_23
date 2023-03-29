@@ -1,11 +1,13 @@
-package student_vladislav_romanov.lesson_10.bookDatabase;
+package student_vladislav_romanov.lesson_10.bookDatabase.core;
+
+import student_vladislav_romanov.lesson_10.bookDatabase.search.SearchCriteria;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
-interface BookDatabase {
+public interface BookDatabase {
 
     Long save(Book book);
 

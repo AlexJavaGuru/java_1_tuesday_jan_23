@@ -1,9 +1,12 @@
-package student_vladislav_romanov.lesson_10.bookDatabase;
+package student_vladislav_romanov.lesson_10.bookDatabase.uIActions;
+
+import student_vladislav_romanov.lesson_10.bookDatabase.core.Book;
+import student_vladislav_romanov.lesson_10.bookDatabase.core.BookDatabase;
 
 import java.util.List;
 import java.util.Scanner;
 
-class FindByAuthorUIAction implements UIAction {
+public class FindByAuthorUIAction implements UIAction {
 
     private BookDatabase bookDatabase;
 

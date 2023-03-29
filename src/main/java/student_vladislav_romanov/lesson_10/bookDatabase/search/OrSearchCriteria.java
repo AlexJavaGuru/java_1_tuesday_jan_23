@@ -1,6 +1,8 @@
-package student_vladislav_romanov.lesson_10.bookDatabase;
+package student_vladislav_romanov.lesson_10.bookDatabase.search;
 
-class OrSearchCriteria implements SearchCriteria {
+import student_vladislav_romanov.lesson_10.bookDatabase.core.Book;
+
+public class OrSearchCriteria implements SearchCriteria {
 
     private SearchCriteria leftCondition;
     private SearchCriteria rightCondition;

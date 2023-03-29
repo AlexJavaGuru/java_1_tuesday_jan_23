@@ -1,6 +1,8 @@
-package student_vladislav_romanov.lesson_10.bookDatabase;
+package student_vladislav_romanov.lesson_10.bookDatabase.search;
 
-class YearOfIssueSearchCriteria implements SearchCriteria {
+import student_vladislav_romanov.lesson_10.bookDatabase.core.Book;
+
+public class YearOfIssueSearchCriteria implements SearchCriteria {
 
     private String yearOfIssueToSearch;
 

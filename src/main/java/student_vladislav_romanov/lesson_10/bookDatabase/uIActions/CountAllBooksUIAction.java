@@ -1,4 +1,6 @@
-package student_vladislav_romanov.lesson_10.bookDatabase;
+package student_vladislav_romanov.lesson_10.bookDatabase.uIActions;
+
+import student_vladislav_romanov.lesson_10.bookDatabase.core.BookDatabase;
 
 public class CountAllBooksUIAction implements UIAction {
 

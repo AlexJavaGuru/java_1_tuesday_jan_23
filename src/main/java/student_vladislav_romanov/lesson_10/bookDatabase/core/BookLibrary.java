@@ -1,17 +1,19 @@
-package student_vladislav_romanov.lesson_10.bookDatabase;
+package student_vladislav_romanov.lesson_10.bookDatabase.core;
+
+import student_vladislav_romanov.lesson_10.bookDatabase.uIActions.*;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-class BookLibrary {
+public class BookLibrary {
 
     private Map<Integer, UIAction> menuNumberToActionMap;
 
     public BookLibrary() {
         BookDatabase bookDatabase = new BookDatabaseImpl();
 
-        menuNumberToActionMap = new HashMap();
+        menuNumberToActionMap = new HashMap<>();
         menuNumberToActionMap.put(1, new SaveBookUIAction(bookDatabase));
         menuNumberToActionMap.put(2, new FindByIdUIAction(bookDatabase));
         menuNumberToActionMap.put(3, new FindByAuthorUIAction(bookDatabase));
@@ -28,6 +30,7 @@ class BookLibrary {
             System.out.println("Поиск книг по id (2), автору (3), названию (4)");
             System.out.println("Удалить книгу - 5");
             System.out.println("Количество книг - 6");
+            System.out.println("Выход - 0");
             System.out.print("Выберите раздел меню: ");
             int userSelectedMenuNumber = Integer.parseInt(sc.nextLine());
             if (userSelectedMenuNumber == 0) {

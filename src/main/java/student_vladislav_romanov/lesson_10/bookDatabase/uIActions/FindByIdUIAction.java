@@ -1,4 +1,7 @@
-package student_vladislav_romanov.lesson_10.bookDatabase;
+package student_vladislav_romanov.lesson_10.bookDatabase.uIActions;
+
+import student_vladislav_romanov.lesson_10.bookDatabase.core.Book;
+import student_vladislav_romanov.lesson_10.bookDatabase.core.BookDatabase;
 
 import java.util.Optional;
 import java.util.Scanner;

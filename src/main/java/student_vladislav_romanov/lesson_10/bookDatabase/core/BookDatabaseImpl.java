@@ -1,8 +1,10 @@
-package student_vladislav_romanov.lesson_10.bookDatabase;
+package student_vladislav_romanov.lesson_10.bookDatabase.core;
+
+import student_vladislav_romanov.lesson_10.bookDatabase.search.SearchCriteria;
 
 import java.util.*;
 
-class BookDatabaseImpl implements BookDatabase {
+public class BookDatabaseImpl implements BookDatabase {
 
     List<Book> books = new ArrayList<>();
 
@@ -79,24 +81,12 @@ class BookDatabaseImpl implements BookDatabase {
 
     @Override
     public void deleteByAuthor(String author) {
-        Iterator<Book> iterator = books.iterator();
-        while (iterator.hasNext()) {
-            Book book = iterator.next();
-            if (book.getAuthor().toLowerCase().contains(author.toLowerCase())) {
-                iterator.remove();
-            }
-        }
+        books.removeIf(book -> book.getAuthor().toLowerCase().contains(author.toLowerCase()));
     }
 
     @Override
     public void deleteByTitle(String title) {
-        Iterator<Book> iterator = books.iterator();
-        while (iterator.hasNext()) {
-            Book book = iterator.next();
-            if (book.getTitle().toLowerCase().contains(title.toLowerCase())) {
-                iterator.remove();
-            }
-        }
+        books.removeIf(book -> book.getTitle().toLowerCase().contains(title.toLowerCase()));
     }
 
     @Override

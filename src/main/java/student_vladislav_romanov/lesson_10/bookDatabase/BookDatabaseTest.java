@@ -1,6 +1,10 @@
 package student_vladislav_romanov.lesson_10.bookDatabase;
 
 import student_vladislav_romanov.TestUtil;
+import student_vladislav_romanov.lesson_10.bookDatabase.core.Book;
+import student_vladislav_romanov.lesson_10.bookDatabase.core.BookDatabase;
+import student_vladislav_romanov.lesson_10.bookDatabase.core.BookDatabaseImpl;
+import student_vladislav_romanov.lesson_10.bookDatabase.search.*;
 
 import java.util.*;
 
@@ -273,9 +277,7 @@ class BookDatabaseTest extends TestUtil {
         expected.save(shogun);
         expected.save(taipan);
 
-        BookDatabase current = bookDatabase;
-
-        printResult(current.equals(expected), "deleteByAuthorTestSucceed");
+        printResult(bookDatabase.equals(expected), "deleteByAuthorTestSucceed");
     }
 
     public void deleteByAuthorTestFailed() {
@@ -292,9 +294,7 @@ class BookDatabaseTest extends TestUtil {
         BookDatabase expected = new BookDatabaseImpl();
         expected.save(shogun);
 
-        BookDatabase current = bookDatabase;
-
-        printResult(!current.equals(expected), "deleteByAuthorTestFailed");
+        printResult(!bookDatabase.equals(expected), "deleteByAuthorTestFailed");
     }
 
     public void deleteByTitleTestSucceed() {
@@ -312,9 +312,7 @@ class BookDatabaseTest extends TestUtil {
         expected.save(mysteryIsland);
         expected.save(treasureIsland);
 
-        BookDatabase current = bookDatabase;
-
-        printResult(current.equals(expected), "deleteByTitleTestSucceed");
+        printResult(bookDatabase.equals(expected), "deleteByTitleTestSucceed");
     }
 
     public void deleteByTitleTestFailed() {
@@ -331,9 +329,7 @@ class BookDatabaseTest extends TestUtil {
         BookDatabase expected = new BookDatabaseImpl();
         expected.save(mysteryIsland);
 
-        BookDatabase current = bookDatabase;
-
-        printResult(!current.equals(expected), "deleteByTitleTestFailed");
+        printResult(!bookDatabase.equals(expected), "deleteByTitleTestFailed");
     }
 
     public void authorSearchCriteriaTestSucceed() {
