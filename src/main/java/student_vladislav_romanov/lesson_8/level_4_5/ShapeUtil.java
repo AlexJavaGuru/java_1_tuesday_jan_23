@@ -7,19 +7,19 @@ class ShapeUtil {
     Random random = new Random();
 
     Circle createRandomCircle() {
-        return new Circle("Circle", random.nextDouble(10));
+        return new Circle("Circle", random.nextDouble());
     }
 
     Square createRandomSquare() {
-        return new Square("Square", random.nextDouble(10));
+        return new Square("Square", random.nextDouble());
     }
 
     Rectangle createRandomRectangle() {
-        return new Rectangle("Rectangle", random.nextDouble(10), random.nextDouble(10));
+        return new Rectangle("Rectangle", random.nextDouble(), random.nextDouble());
     }
 
     Triangle createRandomTriangle() {
-        return new Triangle("Triangle", random.nextDouble(10), random.nextDouble(10));
+        return new Triangle("Triangle", random.nextDouble(), random.nextDouble());
     }
 
     Shape createRandomShape() {
