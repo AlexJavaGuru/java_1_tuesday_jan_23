@@ -20,6 +20,8 @@ public class BookLibrary {
         menuNumberToActionMap.put(4, new FindByTitleUIAction(bookDatabase));
         menuNumberToActionMap.put(5, new DeleteByIdUIAction(bookDatabase));
         menuNumberToActionMap.put(6, new CountAllBooksUIAction(bookDatabase));
+        menuNumberToActionMap.put(7, new DeleteByAuthorUIAction(bookDatabase));
+        menuNumberToActionMap.put(22, new FillUpDbWithDefaultBooks(bookDatabase));
     }
 
     public void run() {
@@ -30,6 +32,8 @@ public class BookLibrary {
             System.out.println("Поиск книг по id (2), автору (3), названию (4)");
             System.out.println("Удалить книгу - 5");
             System.out.println("Количество книг - 6");
+            System.out.println("Удалить книги конкретного автора - 7");
+            System.out.println("Добавить книги по-умолчанию - 22");
             System.out.println("Выход - 0");
             System.out.print("Выберите раздел меню: ");
             int userSelectedMenuNumber = Integer.parseInt(sc.nextLine());
