@@ -21,7 +21,7 @@ public class FindByAuthorUIAction implements UIAction {
         System.out.println("Input book's author");
         String author = input.nextLine();
         SearchCriteria authorCriteria = new AuthorSearchCriteria(author);
-        List<Book> resultList = findBookByAuthorService.execute(authorCriteria);
+        List<Book> resultList = findBookByAuthorService.initialSearch(authorCriteria);
         System.out.println("List of founded books: " + resultList);
 
     }

@@ -9,7 +9,14 @@ public class BookDatabaseImpl implements BookDatabase {
     private Long id = 1L;
     private List<Book> storage = new ArrayList<>();
 
+    public List<Book> getStorage() {
+        return storage;
+    }
 
+    @Override
+    public int countAllBooks() {
+        return storage.size();
+    }
     @Override
     public Long save(Book book) {
         return id++;
@@ -71,7 +78,7 @@ public class BookDatabaseImpl implements BookDatabase {
     @Override
     public String toString() {
         return "BookDatabaseImpl{" +
-                "id=" + id +
+                "id=" + id  +
                 ", storage=" + storage +
                 '}';
     }
@@ -92,9 +99,10 @@ public class BookDatabaseImpl implements BookDatabase {
     @Override
     public List<Book> findByAuthor(String author) {
         List<Book> resultList = new ArrayList<>();
-        Optional<Book> optBook = findByAuthorOpt(author);
-        if (optBook.isPresent()) {
-            resultList.add(optBook.get());
+        for (Book book : storage) {
+            if (book.getAuthor().equals(author)) {
+                resultList.add(book);
+            }
         }
         return resultList;
     }
@@ -102,9 +110,10 @@ public class BookDatabaseImpl implements BookDatabase {
     @Override
     public List<Book> findByTitle(String title) {
         List<Book> resultList = new ArrayList<>();
-        Optional<Book> optBook = findByTitleOpt(title);
-        if (optBook.isPresent()) {
-            resultList.add(optBook.get());
+        for (Book book : storage) {
+            if (book.getTitle().equals(title)) {
+                resultList.add(book);
+            }
         }
         return resultList;
     }
@@ -125,23 +134,6 @@ public class BookDatabaseImpl implements BookDatabase {
         }
     }
 
-    @Override
-    public Map<Integer, List<Book>> pagingSearch(Integer pageSize, SearchCriteria searchCriteria) {
-        List<Book> resultList = find(searchCriteria);
-        Map<Integer, List<Book>> pagingStorage = new HashMap<>();
-        int fromIndex;
-        int toIndex;
-        int lastPage = (int)Math.ceil((double) resultList.size() / pageSize);
-        for (int page = 1; page < lastPage + 1; page++) {
-            fromIndex = page * pageSize - pageSize;
-            toIndex = page * pageSize;
-            if (toIndex > resultList.size()) {
-                toIndex = resultList.size();
-            }
-            pagingStorage.put(page, resultList.subList(fromIndex,toIndex));
-        }
-        return pagingStorage;
-    }
 
     @Override
     public Set<String> findUniqueAuthors() {

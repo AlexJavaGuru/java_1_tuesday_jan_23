@@ -21,7 +21,7 @@ public class FindByIdUIAction implements UIAction {
         System.out.println("Input book's ID");
         Long bookId = input.nextLong();
         SearchCriteria searchCriteria = new IdSearchCriteria(bookId);
-        List<Book> searchResult = findBookByIdService.execute(searchCriteria);
+        List<Book> searchResult = findBookByIdService.initialSearch(searchCriteria);
         System.out.println("Book found");
         System.out.println(searchResult);
 

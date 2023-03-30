@@ -27,5 +27,5 @@ public interface BookDatabase {
     boolean contains(Book book);
     Map<String, List<Book>> getAuthorToBooksMap();
     Map<String, Integer> getEachAuthorBookCount();
-    Map<Integer, List<Book>> pagingSearch(Integer pageSize,  SearchCriteria searchCriteria);
+    int countAllBooks();
 }

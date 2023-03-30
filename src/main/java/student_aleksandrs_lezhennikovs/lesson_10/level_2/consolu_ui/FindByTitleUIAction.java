@@ -21,7 +21,7 @@ public class FindByTitleUIAction implements UIAction {
         System.out.println("Input book's title");
         String title = input.nextLine();
         SearchCriteria titleCriteria = new TitleSearchCriteria(title);
-        List<Book> resultList = findBookByTitleService.execute(titleCriteria);
+        List<Book> resultList = findBookByTitleService.initialSearch(titleCriteria);
         System.out.println("List of founded books: " + resultList);
 
     }

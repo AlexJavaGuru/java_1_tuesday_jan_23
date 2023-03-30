@@ -47,12 +47,12 @@ public class Book {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Book book)) return false;
-        return id.equals(book.id) && title.equals(book.title) && author.equals(book.author) && yearOfIssue.equals(book.yearOfIssue);
+        return title.equals(book.title) && author.equals(book.author) && yearOfIssue.equals(book.yearOfIssue);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, author, yearOfIssue);
+        return Objects.hash(title, author, yearOfIssue);
     }
 
     @Override

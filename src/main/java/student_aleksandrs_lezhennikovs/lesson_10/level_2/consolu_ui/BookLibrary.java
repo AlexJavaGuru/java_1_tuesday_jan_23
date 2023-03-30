@@ -17,19 +17,23 @@ public class BookLibrary {
     public BookLibrary() {
         BookDatabase storage = new BookDatabaseImpl();
         SaveBookService saveBookService = new SaveBookService(storage);
-        PagingSearchService pagingSearchServiceByAuthor = new PagingSearchService(storage);
+        OrderingService orderingService = new OrderingService();
+        PagingService pagingService = new PagingService();
         GetAllBooksService getAllBooksService = new GetAllBooksService(storage);
-        //DeleteByIdService deleteByIdService = new DeleteByIdService(storage);
-        FindBookService findService = new FindBookService(storage);
+        FindBookService findService = new FindBookService(storage, pagingService, orderingService);
         DeleteBookService deleteService = new DeleteBookService(storage);
+        FindUniqueAuthorsService uniqueAuthorsService = new FindUniqueAuthorsService(storage);
+        FIndUniqueTitlesService uniqueTitlesService = new FIndUniqueTitlesService(storage);
+        FindUniqueBooksService uniqueBooksService = new FindUniqueBooksService(storage);
+        GetBooksByAuthorsService getBooksByAuthorsService = new GetBooksByAuthorsService(storage);
+        GetAuthorsBooksCountService getAuthorsBooksCountService = new GetAuthorsBooksCountService(storage);
 
-        for (int i = 1; i < 5; i++) {
-            storage.saveBook(new Book("Book" + i,"Stephen King", 1990));
-        }
+        storage.saveBook(new Book("CBook","Stephen King", 1997));
         storage.saveBook(new Book("B1", "A", 2020));
-        for (int i = 5; i < 9; i++) {
-            storage.saveBook(new Book("Book" + i,"Stephen King", 1990));
-        }
+        storage.saveBook(new Book("CBook","Stephen King", 1997));
+        storage.saveBook(new Book("A1", "A1", 2018));
+        storage.saveBook(new Book("BBook","Stephen King", 1999));
+
 
         menuNumberToActionMap = new HashMap();
         menuNumberToActionMap.put(1, new SaveBookUIAction(saveBookService));
@@ -37,9 +41,14 @@ public class BookLibrary {
         menuNumberToActionMap.put(3, new FindByAuthorUIAction(findService));
         menuNumberToActionMap.put(4, new FindByTitleUIAction(findService));
         menuNumberToActionMap.put(5, new DeleteByIdUIAction(deleteService));
-        menuNumberToActionMap.put(6, new FIndByAuthorPagingUIAction(pagingSearchServiceByAuthor, getAllBooksService));
+        menuNumberToActionMap.put(6, new OrderingPagingSearchUIAction(findService));
         menuNumberToActionMap.put(7, new GetAllBookUIAction(getAllBooksService));
         menuNumberToActionMap.put(8, new DeleteByAuthorUIAction(deleteService));
+        menuNumberToActionMap.put(9, new FindUniqueAuthorsUIAction(uniqueAuthorsService));
+        menuNumberToActionMap.put(10, new FindUniqueTitlesUIAction(uniqueTitlesService));
+        menuNumberToActionMap.put(11, new FindUniqueBooksUIAction(uniqueBooksService));
+        menuNumberToActionMap.put(12, new GetBooksByAuthorsUIAction(getBooksByAuthorsService));
+        menuNumberToActionMap.put(13, new GetAuthorsBookCountUIAction(getAuthorsBooksCountService));
     }
 
     public void run() throws IOException {
@@ -68,15 +77,20 @@ public class BookLibrary {
     }
     private void printMenu() {
         System.out.println("Main menu");
-        System.out.println("0. Exit");
-        System.out.println("1. Save book");
-        System.out.println("2. Find book by ID");
-        System.out.println("3. Find book by author");
-        System.out.println("4. Find book by title");
-        System.out.println("5. Delete book by ID");
-        System.out.println("6. Find books by Author with Paging");
-        System.out.println("7. Print all books in library");
-        System.out.println("8. Delete book by author");
+        System.out.println("0.  Exit");
+        System.out.println("1.  Save book");
+        System.out.println("2.  Find book by ID");
+        System.out.println("3.  Find book by author");
+        System.out.println("4.  Find book by title");
+        System.out.println("5.  Delete book by ID");
+        System.out.println("6.  Find books by Author with Ordering and Paging");
+        System.out.println("7.  Print all books in library");
+        System.out.println("8.  Delete book by author");
+        System.out.println("9.  Find unique authors");
+        System.out.println("10. Find unique titles");
+        System.out.println("11. Find unique books");
+        System.out.println("12. Print Books by Authors");
+        System.out.println("13. Print Authors and books count");
     }
 
 }

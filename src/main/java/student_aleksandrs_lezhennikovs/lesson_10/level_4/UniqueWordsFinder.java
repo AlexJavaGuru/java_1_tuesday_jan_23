@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-class UniqueWordFinder {
+class UniqueWordsFinder {
 
     Set<String> find(String text) {
         Set<String> resultSet = new HashSet<>(Arrays.asList(text.replaceAll("[^a-zA-Z ]", "").split(" ")));
