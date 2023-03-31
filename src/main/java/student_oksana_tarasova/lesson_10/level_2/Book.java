@@ -2,14 +2,25 @@ package student_oksana_tarasova.lesson_10.level_2;
 
 import java.util.Objects;
 
-class Book {
+public class Book {
     private Long id;
     private String title;
     private String author;
+    private String yearOfIssue;
+
+    public Book(String title, String author, String yearOfIssue) {
+        this.title = title;
+        this.author = author;
+        this.yearOfIssue = yearOfIssue;
+    }
 
     public Book(String title, String author) {
         this.title = title;
         this.author = author;
+    }
+
+    public String getYearOfIssue() {
+        return yearOfIssue;
     }
 
     public void setId(Long id) {
@@ -33,12 +44,13 @@ class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return id.equals(book.id) && title.equals(book.title) && author.equals(book.author);
+        return Objects.equals(title, book.title) && Objects.equals(author, book.author) && Objects.equals(yearOfIssue, book.yearOfIssue);
     }
 
+    //Objects.equals(id, book.id) && / усли не убрать, копирует дубликаты в HashSet
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, author);
+        return Objects.hash(title, author, yearOfIssue);
     }
 
     @Override
@@ -46,7 +58,7 @@ class Book {
         return "Book{" +
                 "title='" + title + '\'' +
                 ", author='" + author + '\'' +
+                ", yearOfIssue='" + yearOfIssue + '\'' +
                 '}';
     }
-
 }

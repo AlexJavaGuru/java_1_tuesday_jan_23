@@ -9,7 +9,7 @@ public class Array {
         List<String> list = new ArrayList<String>();
         System.out.println(list.size());
 // можно сразу задать значение длины ArrayList:
-        List<String> list1 = new ArrayList<>(1);
+        List<String> list1 = new ArrayList<>(10);
         list.add("more");
         list.add("more");
         //может содержать дубликаты. Ответ на Task_4
