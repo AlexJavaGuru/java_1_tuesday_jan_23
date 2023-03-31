@@ -1,0 +1,11 @@
+class Mother {
+
+}
+
+class Father {
+
+}
+
+class Child extends Mother {
+    private Father father;
+}
