@@ -43,18 +43,13 @@ public class TicTacToe {
     }
 
     public boolean isWinPosition(int[][] field, int playerToCheck) {
-        if (isWinPositionForHorizontals(field, playerToCheck) ||
-                isWinPositionForVerticals(field, playerToCheck) ||
-                isWinPositionForDiagonals(field, playerToCheck)) {
-            return true;
-        } else {
-            return false;
-        }
+        return isWinPositionForHorizontals(field, playerToCheck) || isWinPositionForVerticals(field, playerToCheck) ||
+                isWinPositionForDiagonals(field, playerToCheck);
+
     }
 
     public boolean isDrawPosition(int[][] field) {
         boolean hasEmptyCell = false;
-        boolean hasWinningPosition = false;
 
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length; j++) {
@@ -69,11 +64,10 @@ public class TicTacToe {
         }
 
         if (!hasEmptyCell) {
-            hasWinningPosition = isWinPosition(field, 0) || isWinPosition(field, 1);
+            return !isWinPosition(field, 0) && !isWinPosition(field, 1);
         }
 
-        // возвращаем результат проверки
-        return !hasEmptyCell && !hasWinningPosition;
+        return false;
     }
 
         public int[][] createField() {
