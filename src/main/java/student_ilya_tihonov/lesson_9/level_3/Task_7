@@ -1,0 +1,27 @@
+Является ли следующий интерфейс функциональным?
+
+interface ProductDatabase {
+
+    void save(Product product);
+
+    Product findByTitle(String productTitle);
+
+}
+
+
+class Product {
+
+    private String title;
+
+    public Product(String title) {
+        this.title = title;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+}
+
+Ответ: Нет, интерфейс ProductDatabase имеет 2 метода, функциональным интерфейс может иметь
+только 1 метод.
