@@ -15,9 +15,9 @@ public class DeleteByAuthorUIAction implements UIAction {
     @Override
     public void execute() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Пожалуйста введите автора книги: ");
+        System.out.print("Пожалуйста введите автора: ");
         String author = scanner.nextLine();
         bookDatabase.deleteByAuthor(author);
-        System.out.println("Книга автора " + author + " удалены");
+        System.out.println("Книга(-и) автора " + author + " удалена(-ы)");
     }
 }
