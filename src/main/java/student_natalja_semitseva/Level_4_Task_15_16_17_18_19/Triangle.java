@@ -1,6 +1,11 @@
 package student_natalja_semitseva.Level_4_Task_15_16_17_18_19;
 
 public class Triangle extends Shape{
+    private double sideA;
+    private double sideB;
+    private double sideC;
+    private double base;
+    private double height;
 
 
     public Triangle(String title, double side, double sideARandom, double sideBRandom, double sideCRandom) {
@@ -8,11 +13,7 @@ public class Triangle extends Shape{
 
 
     }
-    private double sideA;
-    private double sideB;
-    private double sideC;
-    private double base;
-    private double height;
+
 
     public Triangle(String title, double sideA, double sideB, double sideC, double base, double height) {
         super (title);
@@ -21,6 +22,7 @@ public class Triangle extends Shape{
         this.sideC = sideC;
         this.base = base;
         this.height = height;
+
     }
 
     @Override
