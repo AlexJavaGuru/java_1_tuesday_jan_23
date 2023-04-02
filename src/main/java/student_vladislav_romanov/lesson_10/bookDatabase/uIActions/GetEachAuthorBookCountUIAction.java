@@ -12,6 +12,7 @@ public class GetEachAuthorBookCountUIAction implements UIAction {
 
     @Override
     public void execute() {
+        System.out.println("----------------------------------------------------------");
         System.out.println(bookDatabase.getEachAuthorBookCount());
     }
 

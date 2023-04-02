@@ -14,6 +14,7 @@ public class DeleteByIdUIAction implements UIAction {
 
     @Override
     public void execute() {
+        System.out.println("----------------------------------------------------------");
         Scanner scanner = new Scanner(System.in);
         System.out.print("Пожалуйста введите id книги: ");
         long id = scanner.nextLong();

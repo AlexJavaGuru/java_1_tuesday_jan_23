@@ -12,6 +12,7 @@ public class CountAllBooksUIAction implements UIAction {
 
     @Override
     public void execute() {
+        System.out.println("----------------------------------------------------------");
         System.out.println("В библиотеке находится " + bookDatabase.countAllBooks() + " книг");
     }
 

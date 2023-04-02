@@ -28,6 +28,7 @@ public class FindUniqueUIAction implements UIAction {
     private int askListCriteria() {
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("----------------------------------------------------------");
         System.out.println("Список всех уникальных авторов - 1");
         System.out.println("Список всех уникальных названий - 2");
         System.out.println("Список всех уникальных книг - 3");

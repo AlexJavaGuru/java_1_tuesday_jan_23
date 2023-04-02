@@ -16,6 +16,7 @@ public class FindByTitleUIAction implements UIAction {
 
     @Override
     public void execute() {
+        System.out.println("----------------------------------------------------------");
         Scanner scanner = new Scanner(System.in);
         System.out.print("Пожалуйста введите название: ");
         String title = scanner.nextLine();
