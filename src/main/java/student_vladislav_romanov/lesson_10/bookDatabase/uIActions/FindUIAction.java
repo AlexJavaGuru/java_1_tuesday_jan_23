@@ -19,9 +19,9 @@ public class FindUIAction implements UIAction {
     public void execute() {
         Scanner scanner = new Scanner(System.in);
         int criteria;
-        int pagination;
         String leftCondition = "";
         String rightCondition = "";
+        List<Book> findResult;
 
         criteria = askSearchCriteria();
 
@@ -34,18 +34,18 @@ public class FindUIAction implements UIAction {
             System.out.print("Пожалуйста введите 2 условие поиска: ");
             rightCondition = scanner.nextLine();
         }
-        System.out.print("Пожалуйста введите номер страницы результатов (0 для вывода всех результатов): ");
-        pagination = Integer.parseInt(scanner.nextLine());
 
-        if (pagination > 0) {
-            printFindResults(findResultsWithPagination(criteria, leftCondition, rightCondition, pagination));
-        } else {
-            printFindResults(findResultsAll(criteria, leftCondition, rightCondition));
-        }
+        findResult = findResults(criteria, leftCondition, rightCondition);
+
+        findResult = askPagination(findResult);
+
+        findResult = askSort(findResult);
+
+        printFindResults(findResult);
 
     }
 
-    private List<Book> findResultsAll(int criteria, String leftCondition, String rightCondition) {
+    private List<Book> findResults(int criteria, String leftCondition, String rightCondition) {
         List<Book> findResult = null;
         switch (criteria) {
             case 1 -> findResult = bookDatabase.find(new AuthorSearchCriteria(leftCondition));
@@ -57,23 +57,6 @@ public class FindUIAction implements UIAction {
             case 7 -> findResult = bookDatabase.find(new OrSearchCriteria(new AuthorSearchCriteria(leftCondition), new TitleSearchCriteria(rightCondition)));
             case 8 -> findResult = bookDatabase.find(new OrSearchCriteria(new AuthorSearchCriteria(leftCondition), new YearOfIssueSearchCriteria(rightCondition)));
             case 9 -> findResult = bookDatabase.find(new OrSearchCriteria(new TitleSearchCriteria(leftCondition), new YearOfIssueSearchCriteria(rightCondition)));
-            default -> System.out.println("Такого критерия не существует");
-        }
-        return findResult;
-    }
-
-    private List<Book> findResultsWithPagination(int criteria, String leftCondition, String rightCondition, int pagination) {
-        List<Book> findResult = null;
-        switch (criteria) {
-            case 1 -> findResult = bookDatabase.find(new AuthorSearchCriteria(leftCondition), pagination);
-            case 2 -> findResult = bookDatabase.find(new TitleSearchCriteria(leftCondition), pagination);
-            case 3 -> findResult = bookDatabase.find(new YearOfIssueSearchCriteria(leftCondition), pagination);
-            case 4 -> findResult = bookDatabase.find(new AndSearchCriteria(new AuthorSearchCriteria(leftCondition), new TitleSearchCriteria(rightCondition)), pagination);
-            case 5 -> findResult = bookDatabase.find(new AndSearchCriteria(new AuthorSearchCriteria(leftCondition), new YearOfIssueSearchCriteria(rightCondition)), pagination);
-            case 6 -> findResult = bookDatabase.find(new AndSearchCriteria(new TitleSearchCriteria(leftCondition), new YearOfIssueSearchCriteria(rightCondition)), pagination);
-            case 7 -> findResult = bookDatabase.find(new OrSearchCriteria(new AuthorSearchCriteria(leftCondition), new TitleSearchCriteria(rightCondition)), pagination);
-            case 8 -> findResult = bookDatabase.find(new OrSearchCriteria(new AuthorSearchCriteria(leftCondition), new YearOfIssueSearchCriteria(rightCondition)), pagination);
-            case 9 -> findResult = bookDatabase.find(new OrSearchCriteria(new TitleSearchCriteria(leftCondition), new YearOfIssueSearchCriteria(rightCondition)), pagination);
             default -> System.out.println("Такого критерия не существует");
         }
         return findResult;
@@ -95,6 +78,38 @@ public class FindUIAction implements UIAction {
         System.out.print("Пожалуйста введите критерий поиска: ");
 
         return Integer.parseInt(scanner.nextLine());
+    }
+
+    private List<Book> askPagination(List<Book> findResult) {
+        Scanner scanner = new Scanner(System.in);
+        Paginate paginate = new Paginate();
+        int pagination;
+
+        System.out.print("Пожалуйста введите номер страницы результатов (0 для вывода всех результатов): ");
+        pagination = Integer.parseInt(scanner.nextLine());
+
+        if (pagination > 0) {
+            findResult = paginate.split(findResult, pagination);
+        }
+
+        return findResult;
+    }
+
+    private List<Book> askSort(List<Book> findResult) {
+        Scanner scanner = new Scanner(System.in);
+        Sort sort = new Sort();
+        String sorting;
+
+        System.out.print("Пожалуйста введите тип сортировки (По-возрастанию - asc, по-убыванию - desc или оставьте пустым если сортировка не нужна): ");
+        sorting = scanner.nextLine();
+
+        if (sorting.equals("asc")) {
+            findResult = sort.ascSorting(findResult);
+        } else if (sorting.equals("desc")) {
+            findResult = sort.descSorting(findResult);
+        }
+
+        return findResult;
     }
 
     private void printFindResults(List<Book> findResult) {

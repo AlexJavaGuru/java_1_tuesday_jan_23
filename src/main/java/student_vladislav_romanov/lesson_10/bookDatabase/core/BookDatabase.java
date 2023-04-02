@@ -29,8 +29,6 @@ public interface BookDatabase {
 
     List<Book> find(SearchCriteria searchCriteria);
 
-    List<Book> find(SearchCriteria searchCriteria, int paging);
-
     Set<String> findUniqueAuthors();
 
     Set<String> findUniqueTitles();

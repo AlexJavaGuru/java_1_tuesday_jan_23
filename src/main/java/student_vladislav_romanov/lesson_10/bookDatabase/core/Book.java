@@ -2,7 +2,7 @@ package student_vladislav_romanov.lesson_10.bookDatabase.core;
 
 import java.util.Objects;
 
-public class Book {
+public class Book implements Comparable<Book> {
 
     private Long id;
     private final String title;
@@ -62,5 +62,10 @@ public class Book {
                 ", author='" + author + '\'' +
                 ", yearOfIssue='" + yearOfIssue + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Book o) {
+        return Math.toIntExact(this.id) - Math.toIntExact(o.id);
     }
 }
