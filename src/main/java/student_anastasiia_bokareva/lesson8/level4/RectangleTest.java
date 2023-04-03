@@ -1,23 +1,22 @@
 package student_anastasiia_bokareva.lesson8.level4;
 
-public class TriangleTest {
+public class RectangleTest {
     public static void main(String[] args) {
-        TriangleTest test = new TriangleTest();
-        test.calculateArea();
+        RectangleTest test = new RectangleTest();
         test.calculatePerimetr();
-
+        test.calculateArea();
     }
     public void calculateArea(){
-        Triangle triangle = new Triangle(5);
-        double area = triangle.calculateArea();
-        double expect = 10.825317547305483;
+        Rectangle rectangle = new Rectangle(2,4);
+        double area = rectangle.calculateArea();
+        double expect = 8;
         check(expect,area,"Area ");
 
     }
     public void calculatePerimetr(){
-        Triangle triangle = new Triangle(5);
-        double area = triangle.calculatePerimetr();
-        double expect = 15 ;
+        Rectangle rectangle = new Rectangle(2,4);
+        double area = rectangle.calculatePerimetr();
+        double expect = 12;
         check(expect,area,"Perimetr ");
     }
     public void check(double realResult, double expectedResult, String testName){
