@@ -5,7 +5,7 @@ import student_anastasiia_bokareva.lesson3.level7.Product;
 public class Triangle extends Shape {
     private int side;
 
-    Triangle(int side){
+    public Triangle(int side){
         this.side = side;
     }
 

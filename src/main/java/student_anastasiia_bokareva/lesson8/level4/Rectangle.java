@@ -4,7 +4,7 @@ public class Rectangle extends Shape{
    private int sideA;
    private int sideB;
 
-   Rectangle (int sideA, int sideB){
+   public Rectangle(int sideA, int sideB){
        this.sideA=sideA;
        this.sideB=sideB;
    }
