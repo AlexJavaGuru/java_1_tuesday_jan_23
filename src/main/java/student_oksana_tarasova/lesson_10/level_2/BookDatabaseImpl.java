@@ -1,6 +1,9 @@
 package student_oksana_tarasova.lesson_10.level_2;
 
+import student_oksana_tarasova.lesson_10.level_3.AndSearchCriteria;
+import student_oksana_tarasova.lesson_10.level_3.OrSearchCriteria;
 import student_oksana_tarasova.lesson_10.level_3.SearchCriteria;
+
 
 import java.util.*;
 
@@ -113,9 +116,13 @@ public class BookDatabaseImpl implements BookDatabase {
 
     @Override
     public List<Book> find(SearchCriteria searchCriteria) {
+        SearchCriteria searchCriteria1 = new AndSearchCriteria(searchCriteria, searchCriteria);
+        SearchCriteria searchCriteria2 = new OrSearchCriteria(searchCriteria, searchCriteria);
         List<Book> searchBook = new ArrayList<>();
         for (Book book : books) {
-            if (searchCriteria.match(book)) {
+            if (searchCriteria1.match(book)) {
+                searchBook.add(book);
+            } else if (searchCriteria2.match(book)) {
                 searchBook.add(book);
             }
         }
@@ -161,9 +168,8 @@ public class BookDatabaseImpl implements BookDatabase {
     @Override
     public Map<String, List<Book>> getAuthorToBooksMap() {
         Map<String, List<Book>> libraryAuthorToBooks = new HashMap<>();
-        Set<String> authors = findUniqueAuthors();
-        for (String author : authors) {
-            libraryAuthorToBooks.put(author, findByAuthor(author));
+        for (Book book : books) {
+           libraryAuthorToBooks.put(book.getAuthor(), findByAuthor(book.getAuthor()));
         }
         return libraryAuthorToBooks;
     }
@@ -171,9 +177,8 @@ public class BookDatabaseImpl implements BookDatabase {
     @Override
     public Map<String, Integer> getEachAuthorBookCount() {
         Map<String, Integer> eachAuthorBookCount = new HashMap<>();
-        Set<String> authors = findUniqueAuthors();
-        for (String author : authors) {
-            eachAuthorBookCount.put(author, countAuthorToBooks(author));
+        for (Book book : books) {
+            eachAuthorBookCount.put(book.getAuthor(), countAuthorToBooks(book.getAuthor()));
         }
         return eachAuthorBookCount;
     }

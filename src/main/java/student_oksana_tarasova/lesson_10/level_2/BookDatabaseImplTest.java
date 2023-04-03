@@ -9,31 +9,31 @@ import java.util.*;
 public class BookDatabaseImplTest {
     public static void main(String[] args) {
         BookDatabaseImplTest test = new BookDatabaseImplTest();
-//        test.saveTest();
-//        test.deleteByBookIdTest();
-//        test.notDeleteByBookIdTest1();
-//        test.deleteBookTest1();
-//        test.notDeleteBookTest1();
-//        test.findBookByIdTest1();
-//        test.notFindBookByIdTest1();
-//        test.findByAuthorTest();
-//        test.findByTitleTest();
-//        test.countAllBooksTest();
-//        test.deleteByAuthorTest1();
-//        test.notDeleteByAuthorTest1();
-//        test.deleteByTitleTest1();
-//        test.notDeleteByTitleTest1();
-//        test.searchCriteriaTest();
-//        test.searchCriteriaTest1();
-//        test.searchCriteriaTest2();
-//        test.searchCriteriaTest3();
-//        test.searchCriteriaTest4();
-//        test.searchCriteriaTest5();
-//        test.findUniqueAuthorsTest();
-//        test.findUniqueTitlesTest();
-//        test.findUniqueBooksTest();
-//        test.containsTest();
-//        test.notContainsTest();
+        test.saveTest();
+        test.deleteByBookIdTest();
+        test.notDeleteByBookIdTest1();
+        test.deleteBookTest1();
+        test.notDeleteBookTest1();
+        test.findBookByIdTest1();
+        test.notFindBookByIdTest1();
+        test.findByAuthorTest();
+        test.findByTitleTest();
+        test.countAllBooksTest();
+        test.deleteByAuthorTest1();
+        test.notDeleteByAuthorTest1();
+        test.deleteByTitleTest1();
+        test.notDeleteByTitleTest1();
+        test.searchCriteriaTest();
+        test.searchCriteriaTest1();
+        test.searchCriteriaTest2();
+        test.searchCriteriaTest3();
+        test.searchCriteriaTest4();
+        test.searchCriteriaTest5();
+        test.findUniqueAuthorsTest();
+        test.findUniqueTitlesTest();
+        test.findUniqueBooksTest();
+        test.containsTest();
+        test.notContainsTest();
         test.getAuthorToBooksMap();
         test.getEachAuthorBookCount();
     }
@@ -465,7 +465,6 @@ public class BookDatabaseImplTest {
         check(expectedResult == realResult, "map count author to books");
     }
 
-
     public void check(boolean state, String nameTest) {
         if (state) {
             System.out.println(nameTest + " = ok");
@@ -473,6 +472,4 @@ public class BookDatabaseImplTest {
             System.out.println(nameTest + " = fail");
         }
     }
-
-
 }

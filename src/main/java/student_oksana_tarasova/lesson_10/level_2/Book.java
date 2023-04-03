@@ -1,8 +1,9 @@
 package student_oksana_tarasova.lesson_10.level_2;
 
+import java.util.Collection;
 import java.util.Objects;
 
-public class Book {
+public class Book implements Comparable <Book>{
     private Long id;
     private String title;
     private String author;
@@ -61,4 +62,11 @@ public class Book {
                 ", yearOfIssue='" + yearOfIssue + '\'' +
                 '}';
     }
+
+    @Override
+    public int compareTo(Book book) {
+        return author.compareTo(book.author);
+    }
+
+    
 }
