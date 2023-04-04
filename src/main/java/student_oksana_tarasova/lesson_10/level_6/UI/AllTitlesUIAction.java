@@ -10,6 +10,7 @@ public class AllTitlesUIAction implements UIAction {
     public AllTitlesUIAction(BookDatabase bookDatabase) {
         this.bookDatabase = bookDatabase;
     }
+
     @Override
     public void execute() {
         Set<String> allTitles = bookDatabase.findUniqueTitles();

@@ -8,7 +8,6 @@ import java.util.Set;
 public class FindAllBooksUIAction implements UIAction {
     private BookDatabase bookDatabase;
 
-
     public FindAllBooksUIAction(BookDatabase bookDatabase) {
         this.bookDatabase = bookDatabase;
     }

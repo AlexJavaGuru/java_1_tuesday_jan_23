@@ -4,7 +4,7 @@ import student_oksana_tarasova.lesson_10.level_2.BookDatabase;
 
 import java.util.Scanner;
 
-public class DeleteByIdUIAction implements UIAction{
+public class DeleteByIdUIAction implements UIAction {
     private BookDatabase bookDatabase;
 
     public DeleteByIdUIAction(BookDatabase bookDatabase) {

@@ -169,7 +169,7 @@ public class BookDatabaseImpl implements BookDatabase {
     public Map<String, List<Book>> getAuthorToBooksMap() {
         Map<String, List<Book>> libraryAuthorToBooks = new HashMap<>();
         for (Book book : books) {
-           libraryAuthorToBooks.put(book.getAuthor(), findByAuthor(book.getAuthor()));
+            libraryAuthorToBooks.put(book.getAuthor(), findByAuthor(book.getAuthor()));
         }
         return libraryAuthorToBooks;
     }
@@ -183,14 +183,14 @@ public class BookDatabaseImpl implements BookDatabase {
         return eachAuthorBookCount;
     }
 
-    private int countAuthorToBooks (String author) {
+    private int countAuthorToBooks(String author) {
         int count = 0;
         for (Book book : books) {
             if (book.getAuthor().equals(author)) {
                 count++;
             }
         }
-       return count;
+        return count;
     }
 
     public List<Book> getBooks() {

@@ -10,8 +10,6 @@ public class CriteriaTest {
         CriteriaTest.titleSearch1();
         CriteriaTest.yearSearch1();
         CriteriaTest.yearSearch();
-
-
     }
 
     public static void authorSearch() {

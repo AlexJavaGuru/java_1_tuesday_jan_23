@@ -22,13 +22,13 @@ public class BookLibrary {
         menuNumberToActionMap.put(5, new FindBookByAuthorAndTitleUIAction(bookDatabase));
         menuNumberToActionMap.put(6, new DeleteByAuthorUIAction(bookDatabase));
         menuNumberToActionMap.put(7, new DeleteByTitleUIAction(bookDatabase));
-        menuNumberToActionMap.put(8, new DeleteByIdUIAction(bookDatabase) );
-        menuNumberToActionMap.put(9, new DeleteBookUIAction(bookDatabase) );
+        menuNumberToActionMap.put(8, new DeleteByIdUIAction(bookDatabase));
+        menuNumberToActionMap.put(9, new DeleteBookUIAction(bookDatabase));
         menuNumberToActionMap.put(10, new AllAuthorsUIAction(bookDatabase));
         menuNumberToActionMap.put(11, new AllTitlesUIAction(bookDatabase));
         menuNumberToActionMap.put(12, new FindAllBooksUIAction(bookDatabase));
         menuNumberToActionMap.put(13, new NumberOfAuthorsBooksUIAction(bookDatabase));
-        menuNumberToActionMap.put(14, new PagingAuthorBooksUIAction(bookDatabase,3));
+        menuNumberToActionMap.put(14, new PagingAuthorBooksUIAction(bookDatabase, 3));
         menuNumberToActionMap.put(15, new SortedListOfBooksUIAction(bookDatabase));
     }
 
@@ -70,6 +70,7 @@ public class BookLibrary {
                 "11 - list of all book titles in the library;\n" +
                 "12 - list of all books in the library;\n" +
                 "13 - number of author's books in the library;\n" +
-                "14 - view the list of found books by the author by page");
+                "14 - view the list of found books by the author by page;\n" +
+                "15 - search for books by year of publication sorted by author");
     }
 }

@@ -9,7 +9,6 @@ public class PagingListBook {
     int pageSize;
     List<Book> books;
 
-
     public PagingListBook(List<Book> books, int pageSize) {
         this.pageSize = pageSize;
         this.books = new ArrayList(books);
@@ -39,6 +38,5 @@ public class PagingListBook {
         }
         return count;
     }
-
 }
 

@@ -13,7 +13,6 @@ public class SaveBookUIAction implements UIAction {
         this.bookDatabase = bookDatabase;
     }
 
-
     @Override
     public void execute() {
         Scanner scanner = new Scanner(System.in);
@@ -26,6 +25,5 @@ public class SaveBookUIAction implements UIAction {
         String yearOfIssue = scanner.nextLine();
         Book book = new Book(title, author, yearOfIssue);
         bookDatabase.save(book);
-
     }
 }

@@ -11,6 +11,7 @@ public class DeleteBookUIAction implements UIAction {
     public DeleteBookUIAction(BookDatabase bookDatabase) {
         this.bookDatabase = bookDatabase;
     }
+
     @Override
     public void execute() {
         Scanner scanner = new Scanner(System.in);

@@ -44,10 +44,8 @@ class IntegerListDemo {
             System.out.println("element of list: " + number);
 
         }
-
         listInt.toString();
     }
-
 }
 
 

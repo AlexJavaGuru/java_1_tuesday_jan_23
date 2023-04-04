@@ -3,7 +3,7 @@ package student_oksana_tarasova.lesson_10.level_2;
 import java.util.Collection;
 import java.util.Objects;
 
-public class Book implements Comparable <Book>{
+public class Book implements Comparable<Book> {
     private Long id;
     private String title;
     private String author;
@@ -48,7 +48,6 @@ public class Book implements Comparable <Book>{
         return Objects.equals(title, book.title) && Objects.equals(author, book.author) && Objects.equals(yearOfIssue, book.yearOfIssue);
     }
 
-    //Objects.equals(id, book.id) && / усли не убрать, копирует дубликаты в HashSet
     @Override
     public int hashCode() {
         return Objects.hash(title, author, yearOfIssue);
@@ -68,5 +67,4 @@ public class Book implements Comparable <Book>{
         return author.compareTo(book.author);
     }
 
-    
 }

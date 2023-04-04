@@ -58,6 +58,9 @@ public class BookDatabaseImplTest {
         int realResult = bookDatabase.getBooks().size();
         int expectedResult = 1;
         check(realResult == expectedResult, "delete by id");
+        boolean realResult1 = bookDatabase.contains(book);
+        boolean expectedResult2 = false;
+        check(realResult1 == expectedResult2, "book not contains");
     }
 
 
@@ -85,6 +88,9 @@ public class BookDatabaseImplTest {
         int realResult = bookDatabase.getBooks().size();
         int expectedResult = 1;
         check(realResult == expectedResult, "delete book");
+        boolean realResult1 = bookDatabase.contains(book);
+        boolean expectedResult2 = false;
+        check(realResult1 == expectedResult2, "book not contains");
     }
 
     public void notDeleteBookTest1() {
@@ -181,6 +187,9 @@ public class BookDatabaseImplTest {
         int realResult = bookDatabase.getBooks().size();
         int expectedResult = 1;
         check(realResult == expectedResult, "delete by author");
+        boolean realResult1 = bookDatabase.contains(book);
+        boolean expectedResult2 = false;
+        check(realResult1 == expectedResult2, "book not contains");
     }
 
     public void notDeleteByAuthorTest1() {
@@ -194,6 +203,7 @@ public class BookDatabaseImplTest {
         int realResult = bookDatabase.getBooks().size();
         int expectedResult = 2;
         check(realResult == expectedResult, "not delete book by author");
+
     }
 
     public void deleteByTitleTest1() {

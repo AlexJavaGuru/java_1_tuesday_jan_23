@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class FindByAuthorUIAction implements UIAction {
     private BookDatabase bookDatabase;
 
-
     public FindByAuthorUIAction(BookDatabase bookDatabase) {
         this.bookDatabase = bookDatabase;
     }
@@ -22,5 +21,4 @@ public class FindByAuthorUIAction implements UIAction {
         List<Book> bookAuthor = bookDatabase.findByAuthor(author);
         System.out.println(bookAuthor);
     }
-
 }
