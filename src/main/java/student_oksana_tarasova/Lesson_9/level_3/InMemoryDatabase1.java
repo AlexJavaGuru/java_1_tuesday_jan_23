@@ -27,24 +27,11 @@ class InMemoryDatabase1 implements ProductDatabase1 {
         return Optional.empty();
     }
 
-
     private Product[] databaseIncrease() {
         Product[] products1 = new Product[products.length + 1];
         for (int i = 0; i < products.length; i++) {
             products1[i] = products[i];
         }
         return products = products1;
-    }
-
-    public static void main(String[] args) {
-        Product[] products = {
-                new Product("Kalev"),
-                new Product("Roshen"),
-                new Product("Dark night")
-        };
-
-        InMemoryDatabase1 inMemoryDatabase1 = new InMemoryDatabase1(products);
-        System.out.println(inMemoryDatabase1.findByTitle("Roshen"));
-
     }
 }

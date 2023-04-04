@@ -1,7 +1,5 @@
 package student_oksana_tarasova.Lesson_9.level_3;
 
-import javax.swing.text.html.Option;
-import java.util.Arrays;
 import java.util.Optional;
 
 public class InMemoryDatabaseTest {
@@ -14,18 +12,17 @@ public class InMemoryDatabaseTest {
         test.findByTitleTest3();
     }
 
-
-
     public void saveTest() {
-        //не заню как тестировать void методы. Это демо
         Product[] products = {
                 new Product("Kalev"),
                 new Product("Roshen"),
         };
         InMemoryDatabase inMemoryDatabase = new InMemoryDatabase(products);
-        System.out.println(inMemoryDatabase.toString());
-        inMemoryDatabase.save(new Product("Dark night"));
-        System.out.println(inMemoryDatabase.toString());
+        Product product = new Product("Dark night");
+        inMemoryDatabase.save(product);
+        Product real = inMemoryDatabase.findByTitle("Dark night");
+        Product expected = product;
+        check(real.equals(expected), "product save");
     }
 
     public void findByTitleTest() {
@@ -49,9 +46,8 @@ public class InMemoryDatabaseTest {
         InMemoryDatabase inMemoryDatabase = new InMemoryDatabase(products);
         Product real = inMemoryDatabase.findByTitle("Rainbow");
         if (real == null) {
-            System.out.println("product not find");
+            System.out.println("product not find = ok");
         }
-
     }
 
     public void findByTitleTest2() {
@@ -85,5 +81,4 @@ public class InMemoryDatabaseTest {
             System.out.println(nameTest + " = fail");
         }
     }
-
 }
