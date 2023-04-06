@@ -55,12 +55,8 @@ public class BookDatabaseImplTest {
         bookDatabase.save(book);
         bookDatabase.save(book1);
         bookDatabase.delete(1L);
-        int realResult = bookDatabase.getBooks().size();
-        int expectedResult = 1;
-        check(realResult == expectedResult, "delete by id");
-        boolean realResult1 = bookDatabase.contains(book);
-        boolean expectedResult2 = false;
-        check(realResult1 == expectedResult2, "book not contains");
+        boolean realResult1 = bookDatabase.contains(new Book("Kvaksha", "Ivanov"));
+        check(!realResult1, "delete by id book");
     }
 
 
@@ -71,40 +67,23 @@ public class BookDatabaseImplTest {
         BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
         bookDatabase.save(book);
         bookDatabase.save(book1);
-        bookDatabase.delete(3L);
-        int realResult = bookDatabase.getBooks().size();
-        int expectedResult = 2;
-        check(realResult == expectedResult, " not delete by id");
+        boolean realResult = bookDatabase.delete(3L);
+        boolean expectedResult = false;
+        check(realResult == expectedResult, "not delete by id");
     }
 
     public void deleteBookTest1() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov");
-        Book book1 = new Book("Pole", "Petrov");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
-        bookDatabase.delete(book);
-        int realResult = bookDatabase.getBooks().size();
-        int expectedResult = 1;
-        check(realResult == expectedResult, "delete book");
-        boolean realResult1 = bookDatabase.contains(book);
-        boolean expectedResult2 = false;
-        check(realResult1 == expectedResult2, "book not contains");
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
+        bookDatabase.delete(new Book("Kvaksha", "Ivanov", "1990"));
+        boolean realResult1 = bookDatabase.contains(new Book("Kvaksha", "Ivanov", "1990"));
+        check(!realResult1, "book not contains");
     }
 
     public void notDeleteBookTest1() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov");
-        Book book1 = new Book("Pole", "Petrov");
-        Book book3 = new Book("More", "Sidorov");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
-        bookDatabase.delete(book3);
-        int realResult = bookDatabase.getBooks().size();
-        int expectedResult = 2;
-        check(realResult == expectedResult, "not delete book");
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
+        bookDatabase.delete(new Book("Kvaksha", "Vern", "1990"));
+        boolean realResult = bookDatabase.contains(new Book("Kvaksha", "Vern", "1990"));
+        check(!realResult, "not delete book");
     }
 
     public void findBookByIdTest1() {
@@ -120,358 +99,193 @@ public class BookDatabaseImplTest {
     }
 
     public void notFindBookByIdTest1() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov");
-        Book book1 = new Book("Pole", "Petrov");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
-        Optional<Book> realResult = bookDatabase.findById(3L);
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
+        Optional<Book> realResult = bookDatabase.findById(9L);
         Optional<Book> expectedResult = Optional.empty();
         check(realResult.equals(expectedResult), "not find Book By Id");
     }
 
     public void findByAuthorTest() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov");
-        Book book1 = new Book("Pole", "Petrov");
-        Book book2 = new Book("More", "Ivanov");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
-        bookDatabase.save(book2);
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
         List<Book> realResult = bookDatabase.findByAuthor("Ivanov");
-        List<Book> expectedResult = new ArrayList<>();
-        expectedResult.add(book);
-        expectedResult.add(book2);
-        check(expectedResult.containsAll(realResult) && expectedResult.containsAll(realResult), "find Book By author");
+        List<Book> expectedResult = List.of(
+                new Book("Kvaksha", "Ivanov", "1990"),
+                new Book("More", "Ivanov", "2000"),
+                new Book("Kvaksha", "Ivanov", "1980"),
+                new Book("More", "Ivanov", "2000"),
+                new Book("Kvaksha", "Ivanov", "1980")
+        );
+        check(expectedResult.containsAll(realResult) && realResult.containsAll(expectedResult), "find Book By author");
     }
 
     public void findByTitleTest() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov");
-        Book book1 = new Book("Pole", "Petrov");
-        Book book2 = new Book("More", "Ivanov");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
-        bookDatabase.save(book2);
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
         List<Book> realResult = bookDatabase.findByTitle("More");
-        List<Book> expectedResult = new ArrayList<>();
-        expectedResult.add(book2);
-        check(expectedResult.containsAll(realResult) && expectedResult.containsAll(realResult), "find Book By Title");
+        List<Book> expectedResult = List.of(
+                new Book("More", "Ivanov", "2000"),
+                new Book("More", "Ivanov", "2000")
+        );
+        check(expectedResult.containsAll(realResult) && realResult.containsAll(expectedResult), "find Book By Title");
     }
 
     public void countAllBooksTest() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov");
-        Book book1 = new Book("Pole", "Petrov");
-        Book book2 = new Book("More", "Ivanov");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
-        bookDatabase.save(book2);
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
         int realResult = bookDatabase.countAllBooks();
-        int expectedResult = 3;
+        int expectedResult = 8;
         check(realResult == expectedResult, "count all books");
     }
 
     public void deleteByAuthorTest1() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov");
-        Book book1 = new Book("Pole", "Petrov");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
         bookDatabase.deleteByAuthor("Ivanov");
-        int realResult = bookDatabase.getBooks().size();
-        int expectedResult = 1;
-        check(realResult == expectedResult, "delete by author");
-        boolean realResult1 = bookDatabase.contains(book);
-        boolean expectedResult2 = false;
-        check(realResult1 == expectedResult2, "book not contains");
+        List<Book> realResult = bookDatabase.findByAuthor("Ivanov");
+        List<Book> expectedResult = new ArrayList<>();
+        check(expectedResult.containsAll(realResult) && realResult.containsAll(expectedResult), "book not contains");
     }
 
     public void notDeleteByAuthorTest1() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov");
-        Book book1 = new Book("Pole", "Petrov");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
         bookDatabase.deleteByAuthor("Semenov");
-        int realResult = bookDatabase.getBooks().size();
-        int expectedResult = 2;
-        check(realResult == expectedResult, "not delete book by author");
+        List<Book> realResult = bookDatabase.getBooks();
+        List<Book> expectedResult = new ArrayList<>(saveBook());
+        check(expectedResult.containsAll(realResult) && realResult.containsAll(expectedResult), "not delete book by author");
 
     }
 
     public void deleteByTitleTest1() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov");
-        Book book1 = new Book("Pole", "Petrov");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
         bookDatabase.deleteByTitle("Pole");
-        int realResult = bookDatabase.getBooks().size();
-        int expectedResult = 1;
-        check(realResult == expectedResult, "delete by title");
+        List<Book> realResult = bookDatabase.findByTitle("Pole");
+        List<Book> expectedResult = new ArrayList<>();
+        check(expectedResult.containsAll(realResult) && realResult.containsAll(expectedResult), "delete by title");
     }
 
     public void notDeleteByTitleTest1() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov");
-        Book book1 = new Book("Pole", "Petrov");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
-        bookDatabase.deleteByAuthor("Seven");
-        int realResult = bookDatabase.getBooks().size();
-        int expectedResult = 2;
-        check(realResult == expectedResult, "not delete book by title");
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
+        bookDatabase.deleteByTitle("Ovod");
+        boolean realResult1 = bookDatabase.contains(new Book("Ovod", "Voinich", "1990"));
+        check(!realResult1, "not delete book by title");
     }
 
     public void searchCriteriaTest() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov", "1990");
-        Book book1 = new Book("Pole", "Petrov", "2000");
-        Book book2 = new Book("More", "Ivanov", "2000");
-        Book book3 = new Book("Kvaksha", "Ivanov", "1990");
-        Book book4 = new Book("Pole", "Petrov", "2000");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
-        bookDatabase.save(book2);
-        bookDatabase.save(book3);
-        bookDatabase.save(book4);
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
         List<Book> realResult = bookDatabase.find(new AuthorSearchCriteria("Ivanov"));
-        List<Book> expectedResult = new ArrayList<>();
-        expectedResult.add(book);
-        expectedResult.add(book2);
-        expectedResult.add(book3);
-        check(expectedResult.containsAll(realResult) && expectedResult.containsAll(realResult), "search criteria author");
+        List<Book> expectedResult = List.of(
+                new Book("Kvaksha", "Ivanov", "1990"),
+                new Book("More", "Ivanov", "2000"),
+                new Book("Kvaksha", "Ivanov", "1980"),
+                new Book("More", "Ivanov", "2000"),
+                new Book("Kvaksha", "Ivanov", "1980")
+        );
+        check(expectedResult.containsAll(realResult) && realResult.containsAll(expectedResult), "search criteria author");
     }
 
     public void searchCriteriaTest1() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov", "1990");
-        Book book1 = new Book("Pole", "Petrov", "2000");
-        Book book2 = new Book("More", "Ivanov", "2000");
-        Book book3 = new Book("Kvaksha", "Ivanov", "1990");
-        Book book4 = new Book("Pole", "Petrov", "2000");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
-        bookDatabase.save(book2);
-        bookDatabase.save(book3);
-        bookDatabase.save(book4);
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
         List<Book> realResult = bookDatabase.find(new AuthorSearchCriteria("Vern"));
         List<Book> expectedResult = new ArrayList<>();
-        check(expectedResult.containsAll(realResult) && expectedResult.containsAll(realResult), "search criteria not author");
+        check(expectedResult.containsAll(realResult) && realResult.containsAll(expectedResult), "search criteria not author");
     }
 
     public void searchCriteriaTest2() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov", "1990");
-        Book book1 = new Book("Pole", "Petrov", "2000");
-        Book book2 = new Book("More", "Ivanov", "2000");
-        Book book3 = new Book("Kvaksha", "Ivanov", "1990");
-        Book book4 = new Book("Pole", "Petrov", "2000");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
-        bookDatabase.save(book2);
-        bookDatabase.save(book3);
-        bookDatabase.save(book4);
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
         List<Book> realResult = bookDatabase.find(new TitleSearchCriteria("Pole"));
-        List<Book> expectedResult = new ArrayList<>();
-        expectedResult.add(book1);
-        expectedResult.add(book4);
-        check(expectedResult.containsAll(realResult) && expectedResult.containsAll(realResult), "search criteria title");
+        List<Book> expectedResult = List.of(
+                new Book("Pole", "Petrov", "2001"),
+                new Book("Pole", "Petrov", "2000"),
+                new Book("Pole", "Petrov", "2001")
+        );
+        check(expectedResult.containsAll(realResult) && realResult.containsAll(expectedResult), "search criteria title");
     }
 
     public void searchCriteriaTest3() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov", "1990");
-        Book book1 = new Book("Pole", "Petrov", "2000");
-        Book book2 = new Book("More", "Ivanov", "2000");
-        Book book3 = new Book("Kvaksha", "Ivanov", "1990");
-        Book book4 = new Book("Pole", "Petrov", "2000");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
-        bookDatabase.save(book2);
-        bookDatabase.save(book3);
-        bookDatabase.save(book4);
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
         List<Book> realResult = bookDatabase.find(new TitleSearchCriteria("Sky"));
         List<Book> expectedResult = new ArrayList<>();
-        check(expectedResult.containsAll(realResult) && expectedResult.containsAll(realResult), "search criteria not title");
+        check(expectedResult.containsAll(realResult) && realResult.containsAll(expectedResult), "search criteria not title");
     }
 
     public void searchCriteriaTest4() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov", "1990");
-        Book book1 = new Book("Pole", "Petrov", "2000");
-        Book book2 = new Book("More", "Ivanov", "2000");
-        Book book3 = new Book("Kvaksha", "Ivanov", "1990");
-        Book book4 = new Book("Pole", "Petrov", "2000");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
-        bookDatabase.save(book2);
-        bookDatabase.save(book3);
-        bookDatabase.save(book4);
-        List<Book> realResult = bookDatabase.find(new YearOfIssueSearchCriteria("2000"));
-        List<Book> expectedResult = new ArrayList<>();
-        expectedResult.add(book1);
-        expectedResult.add(book2);
-        expectedResult.add(book4);
-        check(expectedResult.containsAll(realResult) && expectedResult.containsAll(realResult), "search criteria yearOfIssue");
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
+        List<Book> realResult = bookDatabase.find(new YearOfIssueSearchCriteria("1980"));
+        List<Book> expectedResult = List.of(
+                new Book("Kvaksha", "Ivanov", "1980"),
+                new Book("Kvaksha", "Ivanov", "1980")
+        );
+        check(expectedResult.containsAll(realResult) && realResult.containsAll(expectedResult), "search criteria yearOfIssue");
     }
 
     public void searchCriteriaTest5() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov", "1990");
-        Book book1 = new Book("Pole", "Petrov", "2000");
-        Book book2 = new Book("More", "Ivanov", "2000");
-        Book book3 = new Book("Kvaksha", "Ivanov", "1990");
-        Book book4 = new Book("Pole", "Petrov", "2000");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
-        bookDatabase.save(book2);
-        bookDatabase.save(book3);
-        bookDatabase.save(book4);
-        List<Book> realResult = bookDatabase.find(new YearOfIssueSearchCriteria("2001"));
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
+        List<Book> realResult = bookDatabase.find(new YearOfIssueSearchCriteria("2002"));
         List<Book> expectedResult = new ArrayList<>();
-        check(expectedResult.containsAll(realResult) && expectedResult.containsAll(realResult), "search criteria not yearOfIssue");
+        check(expectedResult.containsAll(realResult) && realResult.containsAll(expectedResult), "search criteria not yearOfIssue");
     }
 
     public void findUniqueAuthorsTest() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov", "1990");
-        Book book1 = new Book("Pole", "Petrov", "2000");
-        Book book2 = new Book("More", "Ivanov", "2000");
-        Book book3 = new Book("Kvaksha", "Ivanov", "1990");
-        Book book4 = new Book("Pole", "Petrov", "2000");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
-        bookDatabase.save(book2);
-        bookDatabase.save(book3);
-        bookDatabase.save(book4);
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
         Set<String> realResult = bookDatabase.findUniqueAuthors();
-        Set<String> expectedResult = new HashSet<>();
-        expectedResult.add("Ivanov");
-        expectedResult.add("Petrov");
-        check(expectedResult.containsAll(realResult) && expectedResult.containsAll(realResult), "findUniqueAuthors");
+        Set<String> expectedResult = Set.of(
+                "Ivanov",
+                "Petrov"
+        );
+        check(expectedResult.containsAll(realResult) && realResult.containsAll(expectedResult), "findUniqueAuthors");
     }
 
     public void findUniqueTitlesTest() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov", "1990");
-        Book book1 = new Book("Pole", "Petrov", "2000");
-        Book book2 = new Book("More", "Ivanov", "2000");
-        Book book3 = new Book("Kvaksha", "Ivanov", "1990");
-        Book book4 = new Book("Pole", "Petrov", "2000");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
-        bookDatabase.save(book2);
-        bookDatabase.save(book3);
-        bookDatabase.save(book4);
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
         Set<String> realResult = bookDatabase.findUniqueTitles();
-        Set<String> expectedResult = new HashSet<>();
-        expectedResult.add("Kvaksha");
-        expectedResult.add("Pole");
-        expectedResult.add("More");
-        check(expectedResult.containsAll(realResult) && expectedResult.containsAll(realResult), "findUniqueTitles");
+        Set<String> expectedResult = Set.of(
+                "Kvaksha",
+                "Pole",
+                "More"
+        );
+        check(expectedResult.containsAll(realResult) && realResult.containsAll(expectedResult), "findUniqueTitles");
     }
 
     public void findUniqueBooksTest() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov", "1990");
-        Book book1 = new Book("Pole", "Petrov", "2000");
-        Book book2 = new Book("More", "Ivanov", "2000");
-        Book book3 = new Book("Kvaksha", "Ivanov", "1990");
-        Book book4 = new Book("Pole", "Petrov", "2000");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
-        bookDatabase.save(book2);
-        bookDatabase.save(book3);
-        bookDatabase.save(book4);
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
         Set<Book> realResult = bookDatabase.findUniqueBooks();
-        Set<Book> expectedResult = new HashSet<>();
-        expectedResult.add(book);
-        expectedResult.add(book1);
-        expectedResult.add(book2);
-        check(expectedResult.containsAll(realResult) && expectedResult.containsAll(realResult), "findUniqueBooks");
+        Set<Book> expectedResult = Set.of(
+                new Book("Kvaksha", "Ivanov", "1990"),
+                new Book("Pole", "Petrov", "2001"),
+                new Book("More", "Ivanov", "2000"),
+                new Book("Kvaksha", "Ivanov", "1980"),
+                new Book("Pole", "Petrov", "2000")
+        );
+        check(expectedResult.containsAll(realResult) && realResult.containsAll(expectedResult), "findUniqueBooks");
     }
 
     public void containsTest() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov", "1990");
-        Book book1 = new Book("Pole", "Petrov", "2000");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
         boolean realResult = bookDatabase.contains(new Book("Pole", "Petrov", "2000"));
         boolean expectedResult = true;
         check(expectedResult == realResult, "contains Book");
     }
 
     public void notContainsTest() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov", "1990");
-        Book book1 = new Book("Pole", "Petrov", "2000");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
-        boolean realResult = bookDatabase.contains(new Book("More", "Ivanov", "2000"));
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
+        boolean realResult = bookDatabase.contains(new Book("Sandal", "Ivanov", "2000"));
         boolean expectedResult = false;
         check(expectedResult == realResult, "not contains Book");
     }
 
     public void getAuthorToBooksMap() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov", "1990");
-        Book book1 = new Book("Pole", "Petrov", "2001");
-        Book book2 = new Book("More", "Ivanov", "2000");
-        Book book3 = new Book("Kvaksha", "Ivanov", "1980");
-        Book book4 = new Book("Pole", "Petrov", "2000");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
-        bookDatabase.save(book2);
-        bookDatabase.save(book3);
-        bookDatabase.save(book4);
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
         Map<String, List<Book>> map = bookDatabase.getAuthorToBooksMap();
         List<Book> realResult = map.get("Ivanov");
         List<Book> expectedResult = new ArrayList<>();
-        expectedResult.add(book);
-        expectedResult.add(book2);
-        expectedResult.add(book3);
-        check(expectedResult.containsAll(realResult) && expectedResult.containsAll(realResult), "map author to books");
+        expectedResult.add(new Book("Kvaksha", "Ivanov", "1990"));
+        expectedResult.add(new Book("More", "Ivanov", "2000"));
+        expectedResult.add(new Book("Kvaksha", "Ivanov", "1980"));
+        check(expectedResult.containsAll(realResult) && realResult.containsAll(expectedResult), "map author to books");
     }
 
     public void getEachAuthorBookCount() {
-        List<Book> books = new ArrayList<>();
-        Book book = new Book("Kvaksha", "Ivanov", "1990");
-        Book book1 = new Book("Pole", "Petrov", "2001");
-        Book book2 = new Book("More", "Ivanov", "2000");
-        Book book3 = new Book("Kvaksha", "Ivanov", "1980");
-        Book book4 = new Book("Pole", "Petrov", "2000");
-        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(books);
-        bookDatabase.save(book);
-        bookDatabase.save(book1);
-        bookDatabase.save(book2);
-        bookDatabase.save(book3);
-        bookDatabase.save(book4);
+        BookDatabaseImpl bookDatabase = new BookDatabaseImpl(saveBook());
         Map<String, Integer> map = bookDatabase.getEachAuthorBookCount();
         int realResult = map.get("Ivanov");
-        int expectedResult = 3;
+        int expectedResult = 5;
         check(expectedResult == realResult, "map count author to books");
     }
 
@@ -481,5 +295,18 @@ public class BookDatabaseImplTest {
         } else {
             System.out.println(nameTest + " = fail");
         }
+    }
+
+    public static List<Book> saveBook() {
+        List<Book> books = new ArrayList<>();
+        books.add(0, new Book("Kvaksha", "Ivanov", "1990"));
+        books.add(1, new Book("Pole", "Petrov", "2001"));
+        books.add(2, new Book("More", "Ivanov", "2000"));
+        books.add(3, new Book("Kvaksha", "Ivanov", "1980"));
+        books.add(4, new Book("Pole", "Petrov", "2000"));
+        books.add(5, new Book("Pole", "Petrov", "2001"));
+        books.add(6, new Book("More", "Ivanov", "2000"));
+        books.add(7, new Book("Kvaksha", "Ivanov", "1980"));
+        return books;
     }
 }
