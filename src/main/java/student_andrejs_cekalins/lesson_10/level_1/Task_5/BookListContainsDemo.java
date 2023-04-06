@@ -18,6 +18,7 @@ class BookListContainsDemo {
 
         Book bookNotInTheList = new Book("A3", "B3");
         boolean notContainsBook = books.contains(bookNotInTheList);
+
         System.out.println("Contains book: "+containsBook);
         System.out.println("Contains book: " +notContainsBook);
 
