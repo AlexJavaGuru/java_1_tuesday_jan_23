@@ -13,10 +13,12 @@ public class CheckVertical {
 
     public int countEqualToken(int column, Token token) {
         int counter = 1;
+        int checkSize = field.getCols().get(column - 1).getTokenList().size();
         if (field.getCols().get(column - 1).getTokenList().size() > 3) {
             int size = field.getCols().get(column - 1).getTokenList().size();
             for (int i = size - 1; i > size - 4; i--) {
-                if (field.getCols().get(column - 1).getTokenList().get(i - 1).equals(token)) {
+                Element element = field.getCols().get(column - 1).getTokenList().get(i - 1).getElement();
+                if (element.equals(token.getElement())) {
                     counter++;
                 }
             }

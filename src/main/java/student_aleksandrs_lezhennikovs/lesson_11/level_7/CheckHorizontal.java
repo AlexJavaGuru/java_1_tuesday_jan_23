@@ -12,21 +12,27 @@ public class CheckHorizontal {
 
 
     public boolean horizontalWin(int colNumber, Token token) {
-        int left = checkLeftSide(colNumber, token);
-        int right = checkRightSide(colNumber, token);
-        return checkLeftSide(colNumber, token) + checkRightSide(colNumber, token) == 4;
+        int counter = 1;
+        int leftCount = checkLeftSide(counter, colNumber, token);
+        int totCount = checkRightSide(leftCount, colNumber, token);
+        return totCount == 4 || totCount > 4;
     }
 
-    private static int checkLeftSide(int colNumber, Token token) {
-        int counter = 1;
-        int start = token.getCoord().getX() - 2;
-        for (int i = start; i > 0; i--) {
-            Token leftToken = token;
-            int x = token.getCoord().getX() - 1;
-            int y = token.getCoord().getY() - 1;
-            leftToken.setCoord(new Coord(x, y));
-            if (isEqualToken(colNumber, leftToken)) {
-                counter++;
+    private static int checkLeftSide(int counter, int colNumber, Token token) {
+        int end = 0;
+        int x = colNumber;
+        int y = field.getCols().get(x - 1).getTokenList().size();
+        if (x > 4) {
+            end = x - 4;
+        }
+        for (int i = x; i > end; i--) {
+            if (field.getCols().get(i - 1).getTokenList().size() >= y) {
+                Token leftToken = field.getCols().get(i - 1).getTokenList().get(y - 1);
+                if (leftToken.getElement().equals(token.getElement())) {
+                    counter++;
+                } else {
+                    return counter;
+                }
             } else {
                 return counter;
             }
@@ -34,34 +40,24 @@ public class CheckHorizontal {
         return counter;
     }
 
-    private static int checkRightSide(int colNumber, Token token) {
-        int counter = 1;
+    private static int checkRightSide(int counter, int colNumber, Token token) {
         int end = field.getWIDTH();
-        int start = token.getCoord().getX() + 1;
-        for (int i = start; i < end; i++) {
-            Token rightToken = token;
-            int x = token.getCoord().getX() + 1;
-            int y = token.getCoord().getY();
-            rightToken.setCoord(new Coord(x, y));
-            if (isEqualToken(colNumber, rightToken)) {
-                counter++;
-            } else {
-                return counter;
-            }
+        int x = colNumber;
+        int y = field.getCols().get(colNumber - 1).getTokenList().size();
+        if (x < 4) {
+            end = x + 4;
         }
-        return counter;
-    }
-
-    private static boolean isEqualToken(int colNumber, Token token) {
-        List<Token> tokenList = field.getCols().get(colNumber - 1).getTokenList();
-        for (Token tokenCheck : tokenList) {
-            Optional<Token> optToken = Optional.ofNullable(tokenCheck);
-            if (optToken.isPresent()) {
-                if (optToken.get().getElement().equals(token)) {
-                    return true;
+        for (int i = x; i < end; i++) {
+            if (field.getCols().get(i).getTokenList().size() >= y) {
+                Token leftToken = field.getCols().get(i).getTokenList().get(y - 1);
+                if (leftToken.getElement().equals(token.getElement())) {
+                    counter++;
+                } else {
+                    return counter;
                 }
             }
         }
-        return false;
+        return counter;
     }
+
 }
