@@ -9,39 +9,43 @@ public class ConnectFour {
         int WIDTH = 7;
         int steps = 0;
         Field field = new Field(WIDTH, HEIGHT);
-        Token tokenX = new Token(Element.X);
-        Token tokenO = new Token(Element.O);
+        Element elementX = Element.X;
+        Element elementO  = Element.O;
         Scanner input = new Scanner(System.in);
         CheckVertical checkVerticalWin = new CheckVertical(field);
         CheckHorizontal checkHorizontal = new CheckHorizontal(field);
+        CheckDiagonals checkDiagonals = new CheckDiagonals(field);
+
         //CheckWin check
         while (steps < HEIGHT * WIDTH) {
             steps++;
             field.printField();
             System.out.println("First player move:");
             int firstMove = input.nextInt();
+            Token tokenX = new Token(Element.X);
             field.putToken(firstMove, tokenX);
-            System.out.println("Win vertical counter: " + checkVerticalWin.verticalWin(firstMove, tokenX));
-            System.out.println("Win horizontal counter: " + checkHorizontal.horizontalWin(firstMove, tokenX));
-
-            System.out.println("Step Nr " + steps);
             field.printField();
-
+            //if (steps > 6) {
+                System.out.println("Win vertical counter: " + checkVerticalWin.verticalWin(firstMove, tokenX));
+                System.out.println("Win horizontal counter: " + checkHorizontal.horizontalWin(firstMove, tokenX));
+                Coord newCoord = new Coord(firstMove, field.getCols().get(firstMove - 1).getTokenList().size());
+                int chX = newCoord.getX();
+                int chY = newCoord.getY();
+                System.out.println("Win diagonal counter: " + checkDiagonals.diagonalsWin(newCoord, tokenX));
+            //}
+            System.out.println("Step Nr " + steps);
             System.out.println("Second player move:");
-            //Random random = new Random();
-            //int secondMove = random.nextInt(5) + 1;
             int secondMove = input.nextInt();
+            Token tokenO = new Token(Element.O);
             field.putToken(secondMove, tokenO);
-
-            System.out.println("Win counter: " + checkVerticalWin.verticalWin(secondMove, tokenO));
-            System.out.println("Win horizontal counter: " + checkHorizontal.horizontalWin(secondMove, tokenO));
+            field.printField();
+            //if (steps > 6) {
+                System.out.println("Win vertical counter: " + checkVerticalWin.verticalWin(secondMove, tokenO));
+                System.out.println("Win horizontal counter: " + checkHorizontal.horizontalWin(secondMove, tokenO));
+           //}
             steps++;
             System.out.println("Step Nr " + steps);
-
         }
         field.printField();
-
     }
-
-
 }

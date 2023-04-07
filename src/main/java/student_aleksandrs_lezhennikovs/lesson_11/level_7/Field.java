@@ -13,7 +13,8 @@ public class Field {
         this.WIDTH = WIDTH;
         this.cols = new ArrayList<>();
         for (int i = 0; i < WIDTH; i++) {
-            cols.add(new Column());
+            Column column = new Column();
+            cols.add(column);
         }
     }
 
@@ -30,6 +31,7 @@ public class Field {
     }
 
     public void putToken(int colNumber, Token token) {
+        Token newToken = new Token();
         int x = colNumber;
         int y = cols.get(colNumber - 1).getTokenList().size() + 1;
         token.setCoord(new Coord(x, y));
