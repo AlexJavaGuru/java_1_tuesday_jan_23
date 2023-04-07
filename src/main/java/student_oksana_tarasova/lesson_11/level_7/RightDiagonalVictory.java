@@ -27,22 +27,19 @@ class RightDiagonalVictory extends WinningPosition {
                 count = 0;
             }
         }
-
         return false;
     }
 
     private boolean diagonal2(int[][] field, int playerTurn) {
         int count = 0;
-        for (int i = 1; i < field.length; i++) {
-            for (int j = 0; j < field.length; j++) {
-                if (field[i][j] == playerTurn) {
-                    count++;
-                    if (count >= 4) {
-                        return true;
-                    }
-                } else {
-                    count = 0;
+        for (int i = 0; i < field.length - 1; i++) {
+            if (field[i + 1][i] == playerTurn) {
+                count++;
+                if (count >= 4) {
+                    return true;
                 }
+            } else {
+                count = 0;
             }
         }
         return false;
@@ -51,15 +48,13 @@ class RightDiagonalVictory extends WinningPosition {
     private boolean diagonal3(int[][] field, int playerTurn) {
         int count = 0;
         for (int i = 0; i < field.length; i++) {
-            for (int j = 1; j < field.length; j++) {
-                if (field[i][j] == playerTurn) {
-                    count++;
-                    if (count >= 4) {
-                        return true;
-                    }
-                } else {
-                    count = 0;
+            if (field[i][i + 1] == playerTurn) {
+                count++;
+                if (count >= 4) {
+                    return true;
                 }
+            } else {
+                count = 0;
             }
         }
         return false;
@@ -67,34 +62,29 @@ class RightDiagonalVictory extends WinningPosition {
 
     private boolean diagonal4(int[][] field, int playerTurn) {
         int count = 0;
-        for (int i = 0; i < field.length; i++) {
-            for (int j = 2; j < field.length; j++) {
-                if (field[i][j] == playerTurn) {
-                    count++;
-                    if (count >= 4) {
-                        return true;
-                    }
-                } else {
-                    count = 0;
+        for (int i = 0; i < field.length - 1; i++) {
+            if (field[i][i + 2] == playerTurn) {
+                count++;
+                if (count == 4) {
+                    return true;
                 }
+            } else {
+                count = 0;
             }
         }
-
         return false;
     }
 
     private boolean diagonal5(int[][] field, int playerTurn) {
         int count = 0;
-        for (int i = 0; i < field.length; i++) {
-            for (int j = 3; j < field.length; j++) {
-                if (field[i][j] == playerTurn) {
-                    count++;
-                    if (count >= 4) {
-                        return true;
-                    }
-                } else {
-                    count = 0;
+        for (int i = 0; i < field.length / 2 + 1; i++) {
+            if (field[i][i + 3] == playerTurn) {
+                count++;
+                if (count >= 4) {
+                    return true;
                 }
+            } else {
+                count = 0;
             }
         }
         return false;
@@ -102,16 +92,14 @@ class RightDiagonalVictory extends WinningPosition {
 
     private boolean diagonal6(int[][] field, int playerTurn) {
         int count = 0;
-        for (int i = 2; i < field.length; i++) {
-            for (int j = 0; j < field.length; j++) {
-                if (field[i][j] == playerTurn) {
-                    count++;
-                    if (count >= 4) {
-                        return true;
-                    }
-                } else {
-                    count = 0;
+        for (int i = 0; i < field.length / 2 + 1; i++) {
+            if (field[i + 2][i] == playerTurn) {
+                count++;
+                if (count >= 4) {
+                    return true;
                 }
+            } else {
+                count = 0;
             }
         }
         return false;

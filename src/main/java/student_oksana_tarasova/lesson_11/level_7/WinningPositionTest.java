@@ -1,7 +1,8 @@
 package student_oksana_tarasova.lesson_11.level_7;
 
 
-public class WinningPositionTest {
+
+class WinningPositionTest {
     public static void main(String[] args) {
         WinningPositionTest test = new WinningPositionTest();
         test.isWinVerticalTest();
@@ -26,11 +27,11 @@ public class WinningPositionTest {
     public void isWinVerticalTest() {
         VerticalVictory verticalVictory = new VerticalVictory();
         int[][] field = {{0, 0, 0, 0, 0, 1, 1},
-                        {0, 0, 0, 0, 0, 1, 1},
-                        {0, 0, 0, 0, 0, 1, 0},
-                        {0, 0, 0, 0, 0, 0, 1},
-                        {0, 0, 0, 0, 0, 1, 1},
-                        {0, 0, 0, 0, 0, 1, 1}
+                         {0, 0, 0, 0, 0, 1, 1},
+                         {0, 0, 0, 0, 0, 1, 0},
+                         {0, 0, 0, 0, 0, 0, 1},
+                         {0, 0, 0, 0, 0, 1, 1},
+                         {0, 0, 0, 0, 0, 1, 1}
         };
         boolean realResult = verticalVictory.countFour(field, 1);
         boolean expectedResult = false;
@@ -39,12 +40,12 @@ public class WinningPositionTest {
 
     public void isWinVerticalTest1() {
         VerticalVictory verticalVictory = new VerticalVictory();
-        int[][] field = {{0, 0, 0, 0, 0, 1, 1},
-                         {0, 0, 0, 0, 0, 0, 1},
+        int[][] field = {{0, 0, 0, 0, 0, 0, 0},
+                         {0, 0, 0, 0, 0, 0, 0},
                          {0, 0, 0, 0, 0, 1, 0},
-                         {0, 0, 0, 0, 0, 1, 1},
-                         {0, 0, 0, 0, 0, 1, 1},
-                         {0, 0, 0, 0, 0, 1, 1}
+                         {0, 0, 0, 0, 0, 1, 0},
+                         {0, 0, 0, 0, 0, 1, 0},
+                         {0, 0, 0, 0, 0, 1, 0}
         };
         boolean realResult = verticalVictory.countFour(field, 1);
         boolean expectedResult = true;
@@ -53,10 +54,10 @@ public class WinningPositionTest {
 
     public void isWinHorizontalTest() {
         HorizontalVictory horizontalVictory = new HorizontalVictory();
-        int[][] field = {{0, 0, 0, 0, 0, 1, 1},
-                         {0, 0, 0, 0, 0, 1, 1},
-                         {0, 0, 0, 0, 0, 1, 0},
-                         {0, 0, 0, 0, 0, 0, 1},
+        int[][] field = {{0, 0, 0, 0, 0, 0, 0},
+                         {0, 0, 0, 0, 0, 0, 0},
+                         {0, 0, 0, 0, 0, 0, 0},
+                         {0, 0, 0, 0, 0, 0, 0},
                          {0, 0, 0, 0, 0, 1, 1},
                          {0, 0, 0, 0, 0, 1, 1}
         };
@@ -67,12 +68,12 @@ public class WinningPositionTest {
 
     public void isWinHorizontalTest1() {
        HorizontalVictory horizontalVictory = new HorizontalVictory();
-        int[][] field = {{0, 0, 0, 0, 0, 1, 1},
-                         {0, 0, 0, 0, 0, 0, 1},
+        int[][] field = {{0, 0, 0, 0, 0, 0, 0},
+                         {0, 0, 0, 0, 0, 0, 0},
                          {0, 0, 1, 1, 1, 1, 0},
-                         {0, 0, 0, 0, 0, 1, 1},
-                         {0, 0, 0, 0, 0, 1, 1},
-                         {0, 0, 0, 0, 0, 1, 1}
+                         {0, 0, 0, 0, 0, 0, 0},
+                         {0, 0, 0, 0, 0, 0, 0},
+                         {0, 0, 0, 0, 0, 0, 0}
         };
         boolean realResult = horizontalVictory.countFour(field, 1);
         boolean expectedResult = true;
@@ -80,27 +81,27 @@ public class WinningPositionTest {
     }
 
     public void isWinRightDiagonalTest() {
-        HorizontalVictory horizontalVictory = new HorizontalVictory();
-        int[][] field = {{0, 0, 0, 0, 0, 1, 1},
-                         {0, 0, 0, 0, 0, 1, 1},
-                         {0, 0, 0, 0, 0, 1, 0},
-                         {0, 0, 0, 0, 0, 0, 1},
+        RightDiagonalVictory rightDiagonalVictory= new RightDiagonalVictory();
+        int[][] field = {{0, 0, 0, 0, 0, 0, 0},
+                         {0, 0, 0, 0, 0, 0, 0},
+                         {0, 0, 0, 0, 0, 0, 0},
+                         {0, 0, 0, 0, 0, 0, 0},
                          {0, 0, 0, 0, 0, 1, 1},
                          {0, 0, 0, 0, 0, 1, 1}
         };
-        boolean realResult = horizontalVictory.countFour(field, 1);
+        boolean realResult = rightDiagonalVictory.countFour(field, 1);
         boolean expectedResult = false;
         check(realResult == expectedResult, "No right diagonal win");
     }
 
     public void isWinRightDiagonalTest1() {
         RightDiagonalVictory rightDiagonalVictory= new RightDiagonalVictory();
-        int[][] field = { {0, 0, 1, 0, 0, 1, 1},
-                          {0, 1, 0, 0, 0, 1, 1},
-                          {1, 0, 1, 0, 1, 1, 0},
-                          {0, 0, 0, 1, 0, 0, 1},
-                          {0, 0, 1, 0, 1, 1, 1},
-                          {0, 0, 0, 1, 0, 0, 1}
+        int[][] field = { {0, 0, 0, 0, 0, 0, 0},
+                          {0, 1, 0, 0, 0, 0, 0},
+                          {1, 0, 1, 0, 0, 0, 0},
+                          {0, 0, 0, 1, 0, 0, 0},
+                          {0, 0, 0, 0, 1, 0, 0},
+                          {0, 0, 0, 0, 0, 0, 0}
         };
         boolean realResult = rightDiagonalVictory.countFour(field, 1);
         boolean expectedResult = true;
@@ -109,12 +110,12 @@ public class WinningPositionTest {
 
     public void isWinRightDiagonalTest2() {
         RightDiagonalVictory rightDiagonalVictory= new RightDiagonalVictory();
-        int[][] field = { {0, 0, 1, 0, 0, 1, 1},
-                          {0, 0, 0, 0, 0, 1, 1},
-                          {1, 1, 1, 0, 1, 1, 0},
-                          {0, 0, 1, 0, 0, 0, 1},
-                          {0, 0, 1, 1, 0, 1, 1},
-                          {0, 0, 0, 1, 1, 1, 1}
+        int[][] field = { {0, 0, 0, 0, 0, 0, 0},
+                          {1, 0, 0, 0, 0, 0, 0},
+                          {0, 1, 0, 0, 0, 0, 0},
+                          {0, 0, 1, 0, 0, 0, 0},
+                          {0, 0, 0, 1, 0, 0, 0},
+                          {0, 0, 0, 0, 0, 0, 0}
         };
         boolean realResult = rightDiagonalVictory.countFour(field, 1);
         boolean expectedResult = true;
@@ -123,12 +124,12 @@ public class WinningPositionTest {
 
     public void isWinRightDiagonalTest3() {
         RightDiagonalVictory rightDiagonalVictory= new RightDiagonalVictory();
-        int[][] field = { {0, 1, 1, 0, 0, 1, 1},
-                          {0, 0, 1, 0, 0, 1, 1},
-                          {1, 1, 1, 1, 1, 1, 0},
-                          {0, 0, 0, 0, 1, 0, 1},
-                          {0, 0, 1, 1, 1, 0, 1},
-                          {0, 0, 0, 1, 1, 1, 1}
+        int[][] field = { {0, 1, 0, 0, 0, 0, 0},
+                          {0, 0, 1, 0, 0, 0, 0},
+                          {0, 0, 0, 1, 0, 0, 0},
+                          {0, 0, 0, 0, 1, 0, 0},
+                          {0, 0, 0, 0, 0, 0, 0},
+                          {0, 0, 0, 0, 0, 0, 0}
         };
         boolean realResult = rightDiagonalVictory.countFour(field, 1);
         boolean expectedResult = true;
@@ -137,12 +138,12 @@ public class WinningPositionTest {
 
     public void isWinRightDiagonalTest4() {
         RightDiagonalVictory rightDiagonalVictory= new RightDiagonalVictory();
-        int[][] field = { {0, 1, 1, 0, 0, 1, 1},
-                          {0, 0, 1, 1, 0, 1, 1},
-                          {1, 1, 1, 0, 1, 1, 0},
-                          {0, 0, 0, 0, 1, 1, 1},
-                          {0, 0, 1, 1, 1, 0, 0},
-                          {0, 0, 0, 1, 1, 1, 1}
+        int[][] field = { {0, 0, 0, 0, 0, 0, 0},
+                          {0, 0, 0, 1, 0, 0, 0},
+                          {0, 0, 0, 0, 1, 0, 0},
+                          {0, 0, 0, 0, 0, 1, 0},
+                          {0, 0, 0, 0, 0, 0, 1},
+                          {0, 0, 0, 1, 0, 0, 0}
         };
         boolean realResult = rightDiagonalVictory.countFour(field, 1);
         boolean expectedResult = true;
@@ -151,12 +152,12 @@ public class WinningPositionTest {
 
     public void isWinRightDiagonalTest5() {
         RightDiagonalVictory rightDiagonalVictory= new RightDiagonalVictory();
-        int[][] field = { {0, 1, 1, 1, 0, 1, 1},
-                          {0, 0, 1, 1, 1, 1, 1},
-                          {1, 1, 1, 0, 0, 1, 0},
-                          {0, 0, 0, 0, 1, 1, 1},
-                          {0, 0, 1, 1, 1, 0, 0},
-                          {0, 0, 0, 1, 1, 1, 1}
+        int[][] field = { {0, 0, 0, 1, 0, 0, 0},
+                          {0, 0, 0, 0, 1, 0, 0},
+                          {0, 0, 0, 0, 0, 1, 0},
+                          {0, 0, 0, 0, 0, 0, 1},
+                          {0, 0, 0, 0, 0, 0, 0},
+                          {0, 0, 0, 0, 0, 0, 0}
         };
         boolean realResult = rightDiagonalVictory.countFour(field, 1);
         boolean expectedResult = true;
@@ -165,12 +166,12 @@ public class WinningPositionTest {
 
     public void isWinRightDiagonalTest6() {
         RightDiagonalVictory rightDiagonalVictory= new RightDiagonalVictory();
-        int[][] field = { {0, 1, 1, 1, 0, 1, 1},
-                          {0, 0, 1, 1, 1, 1, 1},
-                          {1, 1, 1, 0, 0, 0, 0},
-                          {0, 1, 0, 0, 1, 1, 1},
-                          {0, 0, 1, 1, 1, 0, 0},
-                          {0, 0, 0, 1, 1, 1, 1}
+        int[][] field = { {0, 0, 0, 0, 0, 0, 0},
+                          {0, 0, 0, 0, 0, 0, 0},
+                          {1, 0, 0, 0, 0, 0, 0},
+                          {0, 1, 0, 0, 0, 0, 0},
+                          {0, 0, 1, 0, 0, 0, 0},
+                          {0, 0, 0, 1, 0, 0, 0}
         };
         boolean realResult = rightDiagonalVictory.countFour(field, 1);
         boolean expectedResult = true;
@@ -179,12 +180,12 @@ public class WinningPositionTest {
 
     public void isWinLeftDiagonalTest1() {
         LeftDiagonalVictory leftDiagonalVictory= new LeftDiagonalVictory();
-        int[][] field = { {0, 1, 1, 1, 0, 1, 1},
-                          {0, 0, 1, 1, 1, 1, 1},
-                          {1, 1, 1, 0, 0, 0, 0},
-                          {1, 1, 0, 0, 1, 1, 1},
-                          {0, 0, 1, 1, 0, 0, 0},
-                          {0, 0, 0, 1, 1, 1, 1}
+        int[][] field = { {0, 0, 0, 1, 0, 0, 0},
+                          {0, 0, 1, 0, 0, 0, 0},
+                          {0, 1, 0, 0, 0, 0, 0},
+                          {1, 0, 0, 0, 0, 0, 0},
+                          {0, 0, 0, 0, 0, 0, 0},
+                          {0, 0, 0, 0, 0, 0, 0}
         };
         boolean realResult = leftDiagonalVictory.countFour(field, 1);
         boolean expectedResult = true;
@@ -193,12 +194,12 @@ public class WinningPositionTest {
 
     public void isWinLeftDiagonalTest2() {
         LeftDiagonalVictory leftDiagonalVictory= new LeftDiagonalVictory();
-        int[][] field = { {0, 1, 1, 1, 0, 1, 1},
-                          {0, 0, 1, 1, 1, 1, 1},
-                          {1, 1, 1, 0, 0, 0, 0},
-                          {1, 1, 0, 0, 1, 1, 1},
-                          {1, 0, 1, 1, 0, 0, 0},
-                          {0, 0, 0, 1, 1, 1, 1}
+        int[][] field = { {0, 0, 0, 0, 0, 0, 0},
+                          {0, 0, 0, 1, 0, 0, 0},
+                          {0, 0, 1, 0, 0, 0, 0},
+                          {0, 1, 0, 0, 0, 0, 0},
+                          {1, 0, 0, 0, 0, 0, 0},
+                          {0, 0, 0, 0, 0, 0, 0}
         };
         boolean realResult = leftDiagonalVictory.countFour(field, 1);
         boolean expectedResult = true;
@@ -207,12 +208,12 @@ public class WinningPositionTest {
 
     public void isWinLeftDiagonalTest3() {
         LeftDiagonalVictory leftDiagonalVictory= new LeftDiagonalVictory();
-        int[][] field = { {0, 0, 0, 0, 0, 0, 0},
-                          {0, 0, 0, 0, 0, 0, 0},
+        int[][] field = { {0, 0, 0, 0, 0, 1, 0},
+                          {0, 0, 0, 0, 1, 0, 0},
                           {0, 0, 0, 1, 0, 0, 0},
                           {0, 0, 1, 0, 0, 0, 0},
-                          {0, 1, 0, 0, 0, 0, 0},
-                          {1, 0, 0, 0, 0, 0, 0}
+                          {0, 0, 0, 0, 0, 0, 0},
+                          {0, 0, 0, 0, 0, 0, 0}
         };
         boolean realResult = leftDiagonalVictory.countFour(field, 1);
         boolean expectedResult = true;
