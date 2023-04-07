@@ -1,0 +1,65 @@
+Класс java.util.Optional инкапсулирует необязательное значение.
+ Т.е. задачей этого класса является предоставление решений на уровне
+  типа-обертки для обеспечения удобства обработки возможных null-значений.
+
+Optional можно рассматривать как контейнер с одним значением,
+ который либо содержит значение, либо не содержит его (тогда говорят, что он «пустой»).
+
+Существует несколько способов.
+
+Чтобы создать пустой объект можно использовать статический метод empty():
+        Optional<String> empty = Optional.empty();
+Также объект Optional можно создать с помощью статического метода of():
+
+SoundCard soundcard = new Soundcard();
+Optional<Soundcard> sc = Optional.of(soundcard);
+
+В этом варианте объект, который мы передаем в метод of(), должен быть не null.
+Иначе получим NullPointerException:
+Если мы предполагаем, что передаваемое значение может быть null,
+ то используем другой метод - ofNullable():
+
+        Optional<String> opt = Optional.ofNullable(name);
+
+Когда у нас имеется объект Optional, который мы получаем из метода
+или создаем сами, с помощью метода isPresent() можно проверить есть ли что-то внутри:
+
+Optional<Soundcard> soundcard = ...;
+soundcard.ifPresent(System.out::println);
+
+Больше не нужно выполнять явную проверку нуля; это обеспечивается системой типов.
+Если бы необязательный объект был пуст, ничего не было бы напечатано.
+
+ИЛИ
+
+public void givenOptional_whenIsPresentWorks_thenCorrect() {
+        Optional<String> opt = Optional.of("Rioja wine region");
+        assertTrue(opt.isPresent());
+
+        opt = Optional.ofNullable(null);
+        assertFalse(opt.isPresent());
+    }
+
+Метод возвращает true, если оборачиваемое значение не null.
+
+С Java 11 появился метод isEmpty(), который делает ровно противоположное:
+public void givenAnEmptyOptional_thenIsEmptyBehavesAsExpected() {
+        Optional<String> opt = Optional.of("Rioja 11");
+        assertFalse(opt.isEmpty());
+
+        opt = Optional.ofNullable(null);
+        assertTrue(opt.isEmpty());
+    }
+
+Можно использовать метод isPresent(), чтобы узнать, присутствует ли значение в Optional объекте.
+ Кроме того, есть метод get(), который возвращает значение, содержащееся в объекте Optional,
+  если он присутствует. В противном случае выдается исключение NoSuchElementException.
+   Эти два метода можно комбинировать следующим образом для предотвращения исключений:
+
+if(soundcard.isPresent()){
+  System.out.println(soundcard.get());
+
+Еще один способ получения значений:
+        Optional<String> opt = Optional.of("Summer");
+        String name = opt.get();
+        assertEquals("Summer", name);
