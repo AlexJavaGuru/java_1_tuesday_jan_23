@@ -11,7 +11,7 @@ public class BookReaderImpl implements BookReader {
 
     @Override
     public void add(BookEntity book) {
-        if (allChecks(book)) {
+        if (validateBook(book)) {
             book.setBookId(bookId);
             bookId++;
             bookDatabase.add(book);
@@ -153,7 +153,7 @@ public class BookReaderImpl implements BookReader {
     }
 
 
-    private boolean allChecks(BookEntity book) {
+    private boolean validateBook(BookEntity book) {
         if (notNullBook(book)) {
             return notNullsTitleAuthor(book) && (isEmptyBookDatabase(bookDatabase) || notExistBook(book));
         }

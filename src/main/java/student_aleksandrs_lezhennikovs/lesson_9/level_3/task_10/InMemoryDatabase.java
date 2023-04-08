@@ -44,7 +44,7 @@ class InMemoryDatabase implements ProductDatabase {
 
     private boolean isProductUnique(Product checkProduct) {
         for (Product product : storage) {
-            if (product.getTitle() == checkProduct.getTitle()) {
+            if (product.getTitle().equals(checkProduct.getTitle())) {
                 return false;
             }
         }
@@ -54,11 +54,8 @@ class InMemoryDatabase implements ProductDatabase {
     @Override
     public Optional<Product> findByTitle(String productTitle) {
         for (Product product : storage) {
-            Optional<Product> optProduct = Optional.ofNullable(product);
-            if (optProduct.isPresent()) {
-                if (optProduct.get().getTitle().equals(productTitle)) {
-                    return optProduct;
-                }
+            if (product.getTitle().equals(productTitle)) {
+                return Optional.of(product);
             }
         }
         return Optional.empty();

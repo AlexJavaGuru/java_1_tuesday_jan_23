@@ -4,10 +4,10 @@ import java.util.*;
 
 class MyListBasedOnLinkedLinkedLIst implements MyLinkedLIst {
 
-    private LinkedList<Orders> storage = new LinkedList<>();
+    private List<Orders> storage = new LinkedList<>();
     private long orderId = 10L;
 
-    public LinkedList<Orders> getStorage() {
+    public List<Orders> getStorage() {
         return storage;
     }
 
@@ -20,10 +20,10 @@ class MyListBasedOnLinkedLinkedLIst implements MyLinkedLIst {
 
     @Override
     public void deleteByTitle(String title) {
-       Optional<Orders> orderOpt = searchByTitle(title);
-      if (orderOpt.isPresent()) {
-          storage.remove(orderOpt.get());
-      }
+        Optional<Orders> orderOpt = searchByTitle(title);
+        if (orderOpt.isPresent()) {
+            storage.remove(orderOpt.get());
+        }
     }
 
     public void sortByTitle() {
@@ -36,21 +36,17 @@ class MyListBasedOnLinkedLinkedLIst implements MyLinkedLIst {
     }
 
     @Override
-    public LinkedList<Orders> printAll() {
+    public List<Orders> printAll() {
         return storage;
     }
 
     @Override
     public Optional<Orders> searchByTitle(String title) {
-        return Optional.ofNullable(searchTitle(title));
-    }
-
-    private Orders searchTitle(String title) {
         for (Orders order : storage) {
-            if (title.equals(order.getTitle())) {
-                return order;
+            if (order.getTitle().equals(title)) {
+                return Optional.of(order);
             }
         }
-        return null;
+        return Optional.empty();
     }
 }
