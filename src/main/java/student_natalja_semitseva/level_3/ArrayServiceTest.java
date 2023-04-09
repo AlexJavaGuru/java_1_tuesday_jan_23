@@ -85,7 +85,7 @@ public class ArrayServiceTest {
         int[] expectedArray = {2, 5, 6, 4, 7, 8};
         int[] expected = {8, 7, 4, 6, 5, 2};
         testArrayService.revert(expected);
-
+        checkTestResult(expected != expectedArray, "Revert");
 
     }
 
@@ -95,7 +95,7 @@ public class ArrayServiceTest {
         int[] array = {2, -1, 5, 3, 6, 7, -2};
         int[] expected = {-2, -1, 2, 3, 5, 6, 7};
         testArrayService.sort(expected);
-        checkTestResult((expected!= array), "Sort");
+        checkTestResult((expected != array), "Sort");
 
 
     }
