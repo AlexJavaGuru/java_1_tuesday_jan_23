@@ -1,0 +1,12 @@
+Исправьте код программы так, что бы он компилировался.
+Реализовывать метод canReceiveLoan() нельзя.
+
+abstract class LoanSystem {
+
+    abstract boolean canReceiveLoan(Human human);
+
+}
+
+class Human {
+
+}
