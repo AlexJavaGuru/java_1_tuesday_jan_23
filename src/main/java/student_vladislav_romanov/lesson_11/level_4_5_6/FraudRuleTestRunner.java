@@ -14,6 +14,8 @@ class FraudRuleTestRunner extends TestUtil {
         fraudRuleTestRunner.isTransactionFromSydneyFailed();
         fraudRuleTestRunner.isTransactionFromJamaicaSucceed();
         fraudRuleTestRunner.isTransactionFromJamaicaFailed();
+        fraudRuleTestRunner.checkNotAllowedAmountFromGermanySucceed();
+        fraudRuleTestRunner.checkNotAllowedAmountFromGermanyFailed();
         fraudRuleTestRunner.printStat();
     }
 
@@ -72,8 +74,8 @@ class FraudRuleTestRunner extends TestUtil {
     }
 
     private void isTransactionFromJamaicaSucceed() {
-        Trader javaguru = new Trader("JavaGuru", "Kingstown", "Ямайка");
-        Transaction transactionFromJamaica = new Transaction(javaguru, 1000000);
+        Trader javaGuru = new Trader("JavaGuru", "Kingstown", "Ямайка");
+        Transaction transactionFromJamaica = new Transaction(javaGuru, 1000000);
         FraudRule4 fraudRule4 = new FraudRule4("isTransactionFromJamaica");
         boolean expectedResult = true;
         boolean currentResult = fraudRule4.isFraud(transactionFromJamaica);
@@ -81,12 +83,30 @@ class FraudRuleTestRunner extends TestUtil {
     }
 
     private void isTransactionFromJamaicaFailed() {
-        Trader javaguru = new Trader("JavaGuru", "Гавана", "Куба");
-        Transaction transactionFromJamaica = new Transaction(javaguru, 1000000);
+        Trader javaGuru = new Trader("JavaGuru", "Гавана", "Куба");
+        Transaction transactionFromJamaica = new Transaction(javaGuru, 1000000);
         FraudRule4 fraudRule4 = new FraudRule4("isTransactionFromJamaica");
         boolean expectedResult = true;
         boolean currentResult = fraudRule4.isFraud(transactionFromJamaica);
         printResult(currentResult != expectedResult, "isTransactionFromJamaicaFailed");
+    }
+
+    private void checkNotAllowedAmountFromGermanySucceed() {
+        FraudRule5 checkCountryAmount = new FraudRule5("Germany and 1000");
+        Trader someTrader = new Trader("New Trader", "Berlin", "Germany");
+        Transaction newTransaction = new Transaction(someTrader, 1000001);
+        boolean expectedResult = true;
+        boolean currentResult = checkCountryAmount.isFraud(newTransaction);
+        printResult(currentResult == expectedResult, "checkNotAllowedAmountFromGermanySucceed(");
+    }
+
+    private void checkNotAllowedAmountFromGermanyFailed() {
+        FraudRule5 checkCountryAmount = new FraudRule5("Germany and 1000");
+        Trader someTrader = new Trader("New Trader", "Berlin", "Germany");
+        Transaction newTransaction = new Transaction(someTrader, 900);
+        boolean expectedResult = true;
+        boolean currentResult = checkCountryAmount.isFraud(newTransaction);
+        printResult(currentResult != expectedResult, "checkNotAllowedAmountFromGermanyFailed");
     }
 
 }
