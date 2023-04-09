@@ -8,6 +8,8 @@ class FraudRuleTestRunner extends TestUtil {
         FraudRuleTestRunner fraudRuleTestRunner = new FraudRuleTestRunner();
         fraudRuleTestRunner.isPokemonTransactionSucceed();
         fraudRuleTestRunner.isPokemonTransactionFailed();
+        fraudRuleTestRunner.checkNotAllowedAmountSucceed();
+        fraudRuleTestRunner.checkNotAllowedAmountFailed();
         fraudRuleTestRunner.printStat();
     }
 
@@ -15,17 +17,35 @@ class FraudRuleTestRunner extends TestUtil {
         Trader pokemon = new Trader("Pokemon", "Riga", "Latvia");
         Transaction pokemonTransaction = new Transaction(pokemon, 2000);
         FraudRule1 fraudRule1 = new FraudRule1("isPokemonTransaction");
-        boolean expectResult = true;
-        boolean calculateResult = fraudRule1.isFraud(pokemonTransaction);
-        printResult(expectResult == calculateResult, "isPokemonTransactionSucceed");
+        boolean expectedResult = true;
+        boolean currentResult = fraudRule1.isFraud(pokemonTransaction);
+        printResult(currentResult == expectedResult, "isPokemonTransactionSucceed");
     }
 
     private void isPokemonTransactionFailed() {
         Trader pokemon = new Trader("Pokemon", "Riga", "Latvia");
         Transaction pokemonTransaction = new Transaction(pokemon, 2000);
         FraudRule1 fraudRule1 = new FraudRule1("isPokemonTransaction");
-        boolean expectResult = false;
-        boolean calculateResult = fraudRule1.isFraud(pokemonTransaction);
-        printResult(expectResult != calculateResult, "isPokemonTransactionFailed");
+        boolean expectedResult = false;
+        boolean currentResult = fraudRule1.isFraud(pokemonTransaction);
+        printResult(currentResult != expectedResult, "isPokemonTransactionFailed");
+    }
+
+    private void checkNotAllowedAmountSucceed() {
+        FraudRule2 checkAmount = new FraudRule2("Check Not allowed amount more than 1 000 000");
+        Trader someTrader = new Trader("New Trader", "Riga", "Latvia");
+        Transaction newTransaction = new Transaction(someTrader, 1000001);
+        boolean expectedResult = true;
+        boolean currentResult = checkAmount.isFraud(newTransaction);
+        printResult(currentResult == expectedResult, "checkNotAllowedAmountSucceed");
+    }
+
+    private void checkNotAllowedAmountFailed() {
+        FraudRule2 checkAmount = new FraudRule2("Check Not allowed amount more than 1 000 000");
+        Trader someTrader = new Trader("New Trader", "Riga", "Latvia");
+        Transaction newTransaction = new Transaction(someTrader, 1000001);
+        boolean expectedResult = false;
+        boolean currentResult = checkAmount.isFraud(newTransaction);
+        printResult(currentResult != expectedResult, "checkNotAllowedAmountFailed");
     }
 }
