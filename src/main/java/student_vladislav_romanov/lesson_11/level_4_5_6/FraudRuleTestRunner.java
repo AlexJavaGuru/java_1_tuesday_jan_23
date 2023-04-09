@@ -12,6 +12,8 @@ class FraudRuleTestRunner extends TestUtil {
         fraudRuleTestRunner.checkNotAllowedAmountFailed();
         fraudRuleTestRunner.isTransactionFromSydneySucceed();
         fraudRuleTestRunner.isTransactionFromSydneyFailed();
+        fraudRuleTestRunner.isTransactionFromJamaicaSucceed();
+        fraudRuleTestRunner.isTransactionFromJamaicaFailed();
         fraudRuleTestRunner.printStat();
     }
 
@@ -68,4 +70,23 @@ class FraudRuleTestRunner extends TestUtil {
         boolean currentResult = fraudRule3.isFraud(sydneyTransaction);
         printResult(currentResult != expectedResult, "isTransactionFromSydneyFailed");
     }
+
+    private void isTransactionFromJamaicaSucceed() {
+        Trader javaguru = new Trader("JavaGuru", "Kingstown", "Ямайка");
+        Transaction transactionFromJamaica = new Transaction(javaguru, 1000000);
+        FraudRule4 fraudRule4 = new FraudRule4("isTransactionFromJamaica");
+        boolean expectedResult = true;
+        boolean currentResult = fraudRule4.isFraud(transactionFromJamaica);
+        printResult(currentResult == expectedResult, "isTransactionFromJamaicaSucceed");
+    }
+
+    private void isTransactionFromJamaicaFailed() {
+        Trader javaguru = new Trader("JavaGuru", "Гавана", "Куба");
+        Transaction transactionFromJamaica = new Transaction(javaguru, 1000000);
+        FraudRule4 fraudRule4 = new FraudRule4("isTransactionFromJamaica");
+        boolean expectedResult = true;
+        boolean currentResult = fraudRule4.isFraud(transactionFromJamaica);
+        printResult(currentResult != expectedResult, "isTransactionFromJamaicaFailed");
+    }
+
 }
