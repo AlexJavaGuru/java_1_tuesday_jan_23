@@ -5,31 +5,15 @@ import java.util.Scanner;
 public class PowerCalculateTest {
     public static void main(String[] args) {
         PowerCalculateTest test = new PowerCalculateTest();
-        int number = test.numberStrand();
-        int degree = test.degreeStand();
-        test.result(number,degree);
+        test.result();
 
 
 
     }
 
-    public int numberStrand(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Please write a number = ");
-        int number = scanner.nextInt();
-        return number;
-    }
-
-    public int degreeStand(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Please write a degree = ");
-        int degree = scanner.nextInt();
-        return degree;
-    }
-
-    public void result (int number, int degree){
+    public void result (){
         PowerCalculator calculator = new PowerCalculator();
-        int resultOfCalculation = calculator.calculate(number,degree);
+        int resultOfCalculation = calculator.calculate(3,3);
         int expectedResult =27;
         check(resultOfCalculation,expectedResult," calculation ");
 
