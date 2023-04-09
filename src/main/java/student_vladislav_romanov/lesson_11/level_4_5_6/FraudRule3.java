@@ -1,11 +1,11 @@
 package student_vladislav_romanov.lesson_11.level_4_5_6;
 
-public class FraudRule3 implements FraudRule {
+public class FraudRule3 extends FraudRule {
 
     private String ruleName;
 
     public FraudRule3(String ruleName) {
-        this.ruleName = ruleName;
+        super(ruleName);
     }
 
     public String getRuleName() {
