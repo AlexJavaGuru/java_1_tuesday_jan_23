@@ -1,14 +1,11 @@
 package student_vladislav_romanov.lesson_11.level_4_5_6;
 
 public class FraudRule5 extends FraudRule {
+
     private String ruleName;
 
     public FraudRule5(String ruleName) {
         super(ruleName);
-    }
-
-    public String getRuleName() {
-        return ruleName;
     }
 
     @Override

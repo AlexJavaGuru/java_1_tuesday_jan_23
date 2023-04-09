@@ -8,12 +8,9 @@ public class FraudRule1 extends FraudRule {
         super(ruleName);
     }
 
-    public String getRuleName() {
-        return ruleName;
-    }
-
     @Override
     public boolean isFraud(Transaction transaction) {
         return transaction.getTrader().getFullName().equals("Pokemon");
     }
+
 }
