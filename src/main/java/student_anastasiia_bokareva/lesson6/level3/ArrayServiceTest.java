@@ -1,12 +1,14 @@
 package student_anastasiia_bokareva.lesson6.level3;
 
+import java.util.Arrays;
+
 public class ArrayServiceTest {
     public static void main(String[] args) {
         ArrayServiceTest test = new ArrayServiceTest();
         test.isNumberInArray();
         test.isNotNumberInArray();
         test.countRepeats();
-        test.changeFirstNumber();
+        test.changeFirstEqualToFindNumber();
         test.changeAnyNumber();
         test.revertedArray();
         test.sortSmallToBig();
@@ -35,21 +37,20 @@ public class ArrayServiceTest {
         checkResultInt(expectedResult,realResult,"Count repeats");
 
     }
-    public void changeFirstNumber() {
+    public void changeFirstEqualToFindNumber() {
         ArrayService arr = new ArrayService();
         int[] array ={3,2,1,3};
-        array[0]= arr.firstNumber(array,4);
         int expectResult = 4;
-        int realResult=array[0];
-        checkResultInt(expectResult,realResult,"Change first number");
+        int realResult=arr.firstEqalToFindNumberChange(array,4,3);;
+        checkResultInt(expectResult,realResult,"Change first equal find number");
 
     }
     public void changeAnyNumber(){
         ArrayService arr = new ArrayService();
-        int[]array ={2,3,4};
-        int expextedResult =6;
-        int realResult = arr.changeNumber(array,2,6);
-        checkResultInt(expextedResult,realResult,"Change any number");
+        int[]array ={2,3,4,2};
+        int[] expextedResult ={6,3,4,6};
+        int[] realResult = arr.changeAllEqualToFindNumber(array,2,6);
+        checkResultArray(expextedResult,realResult,"Change all numbers which are equal to find number");
 
     }
     public void revertedArray() {
@@ -57,7 +58,7 @@ public class ArrayServiceTest {
         boolean result =true;
         int[] array = {3,4,5};
         int[] expectedArray = {5,4,3};
-        arr.revert(array);
+        arr.temp(array);
         for (int i = 0; i < array.length; i++) {
             if ((result = true) && (array[i] == expectedArray[i])) {
                 result = true;
@@ -84,6 +85,13 @@ public class ArrayServiceTest {
     }
     public void checkResultInt (int expectedResult, int realResult, String nameTest){
         if (expectedResult==realResult){
+            System.out.println("test "+nameTest+" ok");
+        } else {
+            System.out.println("test "+ nameTest + " fail");
+        }
+    }
+    public void checkResultArray (int[] expectedResult, int[] realResult, String nameTest){
+        if (Arrays.equals(expectedResult,realResult)){
             System.out.println("test "+nameTest+" ok");
         } else {
             System.out.println("test "+ nameTest + " fail");
