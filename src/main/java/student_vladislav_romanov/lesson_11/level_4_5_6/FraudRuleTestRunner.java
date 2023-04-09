@@ -38,18 +38,18 @@ class FraudRuleTestRunner extends TestUtil {
     }
 
     private void checkNotAllowedAmountSucceed() {
-        FraudRule2 checkAmount = new FraudRule2("Check Not allowed amount more than 1 000 000");
         Trader someTrader = new Trader("New Trader", "Riga", "Latvia");
         Transaction newTransaction = new Transaction(someTrader, 1000001);
+        FraudRule2 checkAmount = new FraudRule2("Check Not allowed amount more than 1 000 000");
         boolean expectedResult = true;
         boolean currentResult = checkAmount.isFraud(newTransaction);
         printResult(currentResult == expectedResult, "checkNotAllowedAmountSucceed");
     }
 
     private void checkNotAllowedAmountFailed() {
-        FraudRule2 checkAmount = new FraudRule2("Check Not allowed amount more than 1 000 000");
         Trader someTrader = new Trader("New Trader", "Riga", "Latvia");
         Transaction newTransaction = new Transaction(someTrader, 1000001);
+        FraudRule2 checkAmount = new FraudRule2("Check Not allowed amount more than 1 000 000");
         boolean expectedResult = false;
         boolean currentResult = checkAmount.isFraud(newTransaction);
         printResult(currentResult != expectedResult, "checkNotAllowedAmountFailed");
@@ -92,18 +92,18 @@ class FraudRuleTestRunner extends TestUtil {
     }
 
     private void checkNotAllowedAmountFromGermanySucceed() {
-        FraudRule5 checkCountryAmount = new FraudRule5("Germany and 1000");
         Trader someTrader = new Trader("New Trader", "Berlin", "Germany");
         Transaction newTransaction = new Transaction(someTrader, 1000001);
+        FraudRule5 checkCountryAmount = new FraudRule5("Germany and 1000");
         boolean expectedResult = true;
         boolean currentResult = checkCountryAmount.isFraud(newTransaction);
         printResult(currentResult == expectedResult, "checkNotAllowedAmountFromGermanySucceed(");
     }
 
     private void checkNotAllowedAmountFromGermanyFailed() {
-        FraudRule5 checkCountryAmount = new FraudRule5("Germany and 1000");
         Trader someTrader = new Trader("New Trader", "Berlin", "Germany");
         Transaction newTransaction = new Transaction(someTrader, 900);
+        FraudRule5 checkCountryAmount = new FraudRule5("Germany and 1000");
         boolean expectedResult = true;
         boolean currentResult = checkCountryAmount.isFraud(newTransaction);
         printResult(currentResult != expectedResult, "checkNotAllowedAmountFromGermanyFailed");
