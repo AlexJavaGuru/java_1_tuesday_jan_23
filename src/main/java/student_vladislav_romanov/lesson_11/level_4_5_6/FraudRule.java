@@ -1,9 +1,16 @@
 package student_vladislav_romanov.lesson_11.level_4_5_6;
 
-public interface FraudRule {
+abstract class FraudRule {
 
-    boolean isFraud(Transaction transaction);
+    private String ruleName;
 
-    String getRuleName();
+    public FraudRule(String ruleName) {
+        this.ruleName = ruleName;
+    }
 
+    public abstract boolean isFraud(Transaction t);
+
+    public String getRuleName() {
+        return ruleName;
+    }
 }
