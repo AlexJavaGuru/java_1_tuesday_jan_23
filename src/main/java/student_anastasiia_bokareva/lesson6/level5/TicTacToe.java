@@ -4,27 +4,26 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
-    public boolean isWinPositionForHorizontals(int[][] field, int playerToCheck){
-         boolean isWin = false;
-         for (int x=0; x<3;x++){
-             if (isWin==false){
-                 if ((field[x][1]==field[x][2])&&(field[x][0]==playerToCheck)&&(playerToCheck==field[x][1])){
-                         isWin=true;
-                     }
-                 }
-             }
-         return isWin;
-    }
-    public boolean isWinPositionForVerticals(int[][] field, int playerToCheck){
-        boolean isWin = false;
-        for (int y=0; y<3;y++){
-            if (isWin==false){
-                if ((field[0][y]==field[1][y])&&(field[2][y]==playerToCheck)&&(playerToCheck==field[1][y])){
-                    isWin=true;
+    public boolean isWinPositionForHorizontals(int[][] field, int playerToCheck) {
+        for (int x = 0; x < 3; x++) {
+            if ((field[x][1] == field[x][2]) && (field[x][0] == playerToCheck)) {
+                if (playerToCheck == field[x][1]) {
+                    return true;
                 }
             }
         }
-        return isWin;
+        return false;
+    }
+
+    public boolean isWinPositionForVerticals(int[][] field, int playerToCheck) {
+        for (int x = 0; x < 3; x++) {
+            if ((field[0][x] == field[1][x]) && (field[2][x] == playerToCheck)) {
+                if (playerToCheck == field[1][x]){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     public boolean isWinPositionForDiagonalsRighttoLeft(int[][] field, int playerToCheck){
         for (int x=0;x<field.length;x++){
@@ -42,8 +41,12 @@ public class TicTacToe {
         }
         return true;
     }
-    public boolean isWinPosition(int[][] field, int playerToCheck){
-        return isWinPositionForVerticals(field,playerToCheck)||isWinPositionForHorizontals(field,playerToCheck)||isWinPositionForDiagonalsRighttoLeft(field,playerToCheck)||isWinPositionForDiagonalsLeftToRight(field,playerToCheck);
+
+    public boolean isWinPosition(int[][] field, int playerToCheck) {
+        boolean check = isWinPositionForVerticals(field, playerToCheck) || isWinPositionForHorizontals(field, playerToCheck);
+        check = check || isWinPositionForDiagonalsRighttoLeft(field, playerToCheck);
+        check = check || isWinPositionForDiagonalsLeftToRight(field, playerToCheck);
+        return check;
     }
     public boolean isDrawPosition(int[][] field){
         int empty = -1;
