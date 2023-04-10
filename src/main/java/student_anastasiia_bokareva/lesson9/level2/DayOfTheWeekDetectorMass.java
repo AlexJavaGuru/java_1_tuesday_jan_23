@@ -4,6 +4,7 @@ public class DayOfTheWeekDetectorMass implements DayOfTheWeekDetector {
 
     public String detectDayName(int number) {
         String[] dayOfTheWeek = new String[8];
+        dayOfTheWeek[0] = "Please input a valid number between 1 and 7";
         dayOfTheWeek[1] = "Monday";
         dayOfTheWeek[2] = "Tuesday";
         dayOfTheWeek[3] = "Wednesday";
@@ -12,14 +13,10 @@ public class DayOfTheWeekDetectorMass implements DayOfTheWeekDetector {
         dayOfTheWeek[6] = "Saturday";
         dayOfTheWeek[7] = "Sunday";
 
-        if ((number >= 1) && (number <= 7)) {
-            for (int i = 0; i < 8; i++) {
-                if (i == number) {
-                    return  dayOfTheWeek[i];
-                }
-            }
+        if ((number < 1) || (number > 7)) {
+            return dayOfTheWeek[0];
         } else {
-            return "Please input a valid number between 1 and 7";
+            return dayOfTheWeek[number];
         }
     }
 }
