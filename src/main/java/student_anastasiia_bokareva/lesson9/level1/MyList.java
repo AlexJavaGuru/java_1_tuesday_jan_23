@@ -1,8 +1,12 @@
 package student_anastasiia_bokareva.lesson9.level1;
 
 public interface MyList {
-    void delete (Object 0 ); // удаление бьекта
-    void add (Object 0); // добавление нового обьекта
-    void change (Object 0); // изменение обьекта
+    void delete(Object object); // удаление бьекта
+
+    void add(Object object); // добавление нового обьекта
+
+    void change(Object object); // изменение обьекта
+
+    void sort(Object object); // сортировка обьекта
 
 }

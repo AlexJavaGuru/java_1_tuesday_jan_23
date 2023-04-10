@@ -6,7 +6,4 @@ public interface ArrayUtil {
     int findMaxNumber(int[] array);
     int findMinNumber(int[] array);
 
-
-
-
 }
