@@ -20,7 +20,8 @@ public class UnitTestBook {
     }
     public void checkAddBook(){
         BookReader book = new BookReaderImpl();
-        BookLibrary books = new BookLibrary("Irebn", "HR");
+        BookLibrary books = new BookLibrary();
+        books= new BookLibrary("Irehn", "HR");
         boolean realResult = book.addNewBook(books,"Harry Potter", "HR");
         boolean expectedResult = true;
         check(realResult,expectedResult,"add book");
