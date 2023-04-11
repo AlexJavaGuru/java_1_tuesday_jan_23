@@ -1,0 +1,9 @@
+
+иерархия наследования класса java.lang.RuntimeException
+
+java.lang
+
+Object
+Throwable
+Exception
+RuntimeException
