@@ -1,4 +1,4 @@
-package student_aleksandrs_lezhennikovs.lesson_11.level_7;
+package student_aleksandrs_lezhennikovs.lesson_11.level_7.domens;
 
 import java.util.Objects;
 
@@ -8,9 +8,6 @@ public class Token {
 
     public Token(Element element) {
         this.element = element;
-    }
-    public Token() {
-
     }
 
     public Element getElement() {
