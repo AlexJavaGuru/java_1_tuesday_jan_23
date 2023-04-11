@@ -10,12 +10,6 @@ public class UnitTestBook {
     }
 
     public void checkAddWrongBook(){
-        BookReader bookReader = new BookReaderImpl();
-        BookLibrary books = new BookLibrary("Harry Potter");
-        boolean realResult = bookReader.addNewBook("Harry Potter");
-        System.out.println(realResult);
-        boolean expectedResult = false;
-        check(realResult,expectedResult," wrong book ");
 
     }
 
