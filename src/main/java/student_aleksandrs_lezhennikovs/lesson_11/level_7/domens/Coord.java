@@ -1,4 +1,4 @@
-package student_aleksandrs_lezhennikovs.lesson_11.level_7;
+package student_aleksandrs_lezhennikovs.lesson_11.level_7.domens;
 
 public class Coord {
     private int X;
