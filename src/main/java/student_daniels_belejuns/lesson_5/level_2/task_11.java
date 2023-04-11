@@ -12,7 +12,7 @@ public class task_11 {
         int number = input.nextInt();
         int ar[] = new int[size];
         System.out.println("третий массив: ");
-        int arr = input.nextInt();
+        int aray = input.nextInt();
         int numb[] = new int[size];
     }
 }
