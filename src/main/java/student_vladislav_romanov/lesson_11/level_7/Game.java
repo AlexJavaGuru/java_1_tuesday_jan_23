@@ -24,7 +24,7 @@ public class Game {
         boolean continueSession = true;
         while(continueSession) {
             for (Player player : players) {
-                board.placeChip(new Chip(player.getChipColor()), getNextMove(board));
+                board.placeChip(player.getChip(), getNextMove(board));
                 if (checkEndGameConditions(player)) {
                     continueSession = false;
                     break;
@@ -66,7 +66,7 @@ public class Game {
     }
 
     private boolean checkEndGameConditions(Player player) {
-        Chip chip = new Chip(player.getChipColor());
+        int chip = player.getChip();
 
         if (board.hasWinningSequence(chip)) {
             System.out.println(player.getName() + " WIN!");

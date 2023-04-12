@@ -3,12 +3,12 @@ package student_vladislav_romanov.lesson_11.level_7;
 public class Player {
 
     private String name;
-    private ChipColor chipColor;
+    private int chip;
     private boolean isAi;
 
-    public Player(String name, ChipColor chipColor, boolean isAi) {
+    public Player(String name, int chip, boolean isAi) {
         this.name = name;
-        this.chipColor = chipColor;
+        this.chip = chip;
         this.isAi = isAi;
     }
 
@@ -16,8 +16,8 @@ public class Player {
         return name;
     }
 
-    public ChipColor getChipColor() {
-        return chipColor;
+    public int getChip() {
+        return chip;
     }
 
     public boolean isAi() {
@@ -28,7 +28,7 @@ public class Player {
     public String toString() {
         return "Player{" +
                 "name='" + name + '\'' +
-                ", chipColor=" + chipColor +
+                ", chipColor=" + chip +
                 ", isAi=" + isAi +
                 '}';
     }

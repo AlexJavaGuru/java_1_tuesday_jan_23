@@ -4,18 +4,20 @@ import java.util.Arrays;
 
 public class Board {
 
+    private static final char CHIP = '\u2b24';
+    private static final char CELL = '\u25a2';
     private int width;
     private int height;
-    private Chip[][] board;
+    private int[][] field;
 
     public Board(int width, int height) {
         this.width = width;
         this.height = height;
-        this.board = fillBoardWithEmptyChips();
+        this.field = fillBoardWithEmptyChips();
     }
 
-    public void placeChip(Chip chip, Move move) {
-        board[move.getY()][move.getX()] = chip;
+    public void placeChip(int chip, Move move) {
+        field[move.getY()][move.getX()] = chip;
         printBoard();
     }
 
@@ -25,19 +27,19 @@ public class Board {
 
     public int freeCellY(int col) {
         for (int row = height - 1; row >= 0; row--) {
-            if (getChip(row, col).getColor() == ChipColor.NONE) {
+            if (getChip(row, col) == 0) {
                 return row;
             }
         }
         return -1;
     }
 
-    private Chip[][] fillBoardWithEmptyChips() {
-        Chip[][] emptyBoard = new Chip[height][width];
+    private int[][] fillBoardWithEmptyChips() {
+        int[][] emptyBoard = new int[height][width];
 
         for (int row = 0; row < height; row++) {
             for (int col = 0; col < width; col++) {
-                emptyBoard[row][col] = new Chip(ChipColor.NONE);
+                emptyBoard[row][col] = 0;
             }
         }
 
@@ -47,16 +49,20 @@ public class Board {
     public void printBoard() {
         for (int row = 0; row < height; row++) {
             for (int col = 0; col < width; col++) {
-                System.out.print(getChip(row, col));
+                switch (getChip(row, col)) {
+                    case 1 -> System.out.print("\u001B[31m" + CHIP + "\u001B[0m");
+                    case -1 -> System.out.print("\u001B[33m" + CHIP + "\u001B[0m");
+                    default -> System.out.print(CELL);
+                }
             }
             System.out.println();
         }
     }
 
-    public boolean hasWinningSequenceForHorizontal(Chip chip, int row) {
+    public boolean hasWinningSequenceForHorizontal(int chip, int row) {
         int count = 0;
         for (int col = 0; col < width; col++) {
-            if (getChip(row, col).equals(chip)) {
+            if (getChip(row, col) == chip) {
                 count++;
             } else {
                 count = 0;
@@ -68,7 +74,7 @@ public class Board {
         return false;
     }
 
-    public boolean hasWinningSequenceForHorizontals(Chip chip) {
+    public boolean hasWinningSequenceForHorizontals(int chip) {
         for (int row = height - 1; row >= 0; row--) {
             if (hasWinningSequenceForHorizontal(chip, row)) {
                 return true;
@@ -77,10 +83,10 @@ public class Board {
         return false;
     }
 
-    public boolean hasWinningSequenceForVertical(Chip chip, int col) {
+    public boolean hasWinningSequenceForVertical(int chip, int col) {
         int count = 0;
         for (int row = height - 1; row >= 0; row--) {
-            if (getChip(row, col).equals(chip)) {
+            if (getChip(row, col) == chip) {
                 count++;
             } else {
                 count = 0;
@@ -92,7 +98,7 @@ public class Board {
         return false;
     }
 
-    public boolean hasWinningSequenceForVerticals(Chip chip) {
+    public boolean hasWinningSequenceForVerticals(int chip) {
         for (int col = 0; col < width; col++) {
             if (hasWinningSequenceForVertical(chip, col)) {
                 return true;
@@ -101,13 +107,13 @@ public class Board {
         return false;
     }
 
-    private boolean hasWinningSequenceForMainDiagonal(Chip chip, int row, int col) {
+    private boolean hasWinningSequenceForMainDiagonal(int chip, int row, int col) {
         int count = 0;
         for (int currentRow = row, currentCol = col; currentRow < height; currentRow++, currentCol++) {
             if (currentCol >= width - 1) {
                 break;
             }
-            if (getChip(currentRow, currentCol).equals(chip)) {
+            if (getChip(currentRow, currentCol) == chip) {
                 count++;
             } else {
                 count = 0;
@@ -119,7 +125,7 @@ public class Board {
         return false;
     }
 
-    private boolean hasWinningSequenceForMainDiagonals(Chip chip) {
+    private boolean hasWinningSequenceForMainDiagonals(int chip) {
         for (int row = height - 1; row >= 0; row--) {
             if (hasWinningSequenceForMainDiagonal(chip, row, 0)) {
                 return true;
@@ -133,13 +139,13 @@ public class Board {
         return false;
     }
 
-    private boolean hasWinningSequenceForSideDiagonal(Chip chip, int row, int col) {
+    private boolean hasWinningSequenceForSideDiagonal(int chip, int row, int col) {
         int count = 0;
         for (int currentRow = row, currentCol = col; currentRow < height; currentRow++, currentCol--) {
             if (currentCol < 0) {
                 break;
             }
-            if (getChip(currentRow, currentCol).equals(chip)) {
+            if (getChip(currentRow, currentCol) == chip) {
                 count++;
             } else {
                 count = 0;
@@ -151,7 +157,7 @@ public class Board {
         return false;
     }
 
-    private boolean hasWinningSequenceForSideDiagonals(Chip chip) {
+    private boolean hasWinningSequenceForSideDiagonals(int chip) {
         for (int row = height - 1; row >= 0; row--) {
             if (hasWinningSequenceForSideDiagonal(chip, row, width - 1)) {
                 return true;
@@ -165,18 +171,18 @@ public class Board {
         return false;
     }
 
-    private boolean hasWinningSequenceForBothDiagonals(Chip chip) {
+    private boolean hasWinningSequenceForBothDiagonals(int chip) {
         return hasWinningSequenceForMainDiagonals(chip) || hasWinningSequenceForSideDiagonals(chip);
     }
 
-    public boolean hasWinningSequence(Chip chip) {
+    public boolean hasWinningSequence(int chip) {
         return hasWinningSequenceForHorizontals(chip) || hasWinningSequenceForVerticals(chip) || hasWinningSequenceForBothDiagonals(chip);
     }
 
     public boolean isDrawPosition() {
         for (int row = 0; row < height; row++) {
             for (int col = 0; col < width; col++) {
-                if (getChip(row, col).equals(new Chip(ChipColor.NONE))) {
+                if (getChip(row, col) == 0) {
                     return false;
                 }
             }
@@ -192,8 +198,8 @@ public class Board {
         return height;
     }
 
-    public Chip getChip(int row, int col) {
-        return board[row][col];
+    public int getChip(int row, int col) {
+        return field[row][col];
     }
 
     @Override
@@ -201,7 +207,7 @@ public class Board {
         return "Board{" +
                 "width=" + width +
                 ", height=" + height +
-                ", chips=" + Arrays.toString(board) +
+                ", chips=" + Arrays.toString(field) +
                 '}';
     }
 
