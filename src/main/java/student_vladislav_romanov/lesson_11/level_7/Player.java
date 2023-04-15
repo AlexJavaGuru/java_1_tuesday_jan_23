@@ -24,12 +24,4 @@ public class Player {
         return isAi;
     }
 
-    @Override
-    public String toString() {
-        return "Player{" +
-                "name='" + name + '\'' +
-                ", chipColor=" + chip +
-                ", isAi=" + isAi +
-                '}';
-    }
 }

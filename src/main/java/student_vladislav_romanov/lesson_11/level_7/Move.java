@@ -1,6 +1,7 @@
 package student_vladislav_romanov.lesson_11.level_7;
 
 public class Move {
+
     private int x;
     private int y;
 
@@ -20,11 +21,4 @@ public class Move {
         return y;
     }
 
-    @Override
-    public String toString() {
-        return "Move{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
-    }
 }

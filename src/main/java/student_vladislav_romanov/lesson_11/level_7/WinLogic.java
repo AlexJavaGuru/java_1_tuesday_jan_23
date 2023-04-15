@@ -58,10 +58,10 @@ public class WinLogic {
         return false;
     }
 
-    private boolean hasWinningSequenceForMainDiagonal(int row, int col) {
+    public boolean hasWinningSequenceForMainDiagonal(int row, int col) {
         int count = 0;
         for (int currentRow = row, currentCol = col; currentRow < board.getHeight(); currentRow++, currentCol++) {
-            if (currentCol >= board.getWidth() - 1) {
+            if (currentCol > board.getWidth() - 1) {
                 break;
             }
             if (board.getChip(currentRow, currentCol) == chip) {
@@ -76,7 +76,7 @@ public class WinLogic {
         return false;
     }
 
-    private boolean hasWinningSequenceForMainDiagonals() {
+    public boolean hasWinningSequenceForMainDiagonals() {
         for (int row = board.getHeight() - 1; row >= 0; row--) {
             if (hasWinningSequenceForMainDiagonal(row, 0)) {
                 return true;
@@ -90,7 +90,7 @@ public class WinLogic {
         return false;
     }
 
-    private boolean hasWinningSequenceForSideDiagonal(int row, int col) {
+    public boolean hasWinningSequenceForSideDiagonal(int row, int col) {
         int count = 0;
         for (int currentRow = row, currentCol = col; currentRow < board.getHeight(); currentRow++, currentCol--) {
             if (currentCol < 0) {
@@ -108,7 +108,7 @@ public class WinLogic {
         return false;
     }
 
-    private boolean hasWinningSequenceForSideDiagonals() {
+    public boolean hasWinningSequenceForSideDiagonals() {
         for (int row = board.getHeight() - 1; row >= 0; row--) {
             if (hasWinningSequenceForSideDiagonal(row, board.getWidth() - 1)) {
                 return true;
@@ -122,7 +122,7 @@ public class WinLogic {
         return false;
     }
 
-    private boolean hasWinningSequenceForBothDiagonals() {
+    public boolean hasWinningSequenceForBothDiagonals() {
         return hasWinningSequenceForMainDiagonals() || hasWinningSequenceForSideDiagonals();
     }
 
