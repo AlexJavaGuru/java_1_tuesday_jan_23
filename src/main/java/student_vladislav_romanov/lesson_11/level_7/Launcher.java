@@ -12,10 +12,8 @@ public class Launcher {
     public Game init() {
         System.out.print("Please enter ");
         Board board = new Board(setFieldSizeX(), setFieldSizeY());
-        //Player player1 = setPlayer(1);
-        //Player player2 = setPlayer(-1);
-        Player player1 = new Player("Mister 1", 1, true);
-        Player player2 = new Player("Mister 2", -1, true);
+        Player player1 = setPlayer(1);
+        Player player2 = setPlayer(-1);
         return new Game(player1, player2, board);
     }
 
