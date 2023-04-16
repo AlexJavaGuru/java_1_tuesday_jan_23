@@ -19,6 +19,10 @@ class UserCredentials {
         return roles;
     }
 
+    public boolean userCanSearchClients() {
+        return roles.contains(Role.CAN_SEARCH_CLIENTS);
+    }
+
     @Override
     public String toString() {
         return "UserCredentials{" +

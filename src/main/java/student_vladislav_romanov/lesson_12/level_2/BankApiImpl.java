@@ -12,7 +12,7 @@ class BankApiImpl implements BankApi {
     }
 
     public Optional<BankClient> findByUid(UserCredentials credentials, String uid) throws AccessDeniedException {
-        if (!credentials.getRoles().contains(Role.CAN_SEARCH_CLIENTS)) {
+        if (!credentials.userCanSearchClients()) {
             throw new AccessDeniedException("Access denied. User cannot search clients.");
         }
         for (BankClient client : clients) {
