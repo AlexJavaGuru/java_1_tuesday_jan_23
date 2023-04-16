@@ -11,6 +11,10 @@ class UserCredentials {
         roles = Arrays.asList(Role.values());
     }
 
+    public UserCredentials(List<Role> roles) {
+        this.roles = roles;
+    }
+
     public List<Role> getRoles() {
         return roles;
     }
