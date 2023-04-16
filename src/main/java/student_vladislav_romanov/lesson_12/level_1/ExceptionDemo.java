@@ -1,6 +1,6 @@
 package student_vladislav_romanov.lesson_12.level_1;
 
-public class ExceptionDemo extends Exception {
+class ExceptionDemo extends Exception {
 
     public ExceptionDemo() {
         super();

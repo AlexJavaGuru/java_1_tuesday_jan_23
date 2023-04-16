@@ -3,7 +3,7 @@ package student_vladislav_romanov.lesson_12.level_3;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class WrongUserInputHandlingDemo {
+class WrongUserInputHandlingDemo {
 
     public static void main(String[] args) {
         System.out.print("Пожалуйста введите число: ");

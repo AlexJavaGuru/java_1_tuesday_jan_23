@@ -1,6 +1,6 @@
 package student_vladislav_romanov.lesson_12.level_3;
 
-public class MultiCatchExample {
+class MultiCatchExample {
 
     public static void main(String[] args) {
         try {
