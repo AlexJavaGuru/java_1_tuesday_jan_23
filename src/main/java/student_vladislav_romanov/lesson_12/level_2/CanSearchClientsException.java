@@ -9,12 +9,12 @@ class CanSearchClientsException extends Exception {
         super(message);
     }
 
-    public CanSearchClientsException(Throwable cause) {
-        super(cause);
-    }
-
     public CanSearchClientsException(String message, Throwable cause) {
         super(message, cause);
+    }
+
+    public CanSearchClientsException(Throwable cause) {
+        super(cause);
     }
 
 }
