@@ -1,6 +1,6 @@
 package student_vladislav_romanov.lesson_12.level_2;
 
-public class AccessDeniedException extends Exception {
+class AccessDeniedException extends Exception {
 
     public AccessDeniedException() {
     }
