@@ -1,26 +1,18 @@
 package student_anastasiia_bokareva.lesson9.level5;
 
+import java.util.ArrayList;
+
 public class BookLibrary {
-    private  String bookTitle;
-    private  String bookAuthor;
-
-
-    BookLibrary (String bookTitle, String bookAuthor){
-        this.bookTitle = bookTitle;
-        this.bookAuthor=bookAuthor;
+    private ArrayList<Book> books;
+    public BookLibrary (int numbers){
+        this.books = new ArrayList<Book>(numbers);
     }
-    public String getBookTitle() {
-        return bookTitle;
+    public void addBook (Book book){
+        for (int i=0;i<this.books.toArray().length;i++){
+            if (this.books.get(i) ==null){
+                this.books.set(i, book);
+                return;
+            }
+        }
     }
-
-    public String getBookAuthor() {
-        return bookAuthor;
-    }
-
-
-
-    BookLibrary (){
-
-    }
-
 }
