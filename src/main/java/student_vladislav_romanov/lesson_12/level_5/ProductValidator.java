@@ -4,6 +4,6 @@ import java.util.List;
 
 interface ProductValidator {
 
-    List<ValidationException> validate(Product product);
+    List<ValidationException> validate(Product product) throws ValidationException;
 
 }
