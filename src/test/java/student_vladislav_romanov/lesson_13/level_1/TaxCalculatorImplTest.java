@@ -8,19 +8,27 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TaxCalculatorImplTest {
 
+    private TaxCalculator taxCalculator = new TaxCalculatorImpl();
+
     @Test
-    void calculateTaxFor0() {
-        TaxCalculator taxCalculator = new TaxCalculatorImpl();
-        BigDecimal expected = BigDecimal.valueOf(0);
-        BigDecimal actual = taxCalculator.calculateTax(BigDecimal.valueOf(0));
+    void tax25percentForIncome0() {
+        BigDecimal expected = new BigDecimal(0);
+        BigDecimal actual = taxCalculator.calculateTax(new BigDecimal(0));
         assertEquals(expected, actual);
     }
 
     @Test
-    void calculateTaxFor20000() {
-        TaxCalculator taxCalculator = new TaxCalculatorImpl();
-        BigDecimal expected = BigDecimal.valueOf(5000);
-        BigDecimal actual = taxCalculator.calculateTax(BigDecimal.valueOf(20000));
+    void tax25percentForIncome10000() {
+        BigDecimal expected = new BigDecimal(2500);
+        BigDecimal actual = taxCalculator.calculateTax(new BigDecimal(10000));
         assertEquals(expected, actual);
     }
+
+    @Test
+    void tax25percentForIncome20000() {
+        BigDecimal expected = new BigDecimal(5000);
+        BigDecimal actual = taxCalculator.calculateTax(new BigDecimal(20000));
+        assertEquals(expected, actual);
+    }
+
 }
