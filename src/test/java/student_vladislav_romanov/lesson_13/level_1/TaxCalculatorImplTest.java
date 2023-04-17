@@ -31,4 +31,11 @@ class TaxCalculatorImplTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void tax25percentForIncome30000() {
+        BigDecimal expected = new BigDecimal("9000.00");
+        BigDecimal actual = taxCalculator.calculateTax(new BigDecimal(30000));
+        assertEquals(expected, actual);
+    }
+
 }
