@@ -6,7 +6,7 @@ class TaxCalculatorImpl implements TaxCalculator {
 
     @Override
     public BigDecimal calculateTax(BigDecimal income) {
-        return null;
+        return income.multiply(new BigDecimal("0.25"));
     }
 
 }

@@ -12,21 +12,21 @@ class TaxCalculatorImplTest {
 
     @Test
     void tax25percentForIncome0() {
-        BigDecimal expected = new BigDecimal(0);
+        BigDecimal expected = new BigDecimal("0.00");
         BigDecimal actual = taxCalculator.calculateTax(new BigDecimal(0));
         assertEquals(expected, actual);
     }
 
     @Test
     void tax25percentForIncome10000() {
-        BigDecimal expected = new BigDecimal(2500);
+        BigDecimal expected = new BigDecimal("2500.00");
         BigDecimal actual = taxCalculator.calculateTax(new BigDecimal(10000));
         assertEquals(expected, actual);
     }
 
     @Test
     void tax25percentForIncome20000() {
-        BigDecimal expected = new BigDecimal(5000);
+        BigDecimal expected = new BigDecimal("5000.00");
         BigDecimal actual = taxCalculator.calculateTax(new BigDecimal(20000));
         assertEquals(expected, actual);
     }
