@@ -1,18 +1,19 @@
 package student_anastasiia_bokareva.lesson9.level5;
 
+import java.util.ArrayList;
+
 public class BookReaderImpl implements BookReader {
 
-    @Override
-    public boolean addNewBook(Book books, String bookName, String authorName) {
-        if ((books.getBookTitle().equals(bookName))&&(books.getBookAuthor().equals(authorName))){
-            return false;
-        } else {
-            BookLibrary library = new BookLibrary(100);
-            library.addBook(new Book(bookName,authorName));
-            return true;
+    boolean add(ArrayList<Book> books, String nameBook, String authorBook) {
+        Book newBook = new Book(nameBook, authorBook);
+        for (Book book : books) {
+            if (books.equals(newBook)) {
+                return false;
+            } else {
+                return true;
+                books.add(newBook);
+            }
         }
     }
 
 }
-
-

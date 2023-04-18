@@ -1,6 +1,8 @@
 package student_anastasiia_bokareva.lesson9.level5;
 
+import java.util.ArrayList;
+
 public interface BookReader {
 
-    boolean addNewBook(Book books, String bookName, String authorName);
+    boolean add(ArrayList<Book> books, String nameBook, String authorBook);
 }
