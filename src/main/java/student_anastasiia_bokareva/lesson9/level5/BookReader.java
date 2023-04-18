@@ -4,5 +4,9 @@ import java.util.ArrayList;
 
 public interface BookReader {
 
-    boolean add(ArrayList<Book> books, String nameBook, String authorBook);
+    boolean add(ArrayList<Book> books, Book newBook);
+
+    boolean addNotNull(ArrayList<Book> books, Book newBook);
+
+    boolean delete(ArrayList<Book> books, Book newBook);
 }

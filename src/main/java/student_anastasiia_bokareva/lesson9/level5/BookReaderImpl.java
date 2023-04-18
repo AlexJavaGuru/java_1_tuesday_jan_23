@@ -2,18 +2,27 @@ package student_anastasiia_bokareva.lesson9.level5;
 
 import java.util.ArrayList;
 
-public class BookReaderImpl implements BookReader {
+ public class BookReaderImpl implements BookReader {
 
-    boolean add(ArrayList<Book> books, String nameBook, String authorBook) {
-        Book newBook = new Book(nameBook, authorBook);
-        for (Book book : books) {
-            if (books.equals(newBook)) {
-                return false;
-            } else {
-                return true;
-                books.add(newBook);
-            }
+    public boolean add(ArrayList<Book> books, Book newBook) {
+        if (books.contains(newBook)) {
+            return false;
+        } else {
+            books.add(newBook);
+            return true;
         }
     }
 
-}
+     public boolean addNotNull(ArrayList<Book> books, Book newBook) {
+         if ((newBook.getBookName() != "")&& (newBook.getBookAuthor()!= "")) {
+             return add(books, newBook);
+         } else {
+             return false;
+         }
+     }
+
+     @Override
+     public boolean delete(ArrayList<Book> books, Book newBook) {
+         return books.remove(newBook);
+     }
+ }
