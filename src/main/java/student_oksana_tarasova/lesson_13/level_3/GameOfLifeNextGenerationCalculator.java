@@ -3,18 +3,31 @@ package student_oksana_tarasova.lesson_13.level_3;
 public class GameOfLifeNextGenerationCalculator {
 
     public boolean[][] calculate(boolean[][] currentGeneration) {
-        for (int i = 0; i < currentGeneration.length; i++) {
-            for (int j = 0; j < currentGeneration.length; j++) {
-                for (int si = i -1; si <= i + 1; si++) {
-                    for(int sj = j-1; sj <= j+1; sj++) {
-                        if (!(si == 0 && sj == 0)) {
-
+        int countTrue = 0;
+        for (int i = 1; i < currentGeneration.length - 1; i += 2) {
+            for (int j = 1; j < currentGeneration.length - 1; j += 2) {
+                for (int si = i - 1; si <= i + 1; si++) {
+                    for (int sj = j - 1; sj <= j + 1; sj++) {
+                        if (currentGeneration[si][sj] == true) {
+                            countTrue++;
                         }
+                    }
+                }
+                if (currentGeneration[i][j] == true) {
+                    if (countTrue == 1) {
+                        currentGeneration[i][j] = false;
+                    } else if (countTrue == 2 || countTrue == 3) {
+                        currentGeneration[i][j] = true;
+                    } else if (countTrue >= 4) {
+                        currentGeneration[i][j] = false;
+                    }
+                } else {
+                    if (countTrue == 3) {
+                        currentGeneration[i][j] = true;
                     }
                 }
             }
         }
-
-        return null; // реализацию напишем тут чуть позже
+        return currentGeneration;
     }
 }
