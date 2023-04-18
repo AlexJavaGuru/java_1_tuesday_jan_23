@@ -10,6 +10,8 @@ public class BookReaderTest {
         test.addWrongBook();
         test.addNullBook();
         test.removeBook();
+        test.printBook();
+        test.printAuthorBook();
 
     }
 
@@ -55,6 +57,26 @@ public class BookReaderTest {
         boolean realResult = true;
         boolean expectedResult = impl.delete(books, checkBook);
         check(realResult, expectedResult, " delete Book");
+    }
+    public void printBook(){
+        BookReaderImpl impl = new BookReaderImpl();
+        ArrayList<Book> books = new ArrayList<>(10);
+        Book newBook = new Book("Harry Potter", "HR");
+        Book checkBook = new Book("Sally Hope", "HtrrR");
+        books.add(newBook);
+        books.add(checkBook);
+        impl.printBooks(books);
+    }
+    public void printAuthorBook(){
+        BookReaderImpl impl = new BookReaderImpl();
+        ArrayList<Book> books = new ArrayList<>(10);
+        Book newBook = new Book("Harry Potter", "HR");
+        Book bookSecond = new Book("Sally Hope", "HRe");
+        Book checkBook = new Book("Sally Hope", "HR");
+        books.add(newBook);
+        books.add(checkBook);
+        books.add(bookSecond);
+        impl.collectByAuthors(books,"HR");
     }
 
     public void check(boolean realResult, boolean expectedResult, String testName) {

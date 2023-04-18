@@ -9,4 +9,8 @@ public interface BookReader {
     boolean addNotNull(ArrayList<Book> books, Book newBook);
 
     boolean delete(ArrayList<Book> books, Book newBook);
+
+    void printBooks(ArrayList<Book> books);
+
+    void collectByAuthors(ArrayList<Book> books, String authorBook);
 }
