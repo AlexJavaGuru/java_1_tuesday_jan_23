@@ -13,4 +13,6 @@ public interface BookReader {
     void printBooks(ArrayList<Book> books);
 
     void collectByAuthors(ArrayList<Book> books, String authorBook);
+
+    void researchByAuthor (ArrayList<Book> books, String word);
 }

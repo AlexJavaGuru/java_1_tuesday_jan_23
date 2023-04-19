@@ -39,4 +39,11 @@ public class BookReaderImpl implements BookReader {
             }
         }
     }
+    public void researchByAuthor (ArrayList<Book> books, String word){
+        for (Book book : books ){
+            if (book.getBookAuthor().startsWith(word)){
+                System.out.println("Book " + book.getBookName() + " [ Author " + book.getBookAuthor() + " ]");
+            }
+        }
+    }
 }

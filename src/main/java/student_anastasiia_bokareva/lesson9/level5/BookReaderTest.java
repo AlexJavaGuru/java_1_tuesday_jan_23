@@ -12,6 +12,7 @@ public class BookReaderTest {
         test.removeBook();
         test.printBook();
         test.printAuthorBook();
+        test.researchByAuthor();
 
     }
 
@@ -70,13 +71,29 @@ public class BookReaderTest {
     public void printAuthorBook(){
         BookReaderImpl impl = new BookReaderImpl();
         ArrayList<Book> books = new ArrayList<>(10);
-        Book newBook = new Book("Harry Potter", "HR");
+        Book newBook = new Book("Harry Potter", "TY");
+        Book bookSecond = new Book("Sally Hope", "HRe");
+        Book checkBook = new Book("Sally Hope", "TY");
+        books.add(newBook);
+        books.add(checkBook);
+        books.add(bookSecond);
+        System.out.println("");
+        System.out.println("Test - research by author TY");
+        impl.collectByAuthors(books,"TY");
+    }
+
+    public void researchByAuthor(){
+        BookReaderImpl impl = new BookReaderImpl();
+        ArrayList<Book> books = new ArrayList<>(10);
+        Book newBook = new Book("Harry Potter", "Heg");
         Book bookSecond = new Book("Sally Hope", "HRe");
         Book checkBook = new Book("Sally Hope", "HR");
         books.add(newBook);
         books.add(checkBook);
         books.add(bookSecond);
-        impl.collectByAuthors(books,"HR");
+        System.out.println("");
+        System.out.println("Test - research by word HR ");
+        impl.researchByAuthor(books,"HR");
     }
 
     public void check(boolean realResult, boolean expectedResult, String testName) {
