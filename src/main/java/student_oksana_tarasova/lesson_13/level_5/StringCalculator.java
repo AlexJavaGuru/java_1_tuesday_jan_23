@@ -7,10 +7,13 @@ class StringCalculator {
         int sum = 0;
         try {
             for (String number : numberInput) {
+                if (number.equals("")) {
+                    sum = 0;
+                }
                     sum += Integer.parseInt(number);
             }
         } catch (NumberFormatException e) {
-           System.out.println("Entering numbers in text format \"one\" is not correct");
+          // System.out.println("Entering numbers in text format \"one\" is not correct");
         }
         return sum;
     }
