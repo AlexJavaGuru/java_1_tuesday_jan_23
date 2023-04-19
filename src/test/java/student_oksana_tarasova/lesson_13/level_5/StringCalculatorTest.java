@@ -1,8 +1,11 @@
 package student_oksana_tarasova.lesson_13.level_5;
 
+import org.junit.Rule;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.rules.ExpectedException;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class StringCalculatorTest {
@@ -12,6 +15,7 @@ class StringCalculatorTest {
     @BeforeEach
     public void setUp() {
         stringCalculator = new StringCalculator();
+
     }
 
     @Test()
@@ -19,6 +23,7 @@ class StringCalculatorTest {
         int actual = stringCalculator.add("");
         assertEquals(0, actual);
     }
+
 
     @Test
     public void testAddOneNumber() {
