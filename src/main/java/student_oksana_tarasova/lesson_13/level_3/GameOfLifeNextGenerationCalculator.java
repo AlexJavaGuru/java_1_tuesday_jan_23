@@ -1,33 +1,72 @@
 package student_oksana_tarasova.lesson_13.level_3;
 
+import java.util.Arrays;
+
 public class GameOfLifeNextGenerationCalculator {
 
-    public boolean[][] calculate(boolean[][] currentGeneration) {
-        int countTrue = 0;
-        for (int i = 1; i < currentGeneration.length - 1; i += 2) {
-            for (int j = 1; j < currentGeneration.length - 1; j += 2) {
-                for (int si = i - 1; si <= i + 1; si++) {
-                    for (int sj = j - 1; sj <= j + 1; sj++) {
-                        if (currentGeneration[si][sj] == true) {
-                            countTrue++;
-                        }
-                    }
+    public String[][] calculate(String[][] currentGeneration) {
+        String[][] newField = copy(currentGeneration);
+        for (int i = 0; i < currentGeneration.length; i++) {
+            for (int j = 0; j < currentGeneration.length; j++) {
+                int countLive = 0;
+                if (i - 1 >= 0 && j - 1 >= 0 &&
+                        currentGeneration[i - 1][j - 1].equals("\uF04A")) {
+                    countLive++;
                 }
-                if (currentGeneration[i][j] == true) {
-                    if (countTrue == 1) {
-                        currentGeneration[i][j] = false;
-                    } else if (countTrue == 2 || countTrue == 3) {
-                        currentGeneration[i][j] = true;
-                    } else if (countTrue >= 4) {
-                        currentGeneration[i][j] = false;
+                if (i - 1 >= 0 && currentGeneration[i - 1][j].equals("\uF04A")) {
+                    countLive++;
+                }
+                if (i - 1 >= 0 && j + 1 < currentGeneration.length &&
+                        currentGeneration[i - 1][j + 1].equals("\uF04A")) {
+                    countLive++;
+                }
+                if (j - 1 >= 0 &&
+                        currentGeneration[i][j - 1].equals("\uF04A")) {
+                    countLive++;
+                }
+                if (j + 1 < currentGeneration.length &&
+                        currentGeneration[i][j + 1].equals("\uF04A")) {
+                    countLive++;
+                }
+                if (i + 1 < currentGeneration.length && j - 1 >= 0 &&
+                        currentGeneration[i + 1][j - 1].equals("\uF04A")) {
+                    countLive++;
+                }
+                if (i + 1 < currentGeneration.length &&
+                        currentGeneration[i + 1][j].equals("\uF04A")) {
+                    countLive++;
+                }
+                if (i + 1 < currentGeneration.length && j + 1 < currentGeneration.length &&
+                        currentGeneration[i + 1][j + 1].equals("\uF04A")) {
+                    countLive++;
+                }
+
+                if (currentGeneration[i][j].equals("\uF04A")) {
+                    if (countLive < 2) {
+                        newField[i][j] = "\uF0A1";
+
+                    } else if (countLive == 2 || countLive == 3) {
+                        newField[i][j] = "\uF04A";
+                    } else if (countLive > 3) {
+                        newField[i][j] = "\uF0A1";
                     }
                 } else {
-                    if (countTrue == 3) {
-                        currentGeneration[i][j] = true;
+                    if (countLive == 3) {
+                        newField[i][j] = "\uF04A";
                     }
+
                 }
+
             }
         }
-        return currentGeneration;
+        return newField;
+    }
+
+    private static String[][] copy(String[][] currentGeneration) {
+        String[][] copy = new String[currentGeneration.length][];
+        for (int i = 0; i < currentGeneration.length; i++) {
+            copy[i] = Arrays.copyOf(currentGeneration[i], currentGeneration[i].length);
+        }
+        return copy;
     }
 }

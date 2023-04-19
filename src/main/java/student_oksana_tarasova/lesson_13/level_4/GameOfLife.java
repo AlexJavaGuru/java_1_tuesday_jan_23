@@ -10,7 +10,7 @@ public class GameOfLife {
     private GameOfLifeNextGenerationCalculator calculator = new GameOfLifeNextGenerationCalculator();
 
     public void run() {
-        boolean[][] field = generator.generate(10, 10);
+        String[][] field = generator.generate(10, 10);
         generator.fillFieldOfLife(field);
         while(true) {
             ui.show(field);
