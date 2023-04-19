@@ -15,4 +15,8 @@ public interface BookReader {
     void collectByAuthors(ArrayList<Book> books, String authorBook);
 
     void researchByAuthor (ArrayList<Book> books, String word);
+
+    void collectByTitle (ArrayList<Book> books, String nameBook);
+
+    void researchByTitle (ArrayList<Book> books, String word);
 }

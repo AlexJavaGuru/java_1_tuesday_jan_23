@@ -46,4 +46,20 @@ public class BookReaderImpl implements BookReader {
             }
         }
     }
+
+    public void collectByTitle (ArrayList<Book> books, String nameBook) {
+        for (Book book : books) {
+            if (book.getBookName() == nameBook) {
+                System.out.println("Book " + book.getBookName() + " [ Author " + book.getBookAuthor() + " ]");
+            }
+        }
+    }
+
+    public void researchByTitle (ArrayList<Book> books, String word){
+        for (Book book : books ){
+            if (book.getBookName().startsWith(word)){
+                System.out.println("Book " + book.getBookName() + " [ Author " + book.getBookAuthor() + " ]");
+            }
+        }
+    }
 }
