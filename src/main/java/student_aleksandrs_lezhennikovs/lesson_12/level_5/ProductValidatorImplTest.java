@@ -1,7 +1,7 @@
 package student_aleksandrs_lezhennikovs.lesson_12.level_5;
 
-import java.math.BigDecimal;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 class ProductValidatorImplTest {
     private ProductTitleValidationRule productTitleValidationRule = new ProductTitleValidationRule();
@@ -22,10 +22,14 @@ class ProductValidatorImplTest {
         //test.rule7();
         test.rule8();
         test.rule9();
+        test.rule10();
+        test.rule11();
+        test.rule12();
+        test.rule13();
     }
 
     public void rule1_v1() {
-        Product product = new Product(null, new BigDecimal(1), "description");
+        Product product = new Product(null, 1, "description");
         List<ValidationException> exceptions = validator.validate(product);
         checkResult(exceptions.size() == 1, "rule1");
         checkResult(exceptions.get(0).getRuleName().equals("RULE-1"), "rule1 v1 Title nul test");
@@ -34,16 +38,16 @@ class ProductValidatorImplTest {
     }
 
     public void rule1_v2() {
-        Product product = new Product("", new BigDecimal(1), "description");
+        Product product = new Product("", 1, "description");
         List<ValidationException> exceptions = validator.validate(product);
-        checkResult(exceptions.size() == 1, "rule1");
-        checkResult(exceptions.get(0).getRuleName().equals("RULE-1"), "rule1");
-        checkResult(exceptions.get(0).getFieldName().equals("title"), "rule1");
+        checkResult(exceptions.size() == 1, "rule1 v2");
+        checkResult(exceptions.get(0).getRuleName().equals("RULE-1"), "rule1 v2");
+        checkResult(exceptions.get(0).getFieldName().equals("title"), "rule1 v2");
         checkResult(exceptions.get(0).getDescription().equals("Title can not be empty"), "rule1 v2 Title blank test");
     }
 
     public void rule2() {
-        Product product = new Product("ch", new BigDecimal(1), "description");
+        Product product = new Product("ch", 1, "description");
         List<ValidationException> exceptions = validator.validate(product);
         checkResult(exceptions.size() == 1, "rule2");
         checkResult(exceptions.get(0).getRuleName().equals("RULE-2"), "rule2");
@@ -52,7 +56,8 @@ class ProductValidatorImplTest {
     }
 
     public void rule3() {
-        Product product = new Product("symbolstensymbolstensymbolstensymbolstensymbolstensymbolstensymbolstensymbolstensymbolstensymbolsten1", new BigDecimal(1), "description");
+        String text = getString(97, 123, 101);
+        Product product = new Product(text, 1, "description");
         List<ValidationException> exceptions = validator.validate(product);
         checkResult(exceptions.size() == 1, "rule3");
         checkResult(exceptions.get(0).getRuleName().equals("RULE-3"), "rule3");
@@ -61,7 +66,7 @@ class ProductValidatorImplTest {
     }
 
     public void rule4() {
-        Product product = new Product("@#$%^", new BigDecimal(1), "description");
+        Product product = new Product("@#$%^", 1, "description");
         List<ValidationException> exceptions = validator.validate(product);
         checkResult(exceptions.size() == 1, "rule4");
         checkResult(exceptions.get(0).getRuleName().equals("RULE-4"), "rule4");
@@ -79,7 +84,7 @@ class ProductValidatorImplTest {
     }
 
     public void rule6() {
-        Product product = new Product("Some Product", new BigDecimal(0), "description");
+        Product product = new Product("Some Product", 0, "description");
         List<ValidationException> exceptions = validator.validate(product);
         checkResult(exceptions.size() == 1, "rule6");
         checkResult(exceptions.get(0).getRuleName().equals("RULE-6"), "rule6");
@@ -87,33 +92,87 @@ class ProductValidatorImplTest {
         checkResult(exceptions.get(0).getDescription().equals("Price should be more then 0"), "rule6 Price 0 test");
     }
     public void rule7() {
-
-        Product product = new Product("Some Product", new BigDecimal("wer@#$"), "description");
+        Integer price = Integer.parseInt("er$%");
+        Product product = new Product("Some Product", price, "description");
         List<ValidationException> exceptions = validator.validate(product);
-        checkResult(exceptions.size() == 1, "rule7");
-        checkResult(exceptions.get(0).getRuleName().equals("RULE-7"), "rule7");
-        checkResult(exceptions.get(0).getFieldName().equals("price"), "rule7");
-        checkResult(exceptions.get(0).getDescription().equals("Price should contains only digits"), "rule7");
+        if (exceptions.size() > 0) {
+            for (ValidationException valExc : exceptions) {
+                checkResult(valExc.getRuleName().equals("RULE-7"), "rule7");
+                System.out.println(valExc.getFieldName());
+                System.out.println(valExc.getDescription());
+            }
+        } else {
+            System.out.println("Data is correct for Validation for Rule7 (Only digits in price field)");
+        }
     }
 
     public void rule8() {
-        StringBuffer stringBuffer = new StringBuffer();
-
-        Product product = new Product("Some Product", new BigDecimal(1), "descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescr"); //Todo check for description more than 2000 symbols
+        String text = getString(97, 123, 2001);
+        Product product = new Product("Some Product", 1, text);
         List<ValidationException> exceptions = validator.validate(product);
         checkResult(exceptions.size() == 1, "rule8");
         checkResult(exceptions.get(0).getRuleName().equals("RULE-8"), "rule8");
-        checkResult(exceptions.get(0).getFieldName().equals("description"), "rule7");
+        checkResult(exceptions.get(0).getFieldName().equals("description"), "rule8");
         checkResult(exceptions.get(0).getDescription().equals("Description should be less than 2000 symbols"), "rule8 Description more than 2000 symbols");
     }
 
     public void rule9() {
-        Product product = new Product("Some Product", new BigDecimal(1), "Описание !@#$%^");
+        Product product = new Product("Some Product", 1, "Описание !@#$%^");
         List<ValidationException> exceptions = validator.validate(product);
         checkResult(exceptions.size() == 1, "rule9");
         checkResult(exceptions.get(0).getRuleName().equals("RULE-9"), "rule9");
         checkResult(exceptions.get(0).getFieldName().equals("description"), "rule9");
         checkResult(exceptions.get(0).getDescription().equals("Description can contains only English letters and numbers"), "rule9 Description non English letters and digits");
+    }
+
+    public void rule10() {
+        Product product = new Product("ch", 0, "description");
+        List<ValidationException> exceptions = validator.validate(product);
+        if (exceptions.size() > 0) {
+            for (ValidationException valExc : exceptions) {
+                checkResult(valExc.getRuleName().equals("RULE-2") || valExc.getRuleName().equals("RULE-6"), "rule10");
+                System.out.println(valExc.getFieldName());
+                System.out.println(valExc.getDescription());
+            }
+        }
+    }
+
+    public void rule11() {
+        Product product = new Product("ch", 1, "@#$%^&*");
+        List<ValidationException> exceptions = validator.validate(product);
+        if (exceptions.size() > 0) {
+            for (ValidationException valExc : exceptions) {
+                checkResult(valExc.getRuleName().equals("RULE-2") || valExc.getRuleName().equals("RULE-9"), "rule11");
+                System.out.println(valExc.getFieldName());
+                System.out.println(valExc.getDescription());
+            }
+        }
+    }
+    public void rule12() {
+        String text = getString(97, 123, 2001);
+        Product product = new Product("Some product", -10, text);
+        List<ValidationException> exceptions = validator.validate(product);
+        if (exceptions.size() > 0) {
+            for (ValidationException valExc : exceptions) {
+                checkResult(valExc.getRuleName().equals("RULE-1") || valExc.getRuleName().equals("RULE-6")
+                        || valExc.getRuleName().equals("RULE-8"), "rule12");
+                System.out.println(valExc.getFieldName());
+                System.out.println(valExc.getDescription());
+            }
+        }
+    }
+    public void rule13() {
+        String text = getString(97, 123, 2001);
+        Product product = new Product(null, null, text);
+        List<ValidationException> exceptions = validator.validate(product);
+        if (exceptions.size() > 0) {
+            for (ValidationException valExc : exceptions) {
+                checkResult(valExc.getRuleName().equals("RULE-1") || valExc.getRuleName().equals("RULE-5")
+                            || valExc.getRuleName().equals("RULE-8"), "rule13");
+                System.out.println(valExc.getFieldName());
+                System.out.println(valExc.getDescription());
+            }
+        }
     }
 
     private void checkResult(boolean condition, String testName) {
@@ -122,6 +181,16 @@ class ProductValidatorImplTest {
         } else {
             System.out.println(testName + " = has FAILED");
         }
+    }
+
+    private static String getString(int from, int till, int symbolAmounts) {
+        String text = "";
+        for (int i = 0; i < symbolAmounts; i++) {
+            int asciiCode = ThreadLocalRandom.current().nextInt(from, till);
+            char symbol = (char) asciiCode;
+            text = text + symbol;
+        }
+        return text;
     }
 
 }

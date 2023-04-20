@@ -6,10 +6,10 @@ class ProductPriceValidationRule implements FieldValidationRule {
     public void validate(Product product) throws ValidationException {
         if (product.getPrice() == null) {
             throw new  ValidationException("RULE-5", "price", "Price can not be empty");
-        } else if (product.getPrice().signum() <= 0) {
+        } else if (product.getPrice() <= 0) {
             throw new  ValidationException("RULE-6", "price", "Price should be more then 0");
         } else if (product.getPrice().toString().matches(".*[^0-9.].*")) {
-            throw new  ValidationException("RULE-9", "price", "Price should contains only digits");
+            throw new  ValidationException("RULE-7", "price", "Price should contains only digits");
         }
     }
 }

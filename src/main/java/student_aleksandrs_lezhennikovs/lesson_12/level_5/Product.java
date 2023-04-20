@@ -1,14 +1,13 @@
 package student_aleksandrs_lezhennikovs.lesson_12.level_5;
 
-import java.math.BigDecimal;
 import java.util.Objects;
 
 class Product {
     private String title;
-    private BigDecimal price;
+    private Integer price;
     private String description;
 
-    public Product(String title, BigDecimal price, String description) {
+    public Product(String title, Integer price, String description) {
         this.title = title;
         this.price = price;
         this.description = description;
@@ -22,11 +21,11 @@ class Product {
         this.title = title;
     }
 
-    public BigDecimal getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
