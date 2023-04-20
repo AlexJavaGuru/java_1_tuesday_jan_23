@@ -7,12 +7,14 @@ public class WeatherForecast {
         double degreesFahrenheit = weather.degreesFahrenheit(23);
 
     }
-    public double degreesKelvin (double degreesCelsuis){
-        System.out.println("Kelvin degrees : "+ (degreesCelsuis+273.15));
-        return  (degreesCelsuis+273.15);
+
+    public double degreesKelvin(double degreesCelsuis) {
+        System.out.println("Kelvin degrees : " + (degreesCelsuis + 273.15));
+        return (degreesCelsuis + 273.15);
     }
-    public double degreesFahrenheit (double degreesCelsuis){
-        System.out.println("Fahrenheit degrees : "+ ((degreesCelsuis * 9/5) + 32 ));
-        return   ((degreesCelsuis * 9/5) + 32 );
+
+    public double degreesFahrenheit(double degreesCelsuis) {
+        System.out.println("Fahrenheit degrees : " + ((degreesCelsuis * 9 / 5) + 32));
+        return ((degreesCelsuis * 9 / 5) + 32);
     }
 }

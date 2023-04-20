@@ -1,6 +1,6 @@
 package student_anastasiia_bokareva.lesson9.level2;
 
-public class DayOfTheWeekDetectorCase implements DayOfTheWeekDetector{
+public class DayOfTheWeekDetectorCase implements DayOfTheWeekDetector {
 
     @Override
     public String detectDayName(int number) {

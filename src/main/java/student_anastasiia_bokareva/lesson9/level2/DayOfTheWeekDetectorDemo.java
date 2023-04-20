@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 public class DayOfTheWeekDetectorDemo {
     private DayOfTheWeekDetector dayDetector;
-    DayOfTheWeekDetectorDemo( DayOfTheWeekDetector dayDetector){
+
+    DayOfTheWeekDetectorDemo(DayOfTheWeekDetector dayDetector) {
         this.dayDetector = dayDetector;
     }
-    void run(){
+
+    void run() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Input day number - ");
         System.out.print(dayDetector.detectDayName(scanner.nextInt()));

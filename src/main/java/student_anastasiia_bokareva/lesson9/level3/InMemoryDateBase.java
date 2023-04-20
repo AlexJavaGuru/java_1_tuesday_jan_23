@@ -19,7 +19,7 @@ public class InMemoryDateBase implements ProductDataBase {
     }
 
     @Override
-    public Optional <Product> findByTitle(String productTitle) {
+    public Optional<Product> findByTitle(String productTitle) {
         for (Product product : productsDateBase) {
             if (product.getTitle().equals(productTitle)) {
                 return Optional.of(product);

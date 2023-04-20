@@ -40,204 +40,204 @@ public class DayOfTheWeekDayTest {
 
     }
 
-    public void checkMondayFromVersion (){
+    public void checkMondayFromVersion() {
         DayOfTheWeekDetectorVersion version = new DayOfTheWeekDetectorVersion();
         String realResult = version.detectDayName(1);
         String expectedResult = "Monday";
-        check(realResult,expectedResult,"Monday","Version");
+        check(realResult, expectedResult, "Monday", "Version");
 
     }
 
-    public void checkTuesdayFromVersion (){
+    public void checkTuesdayFromVersion() {
         DayOfTheWeekDetectorVersion version = new DayOfTheWeekDetectorVersion();
         String realResult = version.detectDayName(2);
         String expectedResult = "Tuesday";
-        check(realResult,expectedResult,"Tuesday","Version");
+        check(realResult, expectedResult, "Tuesday", "Version");
 
     }
 
-    public void checkWednesdayFromVersion (){
+    public void checkWednesdayFromVersion() {
         DayOfTheWeekDetectorVersion version = new DayOfTheWeekDetectorVersion();
         String realResult = version.detectDayName(3);
         String expectedResult = "Wednesday";
-        check(realResult,expectedResult,"Wednesday","Version");
+        check(realResult, expectedResult, "Wednesday", "Version");
 
     }
 
-    public void checkThursdayFromVersion (){
+    public void checkThursdayFromVersion() {
         DayOfTheWeekDetectorVersion version = new DayOfTheWeekDetectorVersion();
         String realResult = version.detectDayName(4);
         String expectedResult = "Thursday";
-        check(realResult,expectedResult,"Thursday","Version");
+        check(realResult, expectedResult, "Thursday", "Version");
 
     }
 
-    public void checkFridayFromVersion (){
+    public void checkFridayFromVersion() {
         DayOfTheWeekDetectorVersion version = new DayOfTheWeekDetectorVersion();
         String realResult = version.detectDayName(5);
         String expectedResult = "Friday";
-        check(realResult,expectedResult,"Friday","Version");
+        check(realResult, expectedResult, "Friday", "Version");
 
     }
 
-    public void checkSaturdayFromVersion (){
+    public void checkSaturdayFromVersion() {
         DayOfTheWeekDetectorVersion version = new DayOfTheWeekDetectorVersion();
         String realResult = version.detectDayName(6);
         String expectedResult = "Saturday";
-        check(realResult,expectedResult,"Saturday","Version");
+        check(realResult, expectedResult, "Saturday", "Version");
 
     }
 
-    public void checkSundayFromVersion () {
+    public void checkSundayFromVersion() {
         DayOfTheWeekDetectorVersion version = new DayOfTheWeekDetectorVersion();
         String realResult = version.detectDayName(7);
         String expectedResult = "Sunday";
-        check(realResult, expectedResult, "Sunday","Version");
+        check(realResult, expectedResult, "Sunday", "Version");
     }
 
-    public void checkNotDayFromVersion (){
+    public void checkNotDayFromVersion() {
         DayOfTheWeekDetectorVersion version = new DayOfTheWeekDetectorVersion();
         String realResult = version.detectDayName(8);
         String expectedResult = "Please input a valid number between 1 and 7";
-        check(realResult,expectedResult,"Please input a valid number between 1 and 7","Version");
+        check(realResult, expectedResult, "Please input a valid number between 1 and 7", "Version");
 
     }
 
-    public void space(){
+    public void space() {
         System.out.println("");
     }
 
-    void check (String expectedResult, String realResult, String testName,String version){
-        if (expectedResult==realResult){
-            System.out.println("Test "+ testName+" from "+ version +  " is ok!");
+    void check(String expectedResult, String realResult, String testName, String version) {
+        if (expectedResult == realResult) {
+            System.out.println("Test " + testName + " from " + version + " is ok!");
         } else {
-            System.out.println("Test "+testName+ " is fail!");
+            System.out.println("Test " + testName + " is fail!");
         }
     }
 
-    public void checkMondayFromMass (){
+    public void checkMondayFromMass() {
         DayOfTheWeekDetectorMass version = new DayOfTheWeekDetectorMass();
         String realResult = version.detectDayName(1);
         String expectedResult = "Monday";
-        check(realResult,expectedResult,"Monday","Array");
+        check(realResult, expectedResult, "Monday", "Array");
 
     }
 
-    public void checkTuesdayFromMass (){
+    public void checkTuesdayFromMass() {
         DayOfTheWeekDetectorMass version = new DayOfTheWeekDetectorMass();
         String realResult = version.detectDayName(2);
         String expectedResult = "Tuesday";
-        check(realResult,expectedResult,"Tuesday","Array");
+        check(realResult, expectedResult, "Tuesday", "Array");
 
     }
 
-    public void checkWednesdayFromMass (){
+    public void checkWednesdayFromMass() {
         DayOfTheWeekDetectorMass version = new DayOfTheWeekDetectorMass();
         String realResult = version.detectDayName(3);
         String expectedResult = "Wednesday";
-        check(realResult,expectedResult,"Wednesday","Array");
+        check(realResult, expectedResult, "Wednesday", "Array");
 
     }
 
-    public void checkThursdayFromMass (){
+    public void checkThursdayFromMass() {
         DayOfTheWeekDetectorMass version = new DayOfTheWeekDetectorMass();
         String realResult = version.detectDayName(4);
         String expectedResult = "Thursday";
-        check(realResult,expectedResult,"Thursday","Array");
+        check(realResult, expectedResult, "Thursday", "Array");
 
     }
 
-    public void checkFridayFromMass (){
+    public void checkFridayFromMass() {
         DayOfTheWeekDetectorMass version = new DayOfTheWeekDetectorMass();
         String realResult = version.detectDayName(5);
         String expectedResult = "Friday";
-        check(realResult,expectedResult,"Friday","Array");
+        check(realResult, expectedResult, "Friday", "Array");
 
     }
 
-    public void checkSaturdayFromMass (){
+    public void checkSaturdayFromMass() {
         DayOfTheWeekDetectorMass version = new DayOfTheWeekDetectorMass();
         String realResult = version.detectDayName(6);
         String expectedResult = "Saturday";
-        check(realResult,expectedResult,"Saturday","Array");
+        check(realResult, expectedResult, "Saturday", "Array");
 
     }
 
-    public void checkSundayFromMass () {
+    public void checkSundayFromMass() {
         DayOfTheWeekDetectorMass version = new DayOfTheWeekDetectorMass();
         String realResult = version.detectDayName(7);
         String expectedResult = "Sunday";
-        check(realResult, expectedResult, "Sunday","Array");
+        check(realResult, expectedResult, "Sunday", "Array");
     }
 
-    public void checkNotDayFromMass (){
+    public void checkNotDayFromMass() {
         DayOfTheWeekDetectorMass version = new DayOfTheWeekDetectorMass();
         String realResult = version.detectDayName(8);
         String expectedResult = "Please input a valid number between 1 and 7";
-        check(realResult,expectedResult,"Please input a valid number between 1 and 7","Array");
+        check(realResult, expectedResult, "Please input a valid number between 1 and 7", "Array");
 
     }
 
-    public void checkMondayFromCase (){
+    public void checkMondayFromCase() {
         DayOfTheWeekDetectorCase version = new DayOfTheWeekDetectorCase();
         String realResult = version.detectDayName(1);
         String expectedResult = "Monday";
-        check(realResult,expectedResult,"Monday","Case");
+        check(realResult, expectedResult, "Monday", "Case");
 
     }
 
-    public void checkTuesdayFromCase (){
+    public void checkTuesdayFromCase() {
         DayOfTheWeekDetectorCase version = new DayOfTheWeekDetectorCase();
         String realResult = version.detectDayName(2);
         String expectedResult = "Tuesday";
-        check(realResult,expectedResult,"Tuesday","Case");
+        check(realResult, expectedResult, "Tuesday", "Case");
 
     }
 
-    public void checkWednesdayFromCase (){
+    public void checkWednesdayFromCase() {
         DayOfTheWeekDetectorCase version = new DayOfTheWeekDetectorCase();
         String realResult = version.detectDayName(3);
         String expectedResult = "Wednesday";
-        check(realResult,expectedResult,"Wednesday","Case");
+        check(realResult, expectedResult, "Wednesday", "Case");
 
     }
 
-    public void checkThursdayFromCase (){
+    public void checkThursdayFromCase() {
         DayOfTheWeekDetectorCase version = new DayOfTheWeekDetectorCase();
         String realResult = version.detectDayName(4);
         String expectedResult = "Thursday";
-        check(realResult,expectedResult,"Thursday","Case");
+        check(realResult, expectedResult, "Thursday", "Case");
 
     }
 
-    public void checkFridayFromCase (){
+    public void checkFridayFromCase() {
         DayOfTheWeekDetectorCase version = new DayOfTheWeekDetectorCase();
         String realResult = version.detectDayName(5);
         String expectedResult = "Friday";
-        check(realResult,expectedResult,"Friday","Case");
+        check(realResult, expectedResult, "Friday", "Case");
 
     }
 
-    public void checkSaturdayFromCase (){
+    public void checkSaturdayFromCase() {
         DayOfTheWeekDetectorCase version = new DayOfTheWeekDetectorCase();
         String realResult = version.detectDayName(6);
         String expectedResult = "Saturday";
-        check(realResult,expectedResult,"Saturday","Case");
+        check(realResult, expectedResult, "Saturday", "Case");
 
     }
 
-    public void checkSundayFromCase () {
+    public void checkSundayFromCase() {
         DayOfTheWeekDetectorCase version = new DayOfTheWeekDetectorCase();
         String realResult = version.detectDayName(7);
         String expectedResult = "Sunday";
-        check(realResult, expectedResult, "Sunday","Case");
+        check(realResult, expectedResult, "Sunday", "Case");
     }
 
-    public void checkNotDayFromCase (){
+    public void checkNotDayFromCase() {
         DayOfTheWeekDetectorCase version = new DayOfTheWeekDetectorCase();
         String realResult = version.detectDayName(8);
         String expectedResult = "Please input a valid number between 1 and 7";
-        check(realResult,expectedResult,"Please input a valid number between 1 and 7","Case");
+        check(realResult, expectedResult, "Please input a valid number between 1 and 7", "Case");
 
     }
 }
