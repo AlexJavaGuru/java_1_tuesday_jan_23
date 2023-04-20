@@ -88,4 +88,13 @@ public class BookReaderImpl implements BookReader {
             }
         }
     }
+
+    @Override
+    public void printListOfUnreadBook(List<Book> books) {
+        for (Book book : books) {
+            if (book.isUnread()) {
+                System.out.println("Book " + book.getBookName() + " [ Author " + book.getBookAuthor() + " ]");
+            }
+        }
+    }
 }

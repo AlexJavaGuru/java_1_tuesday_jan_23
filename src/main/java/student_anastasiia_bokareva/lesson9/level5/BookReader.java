@@ -26,4 +26,5 @@ public interface BookReader {
     boolean isUnreadBook(List<Book> books, Book book);
 
     void printListOfReadBook(List<Book> books);
+    void printListOfUnreadBook(List<Book> books);
 }

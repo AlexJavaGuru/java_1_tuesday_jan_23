@@ -19,6 +19,7 @@ public class BookReaderTest {
         test.isReadBook();
         test.isUnreadBook();
         test.listOfReadBook();
+        test.listOfUnreadBook();
 
     }
 
@@ -153,7 +154,6 @@ public class BookReaderTest {
         boolean expectedResult = impl.isUnreadBook(books, checkBook);
         check(realResult, expectedResult, " unread Book");
     }
-
     public void listOfReadBook() {
         BookReaderImpl impl = new BookReaderImpl();
         List<Book> books = new ArrayList<>(10);
@@ -162,6 +162,13 @@ public class BookReaderTest {
         impl.printListOfReadBook(books);
     }
 
+    public void listOfUnreadBook() {
+        BookReaderImpl impl = new BookReaderImpl();
+        List<Book> books = new ArrayList<>(10);
+        Book newBook = new Book("Harry Potter", "HR");
+        newBook.setUnread(true);
+        impl.printListOfUnreadBook(books);
+    }
 
     public void check(boolean realResult, boolean expectedResult, String testName) {
         if (expectedResult == realResult) {
