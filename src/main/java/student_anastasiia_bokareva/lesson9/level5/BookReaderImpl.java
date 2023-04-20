@@ -1,10 +1,11 @@
 package student_anastasiia_bokareva.lesson9.level5;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BookReaderImpl implements BookReader {
 
-    public boolean add(ArrayList<Book> books, Book newBook) {
+    public boolean add(List<Book> books, Book newBook) {
         if (books.contains(newBook)) {
             return false;
         } else {
@@ -13,7 +14,7 @@ public class BookReaderImpl implements BookReader {
         }
     }
 
-    public boolean addNotNull(ArrayList<Book> books, Book newBook) {
+    public boolean addNotNull(List<Book> books, Book newBook) {
         if ((newBook.getBookName() != "") && (newBook.getBookAuthor() != "")) {
             return add(books, newBook);
         } else {
@@ -22,32 +23,33 @@ public class BookReaderImpl implements BookReader {
     }
 
     @Override
-    public boolean delete(ArrayList<Book> books, Book newBook) {
+    public boolean delete(List<Book> books, Book newBook) {
         return books.remove(newBook);
     }
 
-    public void printBooks(ArrayList<Book> books) {
+    public void printBooks(List<Book> books) {
         for (Book book : books) {
             System.out.println("Book " + book.getBookName() + " [ Author " + book.getBookAuthor() + " ]");
         }
     }
 
-    public void collectByAuthors(ArrayList<Book> books, String authorBook) {
+    public void collectByAuthors(List<Book> books, String authorBook) {
         for (Book book : books) {
             if (book.getBookAuthor() == authorBook) {
                 System.out.println("Book " + book.getBookName() + " [ Author " + book.getBookAuthor() + " ]");
             }
         }
     }
-    public void researchByAuthor (ArrayList<Book> books, String word){
-        for (Book book : books ){
-            if (book.getBookAuthor().startsWith(word)){
+
+    public void researchByAuthor(List<Book> books, String word) {
+        for (Book book : books) {
+            if (book.getBookAuthor().startsWith(word)) {
                 System.out.println("Book " + book.getBookName() + " [ Author " + book.getBookAuthor() + " ]");
             }
         }
     }
 
-    public void collectByTitle (ArrayList<Book> books, String nameBook) {
+    public void collectByTitle(List<Book> books, String nameBook) {
         for (Book book : books) {
             if (book.getBookName() == nameBook) {
                 System.out.println("Book " + book.getBookName() + " [ Author " + book.getBookAuthor() + " ]");
@@ -55,9 +57,33 @@ public class BookReaderImpl implements BookReader {
         }
     }
 
-    public void researchByTitle (ArrayList<Book> books, String word){
-        for (Book book : books ){
-            if (book.getBookName().startsWith(word)){
+    public void researchByTitle(List<Book> books, String word) {
+        for (Book book : books) {
+            if (book.getBookName().startsWith(word)) {
+                System.out.println("Book " + book.getBookName() + " [ Author " + book.getBookAuthor() + " ]");
+            }
+        }
+    }
+
+    public boolean isReadBook(List<Book> books, Book book) {
+        if (books.contains(book)) {
+            book.setRead(true);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isUnreadBook(List<Book> books, Book book) {
+        if (books.contains(book)) {
+            book.setUnread(true);
+            return true;
+        }
+        return false;
+    }
+
+    public void printListOfReadBook(List<Book> books) {
+        for (Book book : books) {
+            if (book.isRead()) {
                 System.out.println("Book " + book.getBookName() + " [ Author " + book.getBookAuthor() + " ]");
             }
         }

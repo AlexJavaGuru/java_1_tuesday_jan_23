@@ -1,22 +1,29 @@
 package student_anastasiia_bokareva.lesson9.level5;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface BookReader {
 
-    boolean add(ArrayList<Book> books, Book newBook);
+    boolean add(List<Book> books, Book newBook);
 
-    boolean addNotNull(ArrayList<Book> books, Book newBook);
+    boolean addNotNull(List<Book> books, Book newBook);
 
-    boolean delete(ArrayList<Book> books, Book newBook);
+    boolean delete(List<Book> books, Book newBook);
 
-    void printBooks(ArrayList<Book> books);
+    void printBooks(List<Book> books);
 
-    void collectByAuthors(ArrayList<Book> books, String authorBook);
+    void collectByAuthors(List<Book> books, String authorBook);
 
-    void researchByAuthor (ArrayList<Book> books, String word);
+    void researchByAuthor(List<Book> books, String word);
 
-    void collectByTitle (ArrayList<Book> books, String nameBook);
+    void collectByTitle(List<Book> books, String nameBook);
 
-    void researchByTitle (ArrayList<Book> books, String word);
+    void researchByTitle(List<Book> books, String word);
+
+    boolean isReadBook(List<Book> books, Book book);
+
+    boolean isUnreadBook(List<Book> books, Book book);
+
+    void printListOfReadBook(List<Book> books);
 }
