@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TaxCalculatorImplTest {
     private TaxCalculatorImpl victim;
@@ -22,7 +21,6 @@ class TaxCalculatorImplTest {
     void testIncomeIfZero() {
         BigDecimal expected = new BigDecimal("0").stripTrailingZeros();
         BigDecimal actual = victim.calculateTax(new BigDecimal("0")).stripTrailingZeros();
-        //assertEquals(expected, actual);
         assertThat(expected).isEqualTo(actual);
     }
 
@@ -44,7 +42,6 @@ class TaxCalculatorImplTest {
     void testIncomeMoreThenTwentyThousand() {
         BigDecimal expected = new BigDecimal("9000").stripTrailingZeros();
         BigDecimal actual = victim.calculateTax(new BigDecimal("30000")).stripTrailingZeros();
-        assertEquals(expected, actual);
-        //assertThat(expected).isEqualTo(actual);
+        assertThat(expected).isEqualTo(actual);
     }
 }
