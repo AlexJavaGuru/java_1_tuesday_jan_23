@@ -31,7 +31,7 @@ class ProductValidatorImplTest {
     public void rule1_v1() {
         Product product = new Product(null, 1, "description");
         List<ValidationException> exceptions = validator.validate(product);
-        checkResult(exceptions.size() == 1, "rule1");
+        checkResult(exceptions.size() == 1, "rule1 v1 Title nul test");
         checkResult(exceptions.get(0).getRuleName().equals("RULE-1"), "rule1 v1 Title nul test");
         checkResult(exceptions.get(0).getFieldName().equals("title"), "rule1 v1 Title nul test");
         checkResult(exceptions.get(0).getDescription().equals("Title can not be empty"), "rule1 v1 Title null test");
@@ -40,18 +40,18 @@ class ProductValidatorImplTest {
     public void rule1_v2() {
         Product product = new Product("", 1, "description");
         List<ValidationException> exceptions = validator.validate(product);
-        checkResult(exceptions.size() == 1, "rule1 v2");
-        checkResult(exceptions.get(0).getRuleName().equals("RULE-1"), "rule1 v2");
-        checkResult(exceptions.get(0).getFieldName().equals("title"), "rule1 v2");
+        checkResult(exceptions.size() == 1, "rule1 v2 Title blank test");
+        checkResult(exceptions.get(0).getRuleName().equals("RULE-1"), "rule1 v2 Title blank test");
+        checkResult(exceptions.get(0).getFieldName().equals("title"), "rule1 v2 Title blank test");
         checkResult(exceptions.get(0).getDescription().equals("Title can not be empty"), "rule1 v2 Title blank test");
     }
 
     public void rule2() {
         Product product = new Product("ch", 1, "description");
         List<ValidationException> exceptions = validator.validate(product);
-        checkResult(exceptions.size() == 1, "rule2");
-        checkResult(exceptions.get(0).getRuleName().equals("RULE-2"), "rule2");
-        checkResult(exceptions.get(0).getFieldName().equals("title"), "rule2");
+        checkResult(exceptions.size() == 1, "rule2 Title less than 3 symbols test");
+        checkResult(exceptions.get(0).getRuleName().equals("RULE-2"), "rule2 Title less than 3 symbols test");
+        checkResult(exceptions.get(0).getFieldName().equals("title"), "rule2 Title less than 3 symbols test");
         checkResult(exceptions.get(0).getDescription().equals("Title can not be less than 3 symbols"), "rule2 Title less than 3 symbols test");
     }
 
@@ -59,36 +59,36 @@ class ProductValidatorImplTest {
         String text = getString(97, 123, 101);
         Product product = new Product(text, 1, "description");
         List<ValidationException> exceptions = validator.validate(product);
-        checkResult(exceptions.size() == 1, "rule3");
-        checkResult(exceptions.get(0).getRuleName().equals("RULE-3"), "rule3");
-        checkResult(exceptions.get(0).getFieldName().equals("title"), "rule3");
+        checkResult(exceptions.size() == 1, "rule3 Title more than 100 symbols test");
+        checkResult(exceptions.get(0).getRuleName().equals("RULE-3"), "rule3 Title more than 100 symbols test");
+        checkResult(exceptions.get(0).getFieldName().equals("title"), "rule3 Title more than 100 symbols test");
         checkResult(exceptions.get(0).getDescription().equals("Title can not be more than 100 symbols"), "rule3 Title more than 100 symbols test");
     }
 
     public void rule4() {
         Product product = new Product("@#$%^", 1, "description");
         List<ValidationException> exceptions = validator.validate(product);
-        checkResult(exceptions.size() == 1, "rule4");
-        checkResult(exceptions.get(0).getRuleName().equals("RULE-4"), "rule4");
-        checkResult(exceptions.get(0).getFieldName().equals("title"), "rule4");
+        checkResult(exceptions.size() == 1, "rule4 Title not letters and digits test");
+        checkResult(exceptions.get(0).getRuleName().equals("RULE-4"), "rule4 Title not letters and digits test");
+        checkResult(exceptions.get(0).getFieldName().equals("title"), "rule4 Title not letters and digits test");
         checkResult(exceptions.get(0).getDescription().equals("Title can contains only English letters and numbers"), "rule4 Title not letters and digits test");
     }
 
     public void rule5() {
         Product product = new Product("Some Product", null, "description");
         List<ValidationException> exceptions = validator.validate(product);
-        checkResult(exceptions.size() == 1, "rule5");
-        checkResult(exceptions.get(0).getRuleName().equals("RULE-5"), "rule5");
-        checkResult(exceptions.get(0).getFieldName().equals("price"), "rule5");
+        checkResult(exceptions.size() == 1, "rule5 Price null test");
+        checkResult(exceptions.get(0).getRuleName().equals("RULE-5"), "rule5 Price null test");
+        checkResult(exceptions.get(0).getFieldName().equals("price"), "rule5 Price null test");
         checkResult(exceptions.get(0).getDescription().equals("Price can not be empty"), "rule5 Price null test");
     }
 
     public void rule6() {
         Product product = new Product("Some Product", 0, "description");
         List<ValidationException> exceptions = validator.validate(product);
-        checkResult(exceptions.size() == 1, "rule6");
-        checkResult(exceptions.get(0).getRuleName().equals("RULE-6"), "rule6");
-        checkResult(exceptions.get(0).getFieldName().equals("price"), "rule6");
+        checkResult(exceptions.size() == 1, "rule6 Price 0 test");
+        checkResult(exceptions.get(0).getRuleName().equals("RULE-6"), "rule6 Price 0 test");
+        checkResult(exceptions.get(0).getFieldName().equals("price"), "rule6 Price 0 test");
         checkResult(exceptions.get(0).getDescription().equals("Price should be more then 0"), "rule6 Price 0 test");
     }
     public void rule7() {
@@ -110,18 +110,18 @@ class ProductValidatorImplTest {
         String text = getString(97, 123, 2001);
         Product product = new Product("Some Product", 1, text);
         List<ValidationException> exceptions = validator.validate(product);
-        checkResult(exceptions.size() == 1, "rule8");
-        checkResult(exceptions.get(0).getRuleName().equals("RULE-8"), "rule8");
-        checkResult(exceptions.get(0).getFieldName().equals("description"), "rule8");
+        checkResult(exceptions.size() == 1, "rule8 Description more than 2000 symbols");
+        checkResult(exceptions.get(0).getRuleName().equals("RULE-8"), "rule8 Description more than 2000 symbols");
+        checkResult(exceptions.get(0).getFieldName().equals("description"), "rule8 Description more than 2000 symbols");
         checkResult(exceptions.get(0).getDescription().equals("Description should be less than 2000 symbols"), "rule8 Description more than 2000 symbols");
     }
 
     public void rule9() {
         Product product = new Product("Some Product", 1, "Описание !@#$%^");
         List<ValidationException> exceptions = validator.validate(product);
-        checkResult(exceptions.size() == 1, "rule9");
-        checkResult(exceptions.get(0).getRuleName().equals("RULE-9"), "rule9");
-        checkResult(exceptions.get(0).getFieldName().equals("description"), "rule9");
+        checkResult(exceptions.size() == 1, "rule9 Description non English letters and digits");
+        checkResult(exceptions.get(0).getRuleName().equals("RULE-9"), "rule9 Description non English letters and digits");
+        checkResult(exceptions.get(0).getFieldName().equals("description"), "rule9 Description non English letters and digits");
         checkResult(exceptions.get(0).getDescription().equals("Description can contains only English letters and numbers"), "rule9 Description non English letters and digits");
     }
 
