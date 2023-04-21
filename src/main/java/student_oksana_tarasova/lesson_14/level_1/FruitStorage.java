@@ -5,29 +5,54 @@ import java.util.List;
 
 public class FruitStorage {
 
+    List<Apple> apples;
+
+    public FruitStorage(List<Apple> apples) {
+        this.apples = apples;
+    }
+
+    void addNewFruit(Apple apple) {
+        apples.add(apple);
+    }
+
     public List<Apple> getAllApples() {
-        List<Apple> apples = new ArrayList<>();
-        apples.add(new Apple("red", 100));
-        apples.add(new Apple("red", 160));
-        apples.add(new Apple("red", 200));
-        apples.add(new Apple("green", 200));
-        apples.add(new Apple("green", 90));
-        apples.add(new Apple("green", 50));
-        apples.add(new Apple("yellow", 50));
-        apples.add(new Apple("yellow", 170));
         return apples;
     }
 
-    public List<Apple> getGreenApples(List<Apple> apples) {
+    public List<Apple> getApplesByApples(String color) {
        List<Apple> greenApples = new ArrayList<>();
         for (Apple apple : apples) {
-            if (apple.getColor().equals("green")) {
+            if (apple.getColor().equals(color)) {
                 greenApples.add(apple);
             }
         }
         return greenApples;
     }
 
+    public List<Apple> getApplesByWeight(int weight) {
+        List<Apple> greenApples = new ArrayList<>();
+        for (Apple apple : apples) {
+            if (apple.getWeight() > weight) {
+                greenApples.add(apple);
+            }
+        }
+        return greenApples;
+    }
 
+    public List<Apple> findApples(ApplePredicate p) {
+        List<Apple> result = new ArrayList<>();
+        for(Apple apple : apples) {
+            if(p.test(apple)) {
+                result.add(apple);
+            }
+        }
+        return result;
+    }
 
+    @Override
+    public String toString() {
+        return "FruitStorage{" +
+                "apples=" + apples +
+                '}';
+    }
 }

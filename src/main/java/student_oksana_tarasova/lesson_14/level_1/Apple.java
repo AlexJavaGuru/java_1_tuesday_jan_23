@@ -31,4 +31,12 @@ public class Apple {
     public int hashCode() {
         return Objects.hash(color, weight);
     }
+
+    @Override
+    public String toString() {
+        return "Apple{" +
+                "color='" + color + '\'' +
+                ", weight=" + weight +
+                '}';
+    }
 }
