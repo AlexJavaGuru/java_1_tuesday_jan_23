@@ -1,21 +1,19 @@
 package student_oksana_tarasova.lesson_13.level_5;
 
-import org.junit.Rule;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.rules.ExpectedException;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class StringCalculatorTest {
 
     StringCalculator stringCalculator;
+    StringWithDelimiter stringWithDelimiter;
 
     @BeforeEach
     public void setUp() {
-        stringCalculator = new StringCalculator();
-
+        stringCalculator = new StringCalculator(stringWithDelimiter);
     }
 
     @Test()
@@ -46,7 +44,7 @@ class StringCalculatorTest {
     @Test
     public void testAddManyNumbersAndSpace() {
         int actual = stringCalculator.add("1\n23,4");
-        assertEquals(10, actual);
+        assertEquals(28, actual);
     }
 
     @Test
@@ -63,8 +61,17 @@ class StringCalculatorTest {
 
     @Test
     public void testAddOtherDelimiters() {
-        int actual = stringCalculator.add("2;3;3&3;" +
+        int actual = stringCalculator.add("2;3,33&3;" +
                 "3;3");
-        assertEquals(17, actual);
+        assertEquals(47, actual);
     }
+
+    @Test
+    public void testAddOtherDelimiters1() {
+        int actual = stringCalculator.add(";2;3,33&3;" +
+                "3;3");
+        assertEquals(0, actual);
+    }
+
+
 }
