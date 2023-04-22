@@ -2,12 +2,13 @@ package student_julija_raudive.lesson_7.level_7;
 
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 class UserRepositoryTest {
 
-    ArrayList<UserEntity> users = new ArrayList<>();
-    UserRepository userRepository = new UserRepository(users);
+    ArrayList<UserEntity> userList = new ArrayList<>();
+    UserRepository userRepository = new UserRepository(userList);
 
 
     public static void main(String[] args) {
@@ -29,7 +30,7 @@ class UserRepositoryTest {
         String name = "Janis";
         String surname = "Berzins";
         String personalCode = "1111-3333";
-        userRepository.addUser(name, surname, personalCode);
+        userRepository.addUser(new UserEntity(name, surname, personalCode));
         boolean result = true;
         for (UserEntity user : userRepository.users) {
             if (!(Objects.equals(user.getName(), name) && Objects.equals(user.getSurname(), surname) && Objects.equals(user.getPersonalCode(), personalCode))) {
@@ -43,34 +44,34 @@ class UserRepositoryTest {
 
 
     public void getUsersByNameTest() {
-        users.add(new UserEntity(27, "Peteris", "Abolins", "4444-66666"));
-        users.add(new UserEntity(46, "Juris", "Ozols", "45456-0796965"));
-        UserEntity resultUser = users.get(2);
+        userRepository.addUser(new UserEntity("Peteris", "Abolins", "4444-66666"));
+        userRepository.addUser(new UserEntity("Juris", "Ozols", "45456-0796965"));
+        UserEntity resultUser = userList.get(2);
         UserEntity realResult = userRepository.getUsersByName("Juris", "Ozols");
         checkResults(resultUser.equals(realResult), "Get user by name test");
     }
 
     public void getUserByIdTest() {
-        UserEntity resultUser = users.get(1);
-        UserEntity realResult = userRepository.getUserById(27);
+        UserEntity resultUser = userList.get(1);
+        UserEntity realResult = userRepository.getUserById(2);
         checkResults(resultUser.equals(realResult), "Get user by ID test");
     }
 
     public void getAllUsersTest() {
 
-        ArrayList<UserEntity> expectedUsers = new ArrayList<>() {
-            {
-                add(new UserEntity(1, "Janis", "Berzins", "1111-3333"));
-                add(new UserEntity(27, "Peteris", "Abolins", "4444-66666"));
-                add(new UserEntity(46, "Juris", "Ozols", "45456-0796965"));
-            }
-        };
+       List<UserEntity> expectedUsers = new ArrayList<>();
+        UserRepository userRepository2 = new UserRepository(expectedUsers);
 
-        ArrayList<UserEntity> result = userRepository.getAllUsers();
+        userRepository2.addUser(new UserEntity("Janis", "Berzins", "1111-3333"));
+        userRepository2.addUser(new UserEntity( "Peteris", "Abolins", "4444-66666"));
+        userRepository2.addUser(new UserEntity( "Juris", "Ozols", "45456-0796965"));
+
+
+        List<UserEntity> result = userRepository2.getAllUsers();
         boolean isEqual = true;
-        if (users.size() == expectedUsers.size()) {
+        if (userList.size() == expectedUsers.size()) {
             for (int i = 0; i < expectedUsers.size(); i++) {
-                isEqual = (users.get(i).getId() == result.get(i).getId()) || (Objects.equals(users.get(i).getName(), result.get(i).getName())) || (Objects.equals(users.get(i).getSurname(), result.get(i).getSurname())) || (Objects.equals(users.get(i).getPersonalCode(), result.get(i).getPersonalCode()));
+                isEqual = (userList.get(i).getId() == result.get(i).getId()) || (Objects.equals(userList.get(i).getName(), result.get(i).getName())) || (Objects.equals(userList.get(i).getSurname(), result.get(i).getSurname())) || (Objects.equals(userList.get(i).getPersonalCode(), result.get(i).getPersonalCode()));
             }
         } else isEqual = false;
         checkResults(isEqual, "Get all users test");
@@ -78,10 +79,11 @@ class UserRepositoryTest {
 
 
     public void changeUserDataTest() {
-        UserEntity userToChange = userRepository.getUserById(27);
+
         String newName = "Maris";
         String newSurname = "Ezerins";
         String newPersonalCode = "5555-77777";
+        UserEntity userToChange = userRepository.getUserById(2);
         userRepository.changeUserData(userToChange, newName, newSurname, newPersonalCode);
         boolean condition = userToChange.getName().equals(newName) && userToChange.getSurname().equals(newSurname) && userToChange.getPersonalCode().equals(newPersonalCode);
         checkResults(condition, "Change user data test");
@@ -93,7 +95,7 @@ class UserRepositoryTest {
         userRepository.deleteUser(userToDelete);
 
         boolean isDeleted = true;
-        for (UserEntity user : users) {
+        for (UserEntity user : userList) {
             if (user.equals(userToDelete)) {
                 isDeleted = false;
                 break;
@@ -103,11 +105,11 @@ class UserRepositoryTest {
     }
 
     public void tryToAddExistingPersonalCodeTest() {
-        userRepository.addUser("Liene", "Ozola", "68686-939329");
-        userRepository.addUser("Baiba", "Berzina", "68686-939329");
+        userRepository.addUser(new UserEntity("Liene", "Ozola", "68686-939329"));
+        userRepository.addUser(new UserEntity("Baiba", "Berzina", "68686-939329"));
 
         boolean isNotAdded = true;
-        for (UserEntity user : users) {
+        for (UserEntity user : userList) {
             if (user.getName().equals("Baiba") && user.getSurname().equals("Berzina") && user.getPersonalCode().equals("68686-939329")) {
                 isNotAdded = false;
                 break;

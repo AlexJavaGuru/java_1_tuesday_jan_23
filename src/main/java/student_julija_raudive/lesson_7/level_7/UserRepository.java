@@ -1,21 +1,24 @@
 package student_julija_raudive.lesson_7.level_7;
 
-import java.util.ArrayList;
+
+import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 class UserRepository {
 
-    ArrayList<UserEntity> users;
+    List<UserEntity> users;
+    private static final AtomicInteger count = new AtomicInteger(0);
 
-    public UserRepository(ArrayList<UserEntity> users) {
+    public UserRepository(List<UserEntity> users) {
         this.users = users;
     }
 
-    public void addUser(String name, String surname, String personalCode) {
-        int id = getUniqueId();
-        if (checkPersonalCode(personalCode)) {
-            users.add(new UserEntity(id, name, surname, personalCode));
+    public void addUser(UserEntity user) {
+        if (checkPersonalCode(user.getPersonalCode())) {
+            users.add(user);
+            user.setId(count.incrementAndGet());
         } else {
             message("Personal code already exists");
         }
@@ -43,7 +46,7 @@ class UserRepository {
 
     }
 
-    public ArrayList getAllUsers() {
+    public List getAllUsers() {
         return users;
     }
 
@@ -59,16 +62,6 @@ class UserRepository {
 
     }
 
-    public int getUniqueId() {
-        int id = 1;
-        for (UserEntity user : users) {
-            while (user.getId() == id) {
-                id++;
-            }
-        }
-
-        return id;
-    }
 
     public boolean checkPersonalCode(String personalCode) {
         for (UserEntity user : users) {

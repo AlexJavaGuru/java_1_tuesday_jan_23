@@ -8,36 +8,32 @@ class CreditCard {
 
     private String cardNumber;
     private int pin;
-    private double balance;
-    public double creditLimit;
-    private double loanDebt;
+    private BigDecimal balance;
+    public BigDecimal creditLimit;
+    private BigDecimal loanDebt;
 
 
     CreditCard(String cardNumber, int pinCode) {
         this.cardNumber = cardNumber;
         this.pin = pinCode;
-        balance = 0;
-        creditLimit = 100;
-        loanDebt = 0;
+        balance = BigDecimal.valueOf(0);
+        creditLimit = BigDecimal.valueOf(100);
+        loanDebt = BigDecimal.valueOf(0);
     }
 
 
-    public void deposit(int pinCode, double amountOfMoney) {
+    public void deposit(int pinCode, BigDecimal amountOfMoney) {
 
         BigDecimal counter = new BigDecimal("0.01");
-        BigDecimal amountOfMoneyBigDecimal = BigDecimal.valueOf(amountOfMoney);
-        BigDecimal loanDebtBigDecimal = BigDecimal.valueOf(loanDebt);
 
         if (pinIsOk(pinCode)) {
-            if (loanDebt > 0) {
-                while (loanDebt > 0 && amountOfMoney > 0) {
-                    amountOfMoneyBigDecimal = amountOfMoneyBigDecimal.subtract(counter);
-                    amountOfMoney = amountOfMoneyBigDecimal.doubleValue();
-                    loanDebtBigDecimal = loanDebtBigDecimal.subtract(counter);
-                    loanDebt = loanDebtBigDecimal.doubleValue();
+            if (loanDebt.compareTo(BigDecimal.valueOf(0)) > 0) {
+                while (loanDebt.doubleValue() > 0 && amountOfMoney.doubleValue() > 0) {
+                    amountOfMoney = amountOfMoney.subtract(counter);
+                    loanDebt = loanDebt.subtract(counter);
                 }
             }
-            balance += amountOfMoney;
+            balance = balance.add(amountOfMoney);
         } else {
             message("Pin code is incorrect");
         }
@@ -45,26 +41,20 @@ class CreditCard {
     }
 
 
-    public void withdraw(int pinCode, double amountOfMoney) {
-        BigDecimal amountOfMoneyBigDecimal = BigDecimal.valueOf(amountOfMoney);
-        BigDecimal loanDebtBigDecimal = BigDecimal.valueOf(loanDebt);
-        BigDecimal balanceBigDecimal = BigDecimal.valueOf(balance);
+    public void withdraw(int pinCode, BigDecimal amountOfMoney) {
 
         if (pinIsOk(pinCode)) {
-            if (balance > amountOfMoney) {
-                balanceBigDecimal = balanceBigDecimal.subtract(amountOfMoneyBigDecimal);
-            } else if (creditLimit > (loanDebt + amountOfMoney - balance)) {
-                loanDebtBigDecimal = (loanDebtBigDecimal.add(amountOfMoneyBigDecimal)).subtract(balanceBigDecimal);
-                balanceBigDecimal = BigDecimal.valueOf(0);
+            if (balance.compareTo(amountOfMoney) > 0) {
+                balance = balance.subtract(amountOfMoney);
+            } else if (creditLimit.compareTo(loanDebt.add(amountOfMoney).subtract(balance)) > 0) {
+                loanDebt = (loanDebt.add(amountOfMoney)).subtract(balance);
+                balance = BigDecimal.valueOf(0);
             } else {
                 System.out.println("Your credit limit is exceeded");
             }
         } else {
             message("Pin code is incorrect");
         }
-        balance = balanceBigDecimal.doubleValue();
-        loanDebt = loanDebtBigDecimal.doubleValue();
-
     }
 
     public boolean pinIsOk(int pinCode) {
@@ -77,11 +67,11 @@ class CreditCard {
     }
 
 
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public double getLoanDebt() {
+    public BigDecimal getLoanDebt() {
         return loanDebt;
     }
 
