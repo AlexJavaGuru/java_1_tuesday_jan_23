@@ -83,7 +83,7 @@ public class BookReaderImpl implements BookReader {
 
     public void printListOfReadBook(List<Book> books) {
         for (Book book : books) {
-            if (book.isRead()) {
+            if ((books.contains(book))&& (book.isRead())) {
                 System.out.println("Book " + book.getBookName() + " [ Author " + book.getBookAuthor() + " ]");
             }
         }
@@ -92,7 +92,7 @@ public class BookReaderImpl implements BookReader {
     @Override
     public void printListOfUnreadBook(List<Book> books) {
         for (Book book : books) {
-            if (book.isUnread()) {
+            if ((books.contains(book))&&  (book.isUnread())) {
                 System.out.println("Book " + book.getBookName() + " [ Author " + book.getBookAuthor() + " ]");
             }
         }

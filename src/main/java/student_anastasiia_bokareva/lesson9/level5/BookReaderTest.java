@@ -158,7 +158,12 @@ public class BookReaderTest {
         BookReaderImpl impl = new BookReaderImpl();
         List<Book> books = new ArrayList<>(10);
         Book newBook = new Book("Harry Potter", "HR");
+        Book newBook2 = new Book("Har Rioi", "HRe");
+        books.add(newBook);
+        books.add(newBook2);
         newBook.setRead(true);
+        System.out.println("");
+        System.out.println("Test - of read books ");
         impl.printListOfReadBook(books);
     }
 
@@ -166,6 +171,11 @@ public class BookReaderTest {
         BookReaderImpl impl = new BookReaderImpl();
         List<Book> books = new ArrayList<>(10);
         Book newBook = new Book("Harry Potter", "HR");
+        Book newBook2 = new Book("Har Rioi", "HRe");
+        books.add(newBook);
+        books.add(newBook2);
+        System.out.println("");
+        System.out.println("Test - list of unread books");
         newBook.setUnread(true);
         impl.printListOfUnreadBook(books);
     }
