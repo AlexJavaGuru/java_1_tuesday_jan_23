@@ -21,6 +21,10 @@ public class Field {
         }
     }
 
+    public Cell[][] getMatrix() {
+        return matrix;
+    }
+
     public void setPopulation(Integer population) {
         Random random = new Random(10);
         for (int i = 0; i < 50; i++) {

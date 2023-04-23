@@ -48,4 +48,12 @@ public class Cell {
     public int hashCode() {
         return Objects.hash(isLive, coord);
     }
+
+    @Override
+    public String toString() {
+        return "Cell{" +
+                "isLive=" + isLive +
+                ", coord=" + coord +
+                '}';
+    }
 }
