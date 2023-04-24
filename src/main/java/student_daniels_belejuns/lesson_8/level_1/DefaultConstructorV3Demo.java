@@ -6,6 +6,6 @@ public class DefaultConstructorV3Demo {
         System.out.println(defaultConstructorV3.getAge());
         System.out.println(defaultConstructorV3.getFemale());
         System.out.println(defaultConstructorV3.getFullName());
-        System.out.println(defaultConstructorV3.isMale());
+        System.out.println(defaultConstructorV3.getMale());
     }
 }

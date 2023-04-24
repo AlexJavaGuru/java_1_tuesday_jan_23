@@ -1,7 +1,14 @@
 package student_daniels_belejuns.lesson_8.level_4;
 
-import java.util.Random;
+public abstract class Shape {
+    private String title;
 
-abstract class Shape {
+    Shape(String title) {
+        this.title = new String(title);
+    }
+
+    public abstract double calculateArea();
+
+    public abstract double calculatePerimeter();
 
 }
