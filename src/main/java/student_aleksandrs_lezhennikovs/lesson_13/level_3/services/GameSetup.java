@@ -13,21 +13,6 @@ public class GameSetup {
     public GameSetup() {
         Coord coord = new Coord(ROWS, COLUMNS);
         Field field = new Field(coord);
-//        field.getCell(new Coord(1,0)).setLive(true);
-//        field.getCell(new Coord(1,1)).setLive(true);
-//        field.getCell(new Coord(1,2)).setLive(true);
-
-//        field.getCell(new Coord(0, 0)).setLive(true);
-//        field.getCell(new Coord(0, 1)).setLive(true);
-//        field.getCell(new Coord(1, 1)).setLive(true);
-//        field.getCell(new Coord(2, 1)).setLive(true);
-//        field.getCell(new Coord(2, 2)).setLive(true);
-
-//        field.getCell(new Coord(0, 0)).setLive(true);
-//        field.getCell(new Coord(0, 1)).setLive(true);
-//        field.getCell(new Coord(1, 1)).setLive(true);
-
-
         field.setPopulation(POPULATION);
         field.printFieldToConsole();
         while (true) {
