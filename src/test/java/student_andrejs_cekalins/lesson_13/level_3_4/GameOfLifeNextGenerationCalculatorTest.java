@@ -34,17 +34,17 @@ GameOfLifeNextGenerationCalculator test = new GameOfLifeNextGenerationCalculator
     @Test
     void anyLiveCellNotDieIfItIsTwoNeighbors() {
         boolean[][] currentGeneration = new boolean[][]{
-                {false, false, true, false, false},
-                {false, true, false, false, false},
-                {false, true, false, false, false},
+                {true, true, false, false, false},
                 {true, false, false, false, false},
-                {true, false, false, false, false}
+                {false,false, false, false, false},
+                {false, false, false, false, false},
+                {false, false, false, false, false}
         };
         boolean[][] expected = new boolean[][]{
+                {true, true, false, false, false},
+                {true, true, false, false, false},
                 {false, false, false, false, false},
-                {false, true, false, false, false},
-                {false, true, false, false, false},
-                {true, false, false, false, false},
+                {false, false, false, false, false},
                 {false, false, false, false, false}
         };
         boolean[][] actual = test.calculate(currentGeneration);
@@ -61,10 +61,10 @@ GameOfLifeNextGenerationCalculator test = new GameOfLifeNextGenerationCalculator
         };
         boolean[][] expected = new boolean[][]{
                 {false, false, false, false, false},
-                {false, true, true, false, false},
+                {true, true, true, false, false},
                 {true, false, false, false, false},
                 {true, false, true, false, true},
-                {false, false, false, false, true}
+                {false, false, true, false, true}
         };
         boolean[][] actual = test.calculate(currentGeneration);
         assertArrayEquals(actual,expected);
@@ -79,10 +79,10 @@ GameOfLifeNextGenerationCalculator test = new GameOfLifeNextGenerationCalculator
                 {false, true, true, true, false}
         };
         boolean[][] expected = new boolean[][]{
-                {false, false, true, false, false},
+                {false, true, true, false, false},
                 {false, true, true, false, false},
                 {false, true, false, false, false},
-                {false, false, false, false, false},
+                {false, false, false, true, false},
                 {false, true, true, true, false}
         };
         boolean[][] actual = test.calculate(currentGeneration);
