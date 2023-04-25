@@ -1,7 +1,5 @@
 package student_andrejs_cekalins.lesson_9.level_3.Task_8;
 
-import java.util.Arrays;
-
 class ProductDatabaseTest {
     public static void main(String[] args) {
         ProductDatabaseTest test = new ProductDatabaseTest();

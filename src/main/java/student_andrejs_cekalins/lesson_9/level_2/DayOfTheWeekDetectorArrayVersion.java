@@ -1,7 +1,5 @@
 package student_andrejs_cekalins.lesson_9.level_2;
 
-import student_andrejs_cekalins.lesson_9.level_2.DayOfTheWeekDetector;
-
 public class DayOfTheWeekDetectorArrayVersion implements DayOfTheWeekDetector {
 
     @Override

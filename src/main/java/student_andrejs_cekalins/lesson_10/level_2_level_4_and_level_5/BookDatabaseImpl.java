@@ -2,6 +2,7 @@ package student_andrejs_cekalins.lesson_10.level_2_level_4_and_level_5;
 
 
 import student_andrejs_cekalins.lesson_10.level_3.SearchCriteria;
+
 import java.util.*;
 
 public class BookDatabaseImpl implements BookDatabase {
@@ -10,7 +11,7 @@ public class BookDatabaseImpl implements BookDatabase {
 
     @Override
     public Long save(Book book) {
-        long id = booksRepository.size() + 1;
+        long id = booksRepository.size() != 0 ? booksRepository.get(booksRepository.size() - 1).getId() + 1 : 1;
         book.setId(id);
         booksRepository.add(book);
         return id;
