@@ -8,3 +8,4 @@ class CelsiusConverter implements TemperatureConverter {
     }
 
 }
+

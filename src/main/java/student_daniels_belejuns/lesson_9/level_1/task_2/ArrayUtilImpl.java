@@ -38,5 +38,4 @@ class ArrayUtilImpl {
         }
         return minValue;
     }
-
 }

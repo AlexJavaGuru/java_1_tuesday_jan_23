@@ -17,3 +17,4 @@ abstract class DayOfTheWeekDetectorSwitchVersion implements DayOfTheWeekDetector
     }
 
 }
+

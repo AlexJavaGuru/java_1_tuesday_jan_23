@@ -6,3 +6,4 @@ public class KelvinToFahrenheitsConverter implements TemperatureConverter {
         return temperature * 1.8 - 459.67;
     }
 }
+

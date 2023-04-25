@@ -6,3 +6,4 @@ public class CelsiusToKelvinConverter implements TemperatureConverter {
         return temperature + 273.15;
     }
 }
+

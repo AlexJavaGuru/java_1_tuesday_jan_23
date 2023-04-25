@@ -6,3 +6,4 @@ public class FahrenheitToKelvinConverter implements TemperatureConverter {
         return (temperature + 459.67) * 1.8;
     }
 }
+

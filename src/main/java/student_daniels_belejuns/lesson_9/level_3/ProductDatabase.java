@@ -9,3 +9,4 @@ interface ProductDatabase {
     Optional<Product> findByTitle(String productTitle);
 
 }
+

@@ -13,3 +13,4 @@ public abstract class DayOfTheWeekDetectorStringArrayVersion implements DayOfThe
         return "Please input a valid number between 1 and 7";
     }
 }
+

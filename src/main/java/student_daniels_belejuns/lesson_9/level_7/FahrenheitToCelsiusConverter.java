@@ -6,3 +6,4 @@ class FahrenheitToCelsiusConverter implements TemperatureConverter {
         return (temperature - 32) * 1.8;
     }
 }
+

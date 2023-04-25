@@ -9,3 +9,4 @@ interface ArrayUtil {
 
     int findMinNumber(int[] array);
 }
+

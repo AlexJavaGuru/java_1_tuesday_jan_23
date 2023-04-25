@@ -7,3 +7,4 @@ class CelsiusToFahrenheitsConverter implements TemperatureConverter {
         return 1.8 * temperature + 32;
     }
 }
+

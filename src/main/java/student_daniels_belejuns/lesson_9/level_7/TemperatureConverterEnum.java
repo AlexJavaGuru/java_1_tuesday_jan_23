@@ -14,3 +14,4 @@ public enum TemperatureConverterEnum implements TemperatureConverter {
         return convert(temperature);
     }
 }
+

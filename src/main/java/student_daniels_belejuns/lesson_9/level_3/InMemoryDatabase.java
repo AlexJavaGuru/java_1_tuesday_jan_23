@@ -34,3 +34,4 @@ class InMemoryDatabase implements ProductDatabase{
         return -1;
     }
 }
+

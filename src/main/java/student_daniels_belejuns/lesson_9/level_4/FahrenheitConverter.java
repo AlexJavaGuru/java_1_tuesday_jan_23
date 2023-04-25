@@ -5,3 +5,4 @@ class FahrenheitConverter implements TemperatureConverter {
         return 1.8 * celsiusTemperature + 32;
     }
 }
+
