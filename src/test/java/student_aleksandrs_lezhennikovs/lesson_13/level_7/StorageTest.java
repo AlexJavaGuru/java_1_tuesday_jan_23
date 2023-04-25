@@ -57,7 +57,27 @@ class StorageTest {
         root.addResources(videoFile);
         root.addResources(audioFile1);
         root.addResources(audioFile2);
-        int expect = 2;
         int calculate = storage.totalMP3();
+        assertThat(2).isEqualTo(calculate);
+    }
+
+    @Test
+    void testSubDirectorySize() {
+        Directory documents = new Directory("MyDocs", 0);
+        Directory video = new Directory("MyMovies", 0);
+        Directory subDirActions = new Directory("Actions", 0);
+        File audioFile1 = new File("song1", 50, "mp3");
+        File videoFile1 = new File("Spiderman", 1000, "avi");
+        File videoFile2 = new File("Leon killer", 500, "avi");
+        File audioFile2 = new File("song2", 55, "mp3");
+        root.addResources(documents);
+        root.addResources(video);
+        root.addResources(videoFile1);
+        root.addResources(audioFile1);
+        root.addResources(audioFile2);
+        subDirActions.addResources(videoFile2);
+        root.addResources(subDirActions);
+        int calculate = storage.totalSize();
+        assertThat(1605).isEqualTo(calculate);
     }
 }
