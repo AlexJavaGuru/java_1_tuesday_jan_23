@@ -50,4 +50,17 @@ class StringCalculatorTest {
         assertThat(400).isEqualTo(calculated);
     }
 
+    @Test
+    void testDelimiterInBrackets() {
+        initText = "[;]\n 10//, 2; 0 #$%^&*() ";
+        calculated = stringCalculator.add(initText);
+        assertThat(12).isEqualTo(calculated);
+    }
+
+    @Test
+    void testMultiDelimitersInDifferentBrackets() {
+        initText = "[;][@][&] \n rfc 5 @3 &2 @!# 10//, 2; 0 #$%^&*() ";
+        calculated = stringCalculator.add(initText);
+        assertThat(22).isEqualTo(calculated);
+    }
 }
