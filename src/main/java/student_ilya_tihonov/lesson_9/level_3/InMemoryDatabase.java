@@ -27,6 +27,6 @@ public class InMemoryDatabase implements ProductDatabase{
                 return Optional.of(product);
             }
         }
-        return null;
+        return Optional.empty();
     }
 }

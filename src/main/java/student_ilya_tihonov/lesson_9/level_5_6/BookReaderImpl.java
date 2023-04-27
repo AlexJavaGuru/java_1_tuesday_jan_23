@@ -17,8 +17,8 @@ public class BookReaderImpl implements BookReader{
             return false;
         }
 
-        for (Book b : library) {
-            if (b.getAuthor().equals(book.getAuthor()) && b.getTitle().equals(book.getTitle())) {
+        for (Book thisBook : library) {
+            if (thisBook.getAuthor().equals(book.getAuthor()) && thisBook.getTitle().equals(book.getTitle())) {
                 return false;
             }
         }
@@ -34,9 +34,9 @@ public class BookReaderImpl implements BookReader{
             return false;
         }
 
-        for (Book b : library) {
-            if (b.getAuthor().equals(book.getAuthor()) && b.getTitle().equals(book.getTitle())) {
-                library.remove(b);
+        for (Book thisBook : library) {
+            if (thisBook.getAuthor().equals(book.getAuthor()) && thisBook.getTitle().equals(book.getTitle())) {
+                library.remove(thisBook);
                 return true;
             }
         }
@@ -47,8 +47,8 @@ public class BookReaderImpl implements BookReader{
     @Override
     public String[] listBooks() {
         List<String> bookList = new ArrayList<>();
-        for (Book b : library) {
-            bookList.add(b.getTitle() + " [" + b.getAuthor() + "]");
+        for (Book thisBook : library) {
+            bookList.add(thisBook.getTitle() + " [" + thisBook.getAuthor() + "]");
         }
 
         return bookList.toArray(new String[bookList.size()]);
@@ -57,9 +57,9 @@ public class BookReaderImpl implements BookReader{
     @Override
     public String[] searchBooksByAuthor(String author) {
         List<String> bookList = new ArrayList<>();
-        for (Book b : library) {
-            if (b.getAuthor().equals(author)) {
-                bookList.add(b.getTitle() + " [" + b.getAuthor() + "]");
+        for (Book thisBook : library) {
+            if (thisBook.getAuthor().equals(author)) {
+                bookList.add(thisBook.getTitle() + " [" + thisBook.getAuthor() + "]");
             }
         }
         return bookList.toArray(new String[bookList.size()]);
@@ -68,9 +68,9 @@ public class BookReaderImpl implements BookReader{
     @Override
     public String[] searchBooksByFullAuthorName(String author) {
         List<String> bookList = new ArrayList<>();
-        for (Book b : library) {
-            if (b.getAuthor().equals(author)) {
-                bookList.add(b.getTitle() + " [" + b.getAuthor() + "]");
+        for (Book thisBook : library) {
+            if (thisBook.getAuthor().equals(author)) {
+                bookList.add(thisBook.getTitle() + " [" + thisBook.getAuthor() + "]");
             }
         }
         return bookList.toArray(new String[bookList.size()]);
@@ -79,9 +79,9 @@ public class BookReaderImpl implements BookReader{
     @Override
     public String[] searchBooksByTitle(String title) {
         List<String> bookList = new ArrayList<>();
-        for (Book b : library) {
-            if (b.getTitle().equals(title)) {
-                bookList.add(b.getTitle() + " [" + b.getAuthor() + "]");
+        for (Book thisBook : library) {
+            if (thisBook.getTitle().equals(title)) {
+                bookList.add(thisBook.getTitle() + " [" + thisBook.getAuthor() + "]");
             }
         }
         return bookList.toArray(new String[bookList.size()]);
@@ -90,9 +90,9 @@ public class BookReaderImpl implements BookReader{
     @Override
     public String[] searchBooksByTitleStartingWith(String title) {
         List<String> bookList = new ArrayList<>();
-        for (Book b : library) {
-            if (b.getTitle().startsWith(title)) {
-                bookList.add(b.getTitle() + " [" + b.getAuthor() + "]");
+        for (Book thisBook : library) {
+            if (thisBook.getTitle().startsWith(title)) {
+                bookList.add(thisBook.getTitle() + " [" + thisBook.getAuthor() + "]");
             }
         }
         return bookList.toArray(new String[bookList.size()]);
@@ -100,9 +100,9 @@ public class BookReaderImpl implements BookReader{
 
     @Override
     public boolean markBookAsRead(Book book) {
-        for (Book b : library) {
-            if (b.getAuthor().equals(book.getAuthor()) && b.getTitle().equals(book.getTitle())) {
-                b.setRead(true);
+        for (Book thisBook : library) {
+            if (thisBook.getAuthor().equals(book.getAuthor()) && thisBook.getTitle().equals(book.getTitle())) {
+                thisBook.setRead(true);
                 return true;
             }
         }
@@ -111,9 +111,9 @@ public class BookReaderImpl implements BookReader{
 
     @Override
     public boolean markBookAsUnread(Book book) {
-        for (Book b : library) {
-            if (b.getAuthor().equals(book.getAuthor()) && b.getTitle().equals(book.getTitle())) {
-                b.setRead(false);
+        for (Book thisBook : library) {
+            if (thisBook.getAuthor().equals(book.getAuthor()) && thisBook.getTitle().equals(book.getTitle())) {
+                thisBook.setRead(false);
                 return true;
             }
         }
@@ -123,9 +123,9 @@ public class BookReaderImpl implements BookReader{
     @Override
     public String[] listReadBooks() {
         List<String> bookList = new ArrayList<>();
-        for (Book b : library) {
-            if (b.isRead()) {
-                bookList.add(b.getTitle() + " [" + b.getAuthor() + "]");
+        for (Book thisBook : library) {
+            if (thisBook.isRead()) {
+                bookList.add(thisBook.getTitle() + " [" + thisBook.getAuthor() + "]");
             }
         }
         return bookList.toArray(new String[bookList.size()]);
