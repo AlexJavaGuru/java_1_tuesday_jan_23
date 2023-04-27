@@ -12,7 +12,7 @@ public class BookReaderImpl implements BookReader{
     }
 
     @Override
-    public boolean addBook(Book book) {
+    public boolean newBook(Book book) {
         if (book.getTitle() == null || book.getAuthor() == null) {
             return false;
         }

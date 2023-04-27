@@ -2,7 +2,7 @@ package student_ilya_tihonov.lesson_9.level_5_6;
 
 public interface BookReader {
 
-    boolean addBook(Book book);
+    boolean newBook(Book book);
 
     boolean removeBook(Book book);
 

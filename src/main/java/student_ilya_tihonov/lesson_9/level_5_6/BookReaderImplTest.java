@@ -7,7 +7,7 @@ public class BookReaderImplTest {
 
     public static void main(String[] args) {
         BookReaderImplTest bookReaderImplTest = new BookReaderImplTest();
-        bookReaderImplTest.testAddBook();
+        bookReaderImplTest.testnewBook();
         bookReaderImplTest.testAddBookWithoutTitle();
         bookReaderImplTest.testAddBookWithoutAuthor();
         bookReaderImplTest.testRemoveBook();
@@ -22,28 +22,28 @@ public class BookReaderImplTest {
         bookReaderImplTest.testListReadBooks();
     }
 
-    public void testAddBook() {
+    public void testnewBook() {
         BookReaderImpl bookReaderImpl = new BookReaderImpl();
         Book book1 = new Book("Title1", "Author1");
         Book book2 = new Book("Title2", "Author2");
 
-        boolean added = bookReaderImpl.addBook(book1);
+        boolean added = bookReaderImpl.newBook(book1);
         if (!added) {
             System.out.println("Failed to add book1");
         }
 
-        added = bookReaderImpl.addBook(book1);
+        added = bookReaderImpl.newBook(book1);
         if (added) {
             System.out.println("Failed to detect duplicate book1");
         }
 
-        added = bookReaderImpl.addBook(book2);
+        added = bookReaderImpl.newBook(book2);
         if (!added) {
             System.out.println("Failed to add book2");
         }
 
         Book book3 = new Book("Title1", "Author1");
-        added = bookReaderImpl.addBook(book3);
+        added = bookReaderImpl.newBook(book3);
         if (added) {
             System.out.println("Failed to detect duplicate book3");
         }
@@ -53,7 +53,7 @@ public class BookReaderImplTest {
         BookReaderImpl bookReaderImpl = new BookReaderImpl();
         Book book1 = new Book(null, "Author1");
 
-        boolean added = bookReaderImpl.addBook(book1);
+        boolean added = bookReaderImpl.newBook(book1);
         if (added) {
             System.out.println("Failed to detect book without title");
         }
@@ -63,7 +63,7 @@ public class BookReaderImplTest {
         BookReaderImpl bookReaderImpl = new BookReaderImpl();
         Book book1 = new Book("Title1", null);
 
-        boolean added = bookReaderImpl.addBook(book1);
+        boolean added = bookReaderImpl.newBook(book1);
         if (added) {
             System.out.println("Failed to detect book without author");
         }
@@ -72,7 +72,7 @@ public class BookReaderImplTest {
     public void testRemoveBook() {
         BookReaderImpl bookReaderImpl = new BookReaderImpl();
         Book book1 = new Book("Title1", "Author1");
-        bookReaderImpl.addBook(book1);
+        bookReaderImpl.newBook(book1);
 
         boolean removed = bookReaderImpl.removeBook(book1);
         if (!removed) {
@@ -97,8 +97,8 @@ public class BookReaderImplTest {
         BookReaderImpl bookReaderImpl = new BookReaderImpl();
         Book book1 = new Book("Title1", "Author1");
         Book book2 = new Book("Title2", "Author2");
-        bookReaderImpl.addBook(book1);
-        bookReaderImpl.addBook(book2);
+        bookReaderImpl.newBook(book1);
+        bookReaderImpl.newBook(book2);
 
         String[] bookList = bookReaderImpl.listBooks();
         if (bookList.length != 2) {
@@ -119,9 +119,9 @@ public class BookReaderImplTest {
         Book book1 = new Book("Title1", "Author1");
         Book book2 = new Book("Title2", "Author2");
         Book book3 = new Book("Title3", "Author1");
-        bookReaderImpl.addBook(book1);
-        bookReaderImpl.addBook(book2);
-        bookReaderImpl.addBook(book3);
+        bookReaderImpl.newBook(book1);
+        bookReaderImpl.newBook(book2);
+        bookReaderImpl.newBook(book3);
 
         String[] booksByAuthor1 = bookReaderImpl.searchBooksByAuthor("Author1");
         String[] booksByAuthor2 = bookReaderImpl.searchBooksByAuthor("Author2");
@@ -152,9 +152,9 @@ public class BookReaderImplTest {
         Book book1 = new Book("Title1", "Author1");
         Book book2 = new Book("Title2", "Author2");
         Book book3 = new Book("Title3", "Author1");
-        bookReaderImpl.addBook(book1);
-        bookReaderImpl.addBook(book2);
-        bookReaderImpl.addBook(book3);
+        bookReaderImpl.newBook(book1);
+        bookReaderImpl.newBook(book2);
+        bookReaderImpl.newBook(book3);
 
         String[] booksByAuthor1 = bookReaderImpl.searchBooksByFullAuthorName("Author1");
         String[] booksByAuthor2 = bookReaderImpl.searchBooksByFullAuthorName("Author2");
@@ -190,9 +190,9 @@ public class BookReaderImplTest {
         Book book1 = new Book("Title1", "Author1");
         Book book2 = new Book("Title2", "Author2");
         Book book3 = new Book("The Title", "Author3");
-        bookReaderImpl.addBook(book1);
-        bookReaderImpl.addBook(book2);
-        bookReaderImpl.addBook(book3);
+        bookReaderImpl.newBook(book1);
+        bookReaderImpl.newBook(book2);
+        bookReaderImpl.newBook(book3);
 
         String[] booksByTitle1 = bookReaderImpl.searchBooksByTitle("Title1");
         String[] booksByTitle2 = bookReaderImpl.searchBooksByTitle("The Title");
@@ -224,9 +224,9 @@ public class BookReaderImplTest {
         Book book1 = new Book("Title1", "Author1");
         Book book2 = new Book("AnotherTitle", "Author2");
         Book book3 = new Book("Title3", "Author1");
-        bookReaderImpl.addBook(book1);
-        bookReaderImpl.addBook(book2);
-        bookReaderImpl.addBook(book3);
+        bookReaderImpl.newBook(book1);
+        bookReaderImpl.newBook(book2);
+        bookReaderImpl.newBook(book3);
 
         String[] booksStartingWithTi = bookReaderImpl.searchBooksByTitleStartingWith("Ti");
         String[] booksStartingWithAn = bookReaderImpl.searchBooksByTitleStartingWith("An");
@@ -261,8 +261,8 @@ public class BookReaderImplTest {
         BookReaderImpl bookReaderImpl = new BookReaderImpl();
         Book book1 = new Book("Title1", "Author1");
         Book book2 = new Book("Title2", "Author2");
-        bookReaderImpl.addBook(book1);
-        bookReaderImpl.addBook(book2);
+        bookReaderImpl.newBook(book1);
+        bookReaderImpl.newBook(book2);
 
         boolean markedAsRead = bookReaderImpl.markBookAsRead(book1);
         if (!markedAsRead) {
@@ -294,8 +294,8 @@ public class BookReaderImplTest {
         BookReaderImpl bookReaderImpl = new BookReaderImpl();
         Book book1 = new Book("Title1", "Author1");
         Book book2 = new Book("Title2", "Author2");
-        bookReaderImpl.addBook(book1);
-        bookReaderImpl.addBook(book2);
+        bookReaderImpl.newBook(book1);
+        bookReaderImpl.newBook(book2);
         bookReaderImpl.markBookAsRead(book1);
         bookReaderImpl.markBookAsRead(book2);
 
