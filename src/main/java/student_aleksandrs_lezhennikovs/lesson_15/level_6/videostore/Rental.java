@@ -1,13 +1,12 @@
-package student_aleksandrs_lezhennikovs.lesson_15.level_6;
+package student_aleksandrs_lezhennikovs.lesson_15.level_6.videostore;
 
-
-class Rental {
+public class Rental {
 
     private Movie movie;
     private int daysRented;
 
-    public Rental (Movie movie, int daysRented) {
-        this.movie 		= movie;
+    public Rental(Movie movie, int daysRented) {
+        this.movie = movie;
         this.daysRented = daysRented;
     }
 
