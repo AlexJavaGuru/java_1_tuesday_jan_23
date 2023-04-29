@@ -1,0 +1,4 @@
+Почему класс AccessDeniedException в нашем случае
+лучше наследовать от Exception, а не от RuntimeException?
+
+Полагаю потому что Exception - checked-исключения и должны быть обязательно обработаны.
