@@ -1,4 +1,4 @@
-package student_vladislav_romanov.lesson_13.level_3;
+package student_vladislav_romanov.lesson_13.level_3_4;
 
 class LifeGenerator {
 

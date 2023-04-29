@@ -1,6 +1,5 @@
-package student_vladislav_romanov.lesson_13.level_3;
+package student_vladislav_romanov.lesson_13.level_3_4;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
