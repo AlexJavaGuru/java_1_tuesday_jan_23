@@ -46,4 +46,36 @@ class StringCalculatorTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void definedSeparatorCase() {
+        StringCalculator stringCalculator = new StringCalculator();
+        int expected = 3;
+        int actual = stringCalculator.add("//[;]\n1;2");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void definedSeparatorsCase() {
+        StringCalculator stringCalculator = new StringCalculator();
+        int expected = 6;
+        int actual = stringCalculator.add("//[;][&]\n1;2&3");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void veryComplicatedCase() {
+        StringCalculator stringCalculator = new StringCalculator();
+        int expected = 40901;
+        int actual = stringCalculator.add("//[;][&]\n1;2&3 56/7(6&5$21?7;5");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void getSeparators() {
+        StringCalculator stringCalculator = new StringCalculator();
+        String expected = "[\n,;]";
+        String actual = stringCalculator.getSeparators("//[;]\n1;2");
+        assertEquals(expected, actual);
+    }
+
 }
