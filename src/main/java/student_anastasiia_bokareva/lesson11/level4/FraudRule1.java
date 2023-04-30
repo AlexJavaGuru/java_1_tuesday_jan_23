@@ -12,4 +12,9 @@ public class FraudRule1 implements FraudRule {
     public boolean isFraud(Transaction t) {
         return (t.getTrader().getFullName().equals("Pokemon"));
     }
+
+    @Override
+    public String getRuleName() {
+        return ruleName;
+    }
 }

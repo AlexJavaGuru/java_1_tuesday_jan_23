@@ -12,4 +12,9 @@ public class FraudRule4 implements FraudRule {
     public boolean isFraud(Transaction t) {
         return (t.getTrader().getCountry().equals("Jamaica"));
     }
+
+    @Override
+    public String getRuleName() {
+        return ruleName;
+    }
 }
