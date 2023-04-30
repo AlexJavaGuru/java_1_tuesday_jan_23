@@ -1,21 +1,20 @@
 package student_vladislav_romanov.lesson_13.level_5;
 
-import java.util.regex.Pattern;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class StringCalculator {
 
-    String delimiter = ",";
-
     int add(String numbers) {
+        String separator = "[\\n,]";
         int sum = 0;
 
         if (numbers.length() > 0) {
-            Pattern pattern = Pattern.compile(delimiter);
-            String[] split = pattern.split(numbers);
+            String[] split = numbers.split(separator);
+            Stream<String> stringStream = Arrays.stream(split);
 
-            for (String s : split) {
-                sum += Integer.parseInt(s);
-            }
+            sum = stringStream.mapToInt(Integer::parseInt).sum();
+
         }
 
         return sum;

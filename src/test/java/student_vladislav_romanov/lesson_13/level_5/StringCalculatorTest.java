@@ -38,4 +38,12 @@ class StringCalculatorTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void newLineSeparatorCase() {
+        StringCalculator stringCalculator = new StringCalculator();
+        int expected = 28;
+        int actual = stringCalculator.add("1\n23,4");
+        assertEquals(expected, actual);
+    }
+
 }
