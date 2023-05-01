@@ -66,6 +66,14 @@ class FruitStorageTest {
     }
 
     @Test
+    void getApplesByCriteriaGreenApplesWithWeightMoreOrEquals150() {
+        List<Apple> expected = new ArrayList<>();
+        expected.add(new Apple(Color.GREEN, 200));
+        List<Apple> actual = fruitStorage.getApplesByCriteria(Color.GREEN, 150, Operation.MOREOREQUALS);
+        assertEquals(expected, actual);
+    }
+
+    @Test
     void getAllApples() {
         List<Apple> expected = new ArrayList<>();
         expected.add(new Apple(Color.RED, 100));

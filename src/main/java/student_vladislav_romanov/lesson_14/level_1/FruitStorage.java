@@ -19,6 +19,14 @@ class FruitStorage {
                 .toList();
     }
 
+    public List<Apple> getApplesByCriteria(Color color, int weight, Operation operation) {
+        List<Apple> apples = getAllApples();
+        return apples.stream()
+                .filter(new AppleColorFruitPredicate(color))
+                .filter(new AppleWeightFruitPredicate(weight, operation))
+                .toList();
+    }
+
     public List<Apple> getAllApples() {
         List<Apple> apples = new ArrayList<>();
         apples.add(new Apple(Color.RED, 100));
