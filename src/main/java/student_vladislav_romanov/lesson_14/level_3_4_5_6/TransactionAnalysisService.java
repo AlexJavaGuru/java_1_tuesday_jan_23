@@ -53,13 +53,23 @@ class TransactionAnalysisService {
                     .collect(Collectors.toSet());
     }
 
+    Set<String> getTradersNameListByCity(List<Transaction> transactions, String city) {
+        return transactions.stream()
+                .map(Transaction::trader)
+                .collect(Collectors.toSet())
+                    .stream()
+                    .filter(trader -> city.equals(trader.city()))
+                    .map(Trader::name)
+                    .collect(Collectors.toSet());
+    }
+
     Set<String> getTradersCityList(List<Transaction> transactions) {
         return transactions.stream()
                 .map(Transaction::trader)
                 .collect(Collectors.toSet())
-                .stream()
-                .map(Trader::city)
-                .collect(Collectors.toSet());
+                    .stream()
+                    .map(Trader::city)
+                    .collect(Collectors.toSet());
     }
 
 }
