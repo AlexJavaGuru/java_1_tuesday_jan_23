@@ -8,21 +8,14 @@ class FruitStorage {
     public List<Apple> getApplesByCriteria(Color color) {
         List<Apple> apples = getAllApples();
         return apples.stream()
-                .filter(new AppleFruitPredicate(color))
+                .filter(new AppleColorFruitPredicate(color))
                 .toList();
     }
 
-    public List<Apple> getGreenApples() {
+    public List<Apple> getApplesByCriteria(int weight, Operation operation) {
         List<Apple> apples = getAllApples();
         return apples.stream()
-                .filter(apple -> Color.GREEN.equals(apple.getColor()))
-                .toList();
-    }
-
-    public List<Apple> getRedApples() {
-        List<Apple> apples = getAllApples();
-        return apples.stream()
-                .filter(apple -> Color.RED.equals(apple.getColor()))
+                .filter(new AppleWeightFruitPredicate(weight, operation))
                 .toList();
     }
 

@@ -1,10 +1,10 @@
 package student_vladislav_romanov.lesson_14.level_1;
 
-public class AppleFruitPredicate implements FruitPredicate {
+public class AppleColorFruitPredicate implements FruitPredicate {
 
-    Color color;
+    private final Color color;
 
-    AppleFruitPredicate(Color color) {
+    AppleColorFruitPredicate(Color color) {
         this.color = color;
     }
 

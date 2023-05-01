@@ -18,26 +18,6 @@ class FruitStorageTest {
     }
 
     @Test
-    void getGreenApples() {
-        List<Apple> expected = new ArrayList<>();
-        expected.add(new Apple(Color.GREEN, 200));
-        expected.add(new Apple(Color.GREEN, 90));
-        expected.add(new Apple(Color.GREEN, 50));
-        List<Apple> actual = fruitStorage.getGreenApples();
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void getRedApples() {
-        List<Apple> expected = new ArrayList<>();
-        expected.add(new Apple(Color.RED, 100));
-        expected.add(new Apple(Color.RED, 160));
-        expected.add(new Apple(Color.RED, 200));
-        List<Apple> actual = fruitStorage.getRedApples();
-        assertEquals(expected, actual);
-    }
-
-    @Test
     void getApplesByCriteriaRedApples() {
         List<Apple> expected = new ArrayList<>();
         expected.add(new Apple(Color.RED, 100));
@@ -53,6 +33,35 @@ class FruitStorageTest {
         expected.add(new Apple(Color.YELLOW, 50));
         expected.add(new Apple(Color.YELLOW, 170));
         List<Apple> actual = fruitStorage.getApplesByCriteria(Color.YELLOW);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void getApplesByCriteriaWeightMoreOrEquals150() {
+        List<Apple> expected = new ArrayList<>();
+        expected.add(new Apple(Color.RED, 160));
+        expected.add(new Apple(Color.RED, 200));
+        expected.add(new Apple(Color.GREEN, 200));
+        expected.add(new Apple(Color.YELLOW, 170));
+        List<Apple> actual = fruitStorage.getApplesByCriteria(150, Operation.MOREOREQUALS);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void getApplesByCriteriaWeightLessThan90() {
+        List<Apple> expected = new ArrayList<>();
+        expected.add(new Apple(Color.GREEN, 50));
+        expected.add(new Apple(Color.YELLOW, 50));
+        List<Apple> actual = fruitStorage.getApplesByCriteria(90, Operation.LESS);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void getApplesByCriteriaWeightEquals200() {
+        List<Apple> expected = new ArrayList<>();
+        expected.add(new Apple(Color.RED, 200));
+        expected.add(new Apple(Color.GREEN, 200));
+        List<Apple> actual = fruitStorage.getApplesByCriteria(200, Operation.EQUALS);
         assertEquals(expected, actual);
     }
 
