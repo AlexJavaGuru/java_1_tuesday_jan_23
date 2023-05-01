@@ -28,6 +28,16 @@ class FruitStorageTest {
     }
 
     @Test
+    void getRedApples() {
+        List<Apple> expected = new ArrayList<>();
+        expected.add(new Apple(Color.RED, 100));
+        expected.add(new Apple(Color.RED, 160));
+        expected.add(new Apple(Color.RED, 200));
+        List<Apple> actual = fruitStorage.getRedApples();
+        assertEquals(expected, actual);
+    }
+
+    @Test
     void getAllApples() {
         List<Apple> expected = new ArrayList<>();
         expected.add(new Apple(Color.RED, 100));

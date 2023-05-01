@@ -12,6 +12,13 @@ class FruitStorage {
                 .toList();
     }
 
+    public List<Apple> getRedApples() {
+        List<Apple> apples = getAllApples();
+        return apples.stream()
+                .filter(apple -> Color.RED.equals(apple.getColor()))
+                .toList();
+    }
+
     public List<Apple> getAllApples() {
         List<Apple> apples = new ArrayList<>();
         apples.add(new Apple(Color.RED, 100));
