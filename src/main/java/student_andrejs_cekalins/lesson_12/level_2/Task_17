@@ -1,0 +1,15 @@
+Почему класс AccessDeniedException в нашем случае
+лучше наследовать от Exception, а не от RuntimeException?
+
+class AccessDeniedException extends Exception {
+
+}
+
+In the class AccessDeniedException we should subclass Exception and throw instances of it to signal any exceptional scenarios.
+Doing so we will be explicitly signaling the clients,
+that usage of this class might throw exception and they have to take steps to handle those exceptional scenarios.
+Checked exceptions.
+
+The runtime exception classes (RuntimeException and its subclasses) are exempted from compile-time checking,
+since the compiler can't establish that run-time exceptions can't occur.
+Unchecked exceptions.

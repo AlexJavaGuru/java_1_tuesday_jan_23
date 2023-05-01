@@ -1,0 +1,22 @@
+Найдите в документации Java (javadoc) для чего испольхуются
+следующие ошибки:
+
+- ArrayIndexOutOfBoundsException: It occurs when a program attempts to access an invalid index in an array i.e.
+ an index that is less than 0, or equal to or greater than the length of the array.
+
+- IllegalArgumentException: is an unchecked exception in Java that is thrown to indicate an illegal or unsuitable argument
+ passed to a method. It is one of the most common exceptions that occur in Java.
+
+- IOException: The IOException is simply an exception that is thrown when an I/O error occurs.
+It is also the base class of such exceptions which occur while reading or accessing files, directories and streams.
+
+- StackOverflowError: is a runtime error which points to serious problems that cannot be caught by an application. The java. lang.
+StackOverflowError indicates that the application stack is exhausted and is usually caused by deep or infinite recursion.
+
+- OutOfMemoryError: is a runtime error in Java which occurs when the Java Virtual Machine (JVM) is unable to allocate an object due to
+ insufficient space in the Java heap.
+ The Java Garbage Collector (GC) cannot free up the space required for a new object, which causes a java.
+
+- NumberFormatException: is an unchecked exception in Java that occurs when an attempt is made to convert a string with an incorrect
+ format to a numeric value. Therefore, this exception is thrown when it is not possible to convert a string to a numeric type
+  (e.g. int, float).
