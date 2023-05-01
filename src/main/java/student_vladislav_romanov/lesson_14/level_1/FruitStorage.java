@@ -5,6 +5,13 @@ import java.util.List;
 
 class FruitStorage {
 
+    public List<Apple> getApplesByCriteria(Color color) {
+        List<Apple> apples = getAllApples();
+        return apples.stream()
+                .filter(new AppleFruitPredicate(color))
+                .toList();
+    }
+
     public List<Apple> getGreenApples() {
         List<Apple> apples = getAllApples();
         return apples.stream()
