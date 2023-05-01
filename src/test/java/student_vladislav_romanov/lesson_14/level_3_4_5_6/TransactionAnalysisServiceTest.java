@@ -98,10 +98,15 @@ class TransactionAnalysisServiceTest {
 
     @Test
     void getTransactionsUniqueYearsList() {
-        Set<Integer> expected = new HashSet<>();
-        expected.add(2011);
-        expected.add(2012);
+        Set<Integer> expected = new HashSet<>(Arrays.asList(2011, 2012));
         Set<Integer> actual = transactionAnalysisService.getTransactionsUniqueYearsList(transactions);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void getTradersNameList() {
+        Set<String> expected = new HashSet<>(Arrays.asList("Brian", "Raoul", "Mario", "Alan"));
+        Set<String> actual = transactionAnalysisService.getTradersNameList(transactions);
         assertEquals(expected, actual);
     }
 

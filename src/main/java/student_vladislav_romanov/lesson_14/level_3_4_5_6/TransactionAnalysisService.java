@@ -44,4 +44,13 @@ class TransactionAnalysisService {
                 .collect(Collectors.toSet());
     }
 
+    Set<String> getTradersNameList(List<Transaction> transactions) {
+        return transactions.stream()
+                .map(Transaction::trader)
+                .collect(Collectors.toSet())
+                    .stream()
+                    .map(Trader::name)
+                    .collect(Collectors.toSet());
+    }
+
 }
