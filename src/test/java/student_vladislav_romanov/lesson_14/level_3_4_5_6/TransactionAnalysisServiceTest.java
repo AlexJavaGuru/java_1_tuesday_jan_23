@@ -129,4 +129,18 @@ class TransactionAnalysisServiceTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void isAnyTraderBasedOnCityMilan() {
+        boolean expected = true;
+        boolean actual = transactionAnalysisService.isAnyTraderBasedOnCity(transactions, "Milan");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void isAnyTraderBasedOnCityBaghdad() {
+        boolean expected = false;
+        boolean actual = transactionAnalysisService.isAnyTraderBasedOnCity(transactions, "Baghdad");
+        assertEquals(expected, actual);
+    }
+
 }

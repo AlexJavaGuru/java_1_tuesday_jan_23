@@ -68,4 +68,8 @@ class TransactionAnalysisService {
                 .toList();
     }
 
+    boolean isAnyTraderBasedOnCity(List<Transaction> transactions, String city) {
+        return !getTradersNameListByCity(transactions, city).isEmpty();
+    }
+
 }
