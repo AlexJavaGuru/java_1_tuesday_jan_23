@@ -1,5 +1,7 @@
 package student_natalija_rasponomarjova.lesson_7.level_1;
 
+import java.util.Arrays;
+
 class WordServiceTest {
 
     public static void main(String[] args) {
@@ -22,7 +24,8 @@ class WordServiceTest {
         String text = "Hello, name, darling, My name name name Name is IS Natalija";
         String[] expected = {"hello", "name", "darling", "my", "name", "name", "name", "name", "is", "is", "natalija"};
         String[] fact = wordService.filterPunctuationAndSplit(text);
-        testResult(fact.equals(expected));
+        testResult(Arrays.equals(expected,fact));
+
     }
 
     public void findMaxWordCounterTest() {

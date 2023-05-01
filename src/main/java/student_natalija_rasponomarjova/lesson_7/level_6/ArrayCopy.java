@@ -1,16 +1,28 @@
 package student_natalija_rasponomarjova.lesson_7.level_6;
-/*Разработать класс с методом, который копирует числа в заданном диапазоне
-из одного массива в другой:
 
-int[] copyInRange(int[] in, int numberFrom, int numberTo)
-
-Данный метод должен вернуть новый массив, который содержит
-только те числа, которые больше или равны numberFrom и меньше или равны numberTo.
-Размер выходного массива должен быть равен количеству элементов в нём.
-
-Логику необходимо реализовать в отдельном классе ArrayCopy.
-
-Написать тестовые сценарии для класса ArrayCopy в классе ArrayCopyTest.
-Все тестовые сценарии должны отрабатывать без ошибок.*/
 class ArrayCopy {
+
+    int[] copyInRange(int[] in, int numberFrom, int numberTo) {
+        int numbers = newArrayLength(in, numberFrom, numberTo);
+        int[] numbersCopy = new int[numbers];
+        int i = 0;
+        for (int number : in) {
+            if (number >= numberFrom && number <= numberTo) {
+                numbersCopy[i] = number;
+                i++;
+            }
+        }
+        return numbersCopy;
+    }
+
+    public int newArrayLength(int[] in, int numberFrom, int numberTo) {
+        int length = 0;
+        for (int number : in) {
+            if (number >= numberFrom && number <= numberTo) {
+                length++;
+            }
+        }
+        return length;
+    }
 }
+

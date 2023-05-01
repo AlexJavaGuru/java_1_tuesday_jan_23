@@ -1,5 +1,7 @@
 package student_natalija_rasponomarjova.lesson_7.level_6;
 
+import java.util.Arrays;
+
 class PalindromeTest {
     public static void main(String[] args) {
         PalindromeTest test = new PalindromeTest();
@@ -27,7 +29,7 @@ class PalindromeTest {
         Palindrome palindrome = new Palindrome();
         char[] expected = {'t', 'a', 'x', 'i' };
         char[] fact = palindrome.textToChar("taxi");
-        testResults(expected.equals(fact));
+        testResults(Arrays.equals(expected, fact));
 
     }
 
@@ -36,7 +38,7 @@ class PalindromeTest {
         char[] text = {'t', 'a', 'x', 'i' };
         char[] expected = {'i', 'x', 'a', 't' };
         char[] fact = palindrome.reverseArray(text);
-        testResults(expected.equals(fact));
+        testResults(Arrays.equals(expected, fact));
     }
 
     public void testResults(boolean condition) {

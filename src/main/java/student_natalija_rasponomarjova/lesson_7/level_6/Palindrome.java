@@ -30,7 +30,7 @@ class Palindrome {
     public static void main(String[] args) {
         Palindrome palindrome = new Palindrome();
         String text = "Искать Такси";
-        char[] words1 = {'a', 'b', 'c' };
+        char[] words1 = {'t', 'a', 'x','i' };
 
         System.out.println(palindrome.isPalindrome(text));
         System.out.println(Arrays.toString(palindrome.textToChar("такси")));

@@ -1,40 +1,36 @@
 package student_natalija_rasponomarjova.lesson_7.level_7;
 
-/*Ниже приведён код класса WordService. Качество этого кода вызывает сомнения. Код в этом классе трудно читается и нужно потратить
-не малое время, что бы в нём разобраться.
-Ваша задача - улучшить код в классе WordService таким образом,
-что бы в нём можно было быстро разобраться и понять что он делает.
-
-Профессионально подоити к улучшению кода значит:
-1. понять, что делает этот код;
-2. перед изменением кода написать на него автоматические тесты;
-3. придумать и реализовать улучшения;
-4. убедиться, что после ваших улучшений тесты по прежнему проходят.*/
 class WordService {
     public String findMostFrequentWord(String text) {
-        String[] textArray;
-        int[] wordCountArray;
-        textArray = text.split(" ");
-        wordCountArray = new int[textArray.length];
+        String[] words = text.split(" ");
+        int[] wordCountArray = new int[words.length];
+        fillOutCountArray(words, wordCountArray);
+        int max = findMaxWordCounter(wordCountArray);
+        return words[max];
+    }
 
+    void fillOutCountArray(String[] words, int[] wordCountArray) {
         int wordCounter = 0;
-        for (int wordCount = 0; wordCount < textArray.length; wordCount++) {
-            for (String s : textArray) {
-                if (textArray[wordCount].equals(s)) {
+        for (int wordCount = 0; wordCount < words.length; wordCount++) {
+            for (String word : words) {
+                if (words[wordCount].equals(word)) {
                     wordCounter++;
                 }
             }
             wordCountArray[wordCount] = wordCounter;
             wordCounter = 0;
         }
+    }
 
+    int findMaxWordCounter(int[] wordCountArray) {
         int max = 0;
         for (int count = 0; count < wordCountArray.length; count++) {
             if (wordCountArray[count] > max) {
                 max = count;
             }
         }
-        return textArray[max];
+        return max;
     }
 
 }
+
