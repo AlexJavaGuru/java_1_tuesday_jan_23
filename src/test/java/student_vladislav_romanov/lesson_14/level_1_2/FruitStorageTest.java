@@ -1,4 +1,4 @@
-package student_vladislav_romanov.lesson_14.level_1;
+package student_vladislav_romanov.lesson_14.level_1_2;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static student_vladislav_romanov.lesson_14.level_1.Color.*;
-import static student_vladislav_romanov.lesson_14.level_1.Operation.*;
+import static student_vladislav_romanov.lesson_14.level_1_2.Color.*;
+import static student_vladislav_romanov.lesson_14.level_1_2.Operation.*;
 
 class FruitStorageTest {
 
