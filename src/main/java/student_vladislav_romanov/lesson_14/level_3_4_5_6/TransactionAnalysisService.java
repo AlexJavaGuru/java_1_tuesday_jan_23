@@ -2,6 +2,8 @@ package student_vladislav_romanov.lesson_14.level_3_4_5_6;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 class TransactionAnalysisService {
 
@@ -34,6 +36,12 @@ class TransactionAnalysisService {
         return transactions.stream()
                 .map(Transaction::year)
                 .toList();
+    }
+
+    Set<Integer> getTransactionsUniqueYearsList(List<Transaction> transactions) {
+        return transactions.stream()
+                .map(Transaction::year)
+                .collect(Collectors.toSet());
     }
 
 }

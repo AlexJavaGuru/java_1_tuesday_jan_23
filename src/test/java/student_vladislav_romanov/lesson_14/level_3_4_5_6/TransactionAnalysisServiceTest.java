@@ -4,7 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -91,6 +93,15 @@ class TransactionAnalysisServiceTest {
     void getTransactionsYearsList() {
         List<Integer> expected = Arrays.asList(2011, 2012, 2011, 2012, 2012, 2012);
         List<Integer> actual = transactionAnalysisService.getTransactionsYearsList(transactions);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void getTransactionsUniqueYearsList() {
+        Set<Integer> expected = new HashSet<>();
+        expected.add(2011);
+        expected.add(2012);
+        Set<Integer> actual = transactionAnalysisService.getTransactionsUniqueYearsList(transactions);
         assertEquals(expected, actual);
     }
 
