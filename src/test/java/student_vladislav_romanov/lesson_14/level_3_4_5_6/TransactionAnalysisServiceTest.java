@@ -110,4 +110,11 @@ class TransactionAnalysisServiceTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void getTradersCityList() {
+        Set<String> expected = new HashSet<>(Arrays.asList("Cambridge", "Milan"));
+        Set<String> actual = transactionAnalysisService.getTradersCityList(transactions);
+        assertEquals(expected, actual);
+    }
+
 }
