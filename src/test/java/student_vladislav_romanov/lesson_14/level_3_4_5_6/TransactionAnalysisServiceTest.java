@@ -87,4 +87,11 @@ class TransactionAnalysisServiceTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void getTransactionsYearsList() {
+        List<Integer> expected = Arrays.asList(2011, 2012, 2011, 2012, 2012, 2012);
+        List<Integer> actual = transactionAnalysisService.getTransactionsYearsList(transactions);
+        assertEquals(expected, actual);
+    }
+
 }

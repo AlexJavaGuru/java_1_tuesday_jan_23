@@ -30,4 +30,10 @@ class TransactionAnalysisService {
         return sortedTransactions(transactions, method);
     }
 
+    List<Integer> getTransactionsYearsList(List<Transaction> transactions) {
+        return transactions.stream()
+                .map(Transaction::year)
+                .toList();
+    }
+
 }
