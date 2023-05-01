@@ -11,7 +11,7 @@ class TransactionAnalysisService {
                 .toList();
     }
 
-    List<Transaction> sortingTransactions(List<Transaction> transactions, String method) {
+    List<Transaction> sortedTransactions(List<Transaction> transactions, String method) {
         if ("asc".equals(method)) {
             return transactions.stream()
                     .sorted(Comparator.comparingInt(Transaction::value))
@@ -23,6 +23,11 @@ class TransactionAnalysisService {
         } else {
             return transactions;
         }
+    }
+
+    List<Transaction> getSortedTransactionsByYear(List<Transaction> transactions, int year, String method) {
+        transactions = getTransactionsByYear(transactions, year);
+        return sortedTransactions(transactions, method);
     }
 
 }

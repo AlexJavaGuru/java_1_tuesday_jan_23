@@ -22,7 +22,7 @@ class TransactionAnalysisServiceTest {
     }
 
     @Test
-    void getTransactionsByYear() {
+    void getTransactionsByYear2011() {
         Trader raoul = new Trader("Raoul", "Cambridge");
         Trader brian = new Trader("Brian","Cambridge");
         List<Transaction> expected = Arrays.asList(
@@ -48,7 +48,7 @@ class TransactionAnalysisServiceTest {
                 new Transaction(alan, 2012, 950),
                 new Transaction(raoul, 2012, 1000)
         );
-        List<Transaction> actual = transactionAnalysisService.sortingTransactions(transactions, "asc");
+        List<Transaction> actual = transactionAnalysisService.sortedTransactions(transactions, "asc");
         assertEquals(expected, actual);
     }
 
@@ -67,7 +67,23 @@ class TransactionAnalysisServiceTest {
                 new Transaction(raoul, 2011, 400),
                 new Transaction(brian, 2011, 300)
         );
-        List<Transaction> actual = transactionAnalysisService.sortingTransactions(transactions, "desc");
+        List<Transaction> actual = transactionAnalysisService.sortedTransactions(transactions, "desc");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void getSortedTransactionsByYear2012Asc() {
+        Trader raoul = new Trader("Raoul", "Cambridge");
+        Trader mario = new Trader("Mario","Milan");
+        Trader alan = new Trader("Alan","Cambridge");
+
+        List<Transaction> expected = Arrays.asList(
+                new Transaction(mario, 2012, 700),
+                new Transaction(mario, 2012, 710),
+                new Transaction(alan, 2012, 950),
+                new Transaction(raoul, 2012, 1000)
+        );
+        List<Transaction> actual = transactionAnalysisService.getSortedTransactionsByYear(transactions, 2012, "asc");
         assertEquals(expected, actual);
     }
 
