@@ -2,8 +2,6 @@ package student_vladislav_romanov.lesson_14.level_3_4_5_6;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 class TransactionAnalysisService {
 
@@ -38,38 +36,36 @@ class TransactionAnalysisService {
                 .toList();
     }
 
-    Set<Integer> getTransactionsUniqueYearsList(List<Transaction> transactions) {
+    List<Integer> getTransactionsUniqueYearsList(List<Transaction> transactions) {
         return transactions.stream()
                 .map(Transaction::year)
-                .collect(Collectors.toSet());
+                .distinct()
+                .toList();
     }
 
-    Set<String> getTradersNameList(List<Transaction> transactions) {
+    List<String> getTradersNameList(List<Transaction> transactions) {
         return transactions.stream()
                 .map(Transaction::trader)
-                .collect(Collectors.toSet())
-                    .stream()
-                    .map(Trader::name)
-                    .collect(Collectors.toSet());
+                .map(Trader::name)
+                .distinct()
+                .toList();
     }
 
-    Set<String> getTradersNameListByCity(List<Transaction> transactions, String city) {
+    List<String> getTradersNameListByCity(List<Transaction> transactions, String city) {
         return transactions.stream()
                 .map(Transaction::trader)
-                .collect(Collectors.toSet())
-                    .stream()
-                    .filter(trader -> city.equals(trader.city()))
-                    .map(Trader::name)
-                    .collect(Collectors.toSet());
+                .filter(trader -> city.equals(trader.city()))
+                .map(Trader::name)
+                .distinct()
+                .toList();
     }
 
-    Set<String> getTradersCityList(List<Transaction> transactions) {
+    List<String> getTradersCityList(List<Transaction> transactions) {
         return transactions.stream()
                 .map(Transaction::trader)
-                .collect(Collectors.toSet())
-                    .stream()
-                    .map(Trader::city)
-                    .collect(Collectors.toSet());
+                .map(Trader::city)
+                .distinct()
+                .toList();
     }
 
 }

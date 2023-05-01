@@ -4,9 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -98,29 +96,36 @@ class TransactionAnalysisServiceTest {
 
     @Test
     void getTransactionsUniqueYearsList() {
-        Set<Integer> expected = new HashSet<>(Arrays.asList(2011, 2012));
-        Set<Integer> actual = transactionAnalysisService.getTransactionsUniqueYearsList(transactions);
+        List<Integer> expected = Arrays.asList(2011, 2012);
+        List<Integer> actual = transactionAnalysisService.getTransactionsUniqueYearsList(transactions);
         assertEquals(expected, actual);
     }
 
     @Test
     void getTradersNameList() {
-        Set<String> expected = new HashSet<>(Arrays.asList("Brian", "Raoul", "Mario", "Alan"));
-        Set<String> actual = transactionAnalysisService.getTradersNameList(transactions);
+        List<String> expected = Arrays.asList("Brian", "Raoul", "Mario", "Alan");
+        List<String> actual = transactionAnalysisService.getTradersNameList(transactions);
         assertEquals(expected, actual);
     }
 
     @Test
-    void getTradersNameListByCity() {
-        Set<String> expected = new HashSet<>(Arrays.asList("Brian", "Raoul", "Alan"));
-        Set<String> actual = transactionAnalysisService.getTradersNameListByCity(transactions, "Cambridge");
+    void getTradersNameListByCityCambridge() {
+        List<String> expected = Arrays.asList("Brian", "Raoul", "Alan");
+        List<String> actual = transactionAnalysisService.getTradersNameListByCity(transactions, "Cambridge");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void getTradersNameListByCityMilan() {
+        List<String> expected = List.of("Mario");
+        List<String> actual = transactionAnalysisService.getTradersNameListByCity(transactions, "Milan");
         assertEquals(expected, actual);
     }
 
     @Test
     void getTradersCityList() {
-        Set<String> expected = new HashSet<>(Arrays.asList("Cambridge", "Milan"));
-        Set<String> actual = transactionAnalysisService.getTradersCityList(transactions);
+        List<String> expected = Arrays.asList("Cambridge", "Milan");
+        List<String> actual = transactionAnalysisService.getTradersCityList(transactions);
         assertEquals(expected, actual);
     }
 
