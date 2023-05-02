@@ -160,7 +160,7 @@ class TransactionAnalysisServiceTest {
 
     @Test
     void getTradersNameListInString() {
-        String expected = "Brian,Raoul,Mario,Alan";
+        String expected = "Alan,Brian,Mario,Raoul";
         String actual = transactionAnalysisService.getTradersNameListInString(transactions);
         assertEquals(expected, actual);
     }

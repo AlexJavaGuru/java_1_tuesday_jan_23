@@ -90,6 +90,7 @@ class TransactionAnalysisService {
         return transactions.stream()
                 .map(Transaction::trader)
                 .map(Trader::name)
+                .sorted(Comparator.naturalOrder())
                 .distinct()
                 .collect(Collectors.joining(","));
     }
