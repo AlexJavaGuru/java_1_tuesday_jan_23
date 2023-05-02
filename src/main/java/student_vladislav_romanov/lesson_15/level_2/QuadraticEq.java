@@ -15,13 +15,13 @@ class QuadraticEq {
         }
     }
 
-    String getRoot(double a, double b) {
+    private String getRoot(double a, double b) {
         double x;
         x = -b / (2 * a);
         return "x = " + x;
     }
 
-    String getRoot(double a, double b, double discriminant) {
+    private String getRoot(double a, double b, double discriminant) {
         double x1;
         double x2;
         x1 = (-b - Math.sqrt(discriminant)) / (2 * a);
