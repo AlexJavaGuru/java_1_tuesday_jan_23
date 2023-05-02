@@ -3,6 +3,7 @@ package student_vladislav_romanov.lesson_14.level_3_4_5_6;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 class TransactionAnalysisService {
 
@@ -83,6 +84,14 @@ class TransactionAnalysisService {
         return sortedTransactions(transactions, "asc").stream()
                 .map(Transaction::value)
                 .findFirst();
+    }
+
+    String getTradersNameListInString(List<Transaction> transactions) {
+        return transactions.stream()
+                .map(Transaction::trader)
+                .map(Trader::name)
+                .distinct()
+                .collect(Collectors.joining(","));
     }
 
 }
