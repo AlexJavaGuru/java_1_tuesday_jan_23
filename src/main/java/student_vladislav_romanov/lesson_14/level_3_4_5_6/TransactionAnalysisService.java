@@ -95,4 +95,13 @@ class TransactionAnalysisService {
                 .collect(Collectors.joining(","));
     }
 
+    String getTradersCityListInString(List<Transaction> transactions) {
+        return transactions.stream()
+                .map(Transaction::trader)
+                .map(Trader::city)
+                .sorted(Comparator.naturalOrder())
+                .distinct()
+                .collect(Collectors.joining(","));
+    }
+
 }

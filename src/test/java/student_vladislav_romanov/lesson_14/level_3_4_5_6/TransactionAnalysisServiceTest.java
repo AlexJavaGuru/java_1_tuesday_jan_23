@@ -165,4 +165,11 @@ class TransactionAnalysisServiceTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void getTradersCityListInString() {
+        String expected = "Cambridge,Milan";
+        String actual = transactionAnalysisService.getTradersCityListInString(transactions);
+        assertEquals(expected, actual);
+    }
+
 }
