@@ -151,4 +151,11 @@ class TransactionAnalysisServiceTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void getSmallestTransaction() {
+        Optional<Integer> expected = Optional.of(300);
+        Optional<Integer> actual = transactionAnalysisService.getSmallestTransaction(transactions);
+        assertEquals(expected, actual);
+    }
+
 }

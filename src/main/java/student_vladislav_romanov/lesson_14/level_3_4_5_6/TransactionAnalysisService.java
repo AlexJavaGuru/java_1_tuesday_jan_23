@@ -79,4 +79,10 @@ class TransactionAnalysisService {
                 .findFirst();
     }
 
+    Optional<Integer> getSmallestTransaction(List<Transaction> transactions) {
+        return sortedTransactions(transactions, "asc").stream()
+                .map(Transaction::value)
+                .findFirst();
+    }
+
 }
