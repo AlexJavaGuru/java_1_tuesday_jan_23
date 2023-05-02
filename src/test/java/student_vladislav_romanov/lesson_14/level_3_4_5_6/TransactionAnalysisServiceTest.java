@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -140,6 +141,13 @@ class TransactionAnalysisServiceTest {
     void isAnyTraderBasedOnCityBaghdad() {
         boolean expected = false;
         boolean actual = transactionAnalysisService.isAnyTraderBasedOnCity(transactions, "Baghdad");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void getLargestTransaction() {
+        Optional<Integer> expected = Optional.of(1000);
+        Optional<Integer> actual = transactionAnalysisService.getLargestTransaction(transactions);
         assertEquals(expected, actual);
     }
 

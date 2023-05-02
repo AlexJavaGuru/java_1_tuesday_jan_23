@@ -2,6 +2,7 @@ package student_vladislav_romanov.lesson_14.level_3_4_5_6;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 class TransactionAnalysisService {
 
@@ -70,6 +71,12 @@ class TransactionAnalysisService {
 
     boolean isAnyTraderBasedOnCity(List<Transaction> transactions, String city) {
         return !getTradersNameListByCity(transactions, city).isEmpty();
+    }
+
+    Optional<Integer> getLargestTransaction(List<Transaction> transactions) {
+        return sortedTransactions(transactions, "desc").stream()
+                .map(Transaction::value)
+                .findFirst();
     }
 
 }
