@@ -1,0 +1,17 @@
+Какой класс в Java является главным в иерархии классов ошибок
+
+1. Raise
+In Java, the term "raise" is not commonly used.
+Instead, the term "throw" is used to indicate that an exception is being thrown.
+
+2. Exception
+Child of Throwable
+
+3. Error
+Child of Throwable
+
+4. Throwable
+Parent of Error and Exception
+
+Answer:
+4. Throwable is main in error classes erarchy.
