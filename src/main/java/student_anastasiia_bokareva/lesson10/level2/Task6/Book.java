@@ -10,6 +10,7 @@ public class Book {
     Book(String author, String title) {
         this.author = author;
         this.title = title;
+
     }
 
     public void setId(Long id) {
