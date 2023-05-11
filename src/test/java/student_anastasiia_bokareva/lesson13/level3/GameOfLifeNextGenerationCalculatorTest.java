@@ -5,22 +5,74 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameOfLifeNextGenerationCalculatorTest {
-    GameOfLifeNextGenerationCalculator test = new GameOfLifeNextGenerationCalculator();
+    GameOfLifeNextGenerationCalculation test = new GameOfLifeNextGenerationCalculation();
 
     @Test
     public void checkCellLessThanTwoAlifeCells() {
-        Boolean [][] cells = new Boolean[][]{
-                {false, true,false,false},
-                {false, false,false,false},
-                {false, false,false,false},
-                {false, false,false,false}};
-        Boolean[][] expectedCells = new Boolean[][]{
-                {false, false,false,false},
-                {false, false,false,false},
-                {false, false,false,false},
-                {false, false,false,false}};
-        boolean[][] checkedCells = test.calculate(cells);
+        Integer [][] cells = new Integer[][]{
+                {0, 1 ,0 ,0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0}};
+        Integer[][] expectedCells = new Integer[][]{
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0}};
+        Integer[][] checkedCells = test.calculate(cells);
         assertArrayEquals(expectedCells, checkedCells);
 
     }
+
+    @Test
+    public void checkCellMoreThanTwoAlifeCells() {
+        Integer[][] cells = new Integer[][]{
+                {0, 1, 1, 1},
+                {0, 0, 1, 0},
+                {0, 1, 1, 0},
+                {0, 0, 0, 0}};
+        Integer[][] expectedCells = new Integer[][]{
+                {0, 1, 1, 1},
+                {0, 0, 0, 0},
+                {0, 1, 1, 0},
+                {0, 0, 0, 0}};
+        Integer[][] checkedCells = test.calculate(cells);
+        assertArrayEquals(expectedCells, checkedCells);
+
+    }
+
+    @Test
+    public void checkCellMoreThanThreeAlifeCells() {
+        Integer[][] cells = new Integer[][]{
+                {0, 1, 1, 1},
+                {0, 0, 1, 1},
+                {0, 1, 1, 0},
+                {0, 0, 0, 0}};
+        Integer[][] expectedCells = new Integer[][]{
+                {0, 1, 0, 1},
+                {0, 0, 0, 0},
+                {0, 1, 1, 1},
+                {0, 0, 0, 0}};
+        Integer[][] checkedCells = test.calculate(cells);
+        assertArrayEquals(expectedCells, checkedCells);
+
+    }
+
+    @Test
+    public void checkCellMoreThanThreeAlifeCellsIfCellIsDead() {
+        Integer[][] cells = new Integer[][]{
+                {0, 1, 1, 0},
+                {0, 0, 1, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0}};
+        Integer[][] expectedCells = new Integer[][]{
+                {0, 1, 1, 0},
+                {0, 1, 1, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0}};
+        Integer[][] checkedCells = test.calculate(cells);
+        assertArrayEquals(expectedCells, checkedCells);
+
+    }
+
 }
