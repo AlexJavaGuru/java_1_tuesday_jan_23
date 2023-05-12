@@ -4,7 +4,7 @@ import student_anastasiia_bokareva.lesson13.level3.GameOfLifeNextGenerationCalcu
 
 import java.util.Scanner;
 
-public class GameOfLifeConsole {
+public class GameOfLifeConsole implements UIGameOfLife{
 
     private GameOfLifeRandomGenerator random = new GameOfLifeRandomGenerator();
 
@@ -20,5 +20,18 @@ public class GameOfLifeConsole {
         Scanner scanner = new Scanner(System.in);
         int i = scanner.nextInt();
         return i;
+    }
+
+    public void show(Integer[][] field){
+        for (int i=0; i < field.length; i++){
+            for (int j=0; j< field.length;j++){
+                if (j==(field.length-1)){
+                    System.out.println(field[i][j]+" ");
+                } else {
+                    System.out.println(field[i][j]+" ");
+                }
+            }
+        }
+        System.out.println("______________________________________");
     }
 }
