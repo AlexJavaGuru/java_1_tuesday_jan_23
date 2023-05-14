@@ -5,14 +5,14 @@ import java.util.Objects;
 public class Product {
 
     private String productName;
-    private int productPrice;
+    private Integer productPrice;
     private String productDescription;
 
     public String getProductName() {
         return productName;
     }
 
-    public int getProductPrice() {
+    public Integer getProductPrice() {
         return productPrice;
     }
 
@@ -56,7 +56,7 @@ public class Product {
                 '}';
     }
 
-    Product(String name, int price, String description) {
+    Product(String name, Integer price, String description) {
         this.productName = name;
         this.productPrice = price;
         this.productDescription = description;
