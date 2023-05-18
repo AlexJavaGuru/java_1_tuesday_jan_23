@@ -5,6 +5,7 @@ import student_andrejs_cekalins.lesson_8.level_4.Rectangle;
 import student_andrejs_cekalins.lesson_8.level_4.Square;
 import student_andrejs_cekalins.lesson_8.level_4.Triangle;
 import student_andrejs_cekalins.lesson_8.level_4.Shape;
+
 import java.util.Random;
 
 class ShapeUtil {

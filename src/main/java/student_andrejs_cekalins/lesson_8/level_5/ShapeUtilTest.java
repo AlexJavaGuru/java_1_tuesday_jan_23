@@ -3,8 +3,6 @@ package student_andrejs_cekalins.lesson_8.level_5;
 
 import student_andrejs_cekalins.lesson_8.level_4.Shape;
 
-import java.util.Arrays;
-
 class ShapeUtilTest {
     public static void main(String[] args) {
         ShapeUtilTest test = new ShapeUtilTest();
