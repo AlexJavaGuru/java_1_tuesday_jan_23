@@ -1,6 +1,6 @@
 package student_vladislav_romanov.lesson_15.level_1;
 
-class WordsService {
+class WordService {
 
     public int countRepetitions(String[] words, String wordPattern) {
         int wordRepetitions = 0;
