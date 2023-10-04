@@ -7,7 +7,7 @@ public class ValidationException extends Exception {
     private String description;
     private String fieldName;
 
-    ValidationException(String ruleName, String description, String fieldName) {
+    public ValidationException(String ruleName, String description, String fieldName) {
         this.ruleName = ruleName;
         this.description = description;
         this.fieldName = fieldName;

@@ -8,7 +8,7 @@ public class Product {
     private Double price;
     private String description;
 
-    Product(String title, Double price, String description) {
+    public Product(String title, Double price, String description) {
         this.title = title;
         this.price = price;
         this.description = description;
